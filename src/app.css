@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "NeueHaasDisplay";
+  src: url("/fonts/NeueHaasDisplayRoman.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueHaasDisplay-Medium";
+  src: url("/fonts/NeueHaasDisplayMedium.ttf");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueHaasDisplay-Bold";
+  src: url("/fonts/NeueHaasDisplayBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueHaasDisplay-Black";
+  src: url("/fonts/NeueHaasDisplayBlack.ttf");
+  font-weight: black;
+  font-style: normal;
+}
+
+html {
+  font-size: 0.62vw;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: scroll;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.range::-webkit-slider-runnable-track {
+  @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
+}
+.range::-moz-range-track {
+  @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
+}
+.range::-webkit-slider-thumb {
+  @apply appearance-none -mt-2 bg-light-10 dark:bg-light-100 w-5 aspect-square rounded-full;
+}
+.range::-moz-slider-thumb {
+  @apply appearance-none -mt-2 bg-light-10 dark:bg-light-100 w-5 aspect-square rounded-full;
+}
