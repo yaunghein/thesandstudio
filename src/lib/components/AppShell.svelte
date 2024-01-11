@@ -8,7 +8,7 @@
 >
   <Navbar />
   <div
-    class="app-shell text-light-10 dark:text-light-100 bg-light-80 dark:bg-light-20 relative rounded-3xl grow overflow-auto"
+    class="app-shell text-light-10 dark:text-light-100 bg-light-90 dark:bg-light-12 relative rounded-3xl grow overflow-auto"
   >
     <slot />
   </div>
