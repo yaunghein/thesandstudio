@@ -32,7 +32,7 @@
       transition:fade={{ duration: 200 }}
       src={work.images[index]}
       alt={work.name}
-      class="absolute inset-0 w-full h-full bg-green-500 object-cover rounded-lg scale-[1.05]"
+      class="absolute inset-0 w-full h-full object-cover rounded-lg scale-[1.05]"
     />
   {/key}
   <img
