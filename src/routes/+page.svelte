@@ -61,7 +61,8 @@
   const create3DBackground = (node: HTMLCanvasElement) => {
     spline = new Application(node);
     spline
-      .load("https://prod.spline.design/VTpVNzKWHkIl-K3I/scene.splinecode")
+      .load("https://prod.spline.design/5rPaPRxD6nId8tp7/scene.splinecode")
+      // .load("https://prod.spline.design/VTpVNzKWHkIl-K3I/scene.splinecode")
       .then(() => {
         // console.log(spline.getSplineEvents());
         spline.addEventListener("mouseDown", (e: any) => {
