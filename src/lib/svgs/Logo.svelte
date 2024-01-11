@@ -27,11 +27,11 @@
         ".logo-mouth",
       ) as NodeListOf<HTMLElement>;
       mouthShapes.forEach((shape) => {
-        // shape!.style.transform = `rotate(${+track.x * 10}deg)`;
-        gsap.to(shape, {
-          rotate: `${+track.x * 10}deg`,
-          transformOrigin: "center",
-        });
+        shape!.style.transform = `rotate(${+track.x * 10}deg)`;
+        // gsap.to(shape, {
+        //   rotate: `${+track.x * 10}deg`,
+        //   transformOrigin: "center",
+        // });
         // gsap.to(shape, {
         //   rotate: `${+track.x * 10}deg`,
         //   transformOrigin: "center center",

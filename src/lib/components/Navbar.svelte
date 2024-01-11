@@ -114,8 +114,8 @@
       <a href="/">Cart</a>
     </div>
 
-    <div class="grid place-items-center text-2xl">
+    <a href="/" class="grid place-items-center text-2xl">
       {PAGE_NAMES_MAP[$page.url.pathname]}
-    </div>
+    </a>
   </div>
 </header>
