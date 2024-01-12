@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { gsap } from "gsap";
-  import { Draggable } from "gsap/dist/Draggable";
+  import { scale } from "svelte/transition";
+  import { backIn, backOut } from "svelte/easing";
   import { OpenShells, removeShell } from "$lib/stores/shell";
+  import drag from "$lib/utils/drag";
   import Scanimation from "./Scanimation.svelte";
   import UsageGuide from "./UsageGuide.svelte";
 
@@ -15,35 +16,14 @@
   };
 
   let isUsageGuideOpen = false;
-
-  const drag = (node: HTMLDivElement) => {
-    gsap.registerPlugin(Draggable);
-    const drag = new Draggable(node, {
-      bounds: "body",
-      allowEventDefault: true,
-      allowNativeTouchScrolling: true,
-      onPress: function (event) {
-        if (event.target.matches(".non-draggable")) {
-          this.disable();
-          setTimeout(() => this.enable(), 0); // hehe this is working, smell tho
-        }
-      },
-    });
-    drag.disable();
-    node.addEventListener("mouseenter", drag.enable);
-    node.addEventListener("mouseleave", drag.disable);
-    return {
-      destroy() {
-        drag.kill();
-      },
-    };
-  };
 </script>
 
 <div
   use:position
   use:drag
-  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  in:scale={{ start: 0.9, duration: 200, easing: backOut }}
+  out:scale={{ start: 0.9, duration: 200, easing: backIn }}
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex flex-col h-full overflow-hidden">

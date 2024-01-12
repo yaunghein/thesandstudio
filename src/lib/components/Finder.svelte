@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { gsap } from "gsap";
-  import { Draggable } from "gsap/dist/Draggable";
+  import { scale } from "svelte/transition";
+  import { backIn, backOut } from "svelte/easing";
   import FinderColumns from "./FinderColumns.svelte";
   import CFilePreview from "./CFilePreview.svelte";
   import {
@@ -16,6 +16,7 @@
   } from "$lib/stores/finder";
   import type { Tab } from "$lib/stores/finder";
   import { OpenShells, removeShell } from "$lib/stores/shell";
+  import drag from "$lib/utils/drag";
   import deepClone from "$lib/utils/deepClone";
   import IconChevronLeft from "$lib/svgs/IconChevronLeft.svelte";
   import IconChevronRight from "$lib/svgs/IconChevronRight.svelte";
@@ -28,21 +29,6 @@
     if (index < 0) return;
     node.style.top = `${50 + index * 5}%`;
     node.style.left = `${50 + index * 5}%`;
-  };
-
-  const drag = (node: HTMLDivElement) => {
-    gsap.registerPlugin(Draggable);
-    const drag = new Draggable(node, { bounds: "body" });
-    drag.disable();
-
-    node.addEventListener("mouseenter", drag.enable);
-    node.addEventListener("mouseleave", drag.disable);
-
-    return {
-      destroy() {
-        drag.kill();
-      },
-    };
   };
 
   onMount(() => {
@@ -72,7 +58,9 @@
 <div
   use:drag
   use:position
-  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  in:scale={{ start: 0.9, duration: 200, easing: backOut }}
+  out:scale={{ start: 0.9, duration: 200, easing: backIn }}
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex h-full overflow-hidden">

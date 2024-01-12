@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { scale } from "svelte/transition";
+  import { backIn, backOut } from "svelte/easing";
+  import { twMerge as twm } from "tailwind-merge";
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import { Backgrounds } from "$lib/stores/background";
   import drag from "$lib/utils/drag";
-  import { twMerge as twm } from "tailwind-merge";
 
   $: shell = $OpenShells.find((shell) => shell.id === "backgrounds");
   $: index = $OpenShells.findIndex((shell) => shell.id === "backgrounds");
@@ -17,7 +19,9 @@
 <div
   use:drag
   use:position
-  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  in:scale={{ start: 0.9, duration: 200, easing: backOut }}
+  out:scale={{ start: 0.9, duration: 200, easing: backIn }}
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex flex-col h-full overflow-hidden">

@@ -1,22 +1,6 @@
 <script lang="ts">
-  import { gsap } from "gsap";
-  import { Draggable } from "gsap/dist/Draggable";
   import { removeShell, type OpenShell } from "$lib/stores/shell";
-
-  const drag = (node: HTMLDivElement) => {
-    gsap.registerPlugin(Draggable);
-    const drag = new Draggable(node, { bounds: "body" });
-    drag.disable();
-
-    node.addEventListener("mouseenter", drag.enable);
-    node.addEventListener("mouseleave", drag.disable);
-
-    return {
-      destroy() {
-        drag.kill();
-      },
-    };
-  };
+  import drag from "$lib/utils/drag";
 
   export let file: OpenShell;
   export let index: number = 0;
@@ -33,7 +17,7 @@
 <div
   use:drag
   use:position
-  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] rounded-lg shadow-sm border border-gray-100 overflow-hidden"
   style="z-index: {file.zIndex}"
 >
   <div class="flex items-center gap-2 h-14 bg-white overflow-hidden px-4">
@@ -41,8 +25,6 @@
       on:click={() => removeShell(file.id)}
       class="shrink-0 w-3 h-3 rounded-full bg-red-500"
     />
-    <div class="shrink-0 w-3 h-3 rounded-full bg-yellow-500"></div>
-    <div class="shrink-0 w-3 h-3 rounded-full bg-green-500"></div>
   </div>
 
   {#if mediaType === "img"}
