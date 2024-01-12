@@ -79,9 +79,9 @@
       <div class="grid gap-6">
         <div>
           <p class="leading-tight text-lg">General:</p>
-          <a href="mailto:hello@thesandstudio.com" class="leading-tight text-lg"
-            >hello@thesandstudio.com</a
-          >
+          <a href="mailto:hi@thesandstudio.com" class="leading-tight text-lg">
+            hi@thesandstudio.com
+          </a>
         </div>
       </div>
     </div>

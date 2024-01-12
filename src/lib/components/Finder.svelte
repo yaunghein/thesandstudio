@@ -126,8 +126,7 @@
           on:click={() => {
             HistoryIndex.set($HistoryIndex - 1);
             Tabs.set($FinderHistory[$HistoryIndex]);
-            const preview = $FilePreviewHistory[$HistoryIndex];
-            preview ? FilePreview.set(preview) : FilePreview.set(undefined);
+            FilePreview.set(undefined);
           }}
         >
           <IconChevronLeft />
@@ -139,8 +138,7 @@
           on:click={() => {
             HistoryIndex.set($HistoryIndex + 1);
             Tabs.set($FinderHistory[$HistoryIndex]);
-            const preview = $FilePreviewHistory[$HistoryIndex];
-            preview ? FilePreview.set(preview) : FilePreview.set(undefined);
+            FilePreview.set(undefined);
           }}
         >
           <IconChevronRight />

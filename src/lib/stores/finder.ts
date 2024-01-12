@@ -2075,7 +2075,6 @@ export const openAboutTab = () => Tabs.set(initialAboutOpenTabs);
 export const openContactTab = () => Tabs.set(initialContactOpenTabs);
 
 export const FilePreview: Writable<File | undefined> = writable();
-
 export const FinderOpenPath = derived(
   [Tabs, FilePreview],
   ([$tabs, $preview]) => {
@@ -2099,17 +2098,12 @@ export const FinderOpenPath = derived(
     return path;
   },
 );
-
 export const HistoryIndex: Writable<number> = writable(0);
 export const FinderHistory: Writable<Tab[][]> = writable([deepClone(tabs)]);
 export const FilePreviewHistory: Writable<(File | undefined)[]> = writable([
   undefined,
 ]);
-
-export const handleFileDoubleClick = (file: File | undefined) => {
-  if (file?.type !== "file") return;
-  addShell({ id: file?.id, zIndex: 65, file });
-};
+const PreviousSelectedFileLevel: Writable<number> = writable(-1);
 
 export const handleFileClick = (file: File) => {
   const selectedFileLevel = getNestedLevel(
@@ -2117,60 +2111,39 @@ export const handleFileClick = (file: File) => {
     file.id,
   );
 
-  if (selectedFileLevel === 0 && file.type === "file") {
-    Tabs.update((tabs: Tab[]) => {
-      const findAndUpdateIsOpen = (files: File[]) => {
-        for (const item of files) {
-          if (item.data && item.data.length > 0) {
-            findAndUpdateIsOpen(item.data);
-          }
+  Tabs.update((tabs: Tab[]) => {
+    const findAndUpdateIsOpen = (files: File[]) => {
+      for (const item of files) {
+        if (item.data && item.data.length > 0) {
+          findAndUpdateIsOpen(item.data);
+        }
+        const itemLevel = getNestedLevel(
+          get(Tabs).find((tab) => tab.isOpen)!.files,
+          item.id,
+        );
+        if (selectedFileLevel === itemLevel || selectedFileLevel < itemLevel) {
           item.isOpen = false;
         }
-      };
-      tabs.forEach((tab) => findAndUpdateIsOpen(tab.files));
-      FilePreview.set(file);
-      addHistory(tabs, file);
-      return tabs;
-    });
-    return;
-  }
-
-  if (file.type === "file") {
-    file.type === "file" ? FilePreview.set(file) : FilePreview.set(undefined);
-    addHistory(get(Tabs), file);
-    return;
-  }
-
-  if (file.type === "folder") {
-    FilePreview.set(undefined);
-    Tabs.update((tabs: Tab[]) => {
-      const findAndUpdateIsOpen = (files: File[]) => {
-        for (const item of files) {
-          if (item.data && item.data.length > 0) {
-            findAndUpdateIsOpen(item.data);
-          }
-
-          const itemLevel = getNestedLevel(
-            get(Tabs).find((tab) => tab.isOpen)!.files,
-            item.id,
-          );
-          if (
-            selectedFileLevel === itemLevel ||
-            selectedFileLevel < itemLevel
-          ) {
-            item.isOpen = false;
-          }
-          if (item.id === file.id) {
-            item.isOpen = !item.isOpen;
-          }
+        if (item.id === file.id) {
+          item.isOpen = !item.isOpen;
         }
-      };
+      }
+    };
+    tabs.forEach((tab) => findAndUpdateIsOpen(tab.files));
+    return tabs;
+  });
 
-      tabs.forEach((tab) => findAndUpdateIsOpen(tab.files));
-      addHistory(tabs);
-      return tabs;
-    });
+  file.type === "file" && FilePreview.set(file);
+  file.type === "folder" && FilePreview.set(undefined);
+  if (get(PreviousSelectedFileLevel) !== selectedFileLevel) {
+    addHistory(get(Tabs), file);
   }
+  PreviousSelectedFileLevel.set(selectedFileLevel);
+};
+
+export const handleFileDoubleClick = (file: File | undefined) => {
+  if (file?.type !== "file") return;
+  addShell({ id: file?.id, zIndex: 65, file });
 };
 
 function getNestedLevel(files: File[], fileId: string, level = 0) {
