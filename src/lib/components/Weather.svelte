@@ -3,7 +3,7 @@
   import getDateAndTime from "$lib/utils/getDateAndTime";
   import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
   import IconWeather from "$lib/svgs/IconWeather.svelte";
-  import a from "./weather.json"; // delete this file
+  // import a from "./weather.json"; // delete this file
 
   const LOCATIONS: Record<string, string> = {
     Bangkok: "13.6863144,100.60985628",
@@ -14,7 +14,7 @@
     LOCAL: "",
   };
 
-  let weather: any = a;
+  let weather: any;
   let unit: "C" | "F" = "C";
   let selectedLocation = "Bangkok";
 
@@ -29,26 +29,26 @@
     }
   };
 
-  // $: (async () => {
-  //   let coordinate = "";
-  //   if (selectedLocation === "LOCAL") {
-  //     if (navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition(async (position) => {
-  //         const latitude = position.coords.latitude;
-  //         const longitude = position.coords.longitude;
-  //         coordinate = `${latitude},${longitude}`;
-  //         return await fetchWeather(coordinate);
-  //       });
-  //     } else {
-  //       console.log(
-  //         "Geolocation is not supported by this browser or you don't give us the permission.",
-  //       );
-  //     }
-  //   } else {
-  //     coordinate = LOCATIONS[selectedLocation];
-  //     await fetchWeather(coordinate);
-  //   }
-  // })();
+  $: (async () => {
+    let coordinate = "";
+    if (selectedLocation === "LOCAL") {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          coordinate = `${latitude},${longitude}`;
+          return await fetchWeather(coordinate);
+        });
+      } else {
+        console.log(
+          "Geolocation is not supported by this browser or you don't give us the permission.",
+        );
+      }
+    } else {
+      coordinate = LOCATIONS[selectedLocation];
+      await fetchWeather(coordinate);
+    }
+  })();
 
   const time = (node: HTMLElement) => {
     const id = setInterval(() => {
