@@ -1,0 +1,41 @@
+{
+  "location": {
+    "name": "Rangoon",
+    "region": "Yangon",
+    "country": "Myanmar",
+    "lat": 16.8,
+    "lon": 96.13,
+    "tz_id": "Asia/Yangon",
+    "localtime_epoch": 1705079178,
+    "localtime": "2024-01-12 23:36"
+  },
+  "current": {
+    "last_updated_epoch": 1705078800,
+    "last_updated": "2024-01-12 23:30",
+    "temp_c": 24,
+    "temp_f": 75.2,
+    "is_day": 0,
+    "condition": {
+      "text": "Clear",
+      "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+      "code": 1000
+    },
+    "wind_mph": 3.8,
+    "wind_kph": 6.1,
+    "wind_degree": 320,
+    "wind_dir": "NW",
+    "pressure_mb": 1012,
+    "pressure_in": 29.88,
+    "precip_mm": 0,
+    "precip_in": 0,
+    "humidity": 83,
+    "cloud": 0,
+    "feelslike_c": 25.2,
+    "feelslike_f": 77.4,
+    "vis_km": 6,
+    "vis_miles": 3,
+    "uv": 1,
+    "gust_mph": 14.1,
+    "gust_kph": 22.6
+  }
+}

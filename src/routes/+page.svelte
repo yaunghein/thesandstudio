@@ -1,8 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
-  import { scale } from "svelte/transition";
-  import { backIn, backOut } from "svelte/easing";
   import { Application } from "@splinetool/runtime";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import Dock from "$lib/components/Dock.svelte";

@@ -1,8 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { page } from "$app/stores";
-
-  import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
 
   const getDateAndTime = () => {
     const months = [
@@ -73,24 +70,6 @@
 
   const { date, month, year } = getDateAndTime();
   const today = `${month} ${date}, ${year}`;
-
-  let weather: any;
-  onMount(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(async (position) => {
-        // const latitude = position.coords.latitude;
-        // const longitude = position.coords.longitude;
-        // const url = `https://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${PUBLIC_WEATHER_API_KEY}`;
-        // const resp = await fetch(url);
-        // const data = await resp.json();
-        // weather = data;
-      });
-    } else {
-      console.log(
-        "Geolocation is not supported by this browser or you don't give us the permission.",
-      );
-    }
-  });
 
   const PAGE_NAMES_MAP: Record<string, string> = {
     "/": "",
