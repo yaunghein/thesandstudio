@@ -1,10 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import gsap from "gsap";
+  import { SelectedBackground } from "$lib/stores/background";
+
+  const stayBetween = (value: number, range: number[]) => {
+    return Math.min(range[1], Math.max(range[0], value));
+  };
 
   onMount(() => {
-    // document.body.style.cursor = "none";
-
     const animateLogo = (e: MouseEvent) => {
       const rect = document.querySelector("#logo")!.getBoundingClientRect();
       const track = {
@@ -20,35 +23,33 @@
           rotate: `${+track.x * 100}deg`,
           transformOrigin: "center",
         });
-        // shape!.style.transform = `rotate(${+track.x * 100}deg)`
       });
 
       const mouthShapes = document.querySelectorAll(
         ".logo-mouth",
       ) as NodeListOf<HTMLElement>;
       mouthShapes.forEach((shape) => {
-        shape!.style.transform = `rotate(${+track.x * 10}deg)`;
-        // gsap.to(shape, {
-        //   rotate: `${+track.x * 10}deg`,
-        //   transformOrigin: "center",
-        // });
-        // gsap.to(shape, {
-        //   rotate: `${+track.x * 10}deg`,
-        //   transformOrigin: "center center",
-        // });
+        gsap.to(shape, {
+          rotate: `${stayBetween(+track.x * 10, [-20, 20])}deg`,
+          transformOrigin: "center",
+        });
       });
 
       const eyesShapes = document.querySelectorAll(
         ".logo-eyes",
       ) as NodeListOf<HTMLElement>;
       eyesShapes.forEach((shape) => {
-        // shape!.style.transform = `translate(${+track.x * 2}px, ${
-        //   +track.y * 2
-        // }px)`;
-        gsap.to(shape, {
-          x: `${+track.x * 2}deg`,
-          y: `${+track.y * 2}deg`,
-        });
+        if ($SelectedBackground.name === "Sand Dune") {
+          gsap.to(shape, {
+            x: `${stayBetween(+track.y * 2, [-10, 10])}deg`,
+            y: `${stayBetween(+track.x * 2, [-10, 10])}deg`,
+          });
+        } else {
+          gsap.to(shape, {
+            x: `${stayBetween(+track.x * 2, [-10, 10])}deg`,
+            y: `${stayBetween(+track.y * 2, [-10, 10])}deg`,
+          });
+        }
       });
     };
 

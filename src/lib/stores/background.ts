@@ -33,6 +33,7 @@ export const Backgrounds: Writable<Background[]> = writable([
   },
 ]);
 
-export const SelectedBackground = derived(Backgrounds, ($b) =>
-  $b.find((b) => b.isOpen),
+export const SelectedBackground = derived(
+  Backgrounds,
+  ($b) => $b.find((b) => b.isOpen) as Background,
 );
