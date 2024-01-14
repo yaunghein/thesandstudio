@@ -66,7 +66,8 @@
       .then(() => {
         // console.log(spline.getSplineEvents());
         spline.addEventListener("mouseDown", (e: any) => {
-          if (e.target.name === "sun shape") {
+          console.log(e.target.name);
+          if (e.target.name === "Ellipse") {
             document.getElementById("dark-btn")?.click();
           }
         });
@@ -114,6 +115,7 @@
   ];
 </script>
 
+<button id="dark-btn" class="hidden" on:click={switchMode}>Test</button>
 <div>
   <AppShell>
     {#if $SelectedBackground?.name === "Sand Dunes"}

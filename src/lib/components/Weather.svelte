@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { twMerge as twm } from "tailwind-merge";
   import getDateAndTime from "$lib/utils/getDateAndTime";
   import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
@@ -29,25 +30,27 @@
     }
   };
 
-  $: (async () => {
-    let coordinate = "";
-    if (selectedLocation === "LOCAL") {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          coordinate = `${latitude},${longitude}`;
-          return await fetchWeather(coordinate);
-        });
+  $: (() => {
+    onMount(async () => {
+      let coordinate = "";
+      if (selectedLocation === "LOCAL") {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            coordinate = `${latitude},${longitude}`;
+            return await fetchWeather(coordinate);
+          });
+        } else {
+          console.log(
+            "Geolocation is not supported by this browser or you don't give us the permission.",
+          );
+        }
       } else {
-        console.log(
-          "Geolocation is not supported by this browser or you don't give us the permission.",
-        );
+        coordinate = LOCATIONS[selectedLocation];
+        await fetchWeather(coordinate);
       }
-    } else {
-      coordinate = LOCATIONS[selectedLocation];
-      await fetchWeather(coordinate);
-    }
+    });
   })();
 
   const time = (node: HTMLElement) => {
