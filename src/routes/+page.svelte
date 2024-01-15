@@ -3,6 +3,7 @@
   import { goto } from "$app/navigation";
   import { Application } from "@splinetool/runtime";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import lottie from "lottie-web";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import AppIcon from "$lib/components/AppIcon.svelte";
@@ -12,12 +13,6 @@
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Logo from "$lib/svgs/Logo.svelte";
-  import IconSandScan from "$lib/svgs/IconSandScan.svelte";
-  import IconFatk from "$lib/svgs/IconFATK.svelte";
-  import IconWork from "$lib/svgs/IconWork.svelte";
-  import IconNotWork from "$lib/svgs/IconNotWork.svelte";
-  import IconArchive from "$lib/svgs/IconArchive.svelte";
-  import IconAbout from "$lib/svgs/IconAbout.svelte";
   import { OpenShells, addShell, removeShell } from "$lib/stores/shell";
   import { SelectedBackground } from "$lib/stores/background";
   import {
@@ -43,8 +38,6 @@
   );
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
 
-  let spline: any;
-
   const switchMode = () => {
     const rootClasses = document.documentElement.classList;
     const toggleMode = () => {
@@ -58,6 +51,7 @@
     toggleMode();
   };
 
+  let spline: any;
   const create3DBackground = (node: HTMLCanvasElement) => {
     spline = new Application(node);
     spline
@@ -117,6 +111,34 @@
       },
     },
   ];
+
+  const sandTextLottie = (node: HTMLDivElement) => {
+    const player = lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "lotties/sand-text.json",
+    });
+    const handleMouseEnter = () => {
+      player.setDirection(1);
+      player.setLoop(true);
+      player.play();
+    };
+    const handleMouseLeave = () => {
+      player.setDirection(-1);
+      player.setLoop(false);
+    };
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
+
+    return {
+      destroy: () => {
+        node.removeEventListener("mouseenter", handleMouseEnter);
+        node.removeEventListener("mouseleave", handleMouseLeave);
+      },
+    };
+  };
 </script>
 
 <button id="dark-btn" class="hidden" on:click={switchMode}>Test</button>
@@ -136,6 +158,8 @@
           background="transparent"
           height="${100 / 3}%"
           width="100%"
+          controls=""
+          controlLayout=""
         />
         <LottiePlayer
           src="/images/backgrounds/morph-motion.json"
@@ -144,7 +168,8 @@
           renderer="svg"
           background="transparent"
           height="${100 / 3}%"
-          width="100%"
+          controls=""
+          controlLayout=""
         />
         <LottiePlayer
           src="/images/backgrounds/morph-design.json"
@@ -154,12 +179,14 @@
           background="transparent"
           height="${100 / 3}%"
           width="100%"
+          controls=""
+          controlLayout=""
         />
       </div>
     {/if}
 
     <div class="absolute top-12 left-12 select-none">
-      <h1 class="text-[11.75rem] mb-4 leading-none">SAND</h1>
+      <div use:sandTextLottie class="dark:invert w-[31.5rem]"></div>
       <p class="mb-4 text-xl max-w-[31rem]">
         We are a multi-disciplinary design studio and a collection of curious
         makers, doers and thinkers, that study the practices of Architecture,

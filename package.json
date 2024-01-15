@@ -25,12 +25,14 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@lottiefiles/lottie-interactivity": "^1.6.2",
 		"@lottiefiles/svelte-lottie-player": "^0.3.0",
 		"@splinetool/runtime": "^0.9.508",
 		"@supabase/auth-helpers-sveltekit": "^0.10.3",
 		"@supabase/supabase-js": "^2.38.1",
 		"gsap": "^3.12.2",
 		"jszip": "^3.10.1",
+		"lottie-web": "^5.12.2",
 		"tailwind-merge": "^2.1.0"
 	}
 }

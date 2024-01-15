@@ -72,12 +72,13 @@
           {#if browser}
             <div class="dark:invert flex items-center h-full">
               <LottiePlayer
-                src="/lotties/sand-displace-v2.json"
+                src="/lotties/sand-footer-text.json"
                 autoplay={true}
                 loop={true}
                 renderer="svg"
                 background="transparent"
                 width={window.innerWidth}
+                height="100%"
                 controls=""
                 controlsLayout=""
               />
@@ -95,7 +96,7 @@
           {#if browser}
             <div class="dark:invert flex items-center h-full">
               <LottiePlayer
-                src="/lotties/sand-displace-v2.json"
+                src="/lotties/sand-footer-text.json"
                 autoplay={true}
                 loop={true}
                 renderer="svg"
