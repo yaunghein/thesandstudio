@@ -72,22 +72,22 @@
   const NAV_ITEMS: TAppIcon[] = [
     {
       label: "Child",
-      icon: IconChild,
+      image: IconChild,
       handleClick: () => goto("/child"),
     },
     {
       label: "Explorer",
-      icon: IconExplorer,
+      image: IconExplorer,
       handleClick: () => addShell({ id: "finder", zIndex: 65 }),
     },
     {
       label: "Backgrounds",
-      icon: IconBackground,
+      image: IconBackground,
       handleClick: () => addShell({ id: "backgrounds", zIndex: 65 }),
     },
     {
       label: "Contact",
-      icon: IconContact,
+      image: IconContact,
       handleClick: () => {
         removeShell("finder");
         addShell({ id: "finder", zIndex: 65 });
@@ -104,7 +104,7 @@
 >
   {#each NAV_ITEMS as item, index}
     <div class={index === 0 ? "" : "pl-4"}>
-      <AppIcon data={item} isInDock={true} />
+      <AppIcon icon={item} isInDock={true} />
     </div>
   {/each}
 </div>

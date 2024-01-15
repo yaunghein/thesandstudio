@@ -85,28 +85,32 @@
   const NAV_ITEMS: TAppIcon[] = [
     {
       label: "SAND Scan",
-      icon: IconSandScan,
+      lottie: "lotties/icon-sand-scan.json",
       handleClick: () => addShell({ id: "sand-scan", zIndex: 65 }),
     },
     {
       label: "For All Thingkind",
-      icon: IconFatk,
+      lottie: "lotties/icon-sand-scan.json",
       handleClick: () => goto("/for-all-thingkind"),
     },
-    { label: "Works", icon: IconWork, handleClick: () => goto("/works") },
+    {
+      label: "Works",
+      lottie: "lotties/icon-sand-scan.json",
+      handleClick: () => goto("/works"),
+    },
     {
       label: "Not Works",
-      icon: IconNotWork,
+      lottie: "lotties/icon-sand-scan.json",
       handleClick: () => goto("/not-works"),
     },
     {
       label: "Archives",
-      icon: IconArchive,
+      lottie: "lotties/icon-sand-scan.json",
       handleClick: () => handleFinderIconClick(openArchiveTab),
     },
     {
       label: "About",
-      icon: IconAbout,
+      lottie: "lotties/icon-sand-scan.json",
       handleClick: () => {
         handleFinderIconClick(openAboutTab);
         setTimeout(() => document.getElementById("We are SAND")?.click(), 0); // kind of bad thing :/
@@ -179,7 +183,7 @@
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
       <div class="grid grid-cols-2 gap-5">
         {#each NAV_ITEMS as item}
-          <AppIcon data={item} />
+          <AppIcon icon={item} />
         {/each}
       </div>
     </div>

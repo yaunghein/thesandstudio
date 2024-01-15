@@ -1,6 +1,7 @@
 export type AppIcon = {
   label: string;
-  icon: ConstructorOfATypedSvelteComponent;
+  lottie?: string;
+  image?: ConstructorOfATypedSvelteComponent;
   handleClick: () => void;
 };
 
