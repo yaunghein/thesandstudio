@@ -145,7 +145,9 @@
 <div>
   <AppShell>
     {#if $SelectedBackground?.name === "Sand Dunes"}
-      <canvas use:create3DBackground></canvas>
+      <div class="sticky top-0">
+        <canvas use:create3DBackground></canvas>
+      </div>
     {/if}
 
     {#if browser && $SelectedBackground?.name === "Legacy"}
@@ -215,8 +217,8 @@
       </div>
     </div>
   </AppShell>
-
-  <Weather />
+  <!-- 
+  <Weather /> -->
 
   <Dock />
 
