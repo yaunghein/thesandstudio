@@ -1,8 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { browser } from "$app/environment";
+  import Logo from "$lib/svgs/Logo.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
-  import LogoCalm from "$lib/svgs/LogoCalm.svelte";
 
   onMount(() => {
     const shell = document.querySelector(".app-shell") as HTMLDivElement;
@@ -16,8 +15,8 @@
     <div class="p-11">
       <div class="flex items-center gap-1 text-9xl mb-11">
         <div>N</div>
-        <div class="dark:invert w-32 -mt-3">
-          <LogoCalm />
+        <div class="w-32">
+          <Logo />
         </div>
         <div class="-ml-[0.125rem]">T</div>
         <div class="ml-10">WORK</div>

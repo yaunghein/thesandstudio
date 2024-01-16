@@ -8,22 +8,16 @@
   export let isInDock = false;
 </script>
 
-<!-- {#if icon.label === "SAND Scan"} -->
 <button
   on:click={icon.handleClick}
   class="overflow-hidden relative group text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-white-90 dark:border-light-20 grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square"
 >
-  <!-- <img
-        src={icon.icon}
-        class="group-hover:scale-[1.4] group-hover:-translate-y-[100%] transition duration-1000"
-        alt=""
-      /> -->
   <div
     class="absolute inset-0 bg-light-10 dark:bg-light-100 opacity-0 group-hover:opacity-100 transition duration-500 ease-out"
   />
 
   <div
-    class="w-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.4] group-hover:-translate-y-32 group-hover:invert transition duration-500 ease-out"
+    class="w-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.4] group-hover:-translate-y-32 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert transition duration-500 ease-out"
   >
     {#if icon.lottie && browser}
       <LottiePlayer
@@ -38,7 +32,9 @@
         controlLayout=""
       />
     {:else}
-      <svelte:component this={icon.image} />
+      <div class="invert dark:invert-0">
+        <svelte:component this={icon.image} />
+      </div>
     {/if}
   </div>
 
@@ -50,12 +46,4 @@
   >
     {icon.label}
   </div>
-  <!-- <div
-        class={twm(
-          "w-20 text-left leading-[0.5] origin-right font-sand-bold absolute left-4 bottom-3  text-light-10 dark:text-light-100",
-          isInDock ? "text-2xl" : "text-2xl",
-        )}
-      >
-        {icon.label}
-      </div> -->
 </button>

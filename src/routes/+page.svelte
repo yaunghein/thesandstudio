@@ -38,19 +38,6 @@
   );
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
 
-  const switchMode = () => {
-    const rootClasses = document.documentElement.classList;
-    const toggleMode = () => {
-      rootClasses.contains("dark")
-        ? rootClasses.remove("dark")
-        : rootClasses.add("dark");
-      rootClasses.contains("dark")
-        ? localStorage.setItem("sand-theme", "dark")
-        : localStorage.setItem("sand-theme", "light");
-    };
-    toggleMode();
-  };
-
   let spline: any;
   const create3DBackground = (node: HTMLCanvasElement) => {
     spline = new Application(node);
@@ -141,7 +128,6 @@
   };
 </script>
 
-<button id="dark-btn" class="hidden" on:click={switchMode}>Test</button>
 <div>
   <AppShell>
     {#if $SelectedBackground?.name === "Sand Dunes"}
@@ -201,12 +187,11 @@
     </div>
 
     {#if $SelectedBackground?.name !== "Sand Dunes"}
-      <button
-        on:click={switchMode}
-        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 dark:invert z-[2]"
+      <div
+        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
       >
         <Logo />
-      </button>
+      </div>
     {/if}
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
