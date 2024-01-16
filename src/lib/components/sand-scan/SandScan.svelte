@@ -37,7 +37,7 @@
       {#if isUsageGuideOpen}
         <button
           on:click={() => (isUsageGuideOpen = false)}
-          class="shrink-0 w-40 h-9 rounded-[0.65rem] bg-light-100 absolute top-[0.8rem] right-4 grid place-items-center text-lg font-sand-bold text-light-10"
+          class="shrink-0 w-40 h-9 rounded-[0.65rem] bg-light-10 dark:bg-light-100 absolute top-[0.8rem] right-4 grid place-items-center text-lg font-sand-bold text-light-100 dark:text-light-10"
         >
           Back
         </button>

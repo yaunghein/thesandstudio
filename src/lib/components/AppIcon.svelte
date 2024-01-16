@@ -40,7 +40,7 @@
 
   <div
     class={twm(
-      "w-20 text-left group-hover:leading-[1.2] origin-right font-sand-bold absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] transition duration-500 ease-out",
+      "w-20 text-left group-hover:leading-[1] origin-right font-sand-bold absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] transition duration-500 ease-out",
       isInDock ? "text-2xl" : "text-2xl",
     )}
   >
