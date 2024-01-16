@@ -23,7 +23,7 @@
   use:drag
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex flex-col h-full overflow-hidden">

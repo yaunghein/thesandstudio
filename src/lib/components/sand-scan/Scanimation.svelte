@@ -9,6 +9,7 @@
   import drawBars from "$lib/utils/scanimation/drawBars";
   import downloadImages from "$lib/utils/scanimation/downloadImages";
 
+  // need to fix some issue while drawing bars and auto moving
   onMount(() => {
     gsap.registerPlugin(Draggable);
   });
@@ -16,6 +17,7 @@
   let px = 1;
   $: if (px < 1) px = 1;
   let images: any[] = [];
+  $: console.log({ images });
   let name = "";
 
   const DISPLAY_WIDTH = 400;
@@ -29,14 +31,14 @@
     if (naturalWidth > 200) {
       if (isBars) {
         canvas.width = 2 * DISPLAY_WIDTH;
-        canvas.height = DISPLAY_WIDTH * (naturalHeight / naturalWidth);
+        canvas.height = 2 * DISPLAY_WIDTH * (naturalHeight / naturalWidth);
       } else {
         canvas.width = DISPLAY_WIDTH;
         canvas.height = DISPLAY_WIDTH * (naturalHeight / naturalWidth);
       }
     } else {
       canvas.width = isBars ? naturalWidth * 2 : naturalWidth;
-      canvas.height = naturalHeight;
+      canvas.height = isBars ? naturalHeight * 2 : naturalHeight;
     }
   };
 
@@ -152,6 +154,17 @@
     cancelAnimationFrame(movingId);
   };
 
+  const reset = () => {
+    images = [] as any[];
+    (
+      document!.querySelector("#display-container") as HTMLElement
+    ).style.display = "none";
+
+    (
+      document!.querySelector("#select-files-label") as HTMLElement
+    ).style.display = "grid";
+  };
+
   $: if (images.length > 0) {
     (
       document!.querySelector("#display-container") as HTMLElement
@@ -203,7 +216,7 @@
   <div class="h-full flex">
     <!-- Controls -->
     <div
-      class="flex shrink-0 m-4 flex-col rounded-xl border-3 bg-light-80 dark:bg-light-40 border-light-80 dark:border-light-40 overflow-hidden"
+      class="w-[30%] flex shrink-0 m-4 flex-col rounded-xl border-3 bg-light-80 dark:bg-light-40 border-light-80 dark:border-light-40 overflow-hidden"
     >
       <div
         class="relative flex flex-col p-4 h-full bg-light-100 dark:bg-light-10 rounded-2xl -m-[0.1875rem] border-3 border-t-0 border-light-80 dark:border-light-40 overflow-hidden"
@@ -224,7 +237,7 @@
               bind:value={px}
               min="1"
               max="50"
-              class="non-draggable range appearance-none bg-transparent cursor-pointer"
+              class="non-draggable w-full range appearance-none bg-transparent cursor-pointer"
             />
             <input
               type="number"
@@ -242,7 +255,7 @@
               bind:value={speed}
               min="1"
               max="250"
-              class="non-draggable range appearance-none bg-transparent cursor-pointer"
+              class="non-draggable w-full range appearance-none bg-transparent cursor-pointer"
               on:change={() => (speedPreset = "reset")}
             />
             <input
@@ -359,12 +372,21 @@
 
     <!-- Animation -->
     <div
-      class="grow border-l-3 border-light-80 dark:border-light-40 rounded-none flex flex-col items-center justify-center gap-5"
+      class="relative grow border-l-3 border-light-80 dark:border-light-40 rounded-none flex flex-col items-center justify-center gap-5"
     >
       <div class="hidden">
         <canvas data-name="base" id="base" />
         <canvas data-name="bars" id="bars" />
       </div>
+
+      {#if images.length > 0}
+        <button
+          on:click={reset}
+          class="shrink-0 w-20 h-9 rounded-[0.65rem] bg-sand-red absolute bottom-4 right-4 grid place-items-center text-lg font-sand-bold text-light-10"
+        >
+          Reset
+        </button>
+      {/if}
 
       <div
         id="display-container"
@@ -375,7 +397,7 @@
           <canvas
             data-name="bars"
             id="display-bars"
-            class="non-draggable absolute top-0 right-0"
+            class="non-draggable w-full absolute top-0 right-0"
           />
         </div>
       </div>

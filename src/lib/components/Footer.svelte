@@ -63,9 +63,7 @@
     <div class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full">
       <div class="flex items-center">
         <div use:moveText class="flex h-full">
-          <div
-            class="dark:invert w-[20.75rem] aspect-square shrink-0 ml-10 mr-5"
-          >
+          <div class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5">
             <Logo />
           </div>
           <!-- <div class="leading-none pt-7">THE SAND STUDIO</div> -->
@@ -87,9 +85,7 @@
         </div>
 
         <div use:moveText class="flex h-full">
-          <div
-            class="dark:invert w-[20.75rem] aspect-square shrink-0 ml-10 mr-5"
-          >
+          <div class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5">
             <Logo />
           </div>
           <!-- <div class="leading-none pt-7">THE SAND STUDIO</div> -->

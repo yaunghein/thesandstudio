@@ -40,6 +40,12 @@ export default {
         "sand-blue": "#0000FF",
         "sand-yellow": "#E2B53E",
       },
+      width: {
+        "shell-desktop": "80rem",
+      },
+      height: {
+        "shell-desktop": "56rem",
+      },
     },
   },
   plugins: [],
