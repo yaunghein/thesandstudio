@@ -5,6 +5,7 @@
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import { Backgrounds } from "$lib/stores/background";
   import drag from "$lib/utils/drag";
+  import ButtonClose from "./ButtonClose.svelte";
 
   $: shell = $OpenShells.find((shell) => shell.id === "backgrounds");
   $: index = $OpenShells.findIndex((shell) => shell.id === "backgrounds");
@@ -26,10 +27,9 @@
 >
   <div class="flex flex-col h-full overflow-hidden">
     <div class="relative h-16 grid place-items-center shrink-0">
-      <button
-        on:click={() => removeShell("backgrounds")}
-        class="shrink-0 w-5 h-5 rounded-full bg-sand-red absolute top-[1.35rem] left-6"
-      />
+      <div class="absolute top-3 left-6">
+        <ButtonClose on:close={() => removeShell("backgrounds")} />
+      </div>
       <p class="text-lg font-sand-medium">Change Background</p>
     </div>
 

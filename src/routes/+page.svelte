@@ -202,8 +202,8 @@
       </div>
     </div>
   </AppShell>
-  <!-- 
-  <Weather /> -->
+
+  <Weather />
 
   <Dock />
 

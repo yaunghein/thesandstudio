@@ -18,7 +18,7 @@
 {#if files}
   <div
     class={twm(
-      "relative shrink-0 w-96 h-full overflow-auto p-5 border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40",
+      "relative shrink-0 min-w-[30rem] h-full overflow-auto p-5 border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40",
       !isRecursive && !$FilePreview && "border-r-[0.1875rem]",
     )}
   >

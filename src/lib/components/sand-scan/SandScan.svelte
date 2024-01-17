@@ -5,6 +5,7 @@
   import drag from "$lib/utils/drag";
   import Scanimation from "./Scanimation.svelte";
   import UsageGuide from "./UsageGuide.svelte";
+  import ButtonClose from "../ButtonClose.svelte";
 
   $: shell = $OpenShells.find((shell) => shell.id === "sand-scan");
   $: index = $OpenShells.findIndex((shell) => shell.id === "sand-scan");
@@ -28,10 +29,9 @@
 >
   <div class="flex flex-col h-full overflow-hidden">
     <div class="relative h-16 grid place-items-center shrink-0">
-      <button
-        on:click={() => removeShell("sand-scan")}
-        class="shrink-0 w-5 h-5 rounded-full bg-sand-red absolute top-[1.35rem] left-6"
-      />
+      <div class="absolute top-3 left-6">
+        <ButtonClose on:close={() => removeShell("sand-scan")} />
+      </div>
       <p class="text-lg font-sand-medium">SAND Scan</p>
 
       {#if isUsageGuideOpen}

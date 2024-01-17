@@ -4,6 +4,7 @@
   import { backIn, backOut } from "svelte/easing";
   import FinderColumns from "./FinderColumns.svelte";
   import CFilePreview from "./CFilePreview.svelte";
+  import ButtonClose from "./ButtonClose.svelte";
   import {
     tabs,
     Tabs,
@@ -60,15 +61,14 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex h-full overflow-hidden">
-    <div class="relative w-64 shrink-0">
-      <button
-        on:click={() => removeShell("finder")}
-        class="shrink-0 w-5 h-5 rounded-full bg-sand-red mt-4 ml-6"
-      />
+    <div class="relative w-80 shrink-0">
+      <div class="mt-4 ml-6">
+        <ButtonClose on:close={() => removeShell("finder")} />
+      </div>
       <div class="flex flex-col mt-6 px-6">
         {#each $Tabs as tab}
           <button
