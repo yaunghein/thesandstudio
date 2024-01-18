@@ -65,7 +65,7 @@
           ...easing,
         });
         break;
-      case "footer":
+      case "contact":
         gsap.to("#cursor", {
           width: "35rem",
           height: "6rem",
@@ -90,7 +90,7 @@
   <div
     class="relative text-light-100 dark:text-light-10 bg-light-10 dark:bg-light-100 flex items-center justify-center text-5xl w-full h-full"
   >
-    {#if $CursorType === "footer"}
+    {#if $CursorType === "contact"}
       <a
         href="mailto:hi@thesandstudio.com"
         transition:scale

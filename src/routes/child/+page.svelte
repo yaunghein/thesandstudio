@@ -33,6 +33,5 @@
     </div>
   </div>
 
-  <!-- might need to change colors inside footer componant -->
   <Footer />
 </div>

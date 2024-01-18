@@ -1,7 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import gsap from "gsap";
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import { twMerge as twm } from "tailwind-merge";
   import clickOutside from "$lib/utils/clickOutside";
   import Logo from "$lib/svgs/Logo.svelte";
   import { CursorType } from "$lib/stores/cursor";
@@ -19,52 +20,66 @@
 <footer
   class="relative z-[1000000] bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
-  <button
-    class="group absolute w-[32rem] h-6 hover:h-20 -top-6 hover:-top-16 left-1/2 -translate-x-1/2 transition-all"
-    on:click={() => {
-      isOpen = !isOpen;
-      CursorType.set("normal");
-    }}
+  <div
+    class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl transition-all"
   >
-    <div
-      class="group mx-auto w-[32rem] group-hover:w-[18.25rem] h-full rounded-t-3xl group-hover:rounded-t-xl font-sand-medium text-xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all"
-    >
-      <span class="opacity-0 group-hover:opacity-100 transition-opacity">
+    {#if !isOpen}
+      <span class="absolute top-0 left-1/2 -translate-x-1/2">
         ©2023 The Sand Studio
       </span>
-    </div>
-  </button>
+    {/if}
+    <button
+      on:click={() => {
+        isOpen = !isOpen;
+        CursorType.set("normal");
+      }}
+      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all"
+    >
+      <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
+        <svg
+          width="50"
+          height="18"
+          viewBox="0 0 50 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-3"
+        >
+          <path
+            d="M25.0002 0L49.2489 18H0.751465L25.0002 0Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
   <!-- h-[33.75rem] -->
   <div
+    role="region"
+    use:clickOutside={{
+      callback: () => {
+        isOpen = false;
+        CursorType.set("normal");
+      },
+    }}
+    on:mouseenter={() => CursorType.set("normal")}
+    on:mouseleave={() => CursorType.set("footer-close")}
     class="{isOpen
       ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
     <div class="flex items-center px-[3.75rem] pt-6">
       <div class="w-1/3">
-        <a
-          href="/"
-          on:mouseenter={() => CursorType.set("normal")}
-          on:mouseleave={() => CursorType.set("footer-close")}
-        >
+        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
           INSTAGRAM
         </a>
       </div>
       <div class="w-1/3 grid place-items-center">
-        <a
-          href="/"
-          on:mouseenter={() => CursorType.set("normal")}
-          on:mouseleave={() => CursorType.set("footer-close")}
-        >
+        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
           FACEBOOK
         </a>
       </div>
       <div class="w-1/3 grid place-items-end">
-        <a
-          href="/"
-          on:mouseenter={() => CursorType.set("normal")}
-          on:mouseleave={() => CursorType.set("footer-close")}
-        >
+        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
           @{new Date().getFullYear()}
         </a>
       </div>
@@ -72,14 +87,8 @@
 
     <a
       href="mailto:hi@thesandstudio.com"
-      use:clickOutside={{
-        callback: () => {
-          isOpen = false;
-          CursorType.set("normal");
-        },
-      }}
-      on:mouseenter={() => CursorType.set("footer")}
-      on:mouseleave={() => CursorType.set("footer-close")}
+      on:mouseenter={() => CursorType.set("contact")}
+      on:mouseleave={() => CursorType.set("normal")}
       class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
     >
       <div class="flex items-center">
