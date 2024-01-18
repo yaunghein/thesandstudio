@@ -55,8 +55,8 @@
 
   const time = (node: HTMLElement) => {
     const id = setInterval(() => {
-      const { hour, minute, ampm } = getDateAndTime();
-      node.innerHTML = `${hour}:${minute} ${ampm.toUpperCase()}`;
+      const time = getDateAndTime(selectedLocation);
+      node.innerHTML = time;
     }, 1000);
 
     return {
@@ -111,7 +111,6 @@
       <div class="flex flex-col gap-0">
         <div class="text-[1.375rem]">
           <div class="flex gap-2">
-            <span class="leading-none">{getDateAndTime().day}</span>
             <span class="leading-none" use:time>00:00</span>
           </div>
           <div class="leading-none mt-2">{weather.current.condition.text}</div>
