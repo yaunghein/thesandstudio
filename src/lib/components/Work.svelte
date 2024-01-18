@@ -7,16 +7,16 @@
 
   let index = 0;
 
-  const getRandomNumber = () => {
-    const numbers = [5, 6, 7, 8];
-    const randomIndex = Math.floor(Math.random() * numbers.length);
-    return numbers[randomIndex];
-  };
+  // const getRandomNumber = () => {
+  //   const numbers = [5, 6, 7, 8];
+  //   const randomIndex = Math.floor(Math.random() * numbers.length);
+  //   return numbers[randomIndex];
+  // };
 
   const intervalId = setInterval(() => {
     if (index === work.images.length - 1) return (index = 0);
     index++;
-  }, 1000 * getRandomNumber());
+  }, 1000);
 
   onDestroy(() => clearInterval(intervalId));
 </script>
@@ -27,14 +27,16 @@
     ? 'bg-light-10'
     : 'bg-light-100'}"
 >
-  {#key index}
-    <img
-      transition:fade={{ duration: 200 }}
-      src={work.images[index]}
-      alt={work.name}
-      class="absolute inset-0 w-full h-full object-cover rounded-lg scale-[1.05]"
-    />
-  {/key}
+  <div class="absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20">
+    {#key index}
+      <img
+        transition:fade={{ duration: 200 }}
+        src={work.images[index]}
+        alt={work.name}
+        class="absolute inset-0 w-full h-full object-cover rounded-lg scale-[1.05]"
+      />
+    {/key}
+  </div>
   <img
     src={work.hoverImage}
     alt={work.name}
