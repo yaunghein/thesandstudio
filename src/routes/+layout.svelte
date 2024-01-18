@@ -27,4 +27,4 @@
 </svelte:head>
 
 <slot />
-<!-- <Cursor /> -->
+<Cursor />

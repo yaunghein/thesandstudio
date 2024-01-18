@@ -35,6 +35,8 @@
         gsap.to(shape, {
           rotate: `${+track.x * 100}deg`,
           transformOrigin: "center",
+          duration: 0.7,
+          ease: "power4",
         });
       });
 
@@ -45,6 +47,8 @@
         gsap.to(shape, {
           rotate: `${stayBetween(+track.x * 10, [-20, 20])}deg`,
           transformOrigin: "center",
+          duration: 0.7,
+          ease: "power4",
         });
       });
 
@@ -56,11 +60,15 @@
           gsap.to(shape, {
             x: `${stayBetween(+track.y * 2, [-10, 10])}deg`,
             y: `${stayBetween(+track.x * 2, [-10, 10])}deg`,
+            duration: 0.7,
+            ease: "power4",
           });
         } else {
           gsap.to(shape, {
             x: `${stayBetween(+track.x * 2, [-10, 10])}deg`,
             y: `${stayBetween(+track.y * 2, [-10, 10])}deg`,
+            duration: 0.7,
+            ease: "power4",
           });
         }
       });

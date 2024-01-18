@@ -1,42 +1,124 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { twMerge as twm } from "tailwind-merge";
+  import gsap from "gsap";
   import { CursorType } from "$lib/stores/cursor";
+  import { scale } from "svelte/transition";
+  import { browser } from "$app/environment";
 
-  let pos = { x: 0, y: 0 };
-  // $: console.log(pos);
+  const pos = { x: 0, y: 0 };
+  const easing = { duration: 0.7, ease: "power4" };
+
+  const centerCursor = () => {
+    setTimeout(() => {
+      const cursor = document.querySelector("#cursor");
+      const cursorRect = cursor?.getBoundingClientRect();
+      gsap.to("#cursor", {
+        x: pos.x - cursorRect!.width / 2,
+        y: pos.y - cursorRect!.height / 2,
+        opacity: 1,
+        ...easing,
+      });
+    }, 300);
+  };
 
   onMount(() => {
-    const rect = document.querySelector("#cursor");
-    window.addEventListener("mousemove", (e: MouseEvent) => {
-      pos = {
-        x: e.clientX - rect!.clientWidth / 2,
-        y: e.clientY - rect!.clientHeight / 2,
+    const isTouchDevice = "ontouchstart" in window;
+    const createCursorFollower = () => {
+      const handleMouseMove = (e: MouseEvent) => {
+        const cursor = document.querySelector("#cursor");
+        const cursorRect = cursor?.getBoundingClientRect();
+        const { x, y } = e;
+        pos.x = x;
+        pos.y = y;
+
+        gsap.to("#cursor", {
+          x: x - cursorRect!.width / 2,
+          y: y - cursorRect!.height / 2,
+          opacity: 1,
+          ...easing,
+        });
       };
-    });
+      window.addEventListener("mousemove", handleMouseMove);
+
+      const handleMouseLeave = () => {
+        gsap.to("#cursor", {
+          opacity: 0,
+          ...easing,
+        });
+      };
+      document.addEventListener("mouseleave", handleMouseLeave);
+    };
+
+    if (!isTouchDevice) {
+      createCursorFollower();
+    }
   });
+
+  $: if ($CursorType && browser) {
+    centerCursor();
+    switch ($CursorType) {
+      case "normal":
+        gsap.to("#cursor", {
+          width: "3.5rem",
+          height: "3.5rem",
+          ...easing,
+        });
+        break;
+      case "footer":
+        gsap.to("#cursor", {
+          width: "35rem",
+          height: "6rem",
+          ...easing,
+        });
+        break;
+      case "footer-close":
+        gsap.to("#cursor", {
+          width: "3.5rem",
+          height: "3.5rem",
+          ...easing,
+        });
+        break;
+    }
+  }
 </script>
 
 <div
   id="cursor"
-  class="pointer-events-none fixed top-0 z-[100000000000000000]"
-  style="left: {pos.x}px; top: {pos.y}px"
+  class="pointer-events-none select-none fixed top-0 z-[100000000000000000] rounded-full overflow-hidden w-10 h-10"
 >
-  {#if $CursorType === "normal"}
-    <div
-      class="bg-light-10 dark:bg-light-100 w-10 aspect-square flex items-center justify-center rounded-full text-5xl"
-    ></div>
-  {/if}
-  {#if $CursorType === "footer-close"}
-    <div
-      class="bg-light-10 dark:bg-light-100 w-20 aspect-square flex items-center justify-center rounded-full text-5xl"
-    >
-      X
-    </div>
-  {/if}
-  {#if $CursorType === "footer"}
-    <div class="bg-light-10 dark:bg-red-500 py-6 px-12 rounded-full text-5xl">
-      <p>This is inside footer.</p>
-    </div>
-  {/if}
+  <div
+    class="relative text-light-100 dark:text-light-10 bg-light-10 dark:bg-light-100 flex items-center justify-center text-5xl w-full h-full"
+  >
+    {#if $CursorType === "footer"}
+      <a
+        href="mailto:hi@thesandstudio.com"
+        transition:scale
+        class="whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        hi@thesandstudio.com
+      </a>
+    {/if}
+    {#if $CursorType === "footer-close"}
+      <div
+        transition:scale
+        class="whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
+    {/if}
+  </div>
 </div>

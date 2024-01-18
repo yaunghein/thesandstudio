@@ -14,20 +14,9 @@
       x: "0%",
     });
   };
-
-  const changeCursorState = (node: HTMLElement) => {
-    node.addEventListener("mouseenter", () => CursorType.set("footer"));
-    node.addEventListener("mouseleave", () => CursorType.set("footer-close"));
-  };
 </script>
 
 <footer
-  use:clickOutside={{
-    callback: () => {
-      isOpen = false;
-      CursorType.set("normal");
-    },
-  }}
   class="relative z-[1000000] bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
   <button
@@ -47,26 +36,59 @@
   </button>
   <!-- h-[33.75rem] -->
   <div
-    use:changeCursorState
     class="{isOpen
-      ? 'h-[33.75rem]'
+      ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
     <div class="flex items-center px-[3.75rem] pt-6">
-      <a href="/" class="w-1/3">INSTAGRAM</a>
-      <a href="/" class="w-1/3 grid place-items-center">FACEBOOK</a>
-      <a href="/" class="w-1/3 grid place-items-end">
-        @{new Date().getFullYear()}
-      </a>
+      <div class="w-1/3">
+        <a
+          href="/"
+          on:mouseenter={() => CursorType.set("normal")}
+          on:mouseleave={() => CursorType.set("footer-close")}
+        >
+          INSTAGRAM
+        </a>
+      </div>
+      <div class="w-1/3 grid place-items-center">
+        <a
+          href="/"
+          on:mouseenter={() => CursorType.set("normal")}
+          on:mouseleave={() => CursorType.set("footer-close")}
+        >
+          FACEBOOK
+        </a>
+      </div>
+      <div class="w-1/3 grid place-items-end">
+        <a
+          href="/"
+          on:mouseenter={() => CursorType.set("normal")}
+          on:mouseleave={() => CursorType.set("footer-close")}
+        >
+          @{new Date().getFullYear()}
+        </a>
+      </div>
     </div>
 
-    <div class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full">
+    <a
+      href="mailto:hi@thesandstudio.com"
+      use:clickOutside={{
+        callback: () => {
+          isOpen = false;
+          CursorType.set("normal");
+        },
+      }}
+      on:mouseenter={() => CursorType.set("footer")}
+      on:mouseleave={() => CursorType.set("footer-close")}
+      class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
+    >
       <div class="flex items-center">
         <div use:moveText class="flex h-full">
-          <div class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5">
+          <div
+            class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
+          >
             <Logo />
           </div>
-          <!-- <div class="leading-none pt-7">THE SAND STUDIO</div> -->
           {#if browser}
             <div class="dark:invert flex items-center h-full">
               <LottiePlayer
@@ -85,10 +107,11 @@
         </div>
 
         <div use:moveText class="flex h-full">
-          <div class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5">
+          <div
+            class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
+          >
             <Logo />
           </div>
-          <!-- <div class="leading-none pt-7">THE SAND STUDIO</div> -->
           {#if browser}
             <div class="dark:invert flex items-center h-full">
               <LottiePlayer
@@ -105,6 +128,6 @@
           {/if}
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </footer>

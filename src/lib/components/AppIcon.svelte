@@ -32,7 +32,7 @@
         controlLayout=""
       />
     {:else}
-      <div class="invert dark:invert-0">
+      <div class="icon-wrapper invert dark:invert-0">
         <svelte:component this={icon.image} />
       </div>
     {/if}
