@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { CursorType } from "$lib/stores/cursor";
+
   const products = [
     {
       label: "Tote Bag & Trinket Bowl 2022",
@@ -28,10 +30,13 @@
         </a>
       </div>
     {/each}
-    <div
-      class="relative w-full aspect-[1/0.765] rounded-3xl overflow-hidden text-light-100 dark:text-light-10 bg-light-10 dark:bg-light-100 grid place-items-center"
+    <a
+      href="mailto:hi@thesandstudio.com"
+      on:mouseenter={() => CursorType.set("contact")}
+      on:mouseleave={() => CursorType.set("normal")}
+      class="relative w-full aspect-[1/0.765] rounded-3xl overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
     >
       <span class="text-4xl font-sand-medium">Do you have an idea?</span>
-    </div>
+    </a>
   </div>
 </section>

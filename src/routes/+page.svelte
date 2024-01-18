@@ -131,7 +131,7 @@
 <div>
   <AppShell>
     {#if $SelectedBackground?.name === "Sand Dunes"}
-      <div class="sticky top-0">
+      <div class="sticky top-0 h-full">
         <canvas use:create3DBackground></canvas>
       </div>
     {/if}

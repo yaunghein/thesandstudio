@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Logo from "$lib/svgs/Logo.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
+  import { CursorType } from "$lib/stores/cursor";
 
   onMount(() => {
     const shell = document.querySelector(".app-shell") as HTMLDivElement;
@@ -35,17 +36,14 @@
           </p>
         </div>
 
-        <div
-          class="relative w-full aspect-[0.86/1] rounded-3xl overflow-hidden text-light-100 dark:text-light-10 bg-light-10 dark:bg-light-100 flex flex-col gap-20 items-center justify-center"
+        <a
+          href="mailto:hi@thesandstudio.com"
+          on:mouseenter={() => CursorType.set("contact")}
+          on:mouseleave={() => CursorType.set("normal")}
+          class="relative w-full aspect-[0.86/1] rounded-3xl overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 flex flex-col gap-20 items-center justify-center"
         >
           <div class="text-4xl w-56 text-center">Do you have an idea?</div>
-          <a
-            href="mailto:hi@thesandstudio.com"
-            class="text-4xl text-center bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 rounded-full px-5 py-2"
-          >
-            hi@thesandstudio.com
-          </a>
-        </div>
+        </a>
       </div>
     </div>
   </AppShell>
