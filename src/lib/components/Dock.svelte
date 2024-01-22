@@ -100,7 +100,7 @@
 
 <div
   use:magnify
-  class="z-[2] h-36 p-4 absolute bottom-[6.2rem] left-1/2 -translate-x-1/2 backdrop-blur-3xl bg-light-90 dark:bg-light-20 border-3 border-light-95 dark:border-light-25 flex items-end rounded-3xl"
+  class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 backdrop-blur-3xl bg-light-90 dark:bg-light-20 border-3 border-light-95 dark:border-light-25 flex items-end rounded-3xl"
 >
   {#each NAV_ITEMS as item, index}
     <div class={index === 0 ? "" : "pl-4"}>

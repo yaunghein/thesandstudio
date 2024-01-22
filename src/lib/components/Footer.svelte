@@ -18,8 +18,26 @@
 </script>
 
 <footer
-  class="relative z-[1000000] bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
+  use:clickOutside={{
+    callback: () => {
+      isOpen = false;
+      CursorType.set("normal");
+    },
+  }}
+  class="relative z-[10] text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
+  <div
+    class="absolute inset-0 w-full h-full bg-light-100 dark:bg-light-10 opacity-0"
+  ></div>
+  <!-- <footer
+  use:clickOutside={{
+    callback: () => {
+      isOpen = false;
+      CursorType.set("normal");
+    },
+  }}
+  class="relative z-[1000000] bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
+> -->
   <div
     class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl transition-all"
   >
@@ -33,7 +51,7 @@
         isOpen = !isOpen;
         CursorType.set("normal");
       }}
-      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all"
+      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all border-3 border-b-0 border-red-500"
     >
       <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
         <svg
@@ -55,19 +73,13 @@
   <!-- h-[33.75rem] -->
   <div
     role="region"
-    use:clickOutside={{
-      callback: () => {
-        isOpen = false;
-        CursorType.set("normal");
-      },
-    }}
     on:mouseenter={() => CursorType.set("normal")}
     on:mouseleave={() => CursorType.set("footer-close")}
     class="{isOpen
       ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
-    <div class="flex items-center px-[3.75rem] pt-6">
+    <div class="relative flex items-center px-[3.75rem] pt-6">
       <div class="w-1/3">
         <a href="/" on:mouseenter={() => CursorType.set("normal")}>
           INSTAGRAM

@@ -131,7 +131,7 @@
 <div>
   <AppShell>
     {#if $SelectedBackground?.name === "Sand Dunes"}
-      <div class="sticky top-0 h-full">
+      <div class="sticky top-0 bottom-0 h-screen">
         <canvas use:create3DBackground></canvas>
       </div>
     {/if}
@@ -201,27 +201,27 @@
         {/each}
       </div>
     </div>
+
+    <Weather />
+
+    <Dock />
+
+    {#if isSandScanOpen}
+      <SandScan />
+    {/if}
+
+    {#if isFinderOpen}
+      <Finder />
+    {/if}
+
+    {#if isBackgroundsOpen}
+      <Backgrounds />
+    {/if}
+
+    {#if openMediaFiles.length > 0}
+      {#each openMediaFiles as file, index}
+        <MediaWindow {file} {index} />
+      {/each}
+    {/if}
   </AppShell>
-
-  <Weather />
-
-  <Dock />
-
-  {#if isSandScanOpen}
-    <SandScan />
-  {/if}
-
-  {#if isFinderOpen}
-    <Finder />
-  {/if}
-
-  {#if isBackgroundsOpen}
-    <Backgrounds />
-  {/if}
-
-  {#if openMediaFiles.length > 0}
-    {#each openMediaFiles as file, index}
-      <MediaWindow {file} {index} />
-    {/each}
-  {/if}
 </div>
