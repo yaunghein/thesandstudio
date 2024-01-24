@@ -7,6 +7,7 @@
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import AppIcon from "$lib/components/AppIcon.svelte";
+  import Apps from "$lib/components/Apps.svelte";
   import Finder from "$lib/components/Finder.svelte";
   import MediaWindow from "$lib/components/MediaWindow.svelte";
   import Weather from "$lib/components/Weather.svelte";
@@ -195,11 +196,12 @@
     {/if}
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
-      <div class="grid grid-cols-2 gap-5">
+      <Apps />
+      <!-- <div class="grid grid-cols-2 gap-5">
         {#each NAV_ITEMS as item}
           <AppIcon icon={item} />
         {/each}
-      </div>
+      </div> -->
     </div>
 
     <Weather />

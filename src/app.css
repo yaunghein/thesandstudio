@@ -58,6 +58,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.sand-transition {
+  @apply transition duration-300 ease-out;
+}
+
 .range::-webkit-slider-runnable-track {
   @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
 }
