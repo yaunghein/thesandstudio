@@ -68,18 +68,13 @@
 </script>
 
 {#if weather}
-  <div
-    class="fixed bottom-[3.75rem] left-[3.75rem] dark:text-light-100 border-3 border-light-100 dark:border-light-10 rounded-3xl p-6"
-  >
-    <div
-      class="absolute rounded-3xl inset-0 w-full h-full bg-light-100 dark:bg-light-10 opacity-sand"
-    />
-    <div class="flex gap-10">
-      <div class="flex flex-col items-center justify-end">
-        <div class="w-44 aspect-square -mt-3">
+  <div class="relative">
+    <div class="relative flex gap-10">
+      <div class="flex flex-col items-center justify-start">
+        <div class="w-24 aspect-square -mt-3">
           <IconWeather />
         </div>
-        <div class="flex text-5xl leading-none gap-2">
+        <div class="flex text-4xl leading-none gap-2">
           <div>
             {unit === "C" ? weather.current.temp_c : weather.current.temp_f}
           </div>
@@ -88,20 +83,20 @@
               on:click={() => (unit = "C")}
               class={twm(
                 unit === "C"
-                  ? "text-light-10 dark:text-light-100"
-                  : "text-light-50",
+                  ? "text-black dark:text-white"
+                  : "text-light-80 dark:text-light-25",
                 "transition",
               )}
             >
               °C
             </button>
-            <div class="w-[0.25rem] h-10 shrink-0 bg-light-50 -mt-1"></div>
+            <div class="w-[0.25rem] h-8 shrink-0 bg-light-80 -mt-1"></div>
             <button
               on:click={() => (unit = "F")}
               class={twm(
                 unit === "F"
-                  ? "text-light-10 dark:text-light-100"
-                  : "text-light-50",
+                  ? "text-black dark:text-white"
+                  : "text-light-80 dark:text-light-25",
                 "transition",
               )}
             >
@@ -111,7 +106,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-0">
+      <div class="flex flex-col gap-2">
         <div class="text-[1.375rem]">
           <div class="flex gap-2">
             <span class="leading-none" use:time>00:00</span>
@@ -119,7 +114,9 @@
           <div class="leading-none mt-2">{weather.current.condition.text}</div>
         </div>
 
-        <div class="text-light-50 text-[1.375rem] mt-auto flex flex-col gap-2">
+        <div
+          class="text-black dark:text-white text-[1.375rem] flex flex-col gap-2"
+        >
           <div class="flex items-center gap-1">
             <span class="leading-none">Precipitation:</span>
             <span class="leading-none">{weather.current.precip_in} in</span>
@@ -139,15 +136,24 @@
         {#each Object.keys(LOCATIONS) as location}
           <button
             on:click={() => (selectedLocation = location)}
-            class="flex items-center gap-2"
+            class="flex items-center gap-2 leading-none"
           >
             <div
               class={twm(
                 selectedLocation !== location && "opacity-0",
-                "shrink-0 w-[6px] aspect-square rounded-full bg-light-10 dark:bg-light-100",
+                "shrink-0 w-[6px] aspect-square rounded-full bg-light-10 dark:bg-light-100 sand-transition",
               )}
             />
-            <div class="leading-none text-[1.375rem]">{location}</div>
+            <div
+              class={twm(
+                "text-[1.375rem] sand-transition",
+                selectedLocation === location
+                  ? "text-black dark:text-white"
+                  : "text-light-80 dark:text-light-25",
+              )}
+            >
+              {location}
+            </div>
           </button>
         {/each}
       </div>

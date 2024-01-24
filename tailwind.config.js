@@ -23,6 +23,7 @@ export default {
     extend: {
       colors: {
         light: {
+          7: "hsl(0, 0%, 7%)",
           10: "hsl(0, 0%, 9%)",
           12: "hsl(0, 0%, 12%)",
           20: "hsl(0, 0%, 20%)",

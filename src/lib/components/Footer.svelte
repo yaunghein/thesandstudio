@@ -27,19 +27,10 @@
   class="relative z-[10] text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
   <div
-    class="absolute inset-0 w-full h-full bg-light-100 dark:bg-light-10 opacity-0"
-  ></div>
-  <!-- <footer
-  use:clickOutside={{
-    callback: () => {
-      isOpen = false;
-      CursorType.set("normal");
-    },
-  }}
-  class="relative z-[1000000] bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
-> -->
+    class="absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-50"
+  />
   <div
-    class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl transition-all"
+    class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl sand-transition"
   >
     {#if !isOpen}
       <span class="absolute top-0 left-1/2 -translate-x-1/2">
@@ -51,23 +42,25 @@
         isOpen = !isOpen;
         CursorType.set("normal");
       }}
-      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all"
+      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-3 border-b-0 border-white dark:border-light-12 transition-all"
     >
-      <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
-        <svg
-          width="50"
-          height="18"
-          viewBox="0 0 50 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-3"
-        >
-          <path
-            d="M25.0002 0L49.2489 18H0.751465L25.0002 0Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
+      {#if !isOpen}
+        <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
+          <svg
+            width="50"
+            height="18"
+            viewBox="0 0 50 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-3"
+          >
+            <path
+              d="M25.0002 0L49.2489 18H0.751465L25.0002 0Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      {/if}
     </button>
   </div>
   <!-- h-[33.75rem] -->

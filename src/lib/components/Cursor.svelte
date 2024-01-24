@@ -88,8 +88,11 @@
   class="pointer-events-none select-none fixed top-0 z-[100000000000000000] rounded-full overflow-hidden w-10 h-10"
 >
   <div
-    class="relative text-light-100 dark:text-light-10 bg-light-10 dark:bg-light-100 flex items-center justify-center text-5xl w-full h-full"
+    class="relative text-black dark:text-white border-3 border-white dark:border-light-12 rounded-full overflow-hidden flex items-center justify-center text-5xl w-full h-full"
   >
+    <div
+      class="absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-90"
+    />
     {#if $CursorType === "contact"}
       <a
         href="mailto:hi@thesandstudio.com"

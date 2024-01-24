@@ -2,7 +2,7 @@
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
   import { Application } from "@splinetool/runtime";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player"; // more performance
   import lottie from "lottie-web";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
@@ -174,17 +174,39 @@
       </div>
     {/if}
 
-    <div class="absolute top-12 left-12 select-none">
-      <div use:sandTextLottie class="dark:invert w-[31.5rem]"></div>
-      <p class="mb-4 text-xl max-w-[31rem]">
-        We are a multi-disciplinary design studio and a collection of curious
-        makers, doers and thinkers, that study the practices of Architecture,
-        Design, Motion and Code.
-        <br />
-        <br />
-        SAND collaborates with amazing people to create meaningful work through meaningful
-        relationships.
+    <div class="text-[1.375rem] fixed top-32 left-16 select-none">
+      <p class="max-w-[32rem] leading-[1.35]">
+        Yeah... We do shit. Come make amazing shits with us. Any type of shit
+        but probably email first. Join us in harnessing a diverse spectrum of
+        minds and voices to catalyze unprecedented shits. Let thy shit hit thy
+        fan.
       </p>
+      <div use:sandTextLottie class="dark:invert max-w-[32rem] h-[16rem]" />
+
+      <div class="min-h-[10.8rem]">
+        <Weather />
+      </div>
+
+      <div class="mt-12 flex flex-col gap-2">
+        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+          Privacy Policy
+        </a>
+        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+          Terms and Conditions
+        </a>
+        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+          Cookie Policy
+        </a>
+        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+          Made by The Sand Studio {new Date().getFullYear()}
+        </a>
+      </div>
+
+      <div
+        class="rounded-full px-4 py-3 w-80 text-green-500 dark:text-white dark:bg-green-500 border-3 border-green-500 text-center mt-16"
+      >
+        0.3g of CO2 /view
+      </div>
     </div>
 
     {#if $SelectedBackground?.name !== "Sand Dunes"}
@@ -197,14 +219,7 @@
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
       <Apps />
-      <!-- <div class="grid grid-cols-2 gap-5">
-        {#each NAV_ITEMS as item}
-          <AppIcon icon={item} />
-        {/each}
-      </div> -->
     </div>
-
-    <Weather />
 
     <Dock />
 
