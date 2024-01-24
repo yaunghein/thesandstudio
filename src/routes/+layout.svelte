@@ -3,6 +3,7 @@
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import Cursor from "$lib/components/Cursor.svelte";
+  import Grains from "$lib/components/Grains.svelte";
 
   export let data;
 
@@ -28,3 +29,4 @@
 
 <slot />
 <Cursor />
+<Grains />
