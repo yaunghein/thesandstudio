@@ -51,7 +51,7 @@
         isOpen = !isOpen;
         CursorType.set("normal");
       }}
-      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all border-3 border-b-0 border-red-500"
+      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-100 dark:bg-light-10 text-light dark:text-dark transition-all"
     >
       <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
         <svg

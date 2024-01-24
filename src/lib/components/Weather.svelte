@@ -69,8 +69,11 @@
 
 {#if weather}
   <div
-    class="fixed bottom-[3.75rem] left-[3.75rem] dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-90 dark:border-light-25 rounded-3xl p-6"
+    class="fixed bottom-[3.75rem] left-[3.75rem] dark:text-light-100 border-3 border-light-100 dark:border-light-10 rounded-3xl p-6"
   >
+    <div
+      class="absolute rounded-3xl inset-0 w-full h-full bg-light-100 dark:bg-light-10 opacity-sand"
+    />
     <div class="flex gap-10">
       <div class="flex flex-col items-center justify-end">
         <div class="w-44 aspect-square -mt-3">
