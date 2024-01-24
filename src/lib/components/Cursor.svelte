@@ -85,7 +85,10 @@
 
 <div
   id="cursor"
-  class="pointer-events-none select-none fixed top-0 z-[100000000000000000] rounded-full overflow-hidden w-10 h-10"
+  class={twm(
+    "pointer-events-none select-none fixed top-0 z-[100000000] rounded-full overflow-hidden w-10 h-10",
+    $CursorType !== "contact" && "mix-blend-difference dark:invert",
+  )}
 >
   <div
     class="relative text-black dark:text-white border-3 border-white dark:border-light-12 rounded-full overflow-hidden flex items-center justify-center text-5xl w-full h-full"

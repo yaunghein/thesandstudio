@@ -40,6 +40,7 @@ export default {
         "sand-red": "#E85851",
         "sand-blue": "#001AFF",
         "sand-yellow": "#E2B53E",
+        "sand-green": "#66E5B0",
       },
       width: {
         "shell-desktop": "80rem",

@@ -6,7 +6,6 @@
   import lottie from "lottie-web";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
-  import AppIcon from "$lib/components/AppIcon.svelte";
   import Apps from "$lib/components/Apps.svelte";
   import Finder from "$lib/components/Finder.svelte";
   import MediaWindow from "$lib/components/MediaWindow.svelte";
@@ -129,116 +128,115 @@
   };
 </script>
 
-<div>
-  <AppShell>
-    {#if $SelectedBackground?.name === "Sand Dunes"}
-      <div class="sticky top-0 bottom-0 h-screen">
-        <canvas use:create3DBackground></canvas>
-      </div>
-    {/if}
+<AppShell>
+  {#if $SelectedBackground?.name === "Sand Dunes"}
+    <div class="sticky top-0 bottom-0 h-screen">
+      <canvas use:create3DBackground></canvas>
+    </div>
+  {/if}
 
-    {#if browser && $SelectedBackground?.name === "Legacy"}
-      <div class="dark:invert opacity-50">
-        <LottiePlayer
-          src="/images/backgrounds/morph-archi.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          width="100%"
-          controls=""
-          controlLayout=""
-        />
-        <LottiePlayer
-          src="/images/backgrounds/morph-motion.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          controls=""
-          controlLayout=""
-        />
-        <LottiePlayer
-          src="/images/backgrounds/morph-design.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          width="100%"
-          controls=""
-          controlLayout=""
-        />
-      </div>
-    {/if}
+  {#if browser && $SelectedBackground?.name === "Legacy"}
+    <div class="dark:invert opacity-50">
+      <LottiePlayer
+        src="/images/backgrounds/morph-archi.json"
+        autoplay={true}
+        loop={true}
+        renderer="svg"
+        background="transparent"
+        height="${100 / 3}%"
+        width="100%"
+        controls=""
+        controlLayout=""
+      />
+      <LottiePlayer
+        src="/images/backgrounds/morph-motion.json"
+        autoplay={true}
+        loop={true}
+        renderer="svg"
+        background="transparent"
+        height="${100 / 3}%"
+        controls=""
+        controlLayout=""
+      />
+      <LottiePlayer
+        src="/images/backgrounds/morph-design.json"
+        autoplay={true}
+        loop={true}
+        renderer="svg"
+        background="transparent"
+        height="${100 / 3}%"
+        width="100%"
+        controls=""
+        controlLayout=""
+      />
+    </div>
+  {/if}
 
-    <div class="text-[1.375rem] fixed top-32 left-16 select-none">
-      <p class="max-w-[32rem] leading-[1.35]">
-        Yeah... We do shit. Come make amazing shits with us. Any type of shit
-        but probably email first. Join us in harnessing a diverse spectrum of
-        minds and voices to catalyze unprecedented shits. Let thy shit hit thy
-        fan.
-      </p>
-      <div use:sandTextLottie class="dark:invert max-w-[32rem] h-[16rem]" />
+  <div class="text-[1.375rem] fixed top-32 left-16 select-none">
+    <p class="max-w-[32rem] leading-[1.35]">
+      Yeah... We do shit. Come make amazing shits with us. Any type of shit but
+      probably email first. Join us in harnessing a diverse spectrum of minds
+      and voices to catalyze unprecedented shits. Let thy shit hit thy fan.
+    </p>
+    <div use:sandTextLottie class="dark:invert max-w-[32rem] h-[16rem]" />
 
-      <div class="min-h-[10.8rem]">
-        <Weather />
-      </div>
-
-      <div class="mt-12 flex flex-col gap-2">
-        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
-          Privacy Policy
-        </a>
-        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
-          Terms and Conditions
-        </a>
-        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
-          Cookie Policy
-        </a>
-        <a href="/" class="text-light-80 dark:text-light-25 leading-none">
-          Made by The Sand Studio {new Date().getFullYear()}
-        </a>
-      </div>
-
-      <div
-        class="rounded-full px-4 py-3 w-80 text-green-500 dark:text-white dark:bg-green-500 border-3 border-green-500 text-center mt-16"
-      >
-        0.3g of CO2 /view
-      </div>
+    <div class="min-h-[10.8rem]">
+      <Weather />
     </div>
 
-    {#if $SelectedBackground?.name !== "Sand Dunes"}
-      <div
-        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
-      >
-        <Logo />
-      </div>
-    {/if}
-
-    <div class="absolute top-12 right-12 flex gap-5 z-[2]">
-      <Apps />
+    <div class="mt-12 flex flex-col gap-2">
+      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+        Privacy Policy
+      </a>
+      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+        Terms and Conditions
+      </a>
+      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+        Cookie Policy
+      </a>
+      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+        Made by The Sand Studio {new Date().getFullYear()}
+      </a>
     </div>
 
-    <Dock />
+    <a
+      href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
+      target="_black"
+      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-3 border-sand-green text-center mt-16"
+    >
+      0.25g of CO2 /view
+    </a>
+  </div>
 
-    {#if isSandScanOpen}
-      <SandScan />
-    {/if}
+  {#if $SelectedBackground?.name !== "Sand Dunes"}
+    <div
+      class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
+    >
+      <Logo />
+    </div>
+  {/if}
 
-    {#if isFinderOpen}
-      <Finder />
-    {/if}
+  <div class="absolute top-12 right-12 flex gap-5 z-[2]">
+    <Apps />
+  </div>
 
-    {#if isBackgroundsOpen}
-      <Backgrounds />
-    {/if}
+  <Dock />
 
-    {#if openMediaFiles.length > 0}
-      {#each openMediaFiles as file, index}
-        <MediaWindow {file} {index} />
-      {/each}
-    {/if}
-  </AppShell>
-</div>
+  {#if isSandScanOpen}
+    <SandScan />
+  {/if}
+
+  {#if isFinderOpen}
+    <Finder />
+  {/if}
+
+  {#if isBackgroundsOpen}
+    <Backgrounds />
+  {/if}
+
+  {#if openMediaFiles.length > 0}
+    {#each openMediaFiles as file, index}
+      <MediaWindow {file} {index} />
+    {/each}
+  {/if}
+</AppShell>
