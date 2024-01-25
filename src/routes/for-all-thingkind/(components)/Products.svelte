@@ -20,7 +20,9 @@
     {#each products as product}
       <a href={product.link}>
         <div class="overflow-hidden">
-          <div class="relative px-3 py-5 border-3 border-white -mx-[0.1rem]">
+          <div
+            class="relative px-3 py-5 border-3 border-white dark:border-light-12 -mx-[0.1rem]"
+          >
             <div class="blur-layer" />
             <span class="block relative text-3xl">{product.label}</span>
           </div>
@@ -28,11 +30,13 @@
         <div
           class="relative w-full aspect-[1.4/1] overflow-hidden bg-[#4A3326]"
         >
-          <img
-            src={product.image}
-            alt=""
-            class="w-full h-full object-cover scale-[1.01]"
-          />
+          {#if product.image}
+            <img
+              src={product.image}
+              alt=""
+              class="w-full h-full object-cover scale-[1.01]"
+            />
+          {/if}
         </div>
       </a>
     {/each}
@@ -42,7 +46,9 @@
       on:mouseleave={() => CursorType.set("normal")}
     >
       <div class="overflow-hidden">
-        <div class="relative px-3 py-5 border-3 border-white -mx-[0.1rem]">
+        <div
+          class="relative px-3 py-5 border-3 border-white dark:border-light-12 -mx-[0.1rem]"
+        >
           <div class="blur-layer" />
           <span class="block relative text-3xl">2024</span>
         </div>

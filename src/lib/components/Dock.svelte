@@ -2,6 +2,7 @@
   import { gsap, Power4 } from "gsap";
   import { goto } from "$app/navigation";
   import lottie from "lottie-web";
+  import { changeCursorType } from "$lib/stores/cursor";
   import LabelExplorer from "$lib/svgs/LabelExplorer.svelte";
   import type { AppIcon as TAppIcon } from "$lib/types";
   import { addShell, removeShell } from "$lib/stores/shell";
@@ -85,6 +86,7 @@
 
 <div
   use:magnify
+  use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
   class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 border-3 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
 >
   <div

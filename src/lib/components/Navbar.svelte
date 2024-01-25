@@ -1,6 +1,5 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import Logo from "$lib/svgs/Logo.svelte";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
 
   const PAGE_NAMES_MAP: Record<string, string> = {
