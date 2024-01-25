@@ -24,6 +24,10 @@ declare global {
     grainWidth: number;
     grainHeight: number;
   }
+
+  interface Document {
+    startViewTransition: (updateCallback: () => Promise<void>) => void;
+  }
 }
 
 export {};
