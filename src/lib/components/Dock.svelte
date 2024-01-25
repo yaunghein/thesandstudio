@@ -2,10 +2,6 @@
   import { gsap, Power4 } from "gsap";
   import { goto } from "$app/navigation";
   import lottie from "lottie-web";
-  import IconChild from "$lib/svgs/IconChild.svelte";
-  import IconExplorer from "$lib/svgs/IconExplorer.svelte";
-  import IconBackground from "$lib/svgs/IconBackground.svelte";
-  import IconContact from "$lib/svgs/IconContact.svelte";
   import LabelExplorer from "$lib/svgs/LabelExplorer.svelte";
   import type { AppIcon as TAppIcon } from "$lib/types";
   import { addShell, removeShell } from "$lib/stores/shell";
@@ -60,35 +56,6 @@
     }
   };
 
-  // delete later
-  const NAV_ITEMS: TAppIcon[] = [
-    {
-      label: "Child",
-      image: IconChild,
-      handleClick: () => goto("/child"),
-    },
-    {
-      label: "Explorer",
-      image: IconExplorer,
-      handleClick: () => addShell({ id: "finder", zIndex: 65 }),
-    },
-    {
-      label: "Backgrounds",
-      image: IconBackground,
-      handleClick: () => addShell({ id: "backgrounds", zIndex: 65 }),
-    },
-    {
-      label: "Contact",
-      image: IconContact,
-      handleClick: () => {
-        removeShell("finder");
-        addShell({ id: "finder", zIndex: 65 });
-        openContactTab();
-        setTimeout(() => document.getElementById("Inquiry")?.click(), 0); // kind of bad thing :/
-      },
-    },
-  ];
-
   const playLottieOnHover = (node: HTMLDivElement, path: string) => {
     const player = lottie.loadAnimation({
       container: node,
@@ -121,7 +88,7 @@
   class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 border-3 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
 >
   <div
-    class="absolute rounded-3xl inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"
+    class="absolute rounded-[1.3rem] inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"
   />
   <!-- ########## Child ########## -->
   <button

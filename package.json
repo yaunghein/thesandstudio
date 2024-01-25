@@ -25,9 +25,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@lottiefiles/lottie-interactivity": "^1.6.2",
 		"@lottiefiles/svelte-lottie-player": "^0.3.0",
-		"@splinetool/runtime": "^0.9.508",
+		"@splinetool/runtime": "^1.0.34",
 		"@supabase/auth-helpers-sveltekit": "^0.10.3",
 		"@supabase/supabase-js": "^2.38.1",
 		"gsap": "^3.12.2",

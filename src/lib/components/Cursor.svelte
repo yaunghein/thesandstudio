@@ -97,13 +97,12 @@
       class="absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-90"
     />
     {#if $CursorType === "contact"}
-      <a
-        href="mailto:hi@thesandstudio.com"
+      <div
         transition:scale
         class="whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         hi@thesandstudio.com
-      </a>
+      </div>
     {/if}
     {#if $CursorType === "footer-close"}
       <div

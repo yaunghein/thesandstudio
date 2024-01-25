@@ -4,6 +4,7 @@
   import { Application } from "@splinetool/runtime";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
+  import { twMerge as twm } from "tailwind-merge";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
@@ -21,6 +22,8 @@
     FilePreview,
   } from "$lib/stores/finder";
   import type { AppIcon as TAppIcon } from "$lib/types";
+  import AppIcon from "$lib/components/AppIcon.svelte";
+  import ButtonClose from "$lib/components/ButtonClose.svelte";
 
   export let data;
 
@@ -39,29 +42,42 @@
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
 
   let spline: any;
+  let isSplineLoaded = false;
+  let isSplineThemeChangeComplete = false;
+
+  const clickWebThemeSwitcher = (e: any) => {
+    if (e.target.name === "Logo") {
+      (document.querySelector("#theme-switcher") as HTMLElement)?.click();
+    }
+  };
   const create3DBackground = (node: HTMLCanvasElement) => {
     spline = new Application(node);
     spline
       .load("https://prod.spline.design/5rPaPRxD6nId8tp7/scene.splinecode")
-      // .load("https://prod.spline.design/VTpVNzKWHkIl-K3I/scene.splinecode")
       .then(() => {
-        // console.log(spline.getSplineEvents());
-        spline.addEventListener("mouseDown", (e: any) => {
-          console.log(e.target.name);
-          if (e.target.name === "Logo") {
-            document.getElementById("dark-btn")?.click();
-          }
-        });
+        isSplineLoaded = true;
+        spline.addEventListener("mouseDown", clickWebThemeSwitcher);
       });
   };
 
-  const handleFinderIconClick = (fn: () => void) => {
-    // might need to debug later to handle FilePreviewHistory and HistoryIndex
-    FilePreview.set(undefined);
-    removeShell("finder");
-    addShell({ id: "finder", zIndex: 65 });
-    fn();
-  };
+  $: if ($SelectedBackground) {
+    if (browser) {
+      const hasSpline = !!spline;
+      const is3DBg = $SelectedBackground.name === "Sand Dunes";
+      const isLightMode = localStorage.getItem("sand-theme") === "light";
+
+      if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
+        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+      }
+
+      if (hasSpline && is3DBg && isLightMode && isSplineLoaded) {
+        spline.removeEventListener("mouseDown", clickWebThemeSwitcher);
+        spline.emitEvent("mouseDown", "Logo");
+        spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+      }
+    }
+  }
 
   const sandTextLottie = (node: HTMLDivElement) => {
     const player = lottie.loadAnimation({
@@ -94,7 +110,14 @@
 
 <AppShell>
   {#if $SelectedBackground?.name === "Sand Dunes"}
-    <div class="sticky top-0 bottom-0 h-screen">
+    <div
+      class={twm(
+        "sticky top-0 bottom-0 h-screen sand-transition",
+        isSplineLoaded && isSplineThemeChangeComplete
+          ? "opacity-100"
+          : "opacity-0",
+      )}
+    >
       <canvas use:create3DBackground></canvas>
     </div>
   {/if}
@@ -172,13 +195,14 @@
     </a>
   </div>
 
-  {#if $SelectedBackground?.name !== "Sand Dunes"}
-    <div
-      class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
-    >
-      <Logo />
-    </div>
-  {/if}
+  <div
+    class={twm(
+      "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
+      $SelectedBackground?.name === "Sand Dunes" && "hidden",
+    )}
+  >
+    <Logo />
+  </div>
 
   <div class="absolute top-12 right-12 flex gap-5 z-[2]">
     <Apps />

@@ -79,8 +79,11 @@
   });
 </script>
 
-<button id="dark-btn" class="hidden" on:click={switchMode}>Test</button>
-<button on:click={switchMode} class="w-full h-full dark:invert">
+<button
+  id="theme-switcher"
+  on:click|stopPropagation={switchMode}
+  class="w-full h-full dark:invert"
+>
   <svg
     id="logo"
     width="100%"
