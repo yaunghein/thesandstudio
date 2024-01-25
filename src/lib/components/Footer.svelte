@@ -1,6 +1,7 @@
 <script lang="ts">
   // footer transparent might take time
   import { browser } from "$app/environment";
+  import { page } from "$app/stores";
   import gsap from "gsap";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import { twMerge as twm } from "tailwind-merge";
@@ -27,13 +28,11 @@
   }}
   class="relative z-[10] text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
-  <div
-    class="absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-50"
-  />
+  <div class="blur-layer" />
   <div
     class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl sand-transition"
   >
-    {#if !isOpen}
+    {#if !isOpen && $page.url.pathname === "/"}
       <span class="absolute top-0 left-1/2 -translate-x-1/2">
         ©2023 The Sand Studio
       </span>

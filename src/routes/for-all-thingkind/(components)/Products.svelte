@@ -16,27 +16,43 @@
 </script>
 
 <section class="grow">
-  <div class="px-12 p-4 pb-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-3">
     {#each products as product}
-      <div
-        class="relative w-full aspect-[1/0.765] rounded-3xl overflow-hidden bg-[#D1C2B0]"
-      >
-        <img src={product.image} alt="" class="w-full h-full object-cover" />
-        <a
-          href={product.link}
-          class="absolute top-3 left-3 right-3 h-10 grid place-items-center bg-light-100 dark:bg-light-10 text-light-10 dark:text-light-100 rounded-xl text-xl font-sand-medium"
+      <a href={product.link}>
+        <div class="overflow-hidden">
+          <div class="relative px-3 py-5 border-3 border-white -mx-[0.1rem]">
+            <div class="blur-layer" />
+            <span class="block relative text-3xl">{product.label}</span>
+          </div>
+        </div>
+        <div
+          class="relative w-full aspect-[1.4/1] overflow-hidden bg-[#4A3326]"
         >
-          {product.label}
-        </a>
-      </div>
+          <img
+            src={product.image}
+            alt=""
+            class="w-full h-full object-cover scale-[1.01]"
+          />
+        </div>
+      </a>
     {/each}
     <a
       href="mailto:hi@thesandstudio.com"
       on:mouseenter={() => CursorType.set("contact")}
       on:mouseleave={() => CursorType.set("normal")}
-      class="relative w-full aspect-[1/0.765] rounded-3xl overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
     >
-      <span class="text-4xl font-sand-medium">Do you have an idea?</span>
+      <div class="overflow-hidden">
+        <div class="relative px-3 py-5 border-3 border-white -mx-[0.1rem]">
+          <div class="blur-layer" />
+          <span class="block relative text-3xl">2024</span>
+        </div>
+      </div>
+
+      <div
+        class="relative w-full aspect-[1.4/1] overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
+      >
+        <span class="text-4xl font-sand-medium">Do you have an idea?</span>
+      </div>
     </a>
   </div>
 </section>

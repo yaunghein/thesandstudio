@@ -159,7 +159,7 @@
     </div>
   {/if}
 
-  <div class="text-[1.375rem] fixed top-32 left-16 select-none">
+  <div class="text-[1.375rem] absolute top-12 left-12 select-none">
     <p class="max-w-[32rem] leading-[1.35]">
       Yeah... We do shit. Come make amazing shits with us. Any type of shit but
       probably email first. Join us in harnessing a diverse spectrum of minds

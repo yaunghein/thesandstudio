@@ -62,6 +62,10 @@ input[type="number"] {
   @apply transition duration-300 ease-out;
 }
 
+.blur-layer {
+  @apply absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-50;
+}
+
 .range::-webkit-slider-runnable-track {
   @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
 }
