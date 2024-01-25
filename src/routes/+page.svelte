@@ -2,7 +2,7 @@
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
   import { Application } from "@splinetool/runtime";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player"; // more performance
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
@@ -202,7 +202,7 @@
     <a
       href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
       target="_black"
-      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-3 border-sand-green text-center mt-16"
+      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-3 border-sand-green text-left mt-16"
     >
       0.25g of CO2 /view
     </a>
