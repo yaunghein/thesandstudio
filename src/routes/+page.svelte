@@ -48,7 +48,7 @@
         // console.log(spline.getSplineEvents());
         spline.addEventListener("mouseDown", (e: any) => {
           console.log(e.target.name);
-          if (e.target.name === "Ellipse") {
+          if (e.target.name === "Logo") {
             document.getElementById("dark-btn")?.click();
           }
         });
@@ -62,42 +62,6 @@
     addShell({ id: "finder", zIndex: 65 });
     fn();
   };
-
-  const NAV_ITEMS: TAppIcon[] = [
-    {
-      label: "SAND Scan",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => addShell({ id: "sand-scan", zIndex: 65 }),
-    },
-    {
-      label: "For All Thingkind",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => goto("/for-all-thingkind"),
-    },
-    {
-      label: "Works",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => goto("/works"),
-    },
-    {
-      label: "Not Works",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => goto("/not-works"),
-    },
-    {
-      label: "Archives",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => handleFinderIconClick(openArchiveTab),
-    },
-    {
-      label: "About",
-      lottie: "lotties/icon-sand-scan.json",
-      handleClick: () => {
-        handleFinderIconClick(openAboutTab);
-        setTimeout(() => document.getElementById("We are SAND")?.click(), 0); // kind of bad thing :/
-      },
-    },
-  ];
 
   const sandTextLottie = (node: HTMLDivElement) => {
     const player = lottie.loadAnimation({

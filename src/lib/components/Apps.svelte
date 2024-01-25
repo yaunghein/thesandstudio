@@ -35,7 +35,8 @@
   </button>
 
   <!-- ########## For All Thingkind ########## -->
-  <button
+  <a
+    href="/for-all-thingkind"
     class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
@@ -47,7 +48,7 @@
     >
       <div use:playLottie={"lotties/fatk.json"} />
     </div>
-  </button>
+  </a>
 
   <!-- ########## Works ########## -->
   <button

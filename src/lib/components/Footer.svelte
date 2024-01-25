@@ -1,4 +1,5 @@
 <script lang="ts">
+  // footer transparent might take time
   import { browser } from "$app/environment";
   import gsap from "gsap";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
