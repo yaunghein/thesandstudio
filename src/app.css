@@ -42,6 +42,7 @@ html {
 
 body {
   overscroll-behavior: none;
+  height: 100%;
 }
 
 .hide-scrollbar {

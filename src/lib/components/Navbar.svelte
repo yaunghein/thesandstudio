@@ -4,10 +4,10 @@
 
   const PAGE_NAMES_MAP: Record<string, string> = {
     "/": "",
-    "/for-all-thingkind": "For All Thingkind",
-    "/child": "CHILD*",
-    "/works": "WORKS",
-    "/not-works": "Not Works",
+    "/for-all-thingkind/": "For All Thingkind",
+    "/child/": "CHILD*",
+    "/works/": "WORKS",
+    "/not-works/": "Not Works",
   };
 </script>
 

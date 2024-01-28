@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CursorType } from "$lib/stores/cursor";
+  import { changeCursorType } from "$lib/stores/cursor";
 
   const products = [
     {
@@ -42,8 +42,7 @@
     {/each}
     <a
       href="mailto:hi@thesandstudio.com"
-      on:mouseenter={() => CursorType.set("contact")}
-      on:mouseleave={() => CursorType.set("normal")}
+      use:changeCursorType={{ inType: "contact", outType: "normal" }}
     >
       <div class="overflow-hidden">
         <div
