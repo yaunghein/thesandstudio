@@ -44,12 +44,13 @@ export default {
       },
       width: {
         "shell-desktop": "80rem",
+        line: "0.125rem",
       },
       height: {
         "shell-desktop": "56rem",
       },
       opacity: {
-        sand: "0.5",
+        sand: "0.6",
       },
     },
   },
