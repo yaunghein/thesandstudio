@@ -162,7 +162,10 @@
 
   <!-- ########## Contact ########## -->
   <button
-    on:click={openContactTab}
+    on:click={() => {
+      addShell({ id: "finder", zIndex: 65 });
+      openContactTab();
+    }}
     class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div

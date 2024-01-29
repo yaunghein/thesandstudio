@@ -13,17 +13,10 @@
   import Weather from "$lib/components/Weather.svelte";
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
+  import Child from "$lib/components/Child.svelte";
   import Logo from "$lib/svgs/Logo.svelte";
-  import { OpenShells, addShell, removeShell } from "$lib/stores/shell";
+  import { OpenShells } from "$lib/stores/shell";
   import { SelectedBackground } from "$lib/stores/background";
-  import {
-    openArchiveTab,
-    openAboutTab,
-    FilePreview,
-  } from "$lib/stores/finder";
-  import type { AppIcon as TAppIcon } from "$lib/types";
-  import AppIcon from "$lib/components/AppIcon.svelte";
-  import ButtonClose from "$lib/components/ButtonClose.svelte";
 
   export let data;
 
@@ -224,7 +217,7 @@
   {/if}
 
   {#if isChildOpen}
-    <div class="fixed top-96 left-96 w-96 h-96 bg-sky-500"></div>
+    <Child />
   {/if}
 
   {#if openMediaFiles.length > 0}

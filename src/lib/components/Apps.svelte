@@ -22,7 +22,7 @@
     />
 
     <div
-      class="w-28 absolute group-hover:scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[125%] sand-transition"
+      class="w-28 mix-blend-multiply group-hover:mix-blend-screen dark:mix-blend-screen dark:group-hover:mix-blend-multiply absolute group-hover:scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[125%] sand-transition"
     >
       <div use:playLottie={"lotties/sand-scan.json"} />
     </div>
@@ -100,7 +100,7 @@
     />
 
     <div
-      class="w-28 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[10%] group-hover:-translate-y-[90%] sand-transition"
+      class="w-28 mix-blend-multiply group-hover:mix-blend-screen dark:mix-blend-screen dark:group-hover:mix-blend-multiply absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[10%] group-hover:-translate-y-[90%] sand-transition"
     >
       <div use:playLottie={"lotties/archives.json"} />
     </div>
