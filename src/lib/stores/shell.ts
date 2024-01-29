@@ -3,7 +3,7 @@ import type { Writable } from "svelte/store";
 
 import type { File } from "./finder";
 
-export type AppId = "sand-scan" | "finder" | "something";
+export type AppId = "sand-scan" | "finder" | "child";
 
 // TODO: change shell naming to window
 export type OpenShell = {

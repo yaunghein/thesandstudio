@@ -4,8 +4,7 @@
   import lottie from "lottie-web";
   import { changeCursorType } from "$lib/stores/cursor";
   import LabelExplorer from "$lib/svgs/LabelExplorer.svelte";
-  import type { AppIcon as TAppIcon } from "$lib/types";
-  import { addShell, removeShell } from "$lib/stores/shell";
+  import { addShell } from "$lib/stores/shell";
   import { openContactTab } from "$lib/stores/finder";
 
   const magnify = (node: HTMLElement) => {
@@ -94,7 +93,7 @@
   />
   <!-- ########## Child ########## -->
   <button
-    on:click={() => goto("/child")}
+    on:click={() => addShell({ id: "child", zIndex: 65 })}
     class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
@@ -163,7 +162,7 @@
 
   <!-- ########## Contact ########## -->
   <button
-    on:click={() => addShell({ id: "backgrounds", zIndex: 65 })}
+    on:click={openContactTab}
     class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div

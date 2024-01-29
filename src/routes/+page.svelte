@@ -40,6 +40,7 @@
     (shell) => shell.id === "backgrounds",
   );
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
+  $: isChildOpen = $OpenShells.find((shell) => shell.id === "child");
 
   let spline: any;
   let isSplineLoaded = false;
@@ -220,6 +221,10 @@
 
   {#if isBackgroundsOpen}
     <Backgrounds />
+  {/if}
+
+  {#if isChildOpen}
+    <div class="fixed top-96 left-96 w-96 h-96 bg-sky-500"></div>
   {/if}
 
   {#if openMediaFiles.length > 0}

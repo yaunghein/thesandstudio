@@ -31,7 +31,7 @@
   >
     <div class="blur-layer" />
 
-    <div class="absolute inset-0 flex gap-10 -ml-[0.5rem]">
+    <div class="absolute inset-0 flex gap-10 -ml-[0.5rem] opacity-sand">
       {#each [...Array(100).keys()] as _}
         <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
       {/each}
