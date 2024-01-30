@@ -14,6 +14,7 @@
     FilePreviewHistory,
     FinderOpenPath,
     addHistory,
+    openArchiveTab,
   } from "$lib/stores/finder";
   import type { Tab } from "$lib/stores/finder";
   import { OpenShells, removeShell } from "$lib/stores/shell";
@@ -41,6 +42,9 @@
     };
     Tabs.subscribe(scrollColumns);
     FilePreview.subscribe(scrollColumns);
+
+    // remove this too
+    openArchiveTab();
   });
 
   onDestroy(() => {
@@ -71,25 +75,28 @@
       </div>
       <div class="flex flex-col mt-6 px-6">
         {#each $Tabs as tab}
-          <button
-            class="flex items-center gap-4 py-2"
-            on:click={() => {
-              const updatedTabs = deepClone(tabs).map((i) => ({
-                ...i,
-                isOpen: i.label === tab.label ? true : false,
-              }));
-              Tabs.set(updatedTabs);
-              FilePreview.set(undefined);
-              addHistory(updatedTabs);
-            }}
-          >
-            <div
-              class="shrink-0 w-6 h-[1.1rem] rounded border-[0.125rem] {tab.isOpen
-                ? 'bg-light-10 dark:bg-light-100 border-light-10 dark:border-light-100'
-                : 'bg-transparent border-light-70 dark:border-light-40'}"
-            />
-            <div class="text-xl">{tab.label}</div>
-          </button>
+          <!-- Remove this if block -->
+          {#if tab.label !== "Desktop"}
+            <button
+              class="flex items-center gap-4 py-2"
+              on:click={() => {
+                const updatedTabs = deepClone(tabs).map((i) => ({
+                  ...i,
+                  isOpen: i.label === tab.label ? true : false,
+                }));
+                Tabs.set(updatedTabs);
+                FilePreview.set(undefined);
+                addHistory(updatedTabs);
+              }}
+            >
+              <div
+                class="shrink-0 w-6 h-[1.1rem] rounded border-[0.125rem] {tab.isOpen
+                  ? 'bg-light-10 dark:bg-light-100 border-light-10 dark:border-light-100'
+                  : 'bg-transparent border-light-70 dark:border-light-40'}"
+              />
+              <div class="text-xl">{tab.label}</div>
+            </button>
+          {/if}
         {/each}
       </div>
 

@@ -10,7 +10,7 @@
   export let files: File[];
   export let isRecursive: boolean = false; // to have right border while only one column is opening
 
-  const MIN_FILE_COUNT = 17;
+  const MIN_FILE_COUNT = 22;
 
   $: openFolder = files?.find((file: File) => file.isOpen);
 </script>
