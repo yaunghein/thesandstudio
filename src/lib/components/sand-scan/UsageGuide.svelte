@@ -1,39 +1,69 @@
 <script>
-  import Icon from "./Icon.svelte";
-  import GuideOne from "./GuideOne.svelte";
-  import GuideTwo from "./GuideTwo.svelte";
+  import { twMerge as twm } from "tailwind-merge";
 </script>
 
-<div
-  class="bg-sand-yellow text-light-10 w-full h-full px-10 flex flex-col justify-center"
->
-  <div class="border-b border-light-10 flex items-end justify-between">
-    <div class="text-7xl font-sand-bold leading-tight">Usage Guide</div>
-    <div class="text-sm">©{new Date().getFullYear()} The Sand Studio</div>
+<div class="relative text-light-10 w-full h-full overflow-hidden">
+  <div class="absolute inset-0 w-full h-full bg-light-20 opacity-60" />
+  <div
+    class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-50 hidden dark:block"
+  />
+  <div
+    class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-20 hidden dark:block"
+  />
+
+  <div class="absolute inset-0 w-full h-full -ml-[0.4rem] -mt-[0.4rem]">
+    {#each [...Array(32).keys()] as h}
+      {#each [...Array(32).keys()] as v}
+        {@const x = v * 2.63}
+        {@const y = h * 2.63}
+        <div
+          class="shrink-0 rounded-full bg-sand-yellow opacity-90 absolute w-[0.125rem] aspect-square"
+          style="top: {y}rem; left: {x}rem;"
+        />
+      {/each}
+    {/each}
   </div>
 
-  <div class="py-3 w-full">
-    <GuideOne />
-  </div>
+  <img
+    class="relative z-20 dark:hidden w-full -mb-16 mt-10"
+    src="/images/sand-scan-usage-guide.webp"
+    alt="SAND Scan Usage Guide"
+  />
+  <img
+    class="relative z-20 hidden dark:block w-full -mb-16 mt-10"
+    src="/images/sand-scan-usage-guide-for-dark.webp"
+    alt="SAND Scan Usage Guide"
+  />
 
-  <div class="py-3 w-full border-y border-light-10">
-    <GuideTwo />
-  </div>
+  <img
+    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 top-44 left-40 w-48 h-44"
+    src="/images/sand-scan-one.gif"
+    alt=""
+  />
+  <img
+    class="opacity-100 dark:opacity-0 sand-transition absolute z-10 top-[8.2rem] right-28 w-[36rem] h-[17rem]"
+    src="/images/sand-scan-two.gif"
+    alt=""
+  />
+  <img
+    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[13.8rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    src="/images/sand-scan-three.gif"
+    alt=""
+  />
 
-  <div class="flex items-start text-xs pt-3">
-    <p class="shrink-0 max-w-[10rem] mr-24">
-      Black and white and contrasting frames produce better results.
-    </p>
-    <div class="grow">
-      <p class="max-w-[29rem]">
-        Barrier-grid animation , commonly known as scanimation, involves the use
-        of a lined overlay on a specially designed image. When the overlay moves
-        across the image, it creates an optical illusion of motion due to the
-        interaction between the lines and the underlying graphics.
-      </p>
-    </div>
-    <div class="w-14 aspect-square shrink-0">
-      <Icon />
-    </div>
-  </div>
+  <img
+    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 top-44 left-40 w-48 h-44"
+    src="/images/sand-scan-one-for-dark.gif"
+    alt=""
+  />
+  <img
+    class="opacity-0 dark:opacity-100 sand-transition absolute z-10 top-[8.2rem] right-28 w-[36rem] h-[17rem]"
+    src="/images/sand-scan-two-for-dark.gif"
+    alt=""
+  />
+  <img
+    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[13.8rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    src="/images/sand-scan-three-for-dark.gif"
+    alt=""
+  />
 </div>

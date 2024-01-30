@@ -463,10 +463,10 @@
         <canvas data-name="bars" id="bars" />
       </div>
 
-      {#if images.length > 0}
+      {#if images.length >= 0}
         <button
           on:click={reset}
-          class="shrink-0 w-20 h-9 rounded-[0.65rem] bg-sand-red absolute bottom-4 right-4 grid place-items-center text-lg font-sand-bold text-light-10"
+          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-red absolute bottom-4 right-4 grid place-items-center text-xl text-white border-2 border-white dark:border-light-12"
         >
           Reset
         </button>

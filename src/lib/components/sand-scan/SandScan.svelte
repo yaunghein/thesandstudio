@@ -1,6 +1,7 @@
 <script lang="ts">
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
+  import { twMerge as twm } from "tailwind-merge";
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
   import Scanimation from "./Scanimation.svelte";
@@ -31,7 +32,12 @@
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
     {#each [...Array(100).keys()] as _}
-      <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
+      <div
+        class={twm(
+          "shrink-0 w-line bg-white dark:bg-light-12",
+          isUsageGuideOpen ? "h-20" : "h-full",
+        )}
+      />
     {/each}
   </div>
 
@@ -45,7 +51,7 @@
       {#if isUsageGuideOpen}
         <button
           on:click={() => (isUsageGuideOpen = false)}
-          class="shrink-0 w-40 h-9 rounded-2xl bg-light-10 dark:bg-light-100 absolute top-[0.8rem] right-4 grid place-items-center text-lg font-sand-bold text-light-100 dark:text-black"
+          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow absolute top-[0.92rem] right-4 grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
         >
           Back
         </button>

@@ -39,7 +39,7 @@ export default {
         },
         "sand-red": "#F84A49",
         "sand-blue": "#001AFF",
-        "sand-yellow": "#FFC000",
+        "sand-yellow": "#FFB800",
         "sand-green": "#66E5B0",
       },
       width: {
@@ -47,7 +47,7 @@ export default {
         line: "0.125rem",
       },
       height: {
-        "shell-desktop": "50rem",
+        "shell-desktop": "57rem",
       },
       opacity: {
         sand: "0.6",
