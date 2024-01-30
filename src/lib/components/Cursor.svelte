@@ -88,17 +88,11 @@
   }
 </script>
 
-<!-- <div
-  id="cursor"
-  class={twm(
-    "pointer-events-none select-none fixed top-0 z-[100000000] w-10 h-10",
-    $CursorType !== "contact" && "mix-blend-difference dark:invert",
-  )}
-> -->
 <div
   id="cursor"
   class={twm(
     "pointer-events-none select-none fixed top-0 z-[100000000] w-10 h-10",
+    $CursorType !== "contact" && "mix-blend-difference dark:invert",
   )}
 >
   <div
