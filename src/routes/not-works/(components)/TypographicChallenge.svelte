@@ -6,9 +6,9 @@
 <div>
   <div class="overflow-hidden">
     <div
-      class="relative px-3 py-5 border-3 border-white dark:border-light-12 -mx-[0.1rem]"
+      class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
     >
-      <div class="blur-layer" />
+      <div class="transparent-layer" />
       <span class="block relative text-3xl">2022</span>
     </div>
   </div>
@@ -23,9 +23,9 @@
     </div>
 
     <div
-      class="group rounded-full absolute bottom-4 left-4 right-4 border-3 border-white dark:border-light-12 flex items-center overflow-hidden"
+      class="group rounded-full absolute bottom-4 left-4 right-4 border-2 border-white dark:border-light-12 flex items-center overflow-hidden"
     >
-      <div class="blur-layer rounded-full" />
+      <div class="transparent-layer rounded-full" />
       <div
         id="bg"
         class="absolute rounded-full bg-black dark:bg-white top-0 bottom-0 left-0 w-1/2 opacity-0 group-hover:opacity-100 sand-transition"

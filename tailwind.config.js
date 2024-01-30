@@ -37,9 +37,9 @@ export default {
           95: "hsl(0, 0%, 95%)",
           100: "hsl(34, 100%, 99%)",
         },
-        "sand-red": "#E85851",
+        "sand-red": "#F84A49",
         "sand-blue": "#001AFF",
-        "sand-yellow": "#E2B53E",
+        "sand-yellow": "#FFC000",
         "sand-green": "#66E5B0",
       },
       width: {
@@ -47,7 +47,7 @@ export default {
         line: "0.125rem",
       },
       height: {
-        "shell-desktop": "56rem",
+        "shell-desktop": "50rem",
       },
       opacity: {
         sand: "0.6",

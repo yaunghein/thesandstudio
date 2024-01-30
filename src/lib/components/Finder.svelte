@@ -61,7 +61,7 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex h-full overflow-hidden">
@@ -104,7 +104,7 @@
     </div>
 
     <div
-      class="grow overflow-hidden rounded-3xl -m-[0.1875rem] ml-0 border-3 border-light-80 dark:border-light-40"
+      class="grow overflow-hidden rounded-3xl -m-[0.1875rem] ml-0 border-2 border-light-80 dark:border-light-40"
     >
       <div class="flex items-center h-12 px-4">
         <button
@@ -137,7 +137,7 @@
       </div>
       <div
         id="columns"
-        class="flex h-[calc(100%-3rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.1875rem] mt-0 border-3 border-b-0 border-light-80 dark:border-light-40"
+        class="flex h-[calc(100%-3rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.1875rem] mt-0 border-2 border-b-0 border-light-80 dark:border-light-40"
       >
         <FinderColumns files={currentTab.files} />
         {#if $FilePreview}

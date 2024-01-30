@@ -28,13 +28,13 @@
   }}
   class="relative z-[10] text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
 >
-  <div class="blur-layer" />
+  <div class="transparent-layer" />
   <div
     class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl sand-transition"
   >
     {#if !isOpen && $page.url.pathname === "/"}
       <span class="absolute top-0 left-1/2 -translate-x-1/2">
-        ©2023 The Sand Studio
+        ©{new Date().getFullYear()} The Sand Studio
       </span>
     {/if}
     <button
@@ -42,7 +42,7 @@
         isOpen = !isOpen;
         CursorType.set("normal");
       }}
-      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-3 border-b-0 border-white dark:border-light-12 transition-all"
+      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 transition-all"
     >
       {#if !isOpen}
         <span class={twm("mt-2 transition", isOpen && "rotate-180")}>

@@ -100,7 +100,7 @@
       "relative text-black dark:text-white flex items-center justify-center text-5xl w-full h-full",
       $CursorType === "normal" || $CursorType === "a-chon-lyy"
         ? "overflow-visible rounded-none"
-        : "border-3 border-white dark:border-light-12 rounded-full overflow-hidden",
+        : "border-2 border-white dark:border-light-12 rounded-full overflow-hidden",
     )}
   >
     <div

@@ -24,7 +24,7 @@
           art, design, refined garments and contemporary culture.
         </p>
         <button
-          class="text-3xl border-3 border-light-100 py-4 px-24"
+          class="text-3xl border-2 border-light-100 py-4 px-24"
           on:click={() => window.history.back()}
         >
           Back

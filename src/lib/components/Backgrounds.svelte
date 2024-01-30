@@ -22,7 +22,7 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-light-80 dark:border-light-40"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-light-80 dark:border-light-40"
   style="z-index: {shell?.zIndex}"
 >
   <div class="flex flex-col h-full overflow-hidden">
@@ -34,7 +34,7 @@
     </div>
 
     <div
-      class="grow overflow-auto border-3 -m-[0.1875rem] border-light-80 dark:border-light-40 rounded-3xl p-6 grid grid-cols-2 gap-x-3 gap-y-6"
+      class="grow overflow-auto border-2 -m-[0.1875rem] border-light-80 dark:border-light-40 rounded-3xl p-6 grid grid-cols-2 gap-x-3 gap-y-6"
     >
       {#each $Backgrounds as bg}
         <button
@@ -55,7 +55,7 @@
             class={twm(
               "rounded-xl aspect-[1.91/1] overflow-hidden",
               bg.name === "Solid" &&
-                "border-3 border-light-80 dark:border-light-40 ",
+                "border-2 border-light-80 dark:border-light-40 ",
             )}
           >
             <img

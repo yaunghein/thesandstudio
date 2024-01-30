@@ -10,7 +10,7 @@
 
 <button
   on:click={icon.handleClick}
-  class="overflow-hidden relative group text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-3 border-white-90 dark:border-light-20 grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square"
+  class="overflow-hidden relative group text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-white-90 dark:border-light-20 grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square"
 >
   <div
     class="absolute inset-0 bg-light-10 dark:bg-light-100 opacity-0 group-hover:opacity-100 transition duration-500 ease-out"

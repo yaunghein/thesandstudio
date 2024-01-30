@@ -69,19 +69,19 @@ input[type="number"] {
   @apply transition duration-300 ease-out;
 }
 
-.blur-layer {
+.transparent-layer {
   @apply absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-50;
 }
 
 .range::-webkit-slider-runnable-track {
-  @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
+  @apply bg-black dark:bg-light-100 h-[0.125rem] rounded-none;
 }
 .range::-moz-range-track {
-  @apply bg-light-10 dark:bg-light-100 h-[0.1875rem] rounded-none;
+  @apply bg-black dark:bg-light-100 h-[0.125rem] rounded-none;
 }
 .range::-webkit-slider-thumb {
-  @apply appearance-none -mt-2 bg-light-10 dark:bg-light-100 w-5 aspect-square rounded-full;
+  @apply appearance-none -mt-[0.32rem] bg-black dark:bg-light-100 w-3 aspect-square rounded-full;
 }
 .range::-moz-slider-thumb {
-  @apply appearance-none -mt-2 bg-light-10 dark:bg-light-100 w-5 aspect-square rounded-full;
+  @apply appearance-none -mt-[0.32rem] bg-black dark:bg-light-100 w-3 aspect-square rounded-full;
 }

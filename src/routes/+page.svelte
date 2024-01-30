@@ -159,7 +159,12 @@
       probably email first. Join us in harnessing a diverse spectrum of minds
       and voices to catalyze unprecedented shits. Let thy shit hit thy fan.
     </p>
-    <div use:sandTextLottie class="dark:invert max-w-[32rem] h-[16rem]" />
+    <div class="overflow-hidden">
+      <div
+        use:sandTextLottie
+        class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
+      />
+    </div>
 
     <div class="min-h-[10.8rem]">
       <Weather />
@@ -183,7 +188,7 @@
     <a
       href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
       target="_black"
-      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-3 border-sand-green text-left mt-16"
+      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
     >
       0.25g of CO2 /view
     </a>
@@ -207,7 +212,6 @@
   {#if isSandScanOpen}
     <SandScan />
   {/if}
-
   {#if isFinderOpen}
     <Finder />
   {/if}

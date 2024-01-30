@@ -86,7 +86,7 @@
 <div
   use:magnify
   use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
-  class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 border-3 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
+  class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 border-2 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
 >
   <div
     class="absolute rounded-[1.3rem] inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"
@@ -94,7 +94,7 @@
   <!-- ########## Child ########## -->
   <button
     on:click={() => addShell({ id: "child", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-sand-blue opacity-sand group-hover:opacity-100 sand-transition"
@@ -115,7 +115,7 @@
   <!-- ########## Explorer ########## -->
   <button
     on:click={() => addShell({ id: "finder", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
@@ -138,7 +138,7 @@
   <!-- ########## Background ########## -->
   <button
     on:click={() => addShell({ id: "backgrounds", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
@@ -166,7 +166,7 @@
       addShell({ id: "finder", zIndex: 65 });
       openContactTab();
     }}
-    class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"

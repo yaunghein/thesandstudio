@@ -9,7 +9,7 @@
     class="shrink-0 w-96 p-5 h-full flex border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40"
   >
     <div
-      class="w-full max-h-full p-5 overflow-auto rounded-xl border-3 border-light-80 dark:border-light-40"
+      class="w-full max-h-full p-5 overflow-auto rounded-xl border-2 border-light-80 dark:border-light-40"
     >
       <p class="text-lg">
         At SAND, we are more than just a design studio; we are a collective of
@@ -39,7 +39,7 @@
     class="shrink-0 w-96 p-5 h-full flex border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40"
   >
     <div
-      class="w-full max-h-full p-5 overflow-auto rounded-xl border-3 border-light-80 dark:border-light-40"
+      class="w-full max-h-full p-5 overflow-auto rounded-xl border-2 border-light-80 dark:border-light-40"
     >
       <div class="grid gap-6">
         <div>
@@ -74,7 +74,7 @@
     class="shrink-0 w-96 p-5 h-full flex border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40"
   >
     <div
-      class="w-full max-h-full p-5 overflow-auto rounded-xl border-3 border-light-80 dark:border-light-40"
+      class="w-full max-h-full p-5 overflow-auto rounded-xl border-2 border-light-80 dark:border-light-40"
     >
       <div class="grid gap-6">
         <div>
@@ -91,7 +91,7 @@
     class="shrink-0 w-96 p-5 h-full flex border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40"
   >
     <div
-      class="w-full max-h-full p-5 overflow-auto rounded-xl border-3 border-light-80 dark:border-light-40"
+      class="w-full max-h-full p-5 overflow-auto rounded-xl border-2 border-light-80 dark:border-light-40"
     >
       <div class="grid gap-6">
         <div class="grid">
@@ -118,17 +118,17 @@
     class="shrink-0 w-96 h-full p-5 border-l-[0.1875rem] -ml-[0.1875rem] border-light-80 dark:border-light-40"
   >
     <div
-      class="flex flex-col h-full rounded-xl border-3 bg-light-80 dark:bg-light-40 border-light-80 dark:border-light-40 overflow-hidden"
+      class="flex flex-col h-full rounded-xl border-2 bg-light-80 dark:bg-light-40 border-light-80 dark:border-light-40 overflow-hidden"
     >
       <div
-        class="relative bg-light-100 dark:bg-light-10 rounded-2xl -m-[0.1875rem] border-3 border-t-0 border-light-80 dark:border-light-40 h-[16rem] overflow-hidden"
+        class="relative bg-light-100 dark:bg-light-10 rounded-2xl -m-[0.1875rem] border-2 border-t-0 border-light-80 dark:border-light-40 h-[16rem] overflow-hidden"
       >
         <div class="h-full">
           <img src={data.mediaSrc} alt="" class="h-full w-full object-cover" />
         </div>
       </div>
       <div
-        class="bg-light-100 dark:bg-light-10 grow rounded-b-2xl -m-[0.1875rem] border-3 border-t-0 border-light-80 dark:border-light-40 h-[16rem] overflow-hidden"
+        class="bg-light-100 dark:bg-light-10 grow rounded-b-2xl -m-[0.1875rem] border-2 border-t-0 border-light-80 dark:border-light-40 h-[16rem] overflow-hidden"
       >
         <p class="p-6 text-lg leading-tight">
           {data.description || ""}

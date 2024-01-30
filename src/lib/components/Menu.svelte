@@ -27,9 +27,9 @@
     use:drag
     in:scale={{ start: 0.9, duration: 200, easing: backOut }}
     out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-    class="p-6 pt-4 fixed top-[8.125rem] right-16 border-3 border-white dark:border-light-12 rounded-3xl overflow-hidden"
+    class="p-6 pt-4 fixed top-[8.125rem] right-16 border-2 border-white dark:border-light-12 rounded-3xl overflow-hidden"
   >
-    <div class="blur-layer" />
+    <div class="transparent-layer" />
 
     <div class="absolute inset-0 flex gap-10 -ml-[0.5rem] opacity-sand">
       {#each [...Array(100).keys()] as _}
@@ -46,7 +46,7 @@
         <!-- ########## For All Thingkind ########## -->
         <a
           href="/for-all-thingkind"
-          class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
+          class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
@@ -62,7 +62,7 @@
         <!-- ########## For All Thingkind ########## -->
         <a
           href="/for-all-thingkind"
-          class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
+          class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
@@ -78,7 +78,7 @@
         <!-- ########## Works ########## -->
         <a
           href="/works"
-          class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
+          class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
@@ -99,7 +99,7 @@
         <!-- ########## Not Works ########## -->
         <a
           href="/not-works"
-          class="overflow-hidden relative group text-light-100 border-3 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
+          class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
