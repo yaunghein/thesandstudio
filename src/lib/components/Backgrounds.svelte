@@ -22,19 +22,27 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[64.1rem] h-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-light-80 dark:border-light-40"
+  class="overflow-hidden fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65rem] h-[42rem] rounded-3xl text-light-100 border-2 border-white dark:border-light-12"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="flex flex-col h-full overflow-hidden">
-    <div class="relative h-16 grid place-items-center shrink-0">
-      <div class="absolute top-3 left-6">
+  <div class="transparent-layer" />
+
+  <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
+    {#each [...Array(100).keys()] as _}
+      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
+    {/each}
+  </div>
+
+  <div class="relative flex flex-col h-full overflow-hidden">
+    <div class="relative h-20 grid place-items-center shrink-0">
+      <div class="absolute top-5 left-6">
         <ButtonClose on:close={() => removeShell("backgrounds")} />
       </div>
-      <p class="text-lg font-sand-medium">Change Background</p>
+      <p class="text-2xl text-black dark:text-light-100">Backgrounds</p>
     </div>
 
     <div
-      class="grow overflow-auto border-2 -m-[0.1875rem] border-light-80 dark:border-light-40 rounded-3xl p-6 grid grid-cols-2 gap-x-3 gap-y-6"
+      class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl p-6 grid grid-cols-2 gap-x-3 gap-y-6"
     >
       {#each $Backgrounds as bg}
         <button
@@ -48,14 +56,11 @@
             );
           }}
         >
-          <p class="text-left text-lg font-sand-medium leading-tight mb-3">
-            {bg.name}
-          </p>
           <div
             class={twm(
-              "rounded-xl aspect-[1.91/1] overflow-hidden",
+              "relative rounded-xl aspect-[1.91/1] overflow-hidden",
               bg.name === "Solid" &&
-                "border-2 border-light-80 dark:border-light-40 ",
+                "border-2 border-white dark:border-light-12 ",
             )}
           >
             <img
@@ -63,6 +68,11 @@
               src={bg.thumbnail}
               alt={bg.name}
             />
+            <p
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-left text-3xl leading-none px-5 py-3 rounded-full bg-black border-2 border-light-12"
+            >
+              {bg.name}
+            </p>
           </div>
         </button>
       {/each}

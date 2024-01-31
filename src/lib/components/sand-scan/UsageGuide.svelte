@@ -1,14 +1,17 @@
 <script>
   import { twMerge as twm } from "tailwind-merge";
+  // change the layout so that it can has its own border - todo
 </script>
 
 <div class="relative text-light-10 w-full h-full overflow-hidden">
-  <div class="absolute inset-0 w-full h-full bg-light-20 opacity-60" />
   <div
-    class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-50 hidden dark:block"
+    class="absolute inset-0 w-full h-full bg-light-20 dark:hidden opacity-60"
   />
   <div
-    class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-20 hidden dark:block"
+    class="absolute inset-0 w-full h-full bg-[#ff9411] mix-blend-multiply opacity-75 hidden dark:block"
+  />
+  <div
+    class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-[15%] hidden dark:block"
   />
 
   <div class="absolute inset-0 w-full h-full -ml-[0.4rem] -mt-[0.4rem]">

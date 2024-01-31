@@ -216,7 +216,7 @@
     <Finder />
   {/if}
 
-  {#if isBackgroundsOpen}
+  {#if !isBackgroundsOpen}
     <Backgrounds />
   {/if}
 
