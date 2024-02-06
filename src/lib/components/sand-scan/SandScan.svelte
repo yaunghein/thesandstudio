@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { onMount, onDestroy } from "svelte";
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
+  import gsap from "gsap";
   import { twMerge as twm } from "tailwind-merge";
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
@@ -18,6 +20,25 @@
   };
 
   let isUsageGuideOpen = false;
+
+  onMount(() => {
+    const loadingEle = document.querySelector("#sand-scan-loading");
+    const image = loadingEle!.querySelector("img");
+    image!.setAttribute("src", "/images/sand-scan-loading.gif");
+    gsap.to(loadingEle, {
+      opacity: 0,
+      ease: "power4",
+      delay: 2,
+      duration: 1.5,
+    });
+    gsap.set(loadingEle, { display: "none", delay: 4 });
+  });
+
+  onDestroy(() => {
+    const loadingEle = document.querySelector("#sand-scan-loading");
+    const image = loadingEle!.querySelector("img");
+    image!.setAttribute("src", "");
+  });
 </script>
 
 <div
@@ -39,6 +60,13 @@
         )}
       />
     {/each}
+  </div>
+
+  <div
+    id="sand-scan-loading"
+    class="invert dark:invert-0 absolute inset-0 z-50 w-full h-full"
+  >
+    <img src="" alt="" class="object-cover h-full" />
   </div>
 
   <div class="relative flex flex-col h-full overflow-hidden">
