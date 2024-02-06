@@ -28,7 +28,7 @@
     >
       <div
         class="mix-blend-hard-light"
-        use:playLottie={"lotties/sand-scan.json"}
+        use:playLottie={"/lotties/sand-scan.json"}
       />
     </div>
     <div
@@ -50,7 +50,7 @@
     <div
       class="w-28 absolute scale-[1.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
     >
-      <div use:playLottie={"lotties/fatk.json"} />
+      <div use:playLottie={"/lotties/fatk.json"} />
     </div>
   </a>
 
@@ -66,7 +66,7 @@
     <div
       class="w-28 absolute scale-[1.4] group-hover:scale-[2.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[40%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
     >
-      <div use:playLottie={"lotties/works.json"} />
+      <div use:playLottie={"/lotties/works.json"} />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -87,7 +87,7 @@
     <div
       class="w-28 absolute scale-[1] group-hover:scale-[1.6] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
     >
-      <img src="lotties/not-works.gif" alt="Not Works" />
+      <img src="/lotties/not-works.gif" alt="Not Works" />
     </div>
     <div
       class="text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -107,7 +107,7 @@
     <div
       class="w-28 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[10%] group-hover:-translate-y-[90%] sand-transition"
     >
-      <div use:playLottie={"lotties/archives.json"} />
+      <div use:playLottie={"/lotties/archives.json"} />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -127,7 +127,7 @@
     <div
       class="w-28 absolute scale-[1.2] group-hover:scale-[2.2] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[6%] group-hover:-translate-y-[95%] sand-transition"
     >
-      <div use:playLottie={"lotties/about.json"} />
+      <div use:playLottie={"/lotties/about.json"} />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

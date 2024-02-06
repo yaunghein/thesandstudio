@@ -42,9 +42,6 @@
     };
     Tabs.subscribe(scrollColumns);
     FilePreview.subscribe(scrollColumns);
-
-    // remove this too
-    openArchiveTab();
   });
 
   onDestroy(() => {
@@ -65,38 +62,43 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-light-80 dark:border-light-40"
+  class="fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="flex h-full overflow-hidden">
-    <div class="relative w-80 shrink-0">
-      <div class="mt-4 ml-6">
+  <div class="transparent-layer" />
+
+  <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
+    {#each [...Array(8).keys()] as _}
+      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
+    {/each}
+  </div>
+
+  <div class="relative flex h-full overflow-hidden">
+    <div class="relative w-[20.65rem] shrink-0">
+      <div class="mt-6 ml-6">
         <ButtonClose on:close={() => removeShell("finder")} />
       </div>
-      <div class="flex flex-col mt-6 px-6">
+      <div class="flex flex-col mt-14 px-9">
         {#each $Tabs as tab}
-          <!-- Remove this if block -->
-          {#if tab.label !== "Desktop"}
-            <button
-              class="flex items-center gap-4 py-2"
-              on:click={() => {
-                const updatedTabs = deepClone(tabs).map((i) => ({
-                  ...i,
-                  isOpen: i.label === tab.label ? true : false,
-                }));
-                Tabs.set(updatedTabs);
-                FilePreview.set(undefined);
-                addHistory(updatedTabs);
-              }}
-            >
-              <div
-                class="shrink-0 w-6 h-[1.1rem] rounded border-[0.125rem] {tab.isOpen
-                  ? 'bg-light-10 dark:bg-light-100 border-light-10 dark:border-light-100'
-                  : 'bg-transparent border-light-70 dark:border-light-40'}"
-              />
-              <div class="text-xl">{tab.label}</div>
-            </button>
-          {/if}
+          <button
+            class="flex items-center gap-4 py-1"
+            on:click={() => {
+              const updatedTabs = deepClone(tabs).map((i) => ({
+                ...i,
+                isOpen: i.label === tab.label ? true : false,
+              }));
+              Tabs.set(updatedTabs);
+              FilePreview.set(undefined);
+              addHistory(updatedTabs);
+            }}
+          >
+            <div
+              class="shrink-0 w-[1.65rem] h-[1.25rem] rounded border-[0.125rem] {tab.isOpen
+                ? 'bg-light-10 dark:bg-light-100 border-light-10 dark:border-light-100'
+                : 'bg-transparent border-light-70 dark:border-light-12'}"
+            />
+            <div class="text-2xl">{tab.label}</div>
+          </button>
         {/each}
       </div>
 
@@ -111,11 +113,11 @@
     </div>
 
     <div
-      class="grow overflow-hidden rounded-3xl -m-[0.1875rem] ml-0 border-2 border-light-80 dark:border-light-40"
+      class="grow overflow-hidden rounded-3xl -m-[0.1875rem] ml-0 border-2 border-white dark:border-light-12 bg-light-90 dark:bg-black"
     >
-      <div class="flex items-center h-12 px-4">
+      <div class="flex items-center h-20 px-4">
         <button
-          class="h-full aspect-square select-none cursor-pointer {canPrev
+          class="h-16 aspect-square select-none cursor-pointer {canPrev
             ? 'pointer-events-auto text-light-10 dark:text-light-100'
             : 'pointer-events-none text-light-80 dark:text-light-20'}"
           on:click={() => {
@@ -127,7 +129,7 @@
           <IconChevronLeft />
         </button>
         <button
-          class="h-full aspect-square select-none cursor-pointer {canNext
+          class="h-16 aspect-square select-none cursor-pointer {canNext
             ? 'pointer-events-auto text-light-10 dark:text-light-100'
             : 'pointer-events-none text-light-80 dark:text-light-20'}"
           on:click={() => {
@@ -138,13 +140,13 @@
         >
           <IconChevronRight />
         </button>
-        <span class="ml-2 text-xl truncate" title={$FinderOpenPath}>
+        <span class="ml-5 text-2xl truncate" title={$FinderOpenPath}>
           {$FinderOpenPath}
         </span>
       </div>
       <div
         id="columns"
-        class="flex h-[calc(100%-3rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.1875rem] mt-0 border-2 border-b-0 border-light-80 dark:border-light-40"
+        class="flex h-[calc(100%-5rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.125rem] mt-0 border-2 border-b-0 border-white dark:border-light-12"
       >
         <FinderColumns files={currentTab.files} />
         {#if $FilePreview}

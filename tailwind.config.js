@@ -47,7 +47,7 @@ export default {
         line: "0.125rem",
       },
       height: {
-        "shell-desktop": "57rem",
+        "shell-desktop": "55.2rem",
       },
       opacity: {
         sand: "0.6",

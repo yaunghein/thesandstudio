@@ -1,11 +1,8 @@
 import { writable, derived, get } from "svelte/store";
 import type { Writable } from "svelte/store";
+import { goto } from "$app/navigation";
 import { addShell } from "./shell";
 import deepClone from "$lib/utils/deepClone";
-import IconSandScan from "$lib/svgs/IconSandScan.svelte";
-import IconFATK from "$lib/svgs/IconFATK.svelte";
-import IconWork from "$lib/svgs/IconWork.svelte";
-import IconNotWork from "$lib/svgs/IconNotWork.svelte";
 
 export type File = {
   id: string;
@@ -16,7 +13,7 @@ export type File = {
   mediaType?: "img" | "video" | "pdf";
   mediaSrc?: string;
   handleClick?: () => void;
-  icon?: ConstructorOfATypedSvelteComponent;
+  icon?: string;
   description?: string;
   cid?: string;
   data?: File[];
@@ -35,56 +32,10 @@ const getDesktopTab = (isOpen: boolean): Tab => {
     files: [
       {
         id: crypto.randomUUID(),
-        type: "folder",
-        label: "Folder One",
-        isOpen: false,
-        data: [
-          {
-            id: crypto.randomUUID(),
-            type: "folder",
-            label: "nested folder one",
-            isOpen: false,
-            data: [
-              {
-                id: crypto.randomUUID(),
-                type: "folder",
-                label: "nested nested folder one",
-                isOpen: false,
-                data: [
-                  {
-                    id: crypto.randomUUID(),
-                    type: "file",
-                    label: "test file",
-                  },
-                ],
-              },
-              {
-                id: crypto.randomUUID(),
-                type: "file",
-                label: "test file",
-              },
-            ],
-          },
-          {
-            id: crypto.randomUUID(),
-            type: "folder",
-            label: "nested folder two",
-            isOpen: false,
-            data: [
-              {
-                id: crypto.randomUUID(),
-                type: "file",
-                label: "test file",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: crypto.randomUUID(),
         type: "file",
         label: "Sand Scan",
-        icon: IconSandScan,
+        icon: "/lotties/sand-scan.json",
+        handleClick: () => addShell({ id: "sand-scan", zIndex: 65 }),
         description:
           "Barrier-grid animation and stereography automation software.",
         mediaType: "img",
@@ -95,8 +46,10 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         id: crypto.randomUUID(),
         type: "file",
         label: "For All Thingkind",
-        icon: IconFATK,
-        description: "FATK description",
+        icon: "/lotties/fatk.json",
+        handleClick: () => goto("/for-all-thingkind"),
+        description:
+          "We embrace all forms, materials, and ideas, shaping them into products that  reflect a confluence of diverse inspirations and tangible craftsmanship.n",
         mediaType: "img",
         mediaSrc:
           "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
@@ -105,7 +58,7 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         id: crypto.randomUUID(),
         type: "file",
         label: "Works",
-        icon: IconWork,
+        icon: "/lotties/works.json",
         description: "Work description",
         mediaType: "img",
         mediaSrc:
@@ -115,7 +68,7 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         id: crypto.randomUUID(),
         type: "file",
         label: "Not Works",
-        icon: IconNotWork,
+        icon: "/lotties/not-works.gif",
         description: "Nor work description",
         mediaType: "img",
         mediaSrc:

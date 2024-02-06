@@ -17,7 +17,7 @@
 <div
   use:drag
   use:position
-  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-light-80 dark:border-light-40 overflow-hidden"
+  class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] rounded-3xl text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {file?.zIndex}"
 >
   <div class="flex items-center gap-2 h-14 overflow-hidden p-8">
@@ -28,7 +28,7 @@
   </div>
 
   <div
-    class="rounded-3xl -m-[0.1875rem] border-2 border-light-80 dark:border-light-40 overflow-hidden"
+    class="rounded-3xl -m-[0.1875rem] border-2 border-white dark:border-light-12 overflow-hidden"
   >
     {#if mediaType === "img"}
       <img class="w-full object-contain" src={mediaSrc} alt="" />
