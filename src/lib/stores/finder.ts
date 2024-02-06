@@ -1267,7 +1267,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Brand-Guide-Page-A.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-A.webp",
               },
@@ -1276,7 +1276,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Brand-Guide-Page-B.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-B.webp",
               },
@@ -1285,7 +1285,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Brand-Guide-Page-C.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-C.webp",
               },
@@ -1294,7 +1294,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Brand-Guide-Page-D.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-D.webp",
               },
@@ -1303,7 +1303,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Brand-Guidelines.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guidelines.webp",
               },
@@ -1312,7 +1312,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Door-Tags.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Door-Tags.webp",
               },
@@ -1321,7 +1321,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Evenlope.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Evenlope.webp",
               },
@@ -1330,7 +1330,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Matches.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Matches.webp",
               },
@@ -1339,7 +1339,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label: "MMH-Name-Cards.webp",
                 isOpen: false,
-                mediaType: "pdf",
+                mediaType: "img",
                 mediaSrc:
                   "/images/archives/not-works/marmor-hotel-2018/MMH-Name-Cards.webp",
               },

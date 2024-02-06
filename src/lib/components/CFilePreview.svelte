@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import lottie from "lottie-web";
+  import ContactForm from "./ContactForm.svelte";
   import type { File } from "$lib/stores/finder";
   import { handleFileDoubleClick } from "$lib/stores/finder";
 
@@ -119,6 +120,10 @@
           <a href="mailto:hi@thesandstudio.com" class="leading-tight text-2xl">
             hi@thesandstudio.com
           </a>
+
+          <div class="mt-10">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>

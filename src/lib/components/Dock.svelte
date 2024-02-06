@@ -81,6 +81,15 @@
       },
     };
   };
+
+  const openInquiryForm = () => {
+    addShell({ id: "finder", zIndex: 65 });
+    openContactTab();
+    setTimeout(
+      () => (document.querySelector("#Inquiry") as HTMLElement)!.click(),
+      0,
+    );
+  };
 </script>
 
 <div
@@ -162,10 +171,7 @@
 
   <!-- ########## Contact ########## -->
   <button
-    on:click={() => {
-      addShell({ id: "finder", zIndex: 65 });
-      openContactTab();
-    }}
+    on:click={openInquiryForm}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
