@@ -26,6 +26,9 @@ dependencies:
   lottie-web:
     specifier: ^5.12.2
     version: 5.12.2
+  svelte-pdf-simple:
+    specifier: ^2.0.0
+    version: 2.0.0
   tailwind-merge:
     specifier: ^2.1.0
     version: 2.1.0
@@ -1159,6 +1162,17 @@ packages:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
     dev: true
 
+  /pdfjs-dist@2.13.216:
+    resolution: {integrity: sha512-qn/9a/3IHIKZarTK6ajeeFXBkG15Lg1Fx99PxU09PAU2i874X8mTcHJYyDJxu7WDfNhV6hM7bRQBZU384anoqQ==}
+    peerDependencies:
+      worker-loader: ^3.0.8
+    peerDependenciesMeta:
+      worker-loader:
+        optional: true
+    dependencies:
+      web-streams-polyfill: 3.3.2
+    dev: false
+
   /periscopic@3.1.0:
     resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
     dependencies:
@@ -1464,6 +1478,14 @@ packages:
     dependencies:
       svelte: 4.2.0
 
+  /svelte-pdf-simple@2.0.0:
+    resolution: {integrity: sha512-XiRyw2vWt2VGBx7vpyUcEJ6Ug1T2yboVXVnsiqBmB8ApDxysfi/ju0OfHvHO3Yd6GJiX7hlloOHwIZn8d9FEPQ==}
+    dependencies:
+      pdfjs-dist: 2.13.216
+    transitivePeerDependencies:
+      - worker-loader
+    dev: false
+
   /svelte-preprocess@5.0.4(postcss@8.4.28)(svelte@4.2.0)(typescript@5.1.6):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
@@ -1704,6 +1726,11 @@ packages:
         optional: true
     dependencies:
       vite: 4.4.9
+
+  /web-streams-polyfill@3.3.2:
+    resolution: {integrity: sha512-3pRGuxRF5gpuZc0W+EpwQRmCD7gRqcDOMt688KmdlDAgAyaB1XlN0zq2njfDNm44XVdIouE7pZ6GzbdyH47uIQ==}
+    engines: {node: '>= 8'}
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
   import FinderColumns from "./FinderColumns.svelte";
@@ -44,13 +44,13 @@
     FilePreview.subscribe(scrollColumns);
   });
 
-  onDestroy(() => {
+  const reset = () => {
     Tabs.set(deepClone(tabs));
     FinderHistory.set([deepClone(tabs)]);
     FilePreview.set(undefined);
     FilePreviewHistory.set([undefined]);
     HistoryIndex.set(0);
-  });
+  };
 
   $: currentTab = $Tabs.find((tab) => tab.isOpen) as Tab;
   $: canPrev = $HistoryIndex > 0;
@@ -76,7 +76,12 @@
   <div class="relative flex h-full overflow-hidden">
     <div class="relative w-[20.65rem] shrink-0">
       <div class="mt-6 ml-6">
-        <ButtonClose on:close={() => removeShell("finder")} />
+        <ButtonClose
+          on:close={() => {
+            removeShell("finder");
+            setTimeout(reset, 300);
+          }}
+        />
       </div>
       <div class="flex flex-col mt-14 px-9">
         {#each $Tabs as tab}
@@ -102,13 +107,10 @@
         {/each}
       </div>
 
-      <div
-        class="absolute left-6 bottom-6 text-light-40 dark:text-light-100 opacity-40 flex flex-col"
-      >
-        <div class="w-[12rem] h-4">
+      <div class="absolute left-[2.1rem] bottom-[2.1rem] flex flex-col">
+        <div class="w-32 h-16 text-white dark:text-light-12">
           <IconSandExplorer />
         </div>
-        <div class="text-xs">©2023 The Sand Studio</div>
       </div>
     </div>
 

@@ -32,6 +32,7 @@
 		"gsap": "^3.12.2",
 		"jszip": "^3.10.1",
 		"lottie-web": "^5.12.2",
+		"svelte-pdf-simple": "^2.0.0",
 		"tailwind-merge": "^2.1.0"
 	}
 }
