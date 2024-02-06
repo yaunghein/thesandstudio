@@ -65,7 +65,7 @@
       {/if}
     </div>
     <div
-      class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl"
+      class="grow border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl"
     >
       {#if isUsageGuideOpen}
         <UsageGuide />

@@ -209,7 +209,7 @@
 
   <Dock />
 
-  {#if isSandScanOpen}
+  {#if !isSandScanOpen}
     <SandScan />
   {/if}
   {#if isFinderOpen}
