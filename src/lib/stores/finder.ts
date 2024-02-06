@@ -18,6 +18,7 @@ export type File = {
   description?: string;
   cid?: string;
   data?: File[];
+  isMarquee?: boolean;
 };
 
 export type Tab = {
@@ -140,6 +141,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label:
                   "René Descartes Philosophical Essays and Correspondence.webp",
+                isMarquee: true,
                 isOpen: false,
                 mediaType: "img",
                 mediaSrc:
@@ -173,6 +175,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 type: "file",
                 label:
                   "CHALLENGE MATERIAL René Descartes PhilosophicalEssays and Correspondence-Page-2-to-28.pdf",
+                isMarquee: true,
                 isOpen: false,
                 mediaType: "pdf",
                 mediaSrc:
@@ -1164,6 +1167,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
             id: crypto.randomUUID(),
             type: "file",
             label: "Cultural Dimensions of Geert Hofstede 1928-2020 (2023)",
+            isMarquee: true,
             isOpen: false,
             mediaType: "pdf",
             mediaSrc:
@@ -1173,6 +1177,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
             id: crypto.randomUUID(),
             type: "file",
             label: "Hiddern PPF Design Competition Submission (2023)",
+            isMarquee: true,
             isOpen: false,
             mediaType: "pdf",
             mediaSrc:
@@ -1182,6 +1187,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
             id: crypto.randomUUID(),
             type: "folder",
             label: "Humanity and The Universe Book (2017)",
+            isMarquee: true,
             isOpen: false,
             data: [
               {
@@ -1224,6 +1230,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                 id: crypto.randomUUID(),
                 type: "file",
                 label: "HATU-In-the-memory-of-Carl-Sagan.webp",
+                isMarquee: true,
                 isOpen: false,
                 mediaType: "img",
                 mediaSrc:
@@ -1386,6 +1393,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
             id: crypto.randomUUID(),
             type: "folder",
             label: "Small and Ordinary Book (Red Dot Awards 2018)",
+            isMarquee: true,
             isOpen: false,
             data: [
               {

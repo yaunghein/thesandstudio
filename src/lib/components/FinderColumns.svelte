@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import {
     FilePreview,
     handleFileClick,
@@ -38,23 +39,31 @@
     {#if files[0]}
       {#each files as file}
         <button
+          title={file.label}
           class={twm(
-            "relative w-full text-left text-2xl rounded-lg leading-none h-10 flex items-center justify-between px-3 gap-1",
+            "relative overflow-hidden w-full text-left text-2xl rounded-lg leading-none h-10 flex items-center justify-between px-3 gap-1",
             file.isOpen && "bg-light-70 dark:bg-light-20",
           )}
           id={file.label}
           on:dblclick={() => handleFileDoubleClick(file)}
           on:click={() => handleFileClick(file)}
         >
-          <span class="truncate">{file.label}</span>
+          <div
+            class={twm("marquee-content", file.isMarquee && "animate-marquee")}
+          >
+            <span class="whitespace-nowrap">{file.label}</span>
+            {#if file.isMarquee}
+              <span class="whitespace-nowrap">{file.label}</span>
+            {/if}
+          </div>
 
           {#if file.type === "folder"}
-            <span class="shrink-0">
+            <span class="shrink-0 absolute right-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1"
+                stroke-width="2"
                 stroke="currentColor"
                 class="w-4 h-4"
               >
@@ -70,7 +79,7 @@
       {/each}
     {:else}
       <p
-        class="relative w-full text-left truncate text-xl leading-none h-10 flex items-center"
+        class="relative w-full text-left truncate text-2xl leading-none h-10 flex items-center px-3"
       >
         There is no file yet in this folder.
       </p>

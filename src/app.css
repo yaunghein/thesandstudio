@@ -85,3 +85,11 @@ input[type="number"] {
 .range::-moz-slider-thumb {
   @apply appearance-none -mt-[0.32rem] bg-black dark:bg-light-100 w-3 aspect-square rounded-full;
 }
+
+.marquee-content {
+  display: flex;
+}
+
+.marquee-content span {
+  margin-right: 0.5rem;
+}
