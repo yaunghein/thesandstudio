@@ -52,7 +52,7 @@
     alt=""
   />
   <img
-    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[13.8rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[12.15rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
     src="/images/sand-scan-three.gif"
     alt=""
   />
@@ -68,7 +68,7 @@
     alt=""
   />
   <img
-    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[13.8rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[12.15rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
     src="/images/sand-scan-three-for-dark.gif"
     alt=""
   />
