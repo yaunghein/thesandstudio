@@ -26,10 +26,7 @@
     <div
       class="w-28 absolute group-hover:scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[125%] sand-transition"
     >
-      <div
-        class="mix-blend-hard-light"
-        use:playLottie={"/lotties/sand-scan.json"}
-      />
+      <div class="" use:playLottie={"/lotties/sand-scan.json"} />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

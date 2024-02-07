@@ -22,16 +22,23 @@
   let isUsageGuideOpen = false;
 
   onMount(() => {
+    const app = document.querySelector("#sand-scan-app");
     const loadingEle = document.querySelector("#sand-scan-loading");
     const image = loadingEle!.querySelector("img");
     image!.setAttribute("src", "/images/sand-scan-loading.gif");
+    gsap.from(app, {
+      opacity: 0,
+      ease: "power4",
+      delay: 2,
+      duration: 1.5,
+    });
     gsap.to(loadingEle, {
       opacity: 0,
       ease: "power4",
       delay: 2,
       duration: 1.5,
     });
-    gsap.set(loadingEle, { display: "none", delay: 4 });
+    gsap.set(loadingEle, { display: "none", delay: 2.6 });
   });
 
   onDestroy(() => {
@@ -69,7 +76,7 @@
     <img src="" alt="" class="object-cover h-full" />
   </div>
 
-  <div class="relative flex flex-col h-full overflow-hidden">
+  <div id="sand-scan-app" class="relative flex flex-col h-full overflow-hidden">
     <div class="relative h-20 grid place-items-center shrink-0">
       <div class="absolute top-5 left-6">
         <ButtonClose on:close={() => removeShell("sand-scan")} />

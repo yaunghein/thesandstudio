@@ -212,6 +212,7 @@
   {#if isSandScanOpen}
     <SandScan />
   {/if}
+
   {#if isFinderOpen}
     <Finder />
   {/if}

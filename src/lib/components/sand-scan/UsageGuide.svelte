@@ -12,8 +12,9 @@
   <div
     class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-[15%] hidden dark:block rounded-[1.2rem]"
   />
+
   <div
-    class="absolute inset-[0.12rem] top-0 border-3 border-sand-yellow rounded-[1.2rem] hidden dark:block"
+    class="absolute inset-[0.12rem] top-0 border-2 border-sand-yellow rounded-[1.2rem] hidden dark:block"
   />
 
   <div class="absolute inset-0 w-full h-full -ml-[0.4rem] -mt-[0.4rem]">
