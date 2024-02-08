@@ -118,7 +118,9 @@
         </a>
       </div>
 
-      <div class="text-2xl text-light-80 dark:text-light-20 grid gap-8 mt-8">
+      <div
+        class="text-2xl text-light-80 dark:text-light-20 grid gap-8 mt-8 px-[0.6rem]"
+      >
         <div class="flex flex-col gap-2">
           <a
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
@@ -174,7 +176,7 @@
         </div>
       </div>
 
-      <div class="mt-8 flex items-center w-[16rem] text-white mb-4">
+      <div class="mt-8 flex items-center w-[16rem] text-white mb-4 px-[0.6rem]">
         <svg
           width="100%"
           height="100%"
