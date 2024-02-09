@@ -155,7 +155,7 @@
       class="flex flex-col h-full rounded-2xl border-2 border-white dark:border-light-12 overflow-hidden"
     >
       <div
-        class="relative w-full aspect-square grid items-center rounded-2xl -m-[0.125rem] border-2 border-t-0 border-white dark:border-light-12 overflow-hidden"
+        class="relative w-full aspect-square grid items-center rounded-2xl border-2 border-t-0 border-white dark:border-light-12 scale-[1.008] overflow-hidden"
       >
         <div
           class="{paddings[data.label]} invert dark:invert-0"
