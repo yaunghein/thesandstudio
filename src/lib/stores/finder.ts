@@ -534,7 +534,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                   {
                     id: crypto.randomUUID(),
                     type: "folder",
-                    label: "By Phyoe Hein Kyae",
+                    label: "By Phyoe Hein Kyaw",
                     isOpen: false,
                     data: [
                       {
@@ -1177,7 +1177,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "Hiddern PPF Design Competition Submission (2023)",
+            label: "Hidden PPF Design Competition Submission (2023)",
             isMarquee: true,
             isOpen: false,
             mediaType: "pdf",
