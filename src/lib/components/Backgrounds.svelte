@@ -4,6 +4,7 @@
   import { twMerge as twm } from "tailwind-merge";
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import { Backgrounds } from "$lib/stores/background";
+  import { changeCursorType } from "$lib/stores/cursor";
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
 
@@ -57,6 +58,7 @@
           }}
         >
           <div
+            use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
             class={twm(
               "relative rounded-xl aspect-[1.91/1] overflow-hidden",
               bg.name === "Solid" &&
