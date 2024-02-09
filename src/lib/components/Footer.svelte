@@ -72,22 +72,18 @@
       ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
-    <div class="relative flex items-center px-[3.75rem] pt-6">
-      <div class="w-1/3">
-        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
-          INSTAGRAM
-        </a>
-      </div>
-      <div class="w-1/3 grid place-items-center">
-        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
-          FACEBOOK
-        </a>
-      </div>
-      <div class="w-1/3 grid place-items-end">
-        <a href="/" on:mouseenter={() => CursorType.set("normal")}>
-          @{new Date().getFullYear()}
-        </a>
-      </div>
+    <div class="relative flex items-center gap-12 px-[3.75rem] pt-6 text-3xl">
+      <a href="/" on:mouseenter={() => CursorType.set("normal")}> INSTAGRAM </a>
+
+      <a href="/" on:mouseenter={() => CursorType.set("normal")}> FACEBOOK </a>
+
+      <a
+        class="ml-auto"
+        href="/"
+        on:mouseenter={() => CursorType.set("normal")}
+      >
+        @{new Date().getFullYear()}
+      </a>
     </div>
 
     <a
