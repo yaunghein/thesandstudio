@@ -77,7 +77,8 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         isOpen: false,
         icon: "/lotties/not-works.gif",
         handleClick: () => goto("/not-works"),
-        description: "Nor work description",
+        description:
+          "Valuing and cultivating the creative aspect of the human spirit, recognizing it as a powerful tool for solving problems, expressing oneself, and understanding the world. Encouraging innovation and original thought, breaking free from traditional constraints, and exploring new ideas without being hindered by fear or skepticism.",
         mediaType: "img",
         mediaSrc:
           "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
