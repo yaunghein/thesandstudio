@@ -57,7 +57,7 @@
     <div
       class="w-full h-full p-5 overflow-auto rounded-xl border-2 border-white dark:border-light-12"
     >
-      <p class="text-2xl">
+      <p class="text-xl">
         At SAND, we are more than just a design studio; we are a collective of
         innovative spirits venturing where most have traveled less. Our team
         embodies a fusion of talents in Architecture, Design, Motion, and Code.
@@ -85,25 +85,25 @@
     >
       <div class="grid gap-6">
         <div>
-          <p class="leading-tight text-2xl">Branding and Graphic Design</p>
-          <p class="leading-tight text-2xl">Motion Graphics and Animation</p>
+          <p class="leading-tight text-xl">Branding and Graphic Design</p>
+          <p class="leading-tight text-xl">Motion Graphics and Animation</p>
         </div>
         <div>
-          <p class="leading-tight text-2xl">Architectural Design</p>
-          <p class="leading-tight text-2xl">Interior Design</p>
-          <p class="leading-tight text-2xl">3D Modeling and Visualization</p>
+          <p class="leading-tight text-xl">Architectural Design</p>
+          <p class="leading-tight text-xl">Interior Design</p>
+          <p class="leading-tight text-xl">3D Modeling and Visualization</p>
         </div>
         <div>
-          <p class="leading-tight text-2xl">Web Design and Development</p>
-          <p class="leading-tight text-2xl">Web Maintenance and Support</p>
-          <p class="leading-tight text-2xl">E-commerce Solutions</p>
+          <p class="leading-tight text-xl">Web Design and Development</p>
+          <p class="leading-tight text-xl">Web Maintenance and Support</p>
+          <p class="leading-tight text-xl">E-commerce Solutions</p>
         </div>
         <div>
-          <p class="leading-tight text-2xl">Consultation and Strategy</p>
+          <p class="leading-tight text-xl">Consultation and Strategy</p>
         </div>
         <div>
-          <p class="leading-tight text-2xl">Others</p>
-          <p class="leading-tight text-2xl">
+          <p class="leading-tight text-xl">Others</p>
+          <p class="leading-tight text-xl">
             (Every idea matters to us – no concept too small, no vision too
             grand. If you’re a person with an idea. Come say hi!)
           </p>
@@ -116,8 +116,8 @@
     >
       <div class="grid gap-6">
         <div>
-          <p class="leading-tight text-2xl">General:</p>
-          <a href="mailto:hi@thesandstudio.com" class="leading-tight text-2xl">
+          <p class="leading-tight text-xl">General:</p>
+          <a href="mailto:hi@thesandstudio.com" class="leading-tight text-xl">
             hi@thesandstudio.com
           </a>
 
@@ -136,14 +136,14 @@
           <a
             href="https://www.google.com/"
             target="_blank"
-            class="leading-tight text-2xl"
+            class="leading-tight text-xl"
           >
             Instagram
           </a>
           <a
             href="https://www.google.com/"
             target="_blank"
-            class="leading-tight text-2xl"
+            class="leading-tight text-xl"
           >
             Facebook
           </a>
@@ -172,7 +172,7 @@
         </p>
       </div>
       <button
-        class="shrink-0 w-full h-20 text-2xl font-sand-medium"
+        class="shrink-0 w-full h-20 text-xl font-sand-medium"
         on:click={data.handleClick}
       >
         {data.label === "Sand Scan" ? "Launch" : "Visit"}
