@@ -175,7 +175,7 @@
         class="shrink-0 w-full h-20 text-2xl font-sand-medium"
         on:click={data.handleClick}
       >
-        {data.label === "Sand Scan" ? "Launch" : "Go"}
+        {data.label === "Sand Scan" ? "Launch" : "Visit"}
       </button>
     </div>
   {:else}
