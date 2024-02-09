@@ -44,7 +44,7 @@
             </div>
 
             <div
-              class="relative w-full aspect-[1.222/1] overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
+              class="relative w-full aspect-[1/1.25] overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
             >
               <span class="text-4xl font-sand-medium">Do you have an idea?</span
               >
@@ -62,7 +62,7 @@
             </div>
 
             <div
-              class="relative w-full aspect-[1.222/1] overflow-hidden text-light-10 dark:text-light-100 bg-light-90 dark:bg-light-12 grid place-items-center"
+              class="relative w-full aspect-[1/1.25] overflow-hidden text-light-10 dark:text-light-100 bg-light-90 dark:bg-light-12 grid place-items-center"
             ></div>
           </div>
         </div>
