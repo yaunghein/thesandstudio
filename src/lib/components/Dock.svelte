@@ -95,7 +95,7 @@
 <div
   use:magnify
   use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
-  class="z-[2] h-36 p-4 fixed bottom-[6.2rem] left-1/2 -translate-x-1/2 border-2 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
+  class="z-[2] h-36 p-4 fixed bottom-16 left-1/2 -translate-x-1/2 border-2 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
 >
   <div
     class="absolute rounded-[1.3rem] inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"

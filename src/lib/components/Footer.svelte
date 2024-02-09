@@ -33,7 +33,7 @@
     class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl sand-transition"
   >
     {#if !isOpen && $page.url.pathname === "/"}
-      <span class="absolute top-0 left-1/2 -translate-x-1/2">
+      <span class="absolute top-0 left-1/2 -translate-x-1/2 hidden">
         ©{new Date().getFullYear()} The Sand Studio
       </span>
     {/if}
