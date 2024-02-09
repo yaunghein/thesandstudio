@@ -1,7 +1,8 @@
 <script lang="ts">
   import "../app.css";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { invalidate, onNavigate } from "$app/navigation";
+  import { browser } from "$app/environment";
   import gsap from "gsap";
   import Cursor from "$lib/components/Cursor.svelte";
   import Grains from "$lib/components/Grains.svelte";
@@ -23,20 +24,51 @@
     return () => subscription.unsubscribe();
   });
 
+  const duration = 1.5;
+  let clickPos = { x: 0, y: 0 };
+  $: clipPathIn = `circle(0% at ${clickPos.x}px ${clickPos.y}px)`;
+  $: clipPathOut = `circle(150% at ${clickPos.x}px ${clickPos.y}px)`;
+
+  const handleClick = (e: MouseEvent) => {
+    clickPos = { x: e.clientX, y: e.clientY };
+  };
+
+  onMount(() => {
+    if (!browser) return;
+    document.addEventListener("click", handleClick);
+  });
+
+  onDestroy(() => {
+    if (!browser) return;
+    document.removeEventListener("click", handleClick);
+  });
+
   const delayNavigation = () => {
-    return new Promise((res) => setTimeout(res, 1000));
+    return new Promise((res) => setTimeout(res, duration * 1000));
   };
 
   onNavigate(async (navigation) => {
     if (!document.startViewTransition) return;
-
-    const tl = gsap.timeline({
-      defaults: { duration: 1, ease: "power4.inOut" },
-    });
-    tl.to("#reveal", { height: "100%" }).to("#reveal", {
-      height: "0%",
-      delay: 1,
-    });
+    /**
+     * adding timeline inside a setTimeout is kind of a code smell
+     * but if i don't do this, by the time the timeline plays, clipPath In/Out variables(svelte states) are not ready
+     * please let me know if you knows better approach
+     */
+    const tl = gsap.timeline();
+    setTimeout(() => {
+      tl.to("#iris-container", {
+        clipPath: clipPathIn,
+        ease: "power4.out",
+        duration,
+      })
+        .to("#iris-container", {
+          clipPath: clipPathOut,
+          ease: "power4.in",
+          duration,
+          delay: duration / 4,
+        })
+        .set("#iris-container", { clipPath: "circle(150% at 50% 50%)" });
+    }, 0);
 
     await delayNavigation();
 
@@ -53,10 +85,8 @@
   <title>SAND Studio</title>
 </svelte:head>
 
-<slot />
-<Cursor />
+<div id="iris-container" style="clip-path: circle(150% at 50% 50%)">
+  <slot />
+  <Cursor />
+</div>
 <Grains />
-<div
-  id="reveal"
-  class="fixed z-[1000000000] top-0 left-0 right-0 w-full h-0 bg-light-100 dark:bg-light-10 sand-transition"
-/>
