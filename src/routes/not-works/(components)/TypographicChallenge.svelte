@@ -18,7 +18,7 @@
       alt=""
       class="w-full h-full object-cover scale-[1.01]"
     />
-    <div class="w-[40rem] absolute top-8 left-8">
+    <div class="w-[40rem] absolute top-8 left-8 text-light-100">
       <TypographicChallengeHeading />
     </div>
 
