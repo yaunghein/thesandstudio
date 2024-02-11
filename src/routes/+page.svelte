@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { goto } from "$app/navigation";
+  import { onDestroy } from "svelte";
   import { Application } from "@splinetool/runtime";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
@@ -44,6 +44,25 @@
       (document.querySelector("#theme-switcher") as HTMLElement)?.click();
     }
   };
+
+  function mapRange(
+    value: number,
+    fromLow: number,
+    fromHigh: number,
+    toLow: number,
+    toHigh: number,
+  ) {
+    return (
+      toLow + ((value - fromLow) / (fromHigh - fromLow)) * (toHigh - toLow)
+    );
+  }
+
+  const moveEye = (e: MouseEvent, spline: any) => {
+    const pupil_x = mapRange(e.clientX, 0, window.innerWidth, -10, 10);
+    const pupil_y = -mapRange(e.clientY, 0, window.innerHeight, -10, 10);
+    spline.setVariables({ pupil_x, pupil_y });
+  };
+
   const create3DBackground = (node: HTMLCanvasElement) => {
     spline = new Application(node);
     spline
@@ -51,8 +70,14 @@
       .then(() => {
         isSplineLoaded = true;
         spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+        window.addEventListener("mousemove", (e) => moveEye(e, spline));
       });
   };
+
+  onDestroy(() => {
+    if (!browser) return;
+    window.removeEventListener("mousemove", (e) => moveEye(e, spline));
+  });
 
   $: if ($SelectedBackground) {
     if (browser) {
