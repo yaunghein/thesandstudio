@@ -52,7 +52,7 @@
     /**
      * adding timeline inside a setTimeout is kind of a code smell
      * but if i don't do this, by the time the timeline plays, clipPath In/Out variables(svelte states) are not ready
-     * please let me know if you knows better approach
+     * please let me know if you know better approach
      */
     const tl = gsap.timeline();
     setTimeout(() => {
@@ -67,7 +67,7 @@
           duration,
           delay: duration / 4,
         })
-        .set("#iris-container", { clipPath: "circle(150% at 50% 50%)" });
+        .set("#iris-container", { clipPath: "circle(150% at 50% 100%)" });
     }, 0);
 
     await delayNavigation();
@@ -85,7 +85,7 @@
   <title>SAND Studio</title>
 </svelte:head>
 
-<div id="iris-container" style="clip-path: circle(150% at 50% 50%)">
+<div id="iris-container" style="clip-path: circle(150% at 50% 100%)">
   <slot />
   <Cursor />
 </div>
