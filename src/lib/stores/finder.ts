@@ -2006,18 +2006,18 @@ const getContactTab = (isOpen: boolean): Tab => {
     label: "Contact",
     isOpen,
     files: [
-      {
-        id: crypto.randomUUID(),
-        type: "file",
-        label: "Inquiry",
-        isOpen: false,
-      },
-      {
-        id: crypto.randomUUID(),
-        type: "file",
-        label: "Social Media",
-        isOpen: false,
-      },
+      // {
+      //   id: crypto.randomUUID(),
+      //   type: "file",
+      //   label: "Inquiry",
+      //   isOpen: false,
+      // },
+      // {
+      //   id: crypto.randomUUID(),
+      //   type: "file",
+      //   label: "Social Media",
+      //   isOpen: false,
+      // },
     ],
   };
 };

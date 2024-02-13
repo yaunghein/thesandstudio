@@ -43,7 +43,7 @@ export default {
         "sand-green": "#66E5B0",
       },
       width: {
-        "shell-desktop": "80rem",
+        "shell-desktop": "81.2rem",
         line: "0.125rem",
       },
       height: {

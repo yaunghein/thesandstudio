@@ -5,6 +5,7 @@
   import FinderColumns from "./FinderColumns.svelte";
   import CFilePreview from "./CFilePreview.svelte";
   import ButtonClose from "./ButtonClose.svelte";
+  import ContactForm from "./ContactForm.svelte";
   import {
     tabs,
     Tabs,
@@ -68,7 +69,7 @@
   <div class="transparent-layer" />
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
-    {#each [...Array(8).keys()] as _}
+    {#each [...Array(100).keys()] as _}
       <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
     {/each}
   </div>
@@ -150,11 +151,19 @@
         id="columns"
         class="flex h-[calc(100%-5rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.125rem] mt-0 border-2 border-b-0 border-white dark:border-light-12"
       >
-        <FinderColumns files={currentTab.files} />
-        {#if $FilePreview}
-          <CFilePreview data={$FilePreview} />
+        {#if currentTab.label !== "Contact"}
+          <FinderColumns files={currentTab.files} />
+          {#if $FilePreview}
+            <CFilePreview data={$FilePreview} />
+          {/if}
         {/if}
       </div>
     </div>
+
+    {#if currentTab.label === "Contact"}
+      <div class="relative w-[18.55rem] shrink-0">
+        <ContactForm />
+      </div>
+    {/if}
   </div>
 </div>
