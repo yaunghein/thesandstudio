@@ -58,9 +58,21 @@
   }
 
   const moveEye = (e: MouseEvent, spline: any) => {
-    const pupil_x = mapRange(e.clientX, 0, window.innerWidth, -10, 10);
-    const pupil_y = -mapRange(e.clientY, 0, window.innerHeight, -10, 10);
-    spline.setVariables({ pupil_x, pupil_y });
+    console.log({ variables: spline.getVariables() });
+    let pupil_left_x = mapRange(e.clientX, 0, window.innerWidth, -10, 20);
+    let pupil_left_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
+    let pupil_right_x = mapRange(e.clientX, 0, window.innerWidth, -20, 10);
+    let pupil_right_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
+
+    pupil_left_x = Math.min(Math.max(pupil_left_x, -10), 10);
+    pupil_right_x = Math.min(Math.max(pupil_right_x, -10), 10);
+
+    spline.setVariables({
+      pupil_left_x,
+      pupil_left_y,
+      pupil_right_x,
+      pupil_right_y,
+    });
   };
 
   const create3DBackground = (node: HTMLCanvasElement) => {
