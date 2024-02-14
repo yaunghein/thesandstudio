@@ -1,8 +1,10 @@
+import { json } from "@sveltejs/kit";
 import SibApiV3Sdk from "@getbrevo/brevo";
 import { BREVO_API_KEY } from "$env/static/private";
 import type { RequestHandler } from "./$types";
 
-export const POST: RequestHandler = () => {
+export const POST: RequestHandler = async ({ request }) => {
+  const { name, email: emailAddress, message } = await request.json();
   let brevo = new SibApiV3Sdk.TransactionalEmailsApi();
 
   // @ts-ignore
@@ -10,24 +12,12 @@ export const POST: RequestHandler = () => {
   brevoAuth.apiKey = BREVO_API_KEY;
 
   let email = new SibApiV3Sdk.SendSmtpEmail();
+  email.subject = `Website Form Submission: ${name}`;
+  email.htmlContent = `<html><body><div>${name}</div><div>${emailAddress}</div><div>${message}</div></body></html>`;
+  email.sender = { name, email: emailAddress };
+  email.to = [{ email: "yan@thesandstudio.com", name: "The SAND Studio" }];
+  email.replyTo = { email: "yan@thesandstudio.com", name: "The SAND Studio" };
 
-  email.subject = "My {{params.subject}}";
-  email.htmlContent =
-    "<html><body><h1>This is my first transactional email using Brevo by Yaung Hein</h1></body></html>";
-  email.sender = { name: "Yaung Hein", email: "example@yaunghein.com" };
-  email.to = [{ email: "yan@thesandstudio.com", name: "Test Name" }];
-  email.replyTo = { email: "replyto@domain.com", name: "John Doe" };
-
-  brevo.sendTransacEmail(email).then(
-    function (data) {
-      console.log(
-        "API called successfully. Returned data: " + JSON.stringify(data),
-      );
-    },
-    function (error) {
-      console.error(error);
-    },
-  );
-
-  return new Response(String("1"));
+  const data = await brevo.sendTransacEmail(email);
+  return json(data);
 };

@@ -93,3 +93,21 @@ input[type="number"] {
 .marquee-content span {
   margin-right: 0.5rem;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+  font-size: inherit;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+  font-size: inherit;
+}

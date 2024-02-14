@@ -52,14 +52,32 @@ export default {
       opacity: {
         sand: "0.6",
       },
-      animation: {
-        marquee: "marquee 10s linear infinite",
-      },
       keyframes: {
         marquee: {
           from: { transform: "translateX(0%)" },
           to: { transform: "translateX(-50%)" },
         },
+        "spin-once": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(90deg)" },
+        },
+        "spin-back-once": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-90deg)" },
+        },
+        vibrate: {
+          "0%": { transform: "translateX(0)" },
+          "25%": { transform: "translateX(-5px)" },
+          "50%": { transform: "translateX(5px)" },
+          "75%": { transform: "translateX(-5px)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 10s linear infinite",
+        "spin-once": "spin-once 0.8s ease-in-out",
+        "spin-back-once": "spin-back-once 0.8s ease-in-out",
+        "vibrate-once": "vibrate 0.5s ease-in-out 1",
       },
     },
   },

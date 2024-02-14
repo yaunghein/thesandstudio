@@ -85,10 +85,6 @@
   const openInquiryForm = () => {
     addShell({ id: "finder", zIndex: 65 });
     openContactTab();
-    setTimeout(
-      () => (document.querySelector("#Inquiry") as HTMLElement)!.click(),
-      0,
-    );
   };
 </script>
 

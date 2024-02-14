@@ -24,6 +24,7 @@
   import IconChevronLeft from "$lib/svgs/IconChevronLeft.svelte";
   import IconChevronRight from "$lib/svgs/IconChevronRight.svelte";
   import IconSandExplorer from "$lib/svgs/IconSandExplorer.svelte";
+  import ContactFormTubeLabel from "$lib/svgs/ContactFormTubeLabel.svelte";
 
   $: shell = $OpenShells.find((shell) => shell.id === "finder");
   $: index = $OpenShells.findIndex((shell) => shell.id === "finder");
@@ -156,6 +157,40 @@
           {#if $FilePreview}
             <CFilePreview data={$FilePreview} />
           {/if}
+        {:else}
+          <div class="w-full flex flex-col justify-between">
+            <p class="text-4xl font-sand-medium mt-20 ml-10">
+              What do you have in mind?
+            </p>
+            <div
+              class="ml-10 mb-16 mt-auto flex flex-col items-start gap-1 text-xl text-light-80 dark:text-light-12"
+            >
+              <a
+                class="leading-none mb-2 hover:text-black dark:hover:text-light-100 sand-transition"
+                href="matilto:hi@thesandstudio.com"
+              >
+                hi@thesandstudio.com
+              </a>
+              <a
+                class="text-xl light-70 leading-none hover:text-black dark:hover:text-light-100 sand-transition"
+                href="/"
+              >
+                Instagram
+              </a>
+              <a
+                class="text-xl light-70 leading-none hover:text-black dark:hover:text-light-100 sand-transition"
+                href="/"
+              >
+                Facebook
+              </a>
+            </div>
+
+            <div
+              class="text-white dark:text-light-20 w-40 h-8 self-center mb-8"
+            >
+              <ContactFormTubeLabel />
+            </div>
+          </div>
         {/if}
       </div>
     </div>

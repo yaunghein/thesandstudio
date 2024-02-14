@@ -58,7 +58,6 @@
   }
 
   const moveEye = (e: MouseEvent, spline: any) => {
-    console.log({ variables: spline.getVariables() });
     let pupil_left_x = mapRange(e.clientX, 0, window.innerWidth, -10, 20);
     let pupil_left_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
     let pupil_right_x = mapRange(e.clientX, 0, window.innerWidth, -20, 10);
