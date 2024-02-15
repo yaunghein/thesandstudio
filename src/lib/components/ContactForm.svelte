@@ -150,7 +150,7 @@
           {/if}
           <textarea
             name="message"
-            placeholder="How can we help you?"
+            placeholder="Message"
             bind:value={formInputs.message}
             class="h-full mt-5 placeholder:text-black dark:placeholder:text-light-100 outline-none resize-none bg-transparent"
             on:input={() =>
@@ -209,7 +209,7 @@
     <div
       id="btn-logo-shape"
       class={twm(
-        "flex w-9 aspect-square ml-auto sand-transition",
+        "flex w-9 aspect-square ml-auto transition duration-[800ms] ease-out",
         formState === "idel" && "animate-spin-back-once",
         formState === "locked" && "animate-spin-once text-sand-green",
         formState === "sending" && "animate-spin text-sand-red",
