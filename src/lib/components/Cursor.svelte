@@ -1,31 +1,33 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { scale } from "svelte/transition";
+  import { backOut } from "svelte/easing";
   import { twMerge as twm } from "tailwind-merge";
   import gsap from "gsap";
   import { CursorType } from "$lib/stores/cursor";
-  import { scale } from "svelte/transition";
-  import { browser } from "$app/environment";
 
   const pos = { x: 0, y: 0 };
-  const easing = { duration: 0.7, ease: "power4" };
-
-  const centerCursor = () => {
-    setTimeout(() => {
-      const cursor = document.querySelector("#cursor");
-      const cursorRect = cursor?.getBoundingClientRect();
-      gsap.to("#cursor", {
-        x: pos.x - cursorRect!.width / 2,
-        y: pos.y - cursorRect!.height / 2,
-        opacity: 1,
-        ...easing,
-      });
-    }, 300);
+  const options = { start: 0.5, duration: 500, easing: backOut };
+  const pillCursors = [
+    "upload-files",
+    "remove-files",
+    "bg-scene",
+    "bg-default",
+    "bg-legacy",
+  ];
+  const pillLabels: Record<string, string> = {
+    "upload-files": "Upload Files",
+    "remove-files": "Remove",
+    "bg-scene": "Scene",
+    "bg-default": "Default",
+    "bg-legacy": "Legacy",
   };
 
   let isTargetClickable = false;
 
   onMount(() => {
     const isTouchDevice = "ontouchstart" in window;
+    const easing = { duration: 0.7, ease: "power4" };
     const createCursorFollower = () => {
       const handleMouseMove = (e: MouseEvent) => {
         const cursor = document.querySelector("#cursor");
@@ -35,7 +37,10 @@
         pos.y = y;
         isTargetClickable =
           !!(target as HTMLElement)?.closest("a") ||
-          !!(target as HTMLElement)?.closest("button");
+          !!(target as HTMLElement)?.closest("button") ||
+          !!(target as HTMLElement)?.closest("input") ||
+          !!(target as HTMLElement)?.closest("textarea") ||
+          !!(target as HTMLElement)?.closest("label");
 
         gsap.to("#cursor", {
           x: x - cursorRect!.width / 2,
@@ -59,118 +64,29 @@
       createCursorFollower();
     }
   });
-
-  $: if ($CursorType && browser) {
-    centerCursor();
-    switch ($CursorType) {
-      case "normal":
-        gsap.to("#cursor", {
-          width: "3.5rem",
-          height: "3.5rem",
-          ...easing,
-        });
-        break;
-      case "contact":
-        gsap.to("#cursor", {
-          width: "35rem",
-          height: "6rem",
-          ...easing,
-        });
-        break;
-      case "footer-close":
-        gsap.to("#cursor", {
-          width: "3.5rem",
-          height: "3.5rem",
-          ...easing,
-        });
-        break;
-    }
-  }
 </script>
 
 <div
   id="cursor"
   class={twm(
-    "pointer-events-none select-none fixed top-0 z-[100000000] w-10 h-10",
-    $CursorType !== "contact" && "mix-blend-difference dark:invert",
+    "pointer-events-none select-none fixed top-0 z-[100000000]",
+    $CursorType !== "contact" && !pillCursors.includes($CursorType)
+      ? "mix-blend-difference"
+      : "mix-blend-normal",
   )}
 >
-  <div
-    class={twm(
-      "relative text-black dark:text-white flex items-center justify-center text-5xl w-full h-full",
-      $CursorType === "normal" || $CursorType === "a-chon-lyy"
-        ? "overflow-visible rounded-none"
-        : "border-3 border-white dark:border-light-12 rounded-full overflow-hidden",
-    )}
-  >
+  {#if $CursorType === "normal"}
     <div
-      class={twm(
-        $CursorType === "normal" || $CursorType === "a-chon-lyy"
-          ? "hidden"
-          : '"absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-90"',
-      )}
-    />
-
-    {#if $CursorType === "contact"}
-      <div
-        transition:scale
-        class="whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        hi@thesandstudio.com
-      </div>
-    {:else if $CursorType === "footer-close"}
-      <div
-        transition:scale
-        class="whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18 18 6M6 6l12 12"
-          />
-        </svg>
-      </div>
-    {:else if $CursorType === "a-chon-lyy"}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        id="Layer_2"
-        data-name="Layer 2"
-        viewBox="0 0 2600.24 2600.24"
-        class={twm(
-          isTargetClickable ? "scale-150" : "scale-100",
-          "invert w-10 aspect-square dark:invert-0 sand-transition",
-        )}
-      >
-        <defs>
-          <style>
-            .cls-1 {
-              stroke-width: 0px;
-            }
-          </style>
-        </defs>
-        <g id="Layer_1-2" data-name="Layer 1">
-          <path
-            class="cls-1"
-            d="M1300.12,0c76.19,0,157.97,604.24,184.55,611.36,26.58,7.12,399.52-475.27,465.51-437.18,65.99,38.1-165.31,602.27-145.85,621.73,19.46,19.46,583.63-211.84,621.73-145.85,38.1,65.99-444.3,438.92-437.18,465.51,7.12,26.58,611.36,108.36,611.36,184.55s-604.24,157.97-611.36,184.55c-7.12,26.58,475.27,399.52,437.18,465.51-38.1,65.99-602.27-165.31-621.73-145.85-19.46,19.46,211.84,583.63,145.85,621.73-65.99,38.1-438.92-444.3-465.51-437.18-26.58,7.12-108.36,611.36-184.55,611.36s-157.97-604.24-184.55-611.36c-26.58-7.12-399.52,475.27-465.51,437.18-65.99-38.1,165.31-602.27,145.85-621.73-19.46-19.46-583.63,211.84-621.73,145.85-38.1-65.99,444.3-438.92,437.18-465.51-7.12-26.58-611.36-108.36-611.36-184.55s604.24-157.97,611.36-184.55c7.12-26.58-475.27-399.52-437.18-465.51,38.1-65.99,602.27,165.31,621.73,145.85,19.46-19.46-211.84-583.63-145.85-621.73,65.99-38.1,438.92,444.3,465.51,437.18,26.58-7.12,108.36-611.36,184.55-611.36Z"
-          />
-        </g>
-      </svg>
-    {:else}
+      transition:scale={options}
+      class="dark:invert w-10 aspect-square absolute"
+    >
       <svg
         width="100%"
         height="100%"
         viewBox="0 0 30 30"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        class="invert w-10 aspect-square dark:invert-0 translate-x-5 translate-y-5"
+        class="invert dark:invert-0 absolute"
       >
         <path
           class="sand-transition"
@@ -179,6 +95,70 @@
           stroke="black"
         />
       </svg>
-    {/if}
-  </div>
+    </div>
+  {/if}
+
+  {#if $CursorType === "a-chon-lyy"}
+    <div
+      transition:scale={options}
+      class="w-20 aspect-square absolute -translate-x-1/2 -translate-y-1/2"
+    >
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 70 70"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M35 0C37.0511 0 39.2526 16.2665 39.9682 16.4582C40.6837 16.6498 50.7235 3.66362 52.5 4.68903C54.2765 5.7147 48.0498 20.9025 48.5736 21.4264C49.0975 21.9502 64.2853 15.7235 65.311 17.5C66.3366 19.2765 53.3502 29.316 53.5418 30.0318C53.7335 30.7474 70 32.9489 70 35C70 37.0511 53.7335 39.2526 53.5418 39.9682C53.3502 40.6837 66.3364 50.7235 65.311 52.5C64.2853 54.2765 49.0975 48.0498 48.5736 48.5736C48.0498 49.0975 54.2765 64.2853 52.5 65.311C50.7235 66.3366 40.684 53.3502 39.9682 53.5418C39.2526 53.7335 37.0511 70 35 70C32.9489 70 30.7474 53.7335 30.0318 53.5418C29.3163 53.3502 19.2765 66.3364 17.5 65.311C15.7235 64.2853 21.9502 49.0975 21.4264 48.5736C20.9025 48.0498 5.7147 54.2765 4.68903 52.5C3.66335 50.7235 16.6498 40.684 16.4582 39.9682C16.2665 39.2526 0 37.0511 0 35C0 32.9489 16.2665 30.7474 16.4582 30.0318C16.6498 29.3163 3.66362 19.2765 4.68903 17.5C5.7147 15.7235 20.9025 21.9502 21.4264 21.4264C21.9502 20.9025 15.7235 5.7147 17.5 4.68903C19.2765 3.66335 29.316 16.6498 30.0318 16.4582C30.7474 16.2665 32.9489 0 35 0Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+  {/if}
+
+  {#if $CursorType === "contact"}
+    <div
+      transition:scale={options}
+      class="absolute -translate-x-1/2 -translate-y-1/2 text-6xl rounded-full px-11 py-5 border-2 text-black dark:text-light-100 border-white dark:border-light-12 overflow-hidden"
+    >
+      <div class="transparent-layer rounded-full" />
+      <span class="relative">hi@thesandstudio.com</span>
+    </div>
+  {/if}
+
+  {#if $CursorType === "footer-close"}
+    <div
+      class="absolute -translate-x-1/2 -translate-y-1/2 p-4 w-14 aspect-square rounded-full bg-white dark:bg- text-black overflow-hidden"
+    >
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 256 256"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M240 240L16 16M240 16L16 240"
+          stroke="currentColor"
+          stroke-width="32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  {/if}
+
+  {#if pillCursors.includes($CursorType)}
+    <div
+      transition:scale={options}
+      class="absolute -translate-x-1/2 -translate-y-1/2 text-xl rounded-full px-5 py-2 text-white dark:text-black border-2 border-light-12 dark:border-white overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-80"
+      />
+      <span class="relative whitespace-nowrap">{pillLabels[$CursorType]}</span>
+    </div>
+  {/if}
 </div>

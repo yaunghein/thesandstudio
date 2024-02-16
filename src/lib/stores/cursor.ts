@@ -1,7 +1,16 @@
 import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
-type TCursor = "normal" | "contact" | "footer-close" | "a-chon-lyy";
+export type TCursor =
+  | "normal"
+  | "contact"
+  | "footer-close"
+  | "a-chon-lyy"
+  | "upload-files"
+  | "remove-files"
+  | "bg-scene"
+  | "bg-default"
+  | "bg-legacy";
 
 export const CursorType: Writable<TCursor> = writable("normal");
 

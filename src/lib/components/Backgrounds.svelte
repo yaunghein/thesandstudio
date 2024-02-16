@@ -1,7 +1,6 @@
 <script lang="ts">
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
-  import { twMerge as twm } from "tailwind-merge";
   import { OpenShells, removeShell } from "$lib/stores/shell";
   import { Backgrounds } from "$lib/stores/background";
   import { changeCursorType } from "$lib/stores/cursor";
@@ -58,23 +57,14 @@
           }}
         >
           <div
-            use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
-            class={twm(
-              "relative rounded-xl aspect-[1.91/1] overflow-hidden",
-              bg.name === "Solid" &&
-                "border-2 border-white dark:border-light-12 ",
-            )}
+            use:changeCursorType={{ inType: bg.name, outType: "normal" }}
+            class="relative rounded-xl aspect-[1.91/1] overflow-hidden"
           >
             <img
               class="object-cover scale-105"
               src={bg.thumbnail}
               alt={bg.name}
             />
-            <p
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-left text-3xl leading-none px-5 py-3 rounded-full bg-black border-2 border-light-12"
-            >
-              {bg.name}
-            </p>
           </div>
         </button>
       {/each}

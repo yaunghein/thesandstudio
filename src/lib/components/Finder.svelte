@@ -159,11 +159,11 @@
           {/if}
         {:else}
           <div class="w-full flex flex-col justify-between">
-            <p class="text-4xl font-sand-medium mt-20 ml-10">
+            <p class="text-4xl font-sand-medium mt-20 ml-12">
               What do you have in mind?
             </p>
             <div
-              class="ml-10 mb-16 mt-auto flex flex-col items-start gap-1 text-xl text-light-80 dark:text-light-12"
+              class="ml-12 mb-16 mt-auto flex flex-col items-start gap-1 text-xl text-light-80 dark:text-light-12"
             >
               <a
                 class="leading-none mb-2 hover:text-black dark:hover:text-light-100 sand-transition"

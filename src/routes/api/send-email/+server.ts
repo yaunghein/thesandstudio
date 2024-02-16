@@ -4,7 +4,12 @@ import { BREVO_API_KEY } from "$env/static/private";
 import type { RequestHandler } from "./$types";
 
 export const POST: RequestHandler = async ({ request }) => {
-  const { name, email: emailAddress, message } = await request.json();
+  const {
+    name,
+    email: emailAddress,
+    message,
+    attachments,
+  } = await request.json();
   let brevo = new SibApiV3Sdk.TransactionalEmailsApi();
 
   // @ts-ignore
@@ -17,6 +22,8 @@ export const POST: RequestHandler = async ({ request }) => {
   email.sender = { name, email: emailAddress };
   email.to = [{ email: "yan@thesandstudio.com", name: "The SAND Studio" }];
   email.replyTo = { email: "yan@thesandstudio.com", name: "The SAND Studio" };
+
+  if (attachments) email.attachment = attachments;
 
   const data = await brevo.sendTransacEmail(email);
   return json(data);
