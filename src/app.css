@@ -31,9 +31,11 @@
 }
 
 *,
+*::before,
+*::after,
 a,
 button {
-  cursor: none;
+  cursor: none !important;
 }
 
 html {

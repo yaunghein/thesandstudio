@@ -6,6 +6,7 @@
   import LabelExplorer from "$lib/svgs/LabelExplorer.svelte";
   import { addShell } from "$lib/stores/shell";
   import { openContactTab } from "$lib/stores/finder";
+  import ContactFormTubeLabel from "$lib/svgs/ContactFormTubeLabel.svelte";
 
   const magnify = (node: HTMLElement) => {
     const dock = node;
@@ -168,7 +169,7 @@
   <!-- ########## Contact ########## -->
   <button
     on:click={openInquiryForm}
-    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
@@ -180,12 +181,12 @@
       <div use:playLottieOnHover={"lotties/contact.json"} />
     </div>
     <div
-      class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
+      class="w-44 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-1/2 -translate-x-1/2 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
     >
       <div
-        class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
+        class="w-44 mx-auto text-2xl text-center group-hover:leading-[1] origin-right font-sand-medium absolute left-1/2 -translate-x-1/2 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
       >
-        Talk
+        <ContactFormTubeLabel />
       </div>
     </div>
   </button>
