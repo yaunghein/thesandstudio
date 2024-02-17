@@ -24,7 +24,7 @@
     return () => subscription.unsubscribe();
   });
 
-  const duration = 1.5;
+  const duration = 1;
   let clickPos = { x: 0, y: 0 };
   $: clipPathIn = `circle(0% at ${clickPos.x}px ${clickPos.y}px)`;
   $: clipPathOut = `circle(150% at ${clickPos.x}px ${clickPos.y}px)`;
