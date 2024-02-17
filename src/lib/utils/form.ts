@@ -23,7 +23,7 @@ export const formSchema = z.object({
     .string()
     .trim()
     .min(1, { message: "Please tell us how we can help you." }),
-  attachments: z.instanceof(FileList).optional().nullable(),
+  attachments: z.any().optional().nullable(),
 });
 
 export const fileToBase64 = (file: File): Promise<string> => {
