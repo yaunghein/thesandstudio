@@ -104,7 +104,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
           {
             id: crypto.randomUUID(),
             type: "folder",
-            label: "Direction of the Mind 1618? (2022)",
+            label: "Direction of the Mind (1618?-1628?)",
             isOpen: false,
             data: [
               {
