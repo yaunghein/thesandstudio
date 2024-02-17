@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import gsap from "gsap";
-  import { z } from "zod";
   import { twMerge as twm } from "tailwind-merge";
   import { changeCursorType } from "$lib/stores/cursor";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
@@ -10,6 +9,12 @@
   import ContactFormTopShape from "$lib/svgs/ContactFormTopShape.svelte";
   import ContactFormTubeAPhone from "$lib/svgs/ContactFormTubeAPhone.svelte";
   import ContactFormUpload from "$lib/svgs/ContactFormUpload.svelte";
+  import {
+    formSchema,
+    filesToBase64,
+    transformZodErrors,
+  } from "$lib/utils/form";
+  import type { FormInputs } from "$lib/utils/form";
 
   const defaults = { ease: "power4.inOut", duration: 1 };
 
@@ -17,18 +22,6 @@
     const tl = gsap.timeline({ defaults });
     tl.from("#tube", { y: "115%" }).to("#paper", { x: "0%" }, "<50%");
   });
-
-  type Attachment = {
-    name: string;
-    content: string;
-  };
-
-  type FormInputs = {
-    name: string;
-    email: string;
-    message: string;
-    attachments: Attachment[] | null;
-  };
 
   const initialFormInputs: FormInputs = {
     name: "",
@@ -40,37 +33,18 @@
   let formErrors: any;
   let formState: "idel" | "locked" | "sending" = "idel";
 
-  const formSchema = z.object({
-    name: z.string().trim().min(1, { message: "Please enter your name." }),
-    email: z
-      .string()
-      .trim()
-      .min(1, { message: "Please enter your email, we'll never share it." })
-      .email({ message: "Please enter a valid email." }),
-    message: z
-      .string()
-      .trim()
-      .min(1, { message: "Please tell us how we can help you." }),
-    attachments: z.array(z.any()).optional(),
-  });
+  const handleAttachmentChange = async (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    if (!input.files) return;
+    formInputs.attachments = input.files;
+  };
 
   const lock = () => {
     const validatedInputs: any = formSchema.safeParse(formInputs);
     if (!validatedInputs.success) {
-      const zodErrors = JSON.parse(validatedInputs.error);
-      const transformedErrors: any = {};
-      for (const error of zodErrors) {
-        for (const path of error.path) {
-          transformedErrors[path] = [
-            ...(transformedErrors[path] || []),
-            error.message,
-          ];
-        }
-      }
-      formErrors = transformedErrors;
+      formErrors = transformZodErrors(validatedInputs.error);
       return;
     }
-
     formState = "locked";
     gsap.to("#paper", { x: "79.5%", ...defaults });
   };
@@ -99,50 +73,49 @@
     sendTheTube();
     formState = "sending";
 
-    const resp = await fetch("/api/send-email", {
+    const { name, email, message, attachments } = formInputs;
+    const respSand = await fetch("/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formInputs),
+      body: JSON.stringify({
+        subject: `Website Form Submission: ${name}`,
+        sender: { name, email },
+        to: { name: "The SAND Studio", email: "yan@thesandstudio.com" }, // change to hi@
+        htmlContent: `<html><body><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
+        attachments: attachments ? await filesToBase64(attachments) : null,
+      }),
     });
-    if (resp.ok) {
+    if (!respSand.ok) {
+      const error = await respSand.json();
+      console.log({ error: error.message });
       formState = "idel";
-      // const data = await resp.json();
+      return;
     }
+
+    const respSender = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        subject: `The SAND Studio Received Your Message.`,
+        sender: { name: "The SAND Studio", email: "yan@thesandstudio.com" }, // change to hi@
+        to: { name, email },
+        htmlContent: `<html><body><div>Hi, ${name},</div><div>We received your message.</div><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
+        attachments: attachments ? await filesToBase64(attachments) : null,
+      }),
+    });
+    if (!respSender.ok) {
+      const error = await respSender.json();
+      console.log({ error: error.message });
+      formState = "idel";
+      return;
+    }
+
+    formState = "idel";
   };
 
   const handleSubmit: Record<string, () => void> = {
     idel: lock,
     locked: submit,
-  };
-
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const result = reader.result as string;
-        const data = result.split(",")[1]; // need to remove prefix like this for Brevo
-        resolve(data);
-      };
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
-  const filesToBase64 = async (data: FileList): Promise<Attachment[]> => {
-    const files = [];
-    for (const file of data) {
-      files.push({
-        name: file.name,
-        content: await fileToBase64(file),
-      });
-    }
-    return files;
-  };
-
-  const handleAttachmentChange = async (event: Event) => {
-    const input = event.target as HTMLInputElement;
-    if (!input.files) return;
-    formInputs.attachments = await filesToBase64(input.files);
   };
 </script>
 
@@ -251,6 +224,7 @@
   </div>
 
   <button
+    disabled={formState === "sending"}
     on:click={handleSubmit[formState]}
     id="submit-btn"
     class="relative w-[89%] mx-auto h-14 flex items-center justify-between rounded-full border-2 border-white dark:border-light-12 bg-light-90 dark:bg-black text-black dark:text-light-100 p-3 mb-4 mt-3"
