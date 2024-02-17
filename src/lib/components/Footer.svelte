@@ -37,33 +37,35 @@
         ©{new Date().getFullYear()} The Sand Studio
       </span>
     {/if}
-    <button
-      on:click={() => {
-        isOpen = !isOpen;
-        CursorType.set("normal");
-      }}
-      class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 transition-all"
-    >
-      {#if !isOpen}
-        <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
-          <svg
-            width="50"
-            height="18"
-            viewBox="0 0 50 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-3"
-          >
-            <path
-              d="M25.0002 0L49.2489 18H0.751465L25.0002 0Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      {/if}
-    </button>
+
+    {#if !isOpen}
+      <button
+        on:click={() => {
+          isOpen = !isOpen;
+          CursorType.set("normal");
+        }}
+        class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 transition-all"
+      >
+        {#if !isOpen}
+          <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
+            <svg
+              width="50"
+              height="18"
+              viewBox="0 0 50 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-3"
+            >
+              <path
+                d="M25.0002 0L49.2489 18H0.751465L25.0002 0Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        {/if}
+      </button>
+    {/if}
   </div>
-  <!-- h-[33.75rem] -->
   <div
     role="region"
     on:mouseenter={() => CursorType.set("normal")}

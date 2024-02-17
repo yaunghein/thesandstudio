@@ -53,7 +53,7 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         icon: "/lotties/fatk.json",
         handleClick: () => goto("/for-all-thingkind"),
         description:
-          "We embrace all forms, materials, and ideas, shaping them into products that  reflect a confluence of diverse inspirations and tangible craftsmanship.n",
+          "We embrace all forms, materials, and ideas, shaping them into products that  reflect a confluence of diverse inspirations and tangible craftsmanship.",
         mediaType: "img",
         mediaSrc:
           "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
@@ -65,7 +65,7 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         isOpen: false,
         icon: "/lotties/works.json",
         handleClick: () => goto("/works"),
-        description: "Work description",
+        description: "Paid Works",
         mediaType: "img",
         mediaSrc:
           "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
