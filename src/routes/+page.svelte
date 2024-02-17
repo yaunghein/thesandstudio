@@ -93,7 +93,7 @@
   $: if ($SelectedBackground) {
     if (browser) {
       const hasSpline = !!spline;
-      const is3DBg = $SelectedBackground.name === "Sand Dunes";
+      const is3DBg = $SelectedBackground.name === "bg-scene";
       const isLightMode = localStorage.getItem("sand-theme") === "light";
 
       if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
@@ -139,7 +139,7 @@
 </script>
 
 <AppShell>
-  {#if $SelectedBackground?.name === "Sand Dunes"}
+  {#if $SelectedBackground?.name === "bg-scene"}
     <div
       class={twm(
         "sticky top-0 bottom-0 h-screen sand-transition",
@@ -152,7 +152,7 @@
     </div>
   {/if}
 
-  {#if browser && $SelectedBackground?.name === "Legacy"}
+  {#if browser && $SelectedBackground?.name === "bg-legacy"}
     <div class="dark:invert opacity-50">
       <LottiePlayer
         src="/images/backgrounds/morph-archi.json"
@@ -233,7 +233,7 @@
   <div
     class={twm(
       "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
-      $SelectedBackground?.name === "Sand Dunes" && "hidden",
+      $SelectedBackground?.name === "bg-scene" && "hidden",
     )}
   >
     <Logo />

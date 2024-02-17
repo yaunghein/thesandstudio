@@ -16,14 +16,14 @@ export const Backgrounds: Writable<Background[]> = writable([
     name: "bg-scene",
     thumbnail: "/images/backgrounds/thumbnail-sand-dunes.jpg",
     src: "",
-    isOpen: false,
+    isOpen: true,
   },
   {
     id: crypto.randomUUID(),
     name: "bg-default",
     thumbnail: "/images/backgrounds/thumbnail-solid.jpg",
     src: "",
-    isOpen: true,
+    isOpen: false,
   },
   {
     id: crypto.randomUUID(),
