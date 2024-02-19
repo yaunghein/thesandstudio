@@ -207,16 +207,28 @@
     </div>
 
     <div class="mt-12 flex flex-col gap-2">
-      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+      <a
+        href="/"
+        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+      >
         Privacy Policy
       </a>
-      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+      <a
+        href="/"
+        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+      >
         Terms and Conditions
       </a>
-      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+      <a
+        href="/"
+        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+      >
         Cookie Policy
       </a>
-      <a href="/" class="text-light-80 dark:text-light-25 leading-none">
+      <a
+        href="/"
+        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+      >
         Made by The Sand Studio {new Date().getFullYear()}
       </a>
     </div>

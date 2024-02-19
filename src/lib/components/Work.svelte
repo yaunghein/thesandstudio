@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
   import { onDestroy } from "svelte";
   import { fade } from "svelte/transition";
-  import type { Work } from "$lib/types.ts";
+  import type { Work } from "$lib/types";
 
   export let work: Work;
 
@@ -22,7 +24,9 @@
 </script>
 
 <div
-  class="group w-full aspect-[1.63/1] relative rounded-xl overflow-hidden {work.textColor ===
+  role="region"
+  on:mouseenter={() => dispatch("hoverIn", work)}
+  class="group w-full aspect-[1.63/1] relative overflow-hidden {work.textColor ===
   'light'
     ? 'bg-light-10'
     : 'bg-light-100'}"
@@ -33,11 +37,11 @@
         transition:fade={{ duration: 200 }}
         src={work.images[index]}
         alt={work.name}
-        class="absolute inset-0 w-full h-full object-cover rounded-lg scale-[1.05]"
+        class="absolute inset-0 w-full h-full object-cover scale-[1.05]"
       />
     {/key}
   </div>
-  <img
+  <!-- <img
     src={work.hoverImage}
     alt={work.name}
     class="absolute z-10 inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition rounded-lg scale-[1.05]"
@@ -58,5 +62,5 @@
         {/each}
       </div>
     {/each}
-  </div>
+  </div> -->
 </div>

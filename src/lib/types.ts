@@ -8,9 +8,9 @@ export type AppIcon = {
 export type Work = {
   name: string;
   images: string[];
-  hoverImage: string;
-  details: string[][];
   textColor: "light" | "dark";
+  categories: string[];
+  meta: string[];
 };
 
 export type WorkGroup = {

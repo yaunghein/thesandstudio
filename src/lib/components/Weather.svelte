@@ -85,7 +85,7 @@
                 unit === "C"
                   ? "text-black dark:text-white"
                   : "text-light-80 dark:text-light-25",
-                "transition",
+                "sand-transition",
               )}
             >
               °C
@@ -96,8 +96,8 @@
               class={twm(
                 unit === "F"
                   ? "text-black dark:text-white"
-                  : "text-light-80 dark:text-light-25",
-                "transition",
+                  : "text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100",
+                "sand-transition",
               )}
             >
               °F
@@ -149,7 +149,7 @@
                 "text-[1.375rem] sand-transition",
                 selectedLocation === location
                   ? "text-black dark:text-white"
-                  : "text-light-80 dark:text-light-25",
+                  : "text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100",
               )}
             >
               {location}

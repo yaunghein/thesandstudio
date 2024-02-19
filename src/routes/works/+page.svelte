@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { twMerge as twm } from "tailwind-merge";
   import AppShell from "$lib/components/AppShell.svelte";
   import Work from "$lib/components/Work.svelte";
-  import type { WorkGroup } from "$lib/types.ts";
+  import Logo from "$lib/svgs/Logo.svelte";
+  import type { Work as TWork, WorkGroup } from "$lib/types";
+  import deepClone from "$lib/utils/deepClone";
 
   const WORKS_GROUPS: WorkGroup[] = [
     {
@@ -16,12 +19,8 @@
             "/images/archives/works/all-we-need/AWN Tape 1.webp",
             "/images/archives/works/all-we-need/AWN Tape 2.webp",
           ],
-          hoverImage:
-            "/images/archives/works/all-we-need/AWN Logo on White.webp",
-          details: [
-            ["APPAREL AND", "CULTURE"],
-            ["Branding and", "Typography"],
-          ],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "Another Club",
@@ -33,12 +32,8 @@
             "/images/archives/works/another-club/AC Coasters.webp",
             "/images/archives/works/another-club/AC Mockups.webp",
           ],
-          hoverImage: "/images/archives/works/another-club/AC Logo 2.webp",
-          details: [
-            ["RESTAURANT"],
-            ["Branding and", "Graphic Design"],
-            ["Interior Design", "3D Visualization"],
-          ],
+          categories: ["Visual Identity"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "Burmese Hype",
@@ -47,8 +42,8 @@
             "/images/works/burmese-hype/Burmese Hype 1.webp",
             "/images/works/burmese-hype/Burmese Hype 2.webp",
           ],
-          hoverImage: "/images/works/burmese-hype/Burmese Hype.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "Elephant Cafe",
@@ -60,12 +55,8 @@
             "/images/works/elephant-cafe/Elephant_Cafe_4.webp",
             "/images/works/elephant-cafe/Elephant_Cafe_5.webp",
           ],
-          hoverImage: "/images/works/elephant-cafe/Elephant Cafe.webp",
-          details: [
-            ["CAFE"],
-            ["Branding and", "Graphic Design"],
-            ["AA", "Interior Design", "3D Visualization"],
-          ],
+          categories: ["Motion Graphics and Animation"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "Game Sauce",
@@ -74,8 +65,8 @@
             "/images/archives/works/game-sauce/GS Logo.webp",
             "/images/archives/works/game-sauce/GS Logo Animation.gif",
           ],
-          hoverImage: "/images/archives/works/game-sauce/GS Logo.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "Grand Hotel",
@@ -88,8 +79,8 @@
             "/images/archives/works/grand-hotel/GH Laundry Bag.webp",
             "/images/archives/works/grand-hotel/GH Paperbag.webp",
           ],
-          hoverImage: "/images/archives/works/grand-hotel/Grand Hotel.webp",
-          details: [["HOTEL"], ["Branding and", "Graphic Design"]],
+          categories: ["Packaging"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "HOG",
@@ -98,8 +89,8 @@
             "/images/archives/works/hog/HOG Logo.webp",
             "/images/archives/works/hog/HOG Mascot.webp",
           ],
-          hoverImage: "/images/archives/works/hog/HOG Logo.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "The Other Cakes",
@@ -110,9 +101,8 @@
             "/images/archives/works/the-other-cakes/TOC Misc.webp",
             "/images/archives/works/the-other-cakes/TOC Tags and Sticker.webp",
           ],
-          hoverImage:
-            "/images/archives/works/the-other-cakes/The Other Cakes.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "RIO",
@@ -123,8 +113,8 @@
             "/images/archives/works/rio/RIO Colors.webp",
             "/images/archives/works/rio/RIO Tote Bag.webp",
           ],
-          hoverImage: "/images/archives/works/rio/Rio.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
         {
           name: "YG",
@@ -138,27 +128,100 @@
             "/images/archives/works/yangon-galacticos/YG Screens 2.webp",
             "/images/archives/works/yangon-galacticos/YG Stickers.webp",
           ],
-          hoverImage: "/images/archives/works/yangon-galacticos/YG.webp",
-          details: [["I DON'T KNOW"]],
+          categories: ["Graphic Design"],
+          meta: ["Restaurant", "Yangin", "2019"],
         },
       ],
     },
   ];
+
+  let hoveredWork: TWork | null;
+
+  const initialDisplayLabels = [
+    { label: "Visual Identity", isActive: false },
+    { label: "Motion Graphics and Animation", isActive: false },
+    { label: "Packaging", isActive: false },
+    { label: "Web Design and Development", isActive: false },
+    { label: "Web Maintenance and Support", isActive: false },
+    { label: "E-commerce Solutions", isActive: false },
+    { label: "Architectural Design", isActive: false },
+    { label: "Interior Design", isActive: false },
+    { label: "3D Modeling and Visualization", isActive: false },
+    { label: "Consultation and Strategy", isActive: false },
+  ];
+  let displayLabels = deepClone(initialDisplayLabels);
+
+  $: {
+    if (!hoveredWork) {
+      displayLabels = deepClone(initialDisplayLabels);
+    } else {
+      const newDisplayLables = [];
+      for (const label of displayLabels) {
+        for (const category of hoveredWork!.categories) {
+          label.label === category
+            ? newDisplayLables.push({ ...label, isActive: true })
+            : newDisplayLables.push({ ...label, isActive: false });
+        }
+      }
+      displayLabels = newDisplayLables;
+    }
+  }
 </script>
 
-<div>
-  <AppShell>
-    <div class="p-11 grid gap-11">
-      {#each WORKS_GROUPS as workGroup}
-        <section>
-          <h2 class="text-2xl mb-2">{workGroup.type}</h2>
-          <div class="grid grid-cols-2 gap-4">
-            {#each workGroup.data as work}
-              <Work {work} />
-            {/each}
-          </div>
-        </section>
-      {/each}
+<AppShell>
+  <section class="relative">
+    <div
+      class="p-10 h-[12.5rem] sticky top-0 z-20 bg-light-95 dark:bg-light-7 flex items-start gap-32"
+    >
+      <div class="grid grid-rows-3 grid-flow-col gap-y-2 gap-x-32">
+        {#each displayLabels as label}
+          <span
+            class={twm(
+              "sand-transition text-2xl leading-none",
+              label.isActive
+                ? "text-black dark:text-light-100"
+                : "text-light-80 dark:text-light-20",
+            )}
+          >
+            {label.label}
+          </span>
+        {/each}
+      </div>
+      <div
+        class="text-light-80 dark:text-light-20 sand-transition text-2xl leading-tight max-w-[22rem]"
+      >
+        Others (Every idea matters to us – no concept too small, no vision too
+        grand. If you’re a person with an idea. Come say hi!)
+      </div>
+      <div class="flex items-center justify-end grow">
+        <div class="w-[7.5rem] scale-125 -mb-2">
+          <Logo />
+        </div>
+      </div>
     </div>
-  </AppShell>
-</div>
+    {#each WORKS_GROUPS as workGroup}
+      <div
+        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
+      >
+        <div class="transparent-layer" />
+        <div
+          class="absolute inset-0 flex gap-10 -ml-[0.125rem] opacity-sand overflow-hidden"
+        >
+          {#each [...Array(100).keys()] as _}
+            <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
+          {/each}
+        </div>
+        <h2 class="text-6xl relative px-10">{workGroup.type}</h2>
+      </div>
+      <div
+        role="region"
+        on:mouseleave={() => (hoveredWork = null)}
+        class="relative grid grid-cols-2 border-b-2 border-white dark:border-light-12"
+      >
+        {#each workGroup.data as work}
+          <Work {work} on:hoverIn={(e) => (hoveredWork = e.detail)} />
+        {/each}
+      </div>
+    {/each}
+  </section>
+</AppShell>
