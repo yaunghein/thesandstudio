@@ -1,6 +1,7 @@
 <script lang="ts">
   import lottie from "lottie-web";
   import { addShell } from "$lib/stores/shell";
+  import { openArchiveTab, openAboutTab } from "$lib/stores/finder";
 
   const playLottie = (node: HTMLDivElement, path: string) => {
     lottie.loadAnimation({
@@ -95,6 +96,10 @@
 
   <!-- ########## Archives ########## -->
   <button
+    on:click={() => {
+      addShell({ id: "finder", zIndex: 65 });
+      openArchiveTab();
+    }}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
@@ -115,6 +120,10 @@
 
   <!-- ########## About ########## -->
   <button
+    on:click={() => {
+      addShell({ id: "finder", zIndex: 65 });
+      openAboutTab();
+    }}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <div
