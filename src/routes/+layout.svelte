@@ -87,6 +87,9 @@
 
 <div id="iris-container" style="clip-path: circle(150% at 50% 100%)">
   <slot />
-  <Cursor />
 </div>
-<Grains />
+
+<div class="hidden sm:block">
+  <Cursor />
+  <Grains />
+</div>

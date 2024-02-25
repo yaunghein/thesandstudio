@@ -227,7 +227,7 @@
         >
           <img
             src="/images/sand-scan.gif"
-            class="w-full h-full object-cover -translate-y-6"
+            class="w-full h-full object-cover"
             alt="SAND Scan Icon"
           />
         </div>

@@ -1,10 +1,11 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { onDestroy } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { Application } from "@splinetool/runtime";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
+  import { Swiper } from "swiper";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
@@ -17,6 +18,14 @@
   import Logo from "$lib/svgs/Logo.svelte";
   import { OpenShells } from "$lib/stores/shell";
   import { SelectedBackground } from "$lib/stores/background";
+  import LogoShape from "$lib/svgs/LogoShape.svelte";
+  import IconWork from "$lib/svgs/IconWork.svelte";
+  import AChonLay from "$lib/svgs/mobile/AChonLay.svelte";
+
+  onMount(() => {
+    if (!browser) return;
+    new Swiper(".swiper", {});
+  });
 
   export let data;
 
@@ -138,144 +147,226 @@
   };
 </script>
 
-<AppShell>
-  {#if $SelectedBackground?.name === "bg-scene"}
+<div class="hidden sm:block">
+  <AppShell>
+    {#if $SelectedBackground?.name === "bg-scene"}
+      <div
+        class={twm(
+          "sticky top-0 bottom-0 h-screen sand-transition",
+          isSplineLoaded && isSplineThemeChangeComplete
+            ? "opacity-100"
+            : "opacity-0",
+        )}
+      >
+        <canvas use:create3DBackground></canvas>
+      </div>
+    {/if}
+
+    {#if browser && $SelectedBackground?.name === "bg-legacy"}
+      <div class="dark:invert opacity-50">
+        <LottiePlayer
+          src="/images/backgrounds/morph-archi.json"
+          autoplay={true}
+          loop={true}
+          renderer="svg"
+          background="transparent"
+          height="${100 / 3}%"
+          width="100%"
+          controls=""
+          controlLayout=""
+        />
+        <LottiePlayer
+          src="/images/backgrounds/morph-motion.json"
+          autoplay={true}
+          loop={true}
+          renderer="svg"
+          background="transparent"
+          height="${100 / 3}%"
+          controls=""
+          controlLayout=""
+        />
+        <LottiePlayer
+          src="/images/backgrounds/morph-design.json"
+          autoplay={true}
+          loop={true}
+          renderer="svg"
+          background="transparent"
+          height="${100 / 3}%"
+          width="100%"
+          controls=""
+          controlLayout=""
+        />
+      </div>
+    {/if}
+
+    <div class="text-[1.375rem] absolute top-12 left-12 select-none">
+      <p class="max-w-[32rem] leading-[1.35]">
+        Yeah... We do shit. Come make amazing shits with us. Any type of shit
+        but probably email first. Join us in harnessing a diverse spectrum of
+        minds and voices to catalyze unprecedented shits. Let thy shit hit thy
+        fan.
+      </p>
+      <div class="overflow-hidden">
+        <div
+          use:sandTextLottie
+          class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
+        />
+      </div>
+
+      <div class="min-h-[10.8rem]">
+        <Weather />
+      </div>
+
+      <div class="mt-12 flex flex-col gap-2">
+        <a
+          href="/"
+          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="/"
+          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+        >
+          Terms and Conditions
+        </a>
+        <a
+          href="/"
+          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+        >
+          Cookie Policy
+        </a>
+        <a
+          href="/"
+          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+        >
+          Made by The Sand Studio {new Date().getFullYear()}
+        </a>
+      </div>
+
+      <a
+        href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
+        target="_black"
+        class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
+      >
+        0.25g of CO2 /view
+      </a>
+    </div>
+
     <div
       class={twm(
-        "sticky top-0 bottom-0 h-screen sand-transition",
-        isSplineLoaded && isSplineThemeChangeComplete
-          ? "opacity-100"
-          : "opacity-0",
+        "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
+        $SelectedBackground?.name === "bg-scene" && "hidden",
       )}
     >
-      <canvas use:create3DBackground></canvas>
-    </div>
-  {/if}
-
-  {#if browser && $SelectedBackground?.name === "bg-legacy"}
-    <div class="dark:invert opacity-50">
-      <LottiePlayer
-        src="/images/backgrounds/morph-archi.json"
-        autoplay={true}
-        loop={true}
-        renderer="svg"
-        background="transparent"
-        height="${100 / 3}%"
-        width="100%"
-        controls=""
-        controlLayout=""
-      />
-      <LottiePlayer
-        src="/images/backgrounds/morph-motion.json"
-        autoplay={true}
-        loop={true}
-        renderer="svg"
-        background="transparent"
-        height="${100 / 3}%"
-        controls=""
-        controlLayout=""
-      />
-      <LottiePlayer
-        src="/images/backgrounds/morph-design.json"
-        autoplay={true}
-        loop={true}
-        renderer="svg"
-        background="transparent"
-        height="${100 / 3}%"
-        width="100%"
-        controls=""
-        controlLayout=""
-      />
-    </div>
-  {/if}
-
-  <div class="text-[1.375rem] absolute top-12 left-12 select-none">
-    <p class="max-w-[32rem] leading-[1.35]">
-      Yeah... We do shit. Come make amazing shits with us. Any type of shit but
-      probably email first. Join us in harnessing a diverse spectrum of minds
-      and voices to catalyze unprecedented shits. Let thy shit hit thy fan.
-    </p>
-    <div class="overflow-hidden">
-      <div
-        use:sandTextLottie
-        class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-      />
+      <Logo />
     </div>
 
-    <div class="min-h-[10.8rem]">
-      <Weather />
+    <div class="absolute top-12 right-12 flex gap-5 z-[2]">
+      <Apps />
     </div>
 
-    <div class="mt-12 flex flex-col gap-2">
-      <a
-        href="/"
-        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-      >
-        Privacy Policy
-      </a>
-      <a
-        href="/"
-        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-      >
-        Terms and Conditions
-      </a>
-      <a
-        href="/"
-        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-      >
-        Cookie Policy
-      </a>
-      <a
-        href="/"
-        class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-      >
-        Made by The Sand Studio {new Date().getFullYear()}
-      </a>
-    </div>
+    <Dock />
 
-    <a
-      href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
-      target="_black"
-      class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
+    {#if isSandScanOpen}
+      <SandScan />
+    {/if}
+
+    {#if isFinderOpen}
+      <Finder />
+    {/if}
+
+    {#if isBackgroundsOpen}
+      <Backgrounds />
+    {/if}
+
+    {#if isChildOpen}
+      <Child />
+    {/if}
+
+    {#if openMediaFiles.length > 0}
+      {#each openMediaFiles as file, index}
+        <MediaWindow {file} {index} />
+      {/each}
+    {/if}
+  </AppShell>
+</div>
+
+<div class="sm:hidden bg-black">
+  <div class="h-[100dvh] p-1 relative pb-12 max-w-[350px] mx-auto">
+    <div
+      class="relative overflow-hidden h-full rounded-[45px] bg-white text-black dark:text-white"
     >
-      0.25g of CO2 /view
-    </a>
+      <img
+        src="/images/mobile-dot-bg.png"
+        class="absolute inset-0 h-full w-full object-cover"
+        alt=""
+      />
+      <header class="mt-5 px-3 bg-white relative py-1">
+        <button
+          class="flex items-center justify-between border-2 border-black dark:border-white rounded-full px-[5px] py-[2px]"
+        >
+          <div class="text-xs leading-none">LOGIN</div>
+          <div class="w-4"><LogoShape /></div>
+        </button>
+
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl leading-none"
+        >
+          SAND
+        </div>
+      </header>
+
+      <div class="relative swiper h-full">
+        <div class="swiper-wrapper flex">
+          <div
+            class="swiper-slide shrink-0 h-full grid grid-cols-2 place-content-start gap-5 p-5"
+          >
+            {#each [1, 2, 3, 4, 5, 6] as i}
+              <a href="/works" class="bg-white dark:bg-black p-[0.125rem] pb-0">
+                <div
+                  class="w-full aspect-square border-2 border-black dark:border-white rounded-[8px] overflow-hidden"
+                >
+                  <div class="scale-125">
+                    <IconWork />
+                  </div>
+                </div>
+                <div class="leading-none py-1">Works</div>
+              </a>
+            {/each}
+          </div>
+          <div
+            class="swiper-slide shrink-0 h-full grid grid-cols-2 place-content-start gap-5 p-5"
+          >
+            {#each [1, 2, 3, 4, 5, 6] as i}
+              <a href="/works" class="bg-white dark:bg-black p-[0.125rem] pb-0">
+                <div
+                  class="w-full aspect-square border-2 border-black dark:border-white rounded-[8px] overflow-hidden"
+                >
+                  <div class="scale-125">
+                    <IconWork />
+                  </div>
+                </div>
+                <div class="leading-none py-1">Works</div>
+              </a>
+            {/each}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav
+      class="h-20 fixed z-20 inset-5 top-auto bg-white border-2 border-black dark:border-white rounded-[20px] max-w-[320px] mx-auto flex items-center justify-evenly"
+    >
+      <div class="w-14 flex justify-center">
+        <AChonLay />
+      </div>
+      <div class="w-14 flex justify-center">
+        <AChonLay />
+      </div>
+      <div class="w-14 flex justify-center">
+        <AChonLay />
+      </div>
+    </nav>
   </div>
-
-  <div
-    class={twm(
-      "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
-      $SelectedBackground?.name === "bg-scene" && "hidden",
-    )}
-  >
-    <Logo />
-  </div>
-
-  <div class="absolute top-12 right-12 flex gap-5 z-[2]">
-    <Apps />
-  </div>
-
-  <Dock />
-
-  {#if isSandScanOpen}
-    <SandScan />
-  {/if}
-
-  {#if isFinderOpen}
-    <Finder />
-  {/if}
-
-  {#if isBackgroundsOpen}
-    <Backgrounds />
-  {/if}
-
-  {#if isChildOpen}
-    <Child />
-  {/if}
-
-  {#if openMediaFiles.length > 0}
-    {#each openMediaFiles as file, index}
-      <MediaWindow {file} {index} />
-    {/each}
-  {/if}
-</AppShell>
+</div>
