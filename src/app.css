@@ -30,6 +30,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "NeueBit";
+  src: url("/fonts/PPNeueBitRegular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueBit-Bold";
+  src: url("/fonts/PPNeueBitBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after,
@@ -118,4 +132,30 @@ input:-webkit-autofill:active {
   transition: background-color 9999s ease-in-out 0s;
   -webkit-text-fill-color: #fff !important;
   font-size: inherit;
+}
+
+.swiper-pagination-bullet {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  transition: all 0.2s ease-out;
+}
+.swiper-pagination-bullet-active {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0 !important;
+  background: #000 !important;
+}
+.dark .swiper-pagination-bullet {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0 !important;
+  background: #000 !important;
+}
+.dark .swiper-pagination-bullet-active {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0 !important;
+  background: #fff !important;
 }

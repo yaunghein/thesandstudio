@@ -5,7 +5,10 @@
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
-  import { Swiper } from "swiper";
+  import Swiper from "swiper";
+  import { Pagination } from "swiper/modules";
+  import { OpenShells } from "$lib/stores/shell";
+  import { SelectedBackground } from "$lib/stores/background";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
@@ -16,15 +19,26 @@
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Child from "$lib/components/Child.svelte";
   import Logo from "$lib/svgs/Logo.svelte";
-  import { OpenShells } from "$lib/stores/shell";
-  import { SelectedBackground } from "$lib/stores/background";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
   import IconWork from "$lib/svgs/IconWork.svelte";
   import AChonLay from "$lib/svgs/mobile/AChonLay.svelte";
+  import Home from "$lib/svgs/mobile/Home.svelte";
+  import Burger from "$lib/svgs/mobile/Burger.svelte";
+  import Sand from "$lib/svgs/mobile/Sand.svelte";
+
+  import "swiper/css/pagination";
 
   onMount(() => {
     if (!browser) return;
-    new Swiper(".swiper", {});
+    new Swiper(".swiper", {
+      autoHeight: true,
+      loop: true,
+      modules: [Pagination],
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
   });
 
   export let data;
@@ -292,7 +306,7 @@
   </AppShell>
 </div>
 
-<div class="sm:hidden bg-black">
+<div class="sm:hidden bg-black font-sand-mobile-regular">
   <div class="h-[100dvh] p-1 relative pb-12 max-w-[350px] mx-auto">
     <div
       class="relative overflow-hidden h-full rounded-[45px] bg-white text-black dark:text-white"
@@ -317,7 +331,7 @@
         </div>
       </header>
 
-      <div class="relative swiper h-full">
+      <div class="relative swiper pb-5">
         <div class="swiper-wrapper flex">
           <div
             class="swiper-slide shrink-0 h-full grid grid-cols-2 place-content-start gap-5 p-5"
@@ -331,41 +345,68 @@
                     <IconWork />
                   </div>
                 </div>
-                <div class="leading-none py-1">Works</div>
+                <div
+                  class="leading-none pl-[2px] pt-[2px] text-2xl font-sand-mobile-bold"
+                >
+                  Works
+                </div>
               </a>
             {/each}
           </div>
-          <div
-            class="swiper-slide shrink-0 h-full grid grid-cols-2 place-content-start gap-5 p-5"
-          >
-            {#each [1, 2, 3, 4, 5, 6] as i}
-              <a href="/works" class="bg-white dark:bg-black p-[0.125rem] pb-0">
-                <div
-                  class="w-full aspect-square border-2 border-black dark:border-white rounded-[8px] overflow-hidden"
-                >
-                  <div class="scale-125">
-                    <IconWork />
-                  </div>
+          <div class="swiper-slide shrink-0 p-5">
+            <div class="h-full bg-white w-full p-1">
+              <div
+                class="h-full rounded-[8px] border-2 border-black dark:border-white p-4"
+              >
+                <div class="text-2xl leading-[0.75] max-w-[14rem]">
+                  Yeah... We do shit. Come make amazing shits with us. Any type
+                  of shit but probably email first. Join us in harnessing a
+                  diverse spectrum of minds and voices to catalyse unprecedented
+                  shits. Let thy shit hit thy fan.
                 </div>
-                <div class="leading-none py-1">Works</div>
-              </a>
-            {/each}
+                <div class="my-5 w-5/6">
+                  <Sand />
+                </div>
+
+                <div class="flex flex-col mb-5">
+                  <a href="/" class="leading-[0.9] text-xl"> Privacy Policy </a>
+                  <a href="/" class="leading-[0.9] text-xl">
+                    Terms and Conditions
+                  </a>
+                  <a href="/" class="leading-[0.9] text-xl"> Cookie Policy </a>
+                  <a href="/" class="leading-[0.9] text-xl mt-5">
+                    Made by The Sand Studio {new Date().getFullYear()}
+                  </a>
+                </div>
+
+                <a
+                  href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
+                  target="_black"
+                  class="block rounded-full px-4 py-1 w-5/6 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left"
+                >
+                  0.25g of CO2 /view
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+        <div
+          class="swiper-pagination h-5 flex items-center justify-center"
+        ></div>
       </div>
     </div>
 
     <nav
       class="h-20 fixed z-20 inset-5 top-auto bg-white border-2 border-black dark:border-white rounded-[20px] max-w-[320px] mx-auto flex items-center justify-evenly"
     >
-      <div class="w-14 flex justify-center">
+      <div class="h-14 aspect-square flex items-center justify-center">
+        <Home />
+      </div>
+      <div class="h-14 aspect-square flex items-center justify-center">
         <AChonLay />
       </div>
-      <div class="w-14 flex justify-center">
-        <AChonLay />
-      </div>
-      <div class="w-14 flex justify-center">
-        <AChonLay />
+      <div class="h-14 aspect-square flex items-center justify-center">
+        <Burger />
       </div>
     </nav>
   </div>
