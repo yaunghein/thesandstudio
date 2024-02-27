@@ -56,7 +56,7 @@
         ".logo-eyes",
       ) as NodeListOf<HTMLElement>;
       eyesShapes.forEach((shape) => {
-        if ($SelectedBackground.name === "Sand Dune") {
+        if ($SelectedBackground.name === "bg-scene") {
           gsap.to(shape, {
             x: `${stayBetween(+track.y * 2, [-10, 10])}deg`,
             y: `${stayBetween(+track.x * 2, [-10, 10])}deg`,

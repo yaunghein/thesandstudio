@@ -20,17 +20,18 @@
   import Child from "$lib/components/Child.svelte";
   import Logo from "$lib/svgs/Logo.svelte";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
-  import IconWork from "$lib/svgs/IconWork.svelte";
-  import AChonLay from "$lib/svgs/mobile/AChonLay.svelte";
-  import Home from "$lib/svgs/mobile/Home.svelte";
-  import Burger from "$lib/svgs/mobile/Burger.svelte";
   import Sand from "$lib/svgs/mobile/Sand.svelte";
+  import Links from "$lib/components/mobile/Links.svelte";
+  import MobileDock from "$lib/components/mobile/Dock.svelte";
+
+  import type { Swiper as TSwiper } from "swiper/types";
 
   import "swiper/css/pagination";
 
+  let swiper: TSwiper;
   onMount(() => {
     if (!browser) return;
-    new Swiper(".swiper", {
+    swiper = new Swiper(".swiper", {
       autoHeight: true,
       loop: true,
       modules: [Pagination],
@@ -307,68 +308,54 @@
 </div>
 
 <div class="sm:hidden bg-black font-sand-mobile-regular">
-  <div class="h-[100dvh] p-1 relative pb-12 max-w-[350px] mx-auto">
+  <div class="h-[100dvh] p-1 relative pb-12 mx-auto">
     <div
-      class="relative overflow-hidden h-full rounded-[45px] bg-white text-black dark:text-white"
+      class="relative overflow-hidden h-full rounded-[45px] bg-white dark:bg-black text-black dark:text-white sand-transition"
     >
       <img
         src="/images/mobile-dot-bg.png"
-        class="absolute inset-0 h-full w-full object-cover"
+        class="absolute inset-0 h-full w-full object-cover dark:invert sand-transition"
         alt=""
       />
-      <header class="mt-5 px-3 bg-white relative py-1">
+      <header class="mt-5 px-3 bg-white dark:bg-black relative py-[2px]">
         <button
-          class="flex items-center justify-between border-2 border-black dark:border-white rounded-full px-[5px] py-[2px]"
+          class="sand-transition flex items-center justify-between gap-1 border-2 border-black dark:border-white rounded-full px-[5px] py-[2px]"
         >
-          <div class="text-xs leading-none">LOGIN</div>
+          <div class="text-lg font-sand-mobile-bold mt-[2px] leading-[0.6]">
+            LOGIN
+          </div>
           <div class="w-4"><LogoShape /></div>
         </button>
 
         <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl leading-none"
+          class="absolute w-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl leading-none"
         >
-          SAND
+          <Sand />
         </div>
       </header>
 
       <div class="relative swiper pb-5">
-        <div class="swiper-wrapper flex">
-          <div
-            class="swiper-slide shrink-0 h-full grid grid-cols-2 place-content-start gap-5 p-5"
-          >
-            {#each [1, 2, 3, 4, 5, 6] as i}
-              <a href="/works" class="bg-white dark:bg-black p-[0.125rem] pb-0">
-                <div
-                  class="w-full aspect-square border-2 border-black dark:border-white rounded-[8px] overflow-hidden"
-                >
-                  <div class="scale-125">
-                    <IconWork />
-                  </div>
-                </div>
-                <div
-                  class="leading-none pl-[2px] pt-[2px] text-2xl font-sand-mobile-bold"
-                >
-                  Works
-                </div>
-              </a>
-            {/each}
-          </div>
-          <div class="swiper-slide shrink-0 p-5">
-            <div class="h-full bg-white w-full p-1">
-              <div
-                class="h-full rounded-[8px] border-2 border-black dark:border-white p-4"
-              >
-                <div class="text-2xl leading-[0.75] max-w-[14rem]">
+        <div class="swiper-wrapper flex h-[calc(100dvh-11rem)]">
+          <!-- Home -->
+          <div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
+            <div class="h-full bg-white dark:bg-black w-full p-1">
+              <div class="h-full p-4 relative">
+                <img
+                  class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
+                  src="/images/mobile/border-v-long.png"
+                  alt=""
+                />
+                <div class="relative text-2xl leading-[0.75] max-w-[14rem]">
                   Yeah... We do shit. Come make amazing shits with us. Any type
                   of shit but probably email first. Join us in harnessing a
                   diverse spectrum of minds and voices to catalyse unprecedented
                   shits. Let thy shit hit thy fan.
                 </div>
-                <div class="my-5 w-5/6">
+                <div class="relative my-5 w-5/6">
                   <Sand />
                 </div>
 
-                <div class="flex flex-col mb-5">
+                <div class="relative flex flex-col mb-5">
                   <a href="/" class="leading-[0.9] text-xl"> Privacy Policy </a>
                   <a href="/" class="leading-[0.9] text-xl">
                     Terms and Conditions
@@ -382,10 +369,50 @@
                 <a
                   href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
                   target="_black"
-                  class="block rounded-full px-4 py-1 w-5/6 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left"
+                  class="relative block rounded-full px-4 py-1 w-5/6 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left"
                 >
                   0.25g of CO2 /view
                 </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menu -->
+          <div class="swiper-slide shrink-0 h-full p-5">
+            <div
+              class="grid grid-cols-2 place-content-start gap-5 h-full overflow-scroll"
+            >
+              <Links {swiper} />
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
+            <div class="h-full bg-white dark:bg-black w-full p-1">
+              <div class="h-full p-4 relative">
+                <img
+                  class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
+                  src="/images/mobile/border-v-long.png"
+                  alt=""
+                />
+                <div class="font-sand-mobile-bold text-5xl leading-none mb-3">
+                  The Sand Studio
+                </div>
+                <div class="relative text-2xl leading-[0.75] mb-4">
+                  We are more than just a design studio; we are a collective of
+                  innovative spirits venturing where most have traveled less.
+                </div>
+                <div class="relative text-2xl leading-[0.75] mb-4">
+                  Our team embodies a fusion of talents in Architecture, Design,
+                  Motion, and Code. We are the home for the curious, the
+                  thinkers, the makers, and the doers who are passionate about
+                  transforming bold ideas into tangible realities.
+                </div>
+                <div class="relative text-2xl leading-[0.75] mb-4">
+                  Our ethos is rooted in pushing boundaries and delving into the
+                  intersections of diverse fields. We don't just create; we
+                  collaborate,
+                </div>
               </div>
             </div>
           </div>
@@ -396,18 +423,6 @@
       </div>
     </div>
 
-    <nav
-      class="h-20 fixed z-20 inset-5 top-auto bg-white border-2 border-black dark:border-white rounded-[20px] max-w-[320px] mx-auto flex items-center justify-evenly"
-    >
-      <div class="h-14 aspect-square flex items-center justify-center">
-        <Home />
-      </div>
-      <div class="h-14 aspect-square flex items-center justify-center">
-        <AChonLay />
-      </div>
-      <div class="h-14 aspect-square flex items-center justify-center">
-        <Burger />
-      </div>
-    </nav>
+    <MobileDock {swiper} />
   </div>
 </div>
