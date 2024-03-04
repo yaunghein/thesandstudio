@@ -2,10 +2,9 @@
   import FATK from "$lib/svgs/mobile/FATK.svelte";
   import Explorer from "$lib/svgs/mobile/Explorer.svelte";
   import Tube from "$lib/svgs/mobile/Tube.svelte";
+  import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
 
   import type { Swiper } from "swiper/types";
-
-  export let swiper: Swiper;
 </script>
 
 <a href="/works" class="bg-white dark:bg-black p-[0.125rem] pb-0">
@@ -75,7 +74,7 @@
 </a>
 
 <button
-  on:click={() => swiper?.slideTo(2)}
+  on:click={() => $swiper?.slideTo(2)}
   class="bg-white dark:bg-black p-[0.125rem] pb-0"
 >
   <div
@@ -93,7 +92,10 @@
   </div>
 </button>
 
-<a href="/for-all-thingkind" class="bg-white dark:bg-black p-[0.125rem] pb-0">
+<button
+  on:click={() => $swiper?.slideTo(3)}
+  class="bg-white dark:bg-black p-[0.125rem] pb-0"
+>
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -107,4 +109,4 @@
   <div class="leading-none pl-[2px] pt-[2px] text-2xl font-sand-mobile-bold">
     Contact
   </div>
-</a>
+</button>

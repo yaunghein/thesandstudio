@@ -9,6 +9,7 @@
   import { Pagination } from "swiper/modules";
   import { OpenShells } from "$lib/stores/shell";
   import { SelectedBackground } from "$lib/stores/background";
+  import { MobileHomeSwiper } from "$lib/stores/slider";
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
@@ -19,19 +20,19 @@
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Child from "$lib/components/Child.svelte";
   import Logo from "$lib/svgs/Logo.svelte";
-  import LogoShape from "$lib/svgs/LogoShape.svelte";
-  import Sand from "$lib/svgs/mobile/Sand.svelte";
-  import Links from "$lib/components/mobile/Links.svelte";
-  import MobileDock from "$lib/components/mobile/Dock.svelte";
-
-  import type { Swiper as TSwiper } from "swiper/types";
+  import Header from "$lib/components/mobile/Header.svelte";
+  import MobileAppShell from "$lib/components/mobile/AppShell.svelte";
+  import SlideHome from "$lib/components/mobile/SlideHome.svelte";
+  import SlideMenu from "$lib/components/mobile/SlideMenu.svelte";
+  import SlideAbout from "$lib/components/mobile/SlideAbout.svelte";
+  import SlideContact from "$lib/components/mobile/SlideContact.svelte";
 
   import "swiper/css/pagination";
 
-  let swiper: TSwiper;
+  let swiperIndex = 0;
   onMount(() => {
     if (!browser) return;
-    swiper = new Swiper(".swiper", {
+    const swiper = new Swiper(".swiper", {
       autoHeight: true,
       loop: true,
       modules: [Pagination],
@@ -40,6 +41,10 @@
         clickable: true,
       },
     });
+    swiper.on("activeIndexChange", function (this: Swiper) {
+      swiperIndex = this.realIndex;
+    });
+    MobileHomeSwiper.set(swiper);
   });
 
   export let data;
@@ -307,122 +312,26 @@
   </AppShell>
 </div>
 
-<div class="sm:hidden bg-black font-sand-mobile-regular">
-  <div class="h-[100dvh] p-1 relative pb-12 mx-auto">
-    <div
-      class="relative overflow-hidden h-full rounded-[45px] bg-white dark:bg-black text-black dark:text-white sand-transition"
-    >
-      <img
-        src="/images/mobile-dot-bg.png"
-        class="absolute inset-0 h-full w-full object-cover dark:invert sand-transition"
-        alt=""
-      />
-      <header class="mt-5 px-3 bg-white dark:bg-black relative py-[2px]">
-        <button
-          class="sand-transition flex items-center justify-between gap-1 border-2 border-black dark:border-white rounded-full px-[5px] py-[2px]"
-        >
-          <div class="text-lg font-sand-mobile-bold mt-[2px] leading-[0.6]">
-            LOGIN
-          </div>
-          <div class="w-4"><LogoShape /></div>
-        </button>
+<div class="sm:hidden">
+  <MobileAppShell>
+    <img
+      src="/images/mobile-dot-bg.png"
+      class="absolute inset-0 h-full w-full object-cover dark:invert sand-transition
+      {swiperIndex === 3 ? 'opacity-0' : 'opacity-100'}"
+      alt=""
+    />
+    <Header />
 
-        <div
-          class="absolute w-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl leading-none"
-        >
-          <Sand />
-        </div>
-      </header>
-
-      <div class="relative swiper pb-5">
-        <div class="swiper-wrapper flex h-[calc(100dvh-11rem)]">
-          <!-- Home -->
-          <div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
-            <div class="h-full bg-white dark:bg-black w-full p-1">
-              <div class="h-full p-4 relative">
-                <img
-                  class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
-                  src="/images/mobile/border-v-long.png"
-                  alt=""
-                />
-                <div class="relative text-2xl leading-[0.75] max-w-[14rem]">
-                  Yeah... We do shit. Come make amazing shits with us. Any type
-                  of shit but probably email first. Join us in harnessing a
-                  diverse spectrum of minds and voices to catalyse unprecedented
-                  shits. Let thy shit hit thy fan.
-                </div>
-                <div class="relative my-5 w-5/6">
-                  <Sand />
-                </div>
-
-                <div class="relative flex flex-col mb-5">
-                  <a href="/" class="leading-[0.9] text-xl"> Privacy Policy </a>
-                  <a href="/" class="leading-[0.9] text-xl">
-                    Terms and Conditions
-                  </a>
-                  <a href="/" class="leading-[0.9] text-xl"> Cookie Policy </a>
-                  <a href="/" class="leading-[0.9] text-xl mt-5">
-                    Made by The Sand Studio {new Date().getFullYear()}
-                  </a>
-                </div>
-
-                <a
-                  href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
-                  target="_black"
-                  class="relative block rounded-full px-4 py-1 w-5/6 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left"
-                >
-                  0.25g of CO2 /view
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Menu -->
-          <div class="swiper-slide shrink-0 h-full p-5">
-            <div
-              class="grid grid-cols-2 place-content-start gap-5 h-full overflow-scroll"
-            >
-              <Links {swiper} />
-            </div>
-          </div>
-
-          <!-- About -->
-          <div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
-            <div class="h-full bg-white dark:bg-black w-full p-1">
-              <div class="h-full p-4 relative">
-                <img
-                  class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
-                  src="/images/mobile/border-v-long.png"
-                  alt=""
-                />
-                <div class="font-sand-mobile-bold text-5xl leading-none mb-3">
-                  The Sand Studio
-                </div>
-                <div class="relative text-2xl leading-[0.75] mb-4">
-                  We are more than just a design studio; we are a collective of
-                  innovative spirits venturing where most have traveled less.
-                </div>
-                <div class="relative text-2xl leading-[0.75] mb-4">
-                  Our team embodies a fusion of talents in Architecture, Design,
-                  Motion, and Code. We are the home for the curious, the
-                  thinkers, the makers, and the doers who are passionate about
-                  transforming bold ideas into tangible realities.
-                </div>
-                <div class="relative text-2xl leading-[0.75] mb-4">
-                  Our ethos is rooted in pushing boundaries and delving into the
-                  intersections of diverse fields. We don't just create; we
-                  collaborate,
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="swiper-pagination h-5 flex items-center justify-center"
-        ></div>
+    <div class="swiper relative pb-5">
+      <div class="swiper-wrapper flex h-[calc(100dvh-11rem)]">
+        <SlideHome />
+        <SlideMenu />
+        <SlideAbout />
+        <SlideContact {swiperIndex} />
       </div>
+      <!-- <div
+        class="swiper-pagination h-5 bottom-10 flex items-center justify-center sand-transition"
+      ></div> -->
     </div>
-
-    <MobileDock {swiper} />
-  </div>
+  </MobileAppShell>
 </div>

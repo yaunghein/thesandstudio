@@ -2,10 +2,7 @@
   import AChonLay from "$lib/svgs/mobile/AChonLay.svelte";
   import Home from "$lib/svgs/mobile/Home.svelte";
   import Burger from "$lib/svgs/mobile/Burger.svelte";
-
-  import type { Swiper } from "swiper/types";
-
-  export let swiper: Swiper;
+  import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
 
   const switchMode = () => {
     const rootClasses = document.documentElement.classList;
@@ -30,7 +27,7 @@
     alt=""
   />
   <button
-    on:click={() => swiper?.slideTo(0)}
+    on:click={() => $swiper?.slideTo(0)}
     class="relative h-14 aspect-square flex items-center justify-center dark:invert sand-transition"
   >
     <Home />
@@ -42,7 +39,7 @@
     <AChonLay />
   </button>
   <button
-    on:click={() => swiper?.slideTo(1)}
+    on:click={() => $swiper?.slideTo(1)}
     class="relative h-14 aspect-square flex items-center justify-center"
   >
     <Burger />
