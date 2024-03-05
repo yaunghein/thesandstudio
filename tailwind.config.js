@@ -81,6 +81,12 @@ export default {
         "spin-back-once": "spin-back-once 0.8s ease-in-out",
         "vibrate-once": "vibrate 0.5s ease-in-out 1",
       },
+      backgroundImage: {
+        "starwar-gradient-light":
+          "linear-gradient(to bottom, #e6e6e6, transparent)",
+        "starwar-gradient-dark":
+          "linear-gradient(to bottom, #000, transparent)",
+      },
     },
   },
   plugins: [],

@@ -20,7 +20,11 @@
 
   onMount(() => {
     const tl = gsap.timeline({ defaults });
-    tl.from("#tube", { y: "115%" }).to("#paper", { x: "0%" }, "<50%");
+    tl.from("#tube", { y: "115%", ease: "power4.out" }).to(
+      "#paper",
+      { x: "0%" },
+      "<50%",
+    );
   });
 
   const initialFormInputs: FormInputs = {

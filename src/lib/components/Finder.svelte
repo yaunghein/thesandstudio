@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import lottie from "lottie-web";
   import FinderColumns from "./FinderColumns.svelte";
   import CFilePreview from "./CFilePreview.svelte";
   import ButtonClose from "./ButtonClose.svelte";
@@ -25,6 +28,7 @@
   import IconChevronRight from "$lib/svgs/IconChevronRight.svelte";
   import IconSandExplorer from "$lib/svgs/IconSandExplorer.svelte";
   import ContactFormTubeLabel from "$lib/svgs/ContactFormTubeLabel.svelte";
+  import StarwarText from "./StarwarText.svelte";
 
   $: shell = $OpenShells.find((shell) => shell.id === "finder");
   $: index = $OpenShells.findIndex((shell) => shell.id === "finder");
@@ -152,11 +156,156 @@
         id="columns"
         class="flex h-[calc(100%-5rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.125rem] mt-0 border-2 border-b-0 border-white dark:border-light-12"
       >
-        {#if currentTab.label !== "Contact"}
+        {#if currentTab.label !== "Contact" && currentTab.label !== "About"}
           <FinderColumns files={currentTab.files} />
           {#if $FilePreview}
             <CFilePreview data={$FilePreview} />
           {/if}
+        {:else if currentTab.label === "About"}
+          <div class="relative w-full p-10 overflow-hidden">
+            <h2
+              id="about-heading"
+              class="relative z-10 leading-none text-4xl font-sand-medium mb-3 pointer-events-none"
+            >
+              The Sand Studio
+            </h2>
+            <div
+              id="about-tldr"
+              class="relative z-10 flex flex-col gap-2 pointer-events-none"
+            >
+              <span class="leading-none text-lg">TL;DR:</span>
+              <span class="leading-none text-lg">Small Team.</span>
+              <span class="leading-none text-lg">Big Ideas.</span>
+            </div>
+
+            <StarwarText />
+
+            <div id="services" class="mt-6">
+              <h2
+                class="text-4xl font-sand-medium"
+                style="
+                  background: radial-gradient(circle, #D549F8, #22ADFC, #00DC80, #FF9900, #F80077, #4200FF);
+                  -webkit-background-clip: text;
+                  color: transparent;"
+              >
+                Our Services
+              </h2>
+
+              <div class="grid grid-cols-3 gap-x-20 gap-y-6 mt-5">
+                <div class="flex flex-col gap-2">
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: radial-gradient(circle, #D549F8, #22ADFC, #00DC80, #FF9900, #F80077, #4200FF);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Visual Identity
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: radial-gradient(circle, #D549F8, #22ADFC, #00DC80, #FF9900, #F80077, #4200FF);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Motion Graphics and Animation
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: radial-gradient(circle, #D549F8, #22ADFC, #00DC80, #FF9900, #F80077, #4200FF);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Packaging
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: linear-gradient(to right, #D549F8 0%, #22ADFC 50%, #00DC80 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Web Design and Development
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                    background: linear-gradient(to right, #D549F8 0%, #22ADFC 50%, #00DC80 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Web Maintenance and Support
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                    background: linear-gradient(to right, #D549F8 0%, #22ADFC 50%, #00DC80 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    E-commerce Solutions
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: linear-gradient(to left, #4200FF 0%, #F80077 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Consultation and Strategy
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: linear-gradient(to right, #22ADFC 0%, #00DC80 40%, #FF9900 80%, #F80077 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Architectural Design
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                    background: linear-gradient(to right, #22ADFC 0%, #00DC80 40%, #FF9900 80%, #F80077 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Interior Design
+                  </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                    background: linear-gradient(to right, #22ADFC 0%, #00DC80 40%, #FF9900 80%, #F80077 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    3D Modeling and Visualization
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <p
+                    class="text-lg leading-[1.3] max-w-[16rem]"
+                    style="
+                    background: radial-gradient(circle at 0% 0%, #D549F8, #22ADFC, #00DC80, #FF9900, #F80077, #4200FF);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    Others (Every idea matters to us – no concept too small, no
+                    vision too grand. If you’re a person with an idea. Come say
+                    hi!)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         {:else}
           <div class="w-full flex flex-col justify-between">
             <p class="text-4xl font-sand-medium mt-20 ml-12">
