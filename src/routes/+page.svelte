@@ -305,7 +305,7 @@
     {/if}
 
     {#if openMediaFiles.length > 0}
-      {#each openMediaFiles as file, index}
+      {#each openMediaFiles as file, index (file.id)}
         <MediaWindow {file} {index} />
       {/each}
     {/if}
