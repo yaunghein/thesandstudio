@@ -14,12 +14,12 @@
     gsap.fromTo(
       "#starwar-text-wrapper",
       { paddingTop: "100rem", ...options },
-      { paddingTop: "50rem", ...options },
+      { paddingTop: "77rem", ...options },
     );
   });
 </script>
 
-<div class="relative -mt-[69rem] mx-auto w-full h-[90rem] starwar-text">
+<div class="relative -mt-[72rem] mx-auto w-full h-[92rem] starwar-text">
   <div class="overflow-scroll hide-scrollbar h-full">
     <div
       id="starwar-text-wrapper"
@@ -60,7 +60,7 @@
     </div>
   </div>
   <div
-    class="absolute top-0 right-0 left-0 w-full h-40 bg-starwar-gradient-light dark:bg-starwar-gradient-dark pointer-events-none"
+    class="absolute top-0 right-0 left-0 w-full h-80 bg-starwar-gradient-light dark:bg-starwar-gradient-dark pointer-events-none"
   />
   <div
     class="absolute bottom-0 right-0 left-0 w-full h-40 bg-starwar-gradient-light dark:bg-starwar-gradient-dark pointer-events-none rotate-180"
