@@ -167,6 +167,13 @@
   };
 </script>
 
+<svelte:head>
+  <script
+    src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+    defer
+  ></script>
+</svelte:head>
+
 <div class="hidden sm:block">
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
@@ -264,13 +271,14 @@
         </a>
       </div>
 
-      <a
+      <!-- <a
         href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
         target="_black"
         class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
       >
         0.25g of CO2 /view
-      </a>
+      </a> -->
+      <div id="wcb" class="carbonbadge mt-16"></div>
     </div>
 
     <div
