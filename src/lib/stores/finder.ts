@@ -2057,21 +2057,21 @@ export const FinderOpenPath = derived(
   ([$tabs, $preview]) => {
     const tab = $tabs.find((tab) => tab.isOpen);
 
-    const open: string[] = [];
+    const open: { type: string; label: string }[] = [];
     const updateOpen = (files: File[]) => {
       for (const file of files) {
         if (file.type === "folder" && file.isOpen) {
-          open.push(file.label as string);
+          open.push({ type: file.type, label: file.label });
           updateOpen(file?.data || []);
-        } else if (file.isOpen) {
-          open.push(file.label as string);
+        } else if (file.type === "file" && file.isOpen) {
+          open.push({ type: file.type, label: file.label });
         }
       }
     };
     updateOpen(tab!.files);
-    const path = `${tab!.label}/${open.join("/")}${open[0] ? "/" : ""}${
-      $preview ? $preview.label : ""
-    }`;
+    const path = `${tab!.label}/${
+      open[0] ? open.map((i) => i.label).join("/") : ""
+    }${open[0] && open[open.length - 1].type === "folder" ? "/" : ""}`;
     return path;
   },
 );
@@ -2138,6 +2138,7 @@ function getNestedLevel(files: File[], fileId: string, level = 0) {
   return -1;
 }
 
+// cus we only travel in folder level, the preview can't be seen
 export function addHistory(tabs: Tab[], file: File | undefined = undefined) {
   // there is a bug in history depending on single click and double click
   FinderHistory.update((h) => [...h, deepClone(tabs)]);

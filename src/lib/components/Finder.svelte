@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
-  import lottie from "lottie-web";
   import FinderColumns from "./FinderColumns.svelte";
   import CFilePreview from "./CFilePreview.svelte";
   import ButtonClose from "./ButtonClose.svelte";
@@ -18,7 +15,6 @@
     FilePreviewHistory,
     FinderOpenPath,
     addHistory,
-    openArchiveTab,
   } from "$lib/stores/finder";
   import type { Tab } from "$lib/stores/finder";
   import { OpenShells, removeShell } from "$lib/stores/shell";
