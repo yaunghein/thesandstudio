@@ -12,9 +12,9 @@
       <span class="block relative text-3xl">2022</span>
     </div>
   </div>
-  <div class="relative w-full aspect-[1/1.25] overflow-hidden bg-[#4A3326]">
+  <div class="relative w-full aspect-[1/1.3] overflow-hidden bg-[#4A3326]">
     <img
-      src="/images/competitions/2.jpg"
+      src="/images/competitions/3.webp"
       alt=""
       class="w-full h-full object-cover scale-[1.01]"
     />
