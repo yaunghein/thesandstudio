@@ -180,3 +180,25 @@ input:-webkit-autofill:active {
   -o-transform: perspective(300px) rotateX(40deg);
   transform: perspective(300px) rotateX(40deg);
 }
+
+/**
+    * Reinstate scrolling for non-JS clients
+    */
+.simplebar-content-wrapper {
+  scrollbar-width: auto;
+  -ms-overflow-style: auto;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+  display: initial;
+  width: initial;
+  height: initial;
+}
+
+.simplebar-scrollbar::before {
+  opacity: 0 !important;
+}
+.simplebar-horizontal {
+  opacity: 0 !important;
+}

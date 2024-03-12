@@ -18,8 +18,9 @@
 
 {#if files}
   <div
+    data-simplebar
     class={twm(
-      "relative shrink-0 w-[29.8rem] h-full overflow-auto p-5 border-l-[0.1875rem] -ml-[0.1875rem] border-white dark:border-light-12",
+      "relative shrink-0 w-[29.8rem] h-full p-5 border-l-[0.1875rem] -ml-[0.1875rem] border-white dark:border-light-12",
       !isRecursive && !$FilePreview && "border-r-2",
     )}
   >

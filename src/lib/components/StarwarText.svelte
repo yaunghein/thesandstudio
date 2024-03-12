@@ -20,7 +20,7 @@
 </script>
 
 <div class="relative -mt-[72rem] mx-auto w-full h-[92rem] starwar-text">
-  <div class="overflow-scroll hide-scrollbar h-full">
+  <div data-simplebar class=" h-full">
     <div
       id="starwar-text-wrapper"
       class="relative flex flex-col gap-20 text-center pt-[58rem] mb-[8rem]"

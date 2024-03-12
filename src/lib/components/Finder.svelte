@@ -149,8 +149,9 @@
         </span>
       </div>
       <div
+        data-simplebar-parent
         id="columns"
-        class="flex h-[calc(100%-5rem)] overflow-auto hide-scrollbar rounded-3xl -m-[0.125rem] mt-0 border-2 border-b-0 border-white dark:border-light-12"
+        class="flex h-[calc(100%-5rem)] overflow-y-hidden rounded-3xl -m-[0.125rem] mt-0 border-2 border-b-0 border-white dark:border-light-12"
       >
         {#if currentTab.label !== "Contact" && currentTab.label !== "About"}
           <FinderColumns files={currentTab.files} />

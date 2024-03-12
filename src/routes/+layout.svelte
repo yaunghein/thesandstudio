@@ -1,5 +1,7 @@
 <script lang="ts">
   import "../app.css";
+  import "simplebar";
+  import "simplebar/dist/simplebar.css";
   import { onMount, onDestroy } from "svelte";
   import { invalidate, onNavigate } from "$app/navigation";
   import { browser } from "$app/environment";
