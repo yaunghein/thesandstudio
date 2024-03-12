@@ -1,5 +1,30 @@
-<script>
-  import { twMerge as twm } from "tailwind-merge";
+<script lang="ts">
+  import lottie from "lottie-web";
+
+  const runningLottie = (node: HTMLDivElement, path: string) => {
+    const player = lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path,
+    });
+    const handleMouseEnter = () => {
+      player.setSpeed(0.3);
+    };
+    const handleMouseLeave = () => {
+      player.setSpeed(1);
+    };
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
+
+    return {
+      destroy: () => {
+        node.removeEventListener("mouseenter", handleMouseEnter);
+        node.removeEventListener("mouseleave", handleMouseLeave);
+      },
+    };
+  };
 </script>
 
 <div class="relative text-light-10 w-full h-full overflow-hidden">
@@ -31,12 +56,12 @@
   </div>
 
   <img
-    class="relative z-20 dark:hidden w-full -mb-16 mt-10"
+    class="relative z-20 dark:hidden w-full -mb-16 mt-10 pointer-events-none"
     src="/images/sand-scan-usage-guide.webp"
     alt="SAND Scan Usage Guide"
   />
   <img
-    class="relative z-20 hidden dark:block w-full -mb-16 mt-10"
+    class="relative z-20 hidden dark:block w-full -mb-16 mt-10 pointer-events-none"
     src="/images/sand-scan-usage-guide-for-dark.webp"
     alt="SAND Scan Usage Guide"
   />
@@ -46,13 +71,12 @@
     src="/images/sand-scan-one.gif"
     alt=""
   />
-  <img
-    class="opacity-100 dark:opacity-0 sand-transition absolute z-10 top-[8.2rem] right-28 w-[36rem] h-[17rem]"
-    src="/images/sand-scan-two.gif"
-    alt=""
+  <div
+    use:runningLottie={"lotties/running-black.json"}
+    class="absolute z-10 top-[8.2rem] right-28 w-[36rem] dark:w-0 h-[17rem] dark:hidden overflow-hidden"
   />
   <img
-    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[12.15rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[11.5rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
     src="/images/sand-scan-three.gif"
     alt=""
   />
@@ -62,13 +86,12 @@
     src="/images/sand-scan-one-for-dark.gif"
     alt=""
   />
-  <img
-    class="opacity-0 dark:opacity-100 sand-transition absolute z-10 top-[8.2rem] right-28 w-[36rem] h-[17rem]"
-    src="/images/sand-scan-two-for-dark.gif"
-    alt=""
+  <div
+    use:runningLottie={"lotties/running-white.json"}
+    class="absolute z-10 top-[8.2rem] right-28 w-0 dark:w-[36rem] h-[17rem] hidden dark:block"
   />
   <img
-    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[12.15rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
+    class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[11.5rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
     src="/images/sand-scan-three-for-dark.gif"
     alt=""
   />
