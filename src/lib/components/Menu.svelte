@@ -4,6 +4,7 @@
   import lottie from "lottie-web";
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
+  import LogoShape from "$lib/svgs/LogoShape.svelte";
 
   let isOpen = false;
 
@@ -43,9 +44,9 @@
       </div>
 
       <div class="grid gap-5 grid-cols-2">
-        <!-- ########## For All Thingkind ########## -->
+        <!-- ########## Sand Desktop ########## -->
         <a
-          href="/for-all-thingkind"
+          href="/"
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
@@ -53,9 +54,16 @@
           />
 
           <div
-            class="w-32 absolute scale-[1.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
+            class="w-10 absolute invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-10 left-1/2 -translate-x-1/2 sand-transition"
           >
-            <div use:playLottie={"/lotties/fatk.json"} />
+            <div class="animate-spin-slow sand-transition">
+              <LogoShape />
+            </div>
+          </div>
+          <div
+            class="w-20 text-2xl text-left leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 text-black dark:text-light-100 group-hover:text-light-100 dark:group-hover:text-light-10 sand-transition"
+          >
+            SAND DESKTOP
           </div>
         </a>
 
@@ -69,7 +77,7 @@
           />
 
           <div
-            class="w-32 absolute scale-[1.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
+            class="w-32 absolute scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
           >
             <div use:playLottie={"/lotties/fatk.json"} />
           </div>

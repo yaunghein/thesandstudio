@@ -63,6 +63,10 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(90deg)" },
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
         "spin-back-once": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-90deg)" },
@@ -78,6 +82,7 @@ export default {
       animation: {
         marquee: "marquee 10s linear infinite",
         "spin-once": "spin-once 0.8s ease-in-out",
+        "spin-slow": "spin-slow 10s linear infinite",
         "spin-back-once": "spin-back-once 0.8s ease-in-out",
         "vibrate-once": "vibrate 0.5s ease-in-out 1",
       },
