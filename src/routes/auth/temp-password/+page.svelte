@@ -23,11 +23,11 @@
 </script>
 
 <div class="flex flex-col items-center justify-center h-[100dvh]">
-  <form on:submit|preventDefault class="flex flex-col gap-4 relative">
+  <form on:submit|preventDefault class="flex flex-col gap-4 w-96 relative">
     <input
       bind:value={password}
       type="password"
-      placeholder="password ..."
+      placeholder="Password ..."
       class={twm(
         error[0] && password[0]
           ? "border-sand-red text-sand-red placeholder:text-sand-red animate-vibrate-once"
@@ -40,7 +40,9 @@
       on:click={handleSubmit}
       class="bg-black disabled:opacity-25 sand-transition dark:bg-light-100 flex items-center justify-between px-3 py-2 pl-5 rounded-full"
     >
-      <span class="text-2xl text-light-100 dark:text-black">Visit</span>
+      <span class="text-2xl text-light-100 dark:text-black"
+        >Access The Sand Studio</span
+      >
       <div
         class={twm(
           password[0] ? "animate-spin-once " : "animate-spin-back-once",
