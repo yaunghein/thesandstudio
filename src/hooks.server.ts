@@ -20,12 +20,34 @@ export const handle: Handle = async ({ event, resolve }) => {
     return session;
   };
 
+  // check auth with supabase
   if (event.url.pathname.startsWith("/yaung")) {
     const session = await event.locals.getSession();
     if (!session) {
       throw redirect(303, "/");
     }
   }
+
+  // check auth with temp password - delete later
+  if (
+    event.url.pathname !== "/auth/temp-password/" &&
+    !event.url.pathname.startsWith("/api")
+  ) {
+    const sandFakeAuthCookie = event.cookies.get("sand-fake-auth-cookie");
+    if (!sandFakeAuthCookie) {
+      throw redirect(303, "/auth/temp-password/");
+    }
+    if (sandFakeAuthCookie !== "du-mat-char-lay-du-mat-char-lay-duuu") {
+      throw redirect(303, "/auth/temp-password/");
+    }
+  }
+  if (event.url.pathname === "/auth/temp-password/") {
+    const sandFakeAuthCookie = event.cookies.get("sand-fake-auth-cookie");
+    if (sandFakeAuthCookie === "du-mat-char-lay-du-mat-char-lay-duuu") {
+      throw redirect(303, "/");
+    }
+  }
+  // delete till here
 
   return resolve(event, {
     filterSerializedResponseHeaders(name) {
