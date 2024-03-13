@@ -13,7 +13,7 @@
     });
     gsap.fromTo(
       "#starwar-text-wrapper",
-      { paddingTop: "150rem", ...options },
+      { paddingTop: "125rem", ...options },
       { paddingTop: "105rem", ...options },
     );
   });

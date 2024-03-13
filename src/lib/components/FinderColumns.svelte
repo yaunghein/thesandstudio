@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
   import {
     FilePreview,
     handleFileClick,
@@ -7,6 +7,7 @@
   } from "$lib/stores/finder";
   import type { File } from "$lib/stores/finder";
   import { twMerge as twm } from "tailwind-merge";
+  import { addShell } from "$lib/stores/shell";
 
   export let files: File[];
   export let isRecursive: boolean = false; // to have right border while only one column is opening
@@ -46,7 +47,24 @@
             file.isOpen && "bg-light-70 dark:bg-light-20",
           )}
           id={file.label}
-          on:dblclick={() => handleFileDoubleClick(file)}
+          on:dblclick={() => {
+            switch (file.label) {
+              case "Sand Scan":
+                addShell({ id: "sand-scan", zIndex: 65 });
+                break;
+              case "For All Thingkind":
+                goto("/for-all-thingkind");
+                break;
+              case "Works":
+                goto("/works");
+                break;
+              case "Not Works":
+                goto("/not-works");
+                break;
+              default:
+                handleFileDoubleClick(file);
+            }
+          }}
           on:click={() => handleFileClick(file)}
         >
           <div
