@@ -226,7 +226,9 @@
       </div>
     {/if}
 
-    <div class="text-[1.375rem] absolute top-12 left-12 select-none">
+    <div
+      class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
+    >
       <p class="max-w-[32rem] leading-[1.35]">
         Yeah... We do shit. Come make amazing shits with us. Any type of shit
         but probably email first. Join us in harnessing a diverse spectrum of
@@ -265,20 +267,20 @@
         </a>
         <a
           href="/"
-          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          class="mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           Made by The Sand Studio {new Date().getFullYear()}
         </a>
       </div>
 
-      <!-- <a
+      <a
         href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
         target="_black"
-        class="block rounded-full px-4 py-3 w-80 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
+        class="block rounded-full px-4 py-3 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
       >
-        0.25g of CO2 /view
-      </a> -->
-      <div id="wcb" class="carbonbadge mt-16"></div>
+        Calculate CO2 Emission
+      </a>
+      <!-- <div id="wcb" class="carbonbadge mt-16"></div> -->
     </div>
 
     <div

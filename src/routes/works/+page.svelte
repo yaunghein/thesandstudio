@@ -201,7 +201,7 @@
     </div>
     {#each WORKS_GROUPS as workGroup}
       <div
-        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
+        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-3xl"
       >
         <div class="transparent-layer" />
         <div

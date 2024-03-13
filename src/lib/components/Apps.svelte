@@ -62,7 +62,7 @@
     />
 
     <div
-      class="w-28 absolute scale-[1.4] group-hover:scale-[2.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[40%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
+      class="w-28 absolute scale-[1.4] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[20%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
     >
       <div use:playLottie={"/lotties/works.json"} />
     </div>
@@ -83,7 +83,7 @@
     />
 
     <div
-      class="w-28 absolute scale-[1] group-hover:scale-[1.6] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
+      class="w-28 absolute scale-[1] group-hover:scale-[1.5] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
     >
       <img src="/lotties/not-works.gif" alt="Not Works" />
     </div>
@@ -131,7 +131,7 @@
     />
 
     <div
-      class="w-28 absolute scale-[1.2] group-hover:scale-[2.2] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[6%] group-hover:-translate-y-[95%] sand-transition"
+      class="w-28 absolute scale-[1.2] group-hover:scale-[2.2] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[14%] group-hover:-translate-y-[95%] sand-transition"
     >
       <div use:playLottie={"/lotties/about.json"} />
     </div>

@@ -16,8 +16,8 @@
   // };
 
   const intervalId = setInterval(() => {
-    if (index === work.images.length - 1) return (index = 0);
-    index++;
+    // if (index === work.images.length - 1) return (index = 0);
+    // index++;
   }, 1000);
 
   onDestroy(() => clearInterval(intervalId));

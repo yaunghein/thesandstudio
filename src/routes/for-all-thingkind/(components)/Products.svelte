@@ -46,11 +46,11 @@
             />
           </div>
         {/if}
-        <img
+        <!-- <img
           src="/images/fatk-bowl.webp"
           alt=""
           class="absolute right-56 bottom-10 w-40"
-        />
+        /> -->
       </div>
     </a>
 
