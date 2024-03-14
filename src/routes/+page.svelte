@@ -167,13 +167,6 @@
   };
 </script>
 
-<svelte:head>
-  <script
-    src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
-    defer
-  ></script>
-</svelte:head>
-
 <div class="hidden sm:block">
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
@@ -280,7 +273,6 @@
       >
         Calculate CO2 Emission
       </a>
-      <!-- <div id="wcb" class="carbonbadge mt-16"></div> -->
     </div>
 
     <div

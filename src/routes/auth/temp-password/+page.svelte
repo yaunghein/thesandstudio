@@ -5,9 +5,10 @@
 
   let password = "";
   let isChecking = false;
+  let isSuccess = false;
   let error = "";
   $: if (password) error = "";
-  $: console.log({ isChecking });
+  $: if (password) isSuccess = false;
 
   const handleSubmit = async () => {
     isChecking = true;
@@ -18,7 +19,12 @@
     });
     const data = await resp.json();
     setTimeout(() => {
-      !data.success ? (error = data.message) : goto("/");
+      if (!data.success) {
+        error = data.message;
+      } else {
+        isSuccess = true;
+        setTimeout(() => goto("/"), 500);
+      }
       isChecking = false;
     }, 1000);
   };
@@ -43,9 +49,12 @@
       class="bg-black disabled:opacity-25 sand-transition dark:bg-light-100 flex items-center justify-between px-3 py-2 pl-5 rounded-full"
     >
       <span
-        class="text-2xl sand-transition {!!error
-          ? 'text-sand-red'
-          : 'text-light-100 dark:text-black'}"
+        class={twm(
+          "text-2xl sand-transition",
+          error && password && "text-sand-red",
+          isSuccess && "text-sand-green",
+          !error && !isSuccess && "text-light-100 dark:text-black",
+        )}
       >
         The Sand Studio
       </span>
@@ -54,7 +63,8 @@
           password[0] && !isChecking && "animate-spin-once ",
           !password[0] && "animate-spin-back-once",
           isChecking && "animate-spin",
-          !!error && "text-sand-red",
+          error && password && "text-sand-red",
+          isSuccess && "text-sand-green",
           "w-10 h-10 flex items-center sand-transition",
         )}
       >
