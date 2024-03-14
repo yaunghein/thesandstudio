@@ -148,44 +148,59 @@
             type="text"
             name="name"
             bind:value={formInputs.name}
-            placeholder="Name"
-            class="h-8 placeholder:text-black dark:placeholder:text-light-100 outline-none bg-transparent"
+            placeholder="Name*"
+            class={twm(
+              formErrors?.name
+                ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                : "placeholder:text-black dark:placeholder:text-light-100",
+              "h-8  outline-none bg-transparent sand-transition",
+            )}
             on:input={() =>
               formErrors?.name ? (formErrors.name = undefined) : null}
           />
-          {#if formErrors?.name}
+          <!-- {#if formErrors?.name}
             <p class="animate-vibrate-once text-base text-sand-red mb-2">
               {formErrors.name[0]}
             </p>
-          {/if}
+          {/if} -->
           <input
             autocomplete="off"
             type="text"
             name="email"
             bind:value={formInputs.email}
-            placeholder="Email"
-            class="h-8 placeholder:text-black dark:placeholder:text-light-100 outline-none bg-transparent"
+            placeholder="Email*"
+            class={twm(
+              formErrors?.email
+                ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                : "placeholder:text-black dark:placeholder:text-light-100",
+              "h-8  outline-none bg-transparent sand-transition",
+            )}
             on:input={() =>
               formErrors?.email ? (formErrors.email = undefined) : null}
           />
-          {#if formErrors?.email}
+          <!-- {#if formErrors?.email}
             <p class="animate-vibrate-once text-base text-sand-red mb-2">
               {formErrors.email[0]}
             </p>
-          {/if}
+          {/if} -->
           <textarea
             name="message"
-            placeholder="Message"
+            placeholder="Message*"
             bind:value={formInputs.message}
-            class="h-full mt-5 placeholder:text-black dark:placeholder:text-light-100 outline-none resize-none bg-transparent"
+            class={twm(
+              formErrors?.message
+                ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                : "placeholder:text-black dark:placeholder:text-light-100",
+              "h-full mt-5 outline-none resize-none bg-transparent",
+            )}
             on:input={() =>
               formErrors?.message ? (formErrors.message = undefined) : null}
           />
-          {#if formErrors?.message}
+          <!-- {#if formErrors?.message}
             <p class="animate-vibrate-once text-base text-sand-red mb-2">
               {formErrors.message[0]}
             </p>
-          {/if}
+          {/if} -->
 
           <div class="relative">
             <label

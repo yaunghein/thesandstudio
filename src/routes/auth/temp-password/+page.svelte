@@ -4,21 +4,23 @@
   import LogoShape from "$lib/svgs/LogoShape.svelte";
 
   let password = "";
+  let isChecking = false;
   let error = "";
   $: if (password) error = "";
+  $: console.log({ isChecking });
 
   const handleSubmit = async () => {
+    isChecking = true;
     const resp = await fetch("/api/temp-auth-check", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
     });
     const data = await resp.json();
-    if (!data.success) {
-      error = data.message;
-      return;
-    }
-    goto("/");
+    setTimeout(() => {
+      !data.success ? (error = data.message) : goto("/");
+      isChecking = false;
+    }, 1000);
   };
 </script>
 
@@ -40,12 +42,19 @@
       on:click={handleSubmit}
       class="bg-black disabled:opacity-25 sand-transition dark:bg-light-100 flex items-center justify-between px-3 py-2 pl-5 rounded-full"
     >
-      <span class="text-2xl text-light-100 dark:text-black"
-        >Access The Sand Studio</span
+      <span
+        class="text-2xl sand-transition {!!error
+          ? 'text-sand-red'
+          : 'text-light-100 dark:text-black'}"
       >
+        The Sand Studio
+      </span>
       <div
         class={twm(
-          password[0] ? "animate-spin-once " : "animate-spin-back-once",
+          password[0] && !isChecking && "animate-spin-once ",
+          !password[0] && "animate-spin-back-once",
+          isChecking && "animate-spin",
+          !!error && "text-sand-red",
           "w-10 h-10 flex items-center sand-transition",
         )}
       >
