@@ -316,12 +316,12 @@
 
 <div class="sm:hidden">
   <MobileAppShell>
-    <img
+    <!-- <img
       src="/images/mobile-dot-bg.png"
       class="absolute inset-0 h-full w-full object-cover dark:invert sand-transition
       {swiperIndex === 3 ? 'opacity-0' : 'opacity-100'}"
       alt=""
-    />
+    /> -->
     <Header />
 
     <div class="swiper relative pb-5">

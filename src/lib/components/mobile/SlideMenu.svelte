@@ -4,7 +4,7 @@
 
 <div class="swiper-slide shrink-0 h-full p-5">
   <div
-    class="grid grid-cols-2 place-content-start gap-5 h-full overflow-scroll"
+    class="grid grid-cols-3 place-content-start gap-3 h-full overflow-scroll"
   >
     <Links />
   </div>
