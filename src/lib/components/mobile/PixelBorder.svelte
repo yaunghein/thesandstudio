@@ -20,15 +20,15 @@
     alt=""
   />
   <div
-    class="w-[calc(100%-1.4rem)] h-[0.125rem] bg-white absolute left-1/2 -translate-x-1/2 top-0"
+    class="w-[calc(100%-1.4rem)] h-[0.125rem] bg-black dark:bg-white sand-transition absolute left-1/2 -translate-x-1/2 top-0"
   />
   <div
-    class="w-[calc(100%-1.4rem)] h-[0.125rem] bg-white absolute left-1/2 -translate-x-1/2 bottom-0"
+    class="w-[calc(100%-1.4rem)] h-[0.125rem] bg-black dark:bg-white sand-transition absolute left-1/2 -translate-x-1/2 bottom-0"
   />
   <div
-    class="h-[calc(100%-1.4rem)] w-[0.125rem] bg-white absolute top-1/2 -translate-y-1/2 left-0"
+    class="h-[calc(100%-1.4rem)] w-[0.125rem] bg-black dark:bg-white sand-transition absolute top-1/2 -translate-y-1/2 left-0"
   />
   <div
-    class="h-[calc(100%-1.4rem)] w-[0.125rem] bg-white absolute top-1/2 -translate-y-1/2 right-0"
+    class="h-[calc(100%-1.4rem)] w-[0.125rem] bg-black dark:bg-white sand-transition absolute top-1/2 -translate-y-1/2 right-0"
   />
 </div>

@@ -63,7 +63,7 @@
   </div>
 </a>
 
-<a href="/for-all-thingkind" class=" p-[0.125rem] pb-0">
+<!-- <a href="/for-all-thingkind" class=" p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -79,7 +79,7 @@
   >
     Explorer 2000
   </div>
-</a>
+</a> -->
 
 <button on:click={() => $swiper?.slideTo(2)} class=" p-[0.125rem] pb-0">
   <div
