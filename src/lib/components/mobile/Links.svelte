@@ -106,9 +106,7 @@
       src="/images/mobile/border-square.png"
       alt=""
     />
-    <div
-      class="relative h-[70%] aspect-square flex items-center justify-center"
-    >
+    <div class="relative w-[70%] h-[3rem] flex items-center justify-center">
       <Tube />
     </div>
   </div>

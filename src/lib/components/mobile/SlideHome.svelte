@@ -2,7 +2,7 @@
   import Sand from "$lib/svgs/mobile/Sand.svelte";
 </script>
 
-<div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
+<div class="swiper-slide h-full overflow-scroll shrink-0 p-3">
   <div class="h-full bg-white dark:bg-black w-full p-1">
     <div class="h-full p-4 relative">
       <img

@@ -325,7 +325,7 @@
     <Header />
 
     <div class="swiper relative pb-5">
-      <div class="swiper-wrapper flex h-[calc(100dvh-11rem)]">
+      <div class="swiper-wrapper flex h-[calc(100dvh-9rem)]">
         <SlideHome />
         <SlideMenu />
         <SlideAbout />
