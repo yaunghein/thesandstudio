@@ -25,19 +25,19 @@
   <PixelBorder />
   <button
     on:click={() => $swiper?.slideTo(0)}
-    class="relative h-11 aspect-square flex items-center justify-center dark:invert sand-transition"
+    class="relative w-11 aspect-square flex items-center justify-center dark:invert sand-transition"
   >
     <Home />
   </button>
   <button
     on:click={switchMode}
-    class="relative h-11 aspect-square flex items-center justify-center"
+    class="relative w-11 aspect-square flex items-center justify-center"
   >
     <AChonLay />
   </button>
   <button
     on:click={() => $swiper?.slideTo(1)}
-    class="relative h-11 aspect-square flex items-center justify-center"
+    class="relative w-11 aspect-square flex items-center justify-center"
   >
     <Burger />
   </button>
