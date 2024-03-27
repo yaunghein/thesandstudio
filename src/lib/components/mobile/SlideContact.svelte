@@ -130,7 +130,7 @@
 </script>
 
 <div class="swiper-slide h-full shrink-0 p-4">
-  <div class="h-full bg-white dark:bg-black w-full">
+  <div class="h-full w-full">
     <form
       on:submit|preventDefault
       class="relative text-xl h-[calc(100dvh-10rem)] w-full flex flex-col"
@@ -145,11 +145,11 @@
         </div>
 
         <div
-          class="grow relative w-36 mx-auto bg-light-90 dark:bg-black bg-opacity-30 border-x-2 sm:border-0 border-light"
+          class="grow relative w-36 mx-auto bg-opacity-30 border-x-2 sm:border-0 border-black dark:border-white"
         >
           <div
             id="paper-wrapper"
-            class="absolute w-[76vw] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 dark:border-white"
+            class="absolute w-[76vw] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 border-black dark:border-white"
           >
             <div
               id="paper"
