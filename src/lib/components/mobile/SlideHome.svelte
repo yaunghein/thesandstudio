@@ -4,11 +4,11 @@
   import Weather from "./Weather.svelte";
 </script>
 
-<div class="swiper-slide h-full overflow-scroll shrink-0 p-3">
-  <div class="h-full bg-white dark:bg-black w-full p-1">
-    <div class="h-full p-4 relative">
+<div class="swiper-slide h-full overflow-scroll shrink-0 p-4">
+  <div class="h-full bg-white dark:bg-black w-full">
+    <div class="h-full relative">
       <PixelBorder />
-      <div class="h-full relative overflow-scrol hide-scrollbar">
+      <div class="p-4 h-full relative overflow-scroll hide-scrollbar">
         <div class="flex flex-col items-start">
           <div class="relative text-2xl leading-[0.75]">
             Yeah... We do shit. Come make amazing shits with us. Any type of

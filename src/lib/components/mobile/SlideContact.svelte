@@ -1,20 +1,19 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { scale } from "svelte/transition";
   import gsap from "gsap";
   import { twMerge as twm } from "tailwind-merge";
-  import LogoShape from "$lib/svgs/LogoShape.svelte";
-  import IconLock from "$lib/svgs/IconLock.svelte";
-  import ContactFormTubeAPhone from "$lib/svgs/ContactFormTubeAPhone.svelte";
+  import ContactFormTubeAPhone from "$lib/components/mobile/ContactFormTubeAPhone.svelte";
   import ContactFormUpload from "$lib/svgs/ContactFormUpload.svelte";
   import Lock from "$lib/svgs/mobile/Lock.svelte";
+  import LogoShape from "./LogoShape.svelte";
   import {
     formSchema,
     filesToBase64,
     transformZodErrors,
   } from "$lib/utils/form";
   import type { FormInputs } from "$lib/utils/form";
+  import PixelBorder from "./PixelBorder.svelte";
 
   export let swiperIndex: number = 0;
 
@@ -28,8 +27,7 @@
       openTubeTl = gsap.timeline({ defaults });
       openTubeTl
         .to("#tube", { y: "0%" })
-        .from("#paper-wrapper", { width: "9.2rem" }, "<50%")
-        .to("#paper", { x: "0%" }, "<");
+        .from("#paper-wrapper", { width: "7.3rem" }, "<50%");
     }
   } else if (browser && swiperIndex !== 3) {
     openTubeTl?.reverse();
@@ -58,14 +56,12 @@
       return;
     }
     formState = "locked";
-    gsap.to("#paper-wrapper", { width: "9.2rem", ...defaults });
-    gsap.to("#paper", { x: "55%", ...defaults });
+    gsap.to("#paper-wrapper", { width: "7.3rem", ...defaults });
   };
 
   const unlock = () => {
     formState = "idel";
-    gsap.to("#paper-wrapper", { width: "80vw", ...defaults });
-    gsap.to("#paper", { x: "0%", ...defaults });
+    gsap.to("#paper-wrapper", { width: "76vw", ...defaults });
   };
 
   const sendTheTube = () => {
@@ -80,7 +76,7 @@
     tl.to("#tube", { y: "-115%" })
       .set("#tube", { y: "115%" })
       .to("#tube", { y: "0%" })
-      .to("#paper", { x: "0%" }, "<50%");
+      .to("#paper-wrapper", { width: "76vw" }, "<50%");
   };
 
   const submit = async () => {
@@ -133,91 +129,104 @@
   };
 </script>
 
-<div class="swiper-slide h-full shrink-0">
-  <div class="h-full bg-white dark:bg-black w-full p-1">
+<div class="swiper-slide h-full shrink-0 p-4">
+  <div class="h-full bg-white dark:bg-black w-full">
     <form
       on:submit|preventDefault
-      class="relative text-xl h-[calc(100dvh-10rem)] w-full flex flex-col mt-5"
+      class="relative text-xl h-[calc(100dvh-10rem)] w-full flex flex-col"
     >
-      <img
-        class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
-        src="/images/mobile/border-v-long.png"
-        alt=""
-      />
+      <PixelBorder />
       <div
         id="tube"
-        class="px-1 pt-12 ml-auto w-[240px] h-[91%] flex flex-col translate-y-[115%]"
+        class="px-1 pt-12 ml-auto w-[200px] h-[91%] flex flex-col translate-y-[115%]"
       >
         <div class="flex">
           <ContactFormTubeAPhone />
         </div>
 
         <div
-          class="grow relative w-44 mx-auto bg-light-90 dark:bg-black bg-opacity-30 border-x-2 sm:border-0 border-light"
+          class="grow relative w-36 mx-auto bg-light-90 dark:bg-black bg-opacity-30 border-x-2 sm:border-0 border-light"
         >
           <div
             id="paper-wrapper"
-            class="absolute w-[80vw] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 dark:border-white"
+            class="absolute w-[76vw] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 dark:border-white"
           >
             <div
               id="paper"
-              class="absolute w-[80vw] right-0 h-full bg-white dark:bg-black sm:dark:bg-light-7 rounded-lg translate-x-[79.5%] p-4 flex flex-col text-xl text-black dark:text-light-100"
+              class="absolute w-100% left-0 right-0 h-full bg-white dark:bg-black sm:dark:bg-light-7 rounded-lg p-4 flex flex-col text-xl text-black dark:text-light-100"
             >
               <input
                 autocomplete="off"
                 type="text"
                 name="name"
                 bind:value={formInputs.name}
-                placeholder="Name"
-                class="h-8 placeholder:text-black text-xl dark:placeholder:text-light-100 outline-none bg-transparent"
+                placeholder="Name*"
+                class={twm(
+                  formErrors?.name
+                    ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                    : "placeholder:text-black dark:placeholder:text-light-100",
+                  "h-8 text-xl outline-none bg-transparent sand-transition",
+                )}
                 on:input={() =>
                   formErrors?.name ? (formErrors.name = undefined) : null}
               />
-              {#if formErrors?.name}
+              <!-- {#if formErrors?.name}
                 <p class="animate-vibrate-once text-base text-sand-red mb-2">
                   {formErrors.name[0]}
                 </p>
-              {/if}
+              {/if} -->
               <input
                 autocomplete="off"
                 type="text"
                 name="email"
                 bind:value={formInputs.email}
-                placeholder="Email"
-                class="h-8 placeholder:text-black text-xl dark:placeholder:text-light-100 outline-none bg-transparent"
+                placeholder="Email*"
+                class={twm(
+                  formErrors?.email
+                    ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                    : "placeholder:text-black dark:placeholder:text-light-100",
+                  "h-8 text-xl outline-none bg-transparent sand-transition",
+                )}
                 on:input={() =>
                   formErrors?.email ? (formErrors.email = undefined) : null}
               />
-              {#if formErrors?.email}
+              <!-- {#if formErrors?.email}
                 <p class="animate-vibrate-once text-base text-sand-red mb-2">
                   {formErrors.email[0]}
                 </p>
-              {/if}
+              {/if} -->
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder="Message*"
                 bind:value={formInputs.message}
-                class="h-full mt-5 placeholder:text-black text-xl dark:placeholder:text-light-100 outline-none resize-none bg-transparent"
+                class={twm(
+                  formErrors?.message
+                    ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
+                    : "placeholder:text-black dark:placeholder:text-light-100",
+                  "h-full w-[70vw] text-xl mt-5 leading-none outline-none resize-none bg-transparent",
+                )}
                 on:input={() =>
                   formErrors?.message ? (formErrors.message = undefined) : null}
               />
-              {#if formErrors?.message}
+              <!-- {#if formErrors?.message}
                 <p class="animate-vibrate-once text-base text-sand-red mb-2">
                   {formErrors.message[0]}
                 </p>
-              {/if}
+              {/if} -->
 
               <div class="relative flex items-center gap-3">
                 <label
                   for="attachments"
-                  class="relative w-auto h-10 flex items-center"
+                  class="relative w-auto h-10 flex items-center shrink-0"
                 >
                   <ContactFormUpload
                     hasAttachments={!!formInputs.attachments}
                   />
                 </label>
 
-                <span class="font-sand-mobile-regular text-xl">
+                <span
+                  class="font-sand-mobile-regular text-xl whitespace-nowrap"
+                >
                   {formInputs.attachments ? "Remove" : "Upload Files"}
                 </span>
 
@@ -249,8 +258,9 @@
         disabled={formState === "sending"}
         on:click={handleSubmit[formState]}
         id="submit-btn"
-        class="w-[60%] h-10 flex items-center justify-between rounded-full border-2 border-white dark:border-light-12 bg-light-90 dark:bg-black text-black dark:text-light-100 p-[0.4rem] absolute bottom-7 left-1/2 -translate-x-1/2"
+        class="w-[15rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] absolute bottom-7 left-1/2 -translate-x-1/2"
       >
+        <PixelBorder />
         {#if formState === "locked"}
           <button
             transition:scale={{ start: 0.5 }}
@@ -299,24 +309,24 @@
         class="absolute inset-0 w-full h-full font-sand-mobile-regular pointer-events-none"
       >
         <div
-          class="font-sand-mobile-bold text-3xl absolute top-3 left-4 leading-none"
+          class="font-sand-mobile-bold text-2xl absolute top-3 left-4 leading-none"
         >
           Contact
         </div>
         <div
-          class="font-sand-mobile-bold text-3xl absolute top-[5.6rem] left-4 leading-[0.75] max-w-[7rem]"
+          class="font-sand-mobile-bold text-2xl absolute top-[5.3rem] left-4 leading-[0.75]"
         >
-          What do you have in mind?
+          What do<br /> you have in<br /> mind?
         </div>
         <a
           href="mailto:hi@thesandstudio.com"
-          class="text-3xl absolute top-3 right-4 leading-none"
+          class="text-2xl absolute top-3 right-4 leading-none"
         >
           hi@thesandstudio.com
         </a>
-        <div class="flex items-center gap-8 absolute left-4 bottom-32">
-          <a href="/" class="text-3xl leading-none">IG</a>
-          <a href="/" class="text-3xl leading-none">FB</a>
+        <div class="flex items-center gap-6 absolute left-4 bottom-28">
+          <a href="/" class="text-2xl leading-none">IG</a>
+          <a href="/" class="text-2xl leading-none">FB</a>
         </div>
       </div>
     </form>

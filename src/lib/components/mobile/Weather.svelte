@@ -154,6 +154,10 @@
                 viewBox="0 0 20 19"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                class={twm(
+                  selectedLocation === location ? "opacity-100" : "opacity-25",
+                  "sand-transition",
+                )}
               >
                 <path
                   d="M16.4237 10.2308H17.8852V11.6923H16.4237V10.2308Z"

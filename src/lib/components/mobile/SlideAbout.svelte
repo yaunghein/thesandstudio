@@ -1,11 +1,11 @@
-<div class="swiper-slide h-full overflow-scroll shrink-0 p-5">
-  <div class="h-full bg-white dark:bg-black w-full p-1">
-    <div class="h-full p-4 relative">
-      <img
-        class="absolute inset-0 w-full h-full invert dark:invert-0 sand-transition"
-        src="/images/mobile/border-v-long.png"
-        alt=""
-      />
+<script>
+  import PixelBorder from "./PixelBorder.svelte";
+</script>
+
+<div class="swiper-slide h-full overflow-scroll shrink-0 p-4">
+  <div class="h-full bg-white dark:bg-black w-full">
+    <div class="h-full relative p-4">
+      <PixelBorder />
       <div class="font-sand-mobile-bold text-5xl leading-none mb-3">
         The Sand Studio
       </div>

@@ -20,7 +20,7 @@
 </script>
 
 <nav
-  class="h-[4.5rem] fixed z-20 inset-5 top-auto max-w-[420px] mx-auto flex items-center justify-evenly"
+  class="h-[4.5rem] fixed z-20 inset-5 top-auto max-w-[420px] mx-auto flex items-center justify-evenly bg-white dark:bg-black rounded-[1.1rem]"
 >
   <PixelBorder />
   <button

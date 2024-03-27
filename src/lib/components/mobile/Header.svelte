@@ -3,7 +3,7 @@
   import Sand from "$lib/svgs/mobile/Sand.svelte";
 </script>
 
-<header class="mt-5 px-3 bg-white dark:bg-black relative py-[2px]">
+<header class="mt-3 px-3 relative py-[2px]">
   <!-- <button
     class="sand-transition flex items-center justify-between gap-1 border-2 border-black dark:border-white rounded-full px-[5px] py-[2px]"
   >

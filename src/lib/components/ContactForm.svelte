@@ -153,7 +153,7 @@
               formErrors?.name
                 ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                 : "placeholder:text-black dark:placeholder:text-light-100",
-              "h-8  outline-none bg-transparent sand-transition",
+              "h-8 outline-none bg-transparent sand-transition",
             )}
             on:input={() =>
               formErrors?.name ? (formErrors.name = undefined) : null}
@@ -173,7 +173,7 @@
               formErrors?.email
                 ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                 : "placeholder:text-black dark:placeholder:text-light-100",
-              "h-8  outline-none bg-transparent sand-transition",
+              "h-8 outline-none bg-transparent sand-transition",
             )}
             on:input={() =>
               formErrors?.email ? (formErrors.email = undefined) : null}

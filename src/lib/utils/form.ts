@@ -61,6 +61,5 @@ export const transformZodErrors = (errors: any) => {
       ];
     }
   }
-  console.log({ transformedErrors });
   return transformedErrors;
 };
