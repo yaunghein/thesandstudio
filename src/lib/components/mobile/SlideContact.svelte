@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ContactFormTubeLabel from "./../../svgs/ContactFormTubeLabel.svelte";
   import { browser } from "$app/environment";
   import { scale } from "svelte/transition";
   import gsap from "gsap";
@@ -254,56 +255,62 @@
         </div>
       </div>
 
-      <button
-        disabled={formState === "sending"}
-        on:click={handleSubmit[formState]}
-        id="submit-btn"
-        class="w-[15rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] absolute bottom-7 left-1/2 -translate-x-1/2"
-      >
-        <PixelBorder />
-        {#if formState === "locked"}
-          <button
-            transition:scale={{ start: 0.5 }}
-            on:click|stopPropagation={unlock}
-            class="absolute left-[0.6rem] flex h-6"
-          >
-            <Lock />
-          </button>
-        {/if}
-        {#if formState === "idel"}
-          <span
-            transition:scale={{ start: 0.5 }}
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] font-sand-mobile-bold text-2xl"
-          >
-            Lock
-          </span>
-        {:else if formState === "locked"}
-          <span
-            transition:scale={{ start: 0.5 }}
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] font-sand-mobile-bold text-2xl"
-          >
-            Send
-          </span>
-        {:else}
-          <span
-            transition:scale={{ start: 0.5 }}
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-sand-mobile-bold text-2xl"
-          >
-            Sending...
-          </span>
-        {/if}
-        <div
-          id="btn-logo-shape"
-          class={twm(
-            "flex w-6 aspect-square ml-auto transition duration-[800ms] ease-out",
-            formState === "idel" && "animate-spin-back-once",
-            formState === "locked" && "animate-spin-once text-sand-green",
-            formState === "sending" && "animate-spin text-sand-red",
-          )}
-        >
-          <LogoShape />
+      <div class="absolute bottom-7 w-full flex items-center justify-end pr-2">
+        <div class="w-20 h-4 mx-auto">
+          <ContactFormTubeLabel />
         </div>
-      </button>
+
+        <button
+          disabled={formState === "sending"}
+          on:click={handleSubmit[formState]}
+          id="submit-btn"
+          class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem]"
+        >
+          <PixelBorder />
+          {#if formState === "locked"}
+            <button
+              transition:scale={{ start: 0.5 }}
+              on:click|stopPropagation={unlock}
+              class="absolute left-[0.6rem] flex h-6"
+            >
+              <Lock />
+            </button>
+          {/if}
+          {#if formState === "idel"}
+            <span
+              transition:scale={{ start: 0.5 }}
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] font-sand-mobile-bold text-2xl"
+            >
+              Lock
+            </span>
+          {:else if formState === "locked"}
+            <span
+              transition:scale={{ start: 0.5 }}
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] font-sand-mobile-bold text-2xl"
+            >
+              Send
+            </span>
+          {:else}
+            <span
+              transition:scale={{ start: 0.5 }}
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-sand-mobile-bold text-2xl"
+            >
+              Sending...
+            </span>
+          {/if}
+          <div
+            id="btn-logo-shape"
+            class={twm(
+              "flex w-6 aspect-square ml-auto transition duration-[800ms] ease-out",
+              formState === "idel" && "animate-spin-back-once",
+              formState === "locked" && "animate-spin-once text-sand-green",
+              formState === "sending" && "animate-spin text-sand-red",
+            )}
+          >
+            <LogoShape />
+          </div>
+        </button>
+      </div>
 
       <div
         class="absolute inset-0 w-full h-full font-sand-mobile-regular pointer-events-none"
