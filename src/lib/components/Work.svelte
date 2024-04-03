@@ -6,7 +6,7 @@
   import type { Work } from "$lib/types";
 
   export let work: Work;
-  export let loop: boolean = false;
+  // export let loop: boolean = false;
 
   let index = 0;
 
@@ -16,14 +16,12 @@
   //   return numbers[randomIndex];
   // };
 
-  const intervalId =
-    loop &&
-    setInterval(() => {
-      if (index === work.images.length - 1) return (index = 0);
-      index++;
-    }, 1000);
+  const intervalId = setInterval(() => {
+    // if (index === work.images.length - 1) return (index = 0);
+    // index++;
+  }, 1000);
 
-  onDestroy(() => intervalId && clearInterval(intervalId));
+  onDestroy(() => clearInterval(intervalId));
 </script>
 
 <div

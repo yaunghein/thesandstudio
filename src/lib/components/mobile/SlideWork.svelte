@@ -184,7 +184,7 @@
             </div>
             <div role="region" class="relative -mt-3">
               {#each workGroup.data as work}
-                <Work {work} loop={true} />
+                <Work {work} />
               {/each}
             </div>
           {/each}
