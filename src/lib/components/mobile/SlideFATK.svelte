@@ -27,7 +27,9 @@
               >
                 Ambivalent Tote Bag and Trinket Bowl
               </div>
-              <div class="text-2xl font-sand-mobile-bold">2022</div>
+              <div class="text-2xl font-sand-mobile-bold leading-[0.75]">
+                2022
+              </div>
             </div>
             <div class="relative w-full aspect-square overflow-hidden">
               <video

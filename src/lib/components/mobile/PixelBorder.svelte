@@ -1,4 +1,4 @@
-<div class="absolute inset-0 w-full h-full">
+<div class="absolute z-50 pointer-events-none inset-0 w-full h-full">
   <img
     class="absolute top-0 left-0 w-3 invert dark:invert-0 sand-transition"
     src="/images/mobile/pixel-border.svg"
