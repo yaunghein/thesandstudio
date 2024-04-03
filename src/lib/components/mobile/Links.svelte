@@ -23,7 +23,7 @@
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(5)} class=" p-[0.125rem] pb-0">
+<button on:click={() => $swiper?.slideTo(4)} class=" p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -41,7 +41,7 @@
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(6)} class=" p-[0.125rem] pb-0">
+<button on:click={() => $swiper?.slideTo(5)} class=" p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
