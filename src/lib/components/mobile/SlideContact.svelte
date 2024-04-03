@@ -129,7 +129,7 @@
   };
 </script>
 
-<div class="swiper-slide h-full shrink-0 p-4">
+<div class="swiper-slide h-full shrink-0 px-4">
   <div class="h-full w-full">
     <form
       on:submit|preventDefault

@@ -33,7 +33,6 @@
   onMount(() => {
     if (!browser) return;
     const swiper = new Swiper(".swiper", {
-      autoHeight: true,
       loop: true,
       modules: [Pagination],
       pagination: {
@@ -324,15 +323,15 @@
     /> -->
     <Header />
 
-    <div class="swiper relative pb-5">
-      <div class="swiper-wrapper flex h-[calc(100dvh-9rem)]">
+    <div class="swiper relative pb-3">
+      <div class="swiper-wrapper flex h-[calc(100dvh-9rem)] pt-2 pb-3">
         <SlideHome />
         <SlideMenu />
         <SlideAbout />
         <SlideContact {swiperIndex} />
       </div>
       <!-- <div
-        class="swiper-pagination h-5 bottom-10 flex items-center justify-center sand-transition"
+        class="swiper-pagination h-10 20 flex items-center justify-center sand-transition"
       ></div> -->
     </div>
   </MobileAppShell>

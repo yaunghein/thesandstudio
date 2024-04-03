@@ -63,24 +63,6 @@
   </div>
 </a>
 
-<!-- <a href="/for-all-thingkind" class=" p-[0.125rem] pb-0">
-  <div class="w-full flex items-center justify-center aspect-square relative">
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
-    <div class="relative w-[75%] flex items-center justify-center">
-      <Explorer />
-    </div>
-  </div>
-  <div
-    class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"
-  >
-    Explorer 2000
-  </div>
-</a> -->
-
 <button on:click={() => $swiper?.slideTo(2)} class=" p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
@@ -114,5 +96,23 @@
     class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"
   >
     Contact
+  </div>
+</button>
+
+<button class=" p-[0.125rem] pb-0">
+  <div class="w-full flex items-center justify-center aspect-square relative">
+    <img
+      class="absolute inset-0 w-full h-full dark:invert"
+      src="/images/mobile/border-square.png"
+      alt=""
+    />
+    <div class="relative w-[75%] flex items-center justify-center">
+      <Explorer />
+    </div>
+  </div>
+  <div
+    class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"
+  >
+    Explorer 1000
   </div>
 </button>
