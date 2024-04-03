@@ -26,6 +26,7 @@
   import SlideMenu from "$lib/components/mobile/SlideMenu.svelte";
   import SlideAbout from "$lib/components/mobile/SlideAbout.svelte";
   import SlideContact from "$lib/components/mobile/SlideContact.svelte";
+  import SlideFATK from "$lib/components/mobile/SlideFATK.svelte";
 
   import "swiper/css/pagination";
 
@@ -40,6 +41,7 @@
         clickable: true,
       },
     });
+    // swiper.slideTo(10);
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
     });
@@ -329,6 +331,7 @@
         <SlideMenu />
         <SlideAbout />
         <SlideContact {swiperIndex} />
+        <SlideFATK />
       </div>
       <!-- <div
         class="swiper-pagination h-10 20 flex items-center justify-center sand-transition"
