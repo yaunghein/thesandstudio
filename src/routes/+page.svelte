@@ -28,6 +28,7 @@
   import SlideContact from "$lib/components/mobile/SlideContact.svelte";
   import SlideFATK from "$lib/components/mobile/SlideFATK.svelte";
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
+  import SlideWork from "$lib/components/mobile/SlideWork.svelte";
 
   import "swiper/css/pagination";
 
@@ -334,6 +335,7 @@
         <SlideContact {swiperIndex} />
         <SlideFATK />
         <SlideNotWork />
+        <SlideWork />
       </div>
       <!-- <div
         class="swiper-pagination h-10 20 flex items-center justify-center sand-transition"
