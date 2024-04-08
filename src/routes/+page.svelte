@@ -29,6 +29,7 @@
   import SlideFATK from "$lib/components/mobile/SlideFATK.svelte";
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
+  import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
 
   import "swiper/css/pagination";
 
@@ -43,7 +44,7 @@
         clickable: true,
       },
     });
-    // swiper.slideTo(10);
+    swiper.slideTo(10);
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
     });
@@ -336,6 +337,7 @@
         <SlideFATK />
         <SlideNotWork />
         <SlideWork />
+        <SlideExplorer />
       </div>
       <!-- <div
         class="swiper-pagination h-10 20 flex items-center justify-center sand-transition"
