@@ -17,6 +17,16 @@
     };
     toggleMode();
   };
+
+  const goToSlideByName = (slideName: string) => {
+    const slides = $swiper!.slides;
+    for (let i = 0; i < slides.length; i++) {
+      if (slides[i].dataset.slideName === slideName) {
+        $swiper!.slideTo(i);
+        return;
+      }
+    }
+  };
 </script>
 
 <nav
@@ -24,7 +34,7 @@
 >
   <PixelBorder />
   <button
-    on:click={() => $swiper?.slideTo(0)}
+    on:click={() => goToSlideByName("home")}
     class="relative w-11 aspect-square flex items-center justify-center dark:invert sand-transition"
   >
     <Home />
@@ -36,7 +46,7 @@
     <AChonLay />
   </button>
   <button
-    on:click={() => $swiper?.slideTo(1)}
+    on:click={() => goToSlideByName("menu")}
     class="relative w-11 aspect-square flex items-center justify-center"
   >
     <Burger />

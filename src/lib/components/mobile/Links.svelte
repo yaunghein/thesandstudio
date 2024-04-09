@@ -5,9 +5,19 @@
   import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
 
   import type { Swiper } from "swiper/types";
+
+  const goToSlideByName = (slideName: string) => {
+    const slides = $swiper!.slides;
+    for (let i = 0; i < slides.length; i++) {
+      if (slides[i].dataset.slideName === slideName) {
+        $swiper!.slideTo(i);
+        return;
+      }
+    }
+  };
 </script>
 
-<button on:click={() => $swiper?.slideTo(7)} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("works")} class=" p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -23,7 +33,7 @@
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(4)} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("fatk")} class=" p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -41,7 +51,10 @@
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(5)} class=" p-[0.125rem] pb-0">
+<button
+  on:click={() => goToSlideByName("not-works")}
+  class=" p-[0.125rem] pb-0"
+>
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
@@ -59,11 +72,11 @@
   <div
     class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"
   >
-    Not Work
+    Not Works
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(2)} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("about")} class=" p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
@@ -81,7 +94,7 @@
   </div>
 </button>
 
-<button on:click={() => $swiper?.slideTo(3)} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("contact")} class=" p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"
@@ -99,7 +112,7 @@
   </div>
 </button>
 
-<button class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("explorer")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <img
       class="absolute inset-0 w-full h-full dark:invert"

@@ -3,7 +3,10 @@
   import TypographicChallengeHeading from "../../../routes/not-works/(components)/TypographicChallengeHeading.svelte";
 </script>
 
-<div class="swiper-slide h-full overflow-scroll shrink-0 px-4">
+<div
+  data-slide-name="not-works"
+  class="swiper-slide h-full overflow-scroll shrink-0 px-4"
+>
   <div class="h-full bg-white dark:bg-black w-full">
     <div class="h-full relative">
       <PixelBorder />

@@ -4,7 +4,10 @@
   import Weather from "./Weather.svelte";
 </script>
 
-<div class="swiper-slide h-full overflow-scroll shrink-0 px-4">
+<div
+  data-slide-name="home"
+  class="swiper-slide h-full overflow-scroll shrink-0 px-4"
+>
   <div class="h-full bg-white dark:bg-black w-full">
     <div class="h-full relative">
       <PixelBorder />

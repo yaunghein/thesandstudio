@@ -44,7 +44,7 @@
         clickable: true,
       },
     });
-    swiper.slideTo(10);
+
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
     });

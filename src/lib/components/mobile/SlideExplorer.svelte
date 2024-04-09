@@ -4,7 +4,10 @@
   import { Files } from "$lib/stores/explorer";
 </script>
 
-<div class="swiper-slide h-full overflow-scroll shrink-0 px-4">
+<div
+  data-slide-name="explorer"
+  class="swiper-slide h-full overflow-scroll shrink-0 px-4"
+>
   <div class="h-full bg-white dark:bg-black w-full">
     <div class="h-full relative overflow-hidden rounded-[1rem]">
       <PixelBorder />
