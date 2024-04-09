@@ -83,7 +83,7 @@
                     autoplay
                     loop
                     playsinline
-                    webkit-playsinline
+                    controls
                     src={media.mediaSrc}
                   >
                     <source type="video/mp4" src={media.mediaSrc} />
