@@ -82,8 +82,6 @@
                     style="width:100%;height:100%;"
                     autoplay
                     loop
-                    playsinline
-                    controls
                     src={media.mediaSrc}
                   >
                     <source type="video/mp4" src={media.mediaSrc} />
