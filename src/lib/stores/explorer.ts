@@ -126,7 +126,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission.webp",
+                      "/images/archives/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission 1.gif",
                     description: "This is description.",
                   },
                 ],
@@ -1894,7 +1894,6 @@ export const Files: Writable<File[]> = writable(deepClone(files));
 
 export const handleFileClickMobile = (file: File) => {
   const selectedFileLevel = getNestedLevel(files, file.id);
-  console.log({ selectedFileLevel });
 
   Files.update((files: File[]) => {
     const findAndUpdateIsOpen = (files: File[]) => {

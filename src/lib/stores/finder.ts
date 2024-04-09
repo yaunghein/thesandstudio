@@ -202,7 +202,7 @@ const getArchiveTab = (isOpen: boolean): Tab => {
                         isOpen: false,
                         mediaType: "img",
                         mediaSrc:
-                          "/images/archives/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission.webp",
+                          "/images/archives/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission 1.gif",
                         description: "This is description.",
                       },
                     ],

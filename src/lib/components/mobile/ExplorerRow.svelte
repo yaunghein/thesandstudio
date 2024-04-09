@@ -22,13 +22,19 @@
         >
           <PixelBorder />
 
-          <div
-            class={twm("marquee-content", file.isMarquee && "animate-marquee")}
-          >
-            <span class="whitespace-nowrap">{file.label}</span>
-            {#if file.isMarquee}
+          <div class="w-full h-full flex items-center overflow-hidden">
+            <div>
+              <!-- <div
+              class={twm(
+                "marquee-content",
+                file.isMarquee && "animate-marquee",
+              )}
+            > -->
               <span class="whitespace-nowrap">{file.label}</span>
-            {/if}
+              <!-- {#if file.isMarquee}
+                <span class="whitespace-nowrap">{file.label}</span>
+              {/if} -->
+            </div>
           </div>
 
           {#if file.type === "folder"}
@@ -63,21 +69,38 @@
             </span>
           {/if}
         </button>
+
         {#if file.isOpen}
-          {@const medias = file.data?.filter(
-            (i) => i.type === "file" && i.mediaType === "img",
-          )}
-          {#if medias.length > 0}
-            <div class="grid grid-cols-2 p-1 pt-[2px] gap-[2px] align-top">
-              {#each medias as media}
+          {@const medias = file.data?.filter((i) => i.type === "file")}
+          <div class="grid grid-cols-2 p-1 pt-[2px] gap-[2px] align-top">
+            {#each medias as media}
+              {#if media.mediaType === "img"}
                 <img alt={media.label} src={media.mediaSrc} />
-              {/each}
-            </div>
-          {/if}
+              {:else if media.mediaType === "video"}
+                <div class="w-full bg-black">
+                  <video
+                    style="width:100%;height:100%;"
+                    autoplay
+                    loop
+                    src={media.mediaSrc}
+                  >
+                    <source type="video/mp4" src={media.mediaSrc} />
+                    <track kind="captions" />
+                  </video>
+                </div>
+              {:else if media.mediaType === "pdf"}
+                <a
+                  class="p-4 text-center leading-[0.75]"
+                  href={media.mediaSrc}
+                  target="_blank">View {media.label}</a
+                >
+              {/if}
+            {/each}
+          </div>
 
           {@const folders = file.data?.filter((i) => i.type === "folder")}
           {#if folders.length > 0}
-            <div class="mt-1">
+            <div class="-mt-1">
               <svelte:self files={folders} />
             </div>
           {/if}
