@@ -141,6 +141,7 @@
     <div class="h-full relative">
       <PixelBorder />
       <div
+        style="overscroll-behavior: none;"
         class="p-4 w-full h-full rounded-[0.8rem] relative overflow-scroll hide-scrollbar"
       >
         <div class="grid grid-cols-2 gap-8">
