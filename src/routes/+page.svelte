@@ -32,6 +32,8 @@
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
 
   import "swiper/css/pagination";
+  import LogoShape from "$lib/svgs/LogoShape.svelte";
+  import { fly } from "svelte/transition";
 
   let swiperIndex = 0;
   onMount(() => {
@@ -69,6 +71,7 @@
   $: isChildOpen = $OpenShells.find((shell) => shell.id === "child");
 
   let spline: any;
+  let isSplineLoading = false;
   let isSplineLoaded = false;
   let isSplineThemeChangeComplete = false;
 
@@ -108,11 +111,13 @@
   };
 
   const create3DBackground = (node: HTMLCanvasElement) => {
+    isSplineLoading = true;
     spline = new Application(node);
     spline
-      .load("https://prod.spline.design/5rPaPRxD6nId8tp7/scene.splinecode")
+      .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
       .then(() => {
         isSplineLoaded = true;
+        isSplineLoading = false;
         spline.addEventListener("mouseDown", clickWebThemeSwitcher);
         window.addEventListener("mousemove", (e) => moveEye(e, spline));
       });
@@ -173,6 +178,18 @@
 
 <div class="hidden sm:block">
   <AppShell>
+    <!-- <div
+      class={twm(
+        "sticky top-0 bottom-0 h-screen sand-transition",
+        isSplineLoaded && isSplineThemeChangeComplete
+          ? "opacity-100"
+          : "opacity-0",
+        $SelectedBackground?.name === "bg-scene" ? "opacity-100" : "opacity-0",
+      )}
+    >
+      <canvas use:create3DBackground></canvas>
+    </div> -->
+
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
         class={twm(
@@ -316,6 +333,19 @@
       {/each}
     {/if}
   </AppShell>
+
+  {#if isSplineLoading}
+    <div
+      transition:fly={{ y: 100, opacity: 1 }}
+      class="overflow-hidden fixed right-10 bottom-10 text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 pl-6 pr-3 py-3 rounded-full flex items-center gap-3"
+    >
+      <div class="transparent-layer rounded-full" />
+      <div class="relative text-xl leading-none">Loading 3D Scene...</div>
+      <div class="shrink-0 animate-spin w-9 -mt-[0.1rem]">
+        <LogoShape />
+      </div>
+    </div>
+  {/if}
 </div>
 
 <div class="sm:hidden">
