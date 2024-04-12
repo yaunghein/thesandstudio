@@ -77,22 +77,20 @@ const files: File[] = [
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "Teaser.mp4",
-            thumbnail:
-              "/images/archives/challenges/direction-of-mind/thumbnail-teaser.webp",
+            label: "Teaser.gif",
             isOpen: false,
-            mediaType: "video",
+            mediaType: "img",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/Teaser.mp4",
+              "/images/archives/challenges/direction-of-mind/Teaser.gif",
             description: "This is description.",
           },
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "Title.mp4",
+            label: "Title.gif",
             isOpen: false,
-            mediaType: "video",
-            mediaSrc: "/images/archives/challenges/direction-of-mind/Title.mp4",
+            mediaType: "img",
+            mediaSrc: "/images/archives/challenges/direction-of-mind/Title.gif",
             description: "This is description.",
           },
           {
@@ -1712,11 +1710,11 @@ const files: File[] = [
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "SB Farmer.mp4",
+            label: "SB Farmer.gif",
             isOpen: false,
-            mediaType: "video",
+            mediaType: "img",
             mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB Farmer.mp4",
+              "/images/archives/works/sawbwa-morning-blend/SB Farmer.gif",
           },
           {
             id: crypto.randomUUID(),
@@ -1894,6 +1892,7 @@ export const Files: Writable<File[]> = writable(deepClone(files));
 
 export const handleFileClickMobile = (file: File) => {
   const selectedFileLevel = getNestedLevel(files, file.id);
+  console.log({ selectedFileLevel });
 
   Files.update((files: File[]) => {
     const findAndUpdateIsOpen = (files: File[]) => {
@@ -1902,11 +1901,14 @@ export const handleFileClickMobile = (file: File) => {
           findAndUpdateIsOpen(item.data);
         }
         const itemLevel = getNestedLevel(files, item.id);
-        if (selectedFileLevel === itemLevel || selectedFileLevel < itemLevel) {
-          item.isOpen = false;
-        }
+
         if (item.id === file.id) {
           item.isOpen = !item.isOpen;
+        } else if (
+          selectedFileLevel === itemLevel ||
+          selectedFileLevel < itemLevel
+        ) {
+          item.isOpen = false;
         }
       }
     };
