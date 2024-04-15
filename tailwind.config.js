@@ -78,6 +78,11 @@ export default {
           "75%": { transform: "translateX(-5px)" },
           "100%": { transform: "translateX(0)" },
         },
+        blink: {
+          "0%": { opacity: "1" },
+          "50%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         marquee: "marquee 10s linear infinite",
@@ -85,6 +90,7 @@ export default {
         "spin-slow": "spin-slow 10s linear infinite",
         "spin-back-once": "spin-back-once 0.8s ease-in-out",
         "vibrate-once": "vibrate 0.5s ease-in-out 1",
+        blink: "blink 1s infinite",
       },
       backgroundImage: {
         "starwar-gradient-light":

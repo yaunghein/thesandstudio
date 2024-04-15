@@ -39,7 +39,7 @@
       class={twm(
         error[0] && password[0]
           ? "border-sand-red text-sand-red placeholder:text-sand-red animate-vibrate-once"
-          : "border-black dark:border-light-100 text-white dark:text-light-100",
+          : "border-black dark:border-light-100 text-black dark:text-white",
         "appearance-none outline-none bg-transparent  text-2xl p-3 border-b-2  sand-transition",
       )}
     />
@@ -60,12 +60,12 @@
       </span>
       <div
         class={twm(
+          "w-10 h-10 flex items-center sand-transition text-white dark:text-black",
           password[0] && !isChecking && "animate-spin-once ",
           !password[0] && "animate-spin-back-once",
           isChecking && "animate-spin",
           error && password && "text-sand-red",
           isSuccess && "text-sand-green",
-          "w-10 h-10 flex items-center sand-transition",
         )}
       >
         <LogoShape />

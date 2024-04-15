@@ -23,28 +23,9 @@
   }
   let images: any[] = [];
   let name = "";
+  let isNameActive = false;
 
   const DISPLAY_WIDTH = 400;
-
-  const setDisplayDimention = (
-    canvas: HTMLCanvasElement,
-    naturalWidth: number,
-    naturalHeight: number,
-    isBars: boolean,
-  ): void => {
-    if (naturalWidth > 200) {
-      if (isBars) {
-        canvas.width = 2 * DISPLAY_WIDTH;
-        canvas.height = 2 * DISPLAY_WIDTH * (naturalHeight / naturalWidth);
-      } else {
-        canvas.width = DISPLAY_WIDTH;
-        canvas.height = DISPLAY_WIDTH * (naturalHeight / naturalWidth);
-      }
-    } else {
-      canvas.width = isBars ? naturalWidth * 2 : naturalWidth;
-      canvas.height = isBars ? naturalHeight * 2 : naturalHeight;
-    }
-  };
 
   const generateBaseAndBars = (px: number): void => {
     const base = document.getElementById("base") as HTMLCanvasElement;
@@ -82,43 +63,26 @@
 
     drawBars(bars, images, px);
 
-    // const displayContainer = document.getElementById("display-base");
-    const displayBase = document.getElementById(
-      "display-base",
-    ) as HTMLCanvasElement;
-    const displayBars = document.getElementById(
-      "display-bars",
-    ) as HTMLCanvasElement;
+    const displayInnerContainer = document.querySelector(
+      ".display-inner-container",
+    ) as HTMLDivElement;
+    if (base.width > DISPLAY_WIDTH) {
+      displayInnerContainer.style.width = `${DISPLAY_WIDTH}px`;
+      displayInnerContainer.style.height = `${DISPLAY_WIDTH * (imgH / imgW)}px`;
+    } else {
+      displayInnerContainer.style.width = `${base.width}px`;
+      displayInnerContainer.style.height = `${base.height}px`;
+    }
 
-    // setDisplayDimention(displayContainer, imgW, imgH, false);
-    setDisplayDimention(displayBase, imgW, imgH, false);
-    setDisplayDimention(displayBars, imgW, imgH, true);
+    const displayBase = document.querySelector(
+      "#display-base",
+    ) as HTMLImageElement;
+    displayBase?.setAttribute("src", base.toDataURL("image/png"));
 
-    const displayBaseCtx = displayBase.getContext("2d");
-    const displayBarsCtx = displayBars.getContext("2d");
-
-    displayBaseCtx!.drawImage(
-      base,
-      0,
-      0,
-      base.width,
-      base.height,
-      0,
-      0,
-      displayBase.width,
-      displayBase.height,
-    );
-    displayBarsCtx!.drawImage(
-      bars,
-      0,
-      0,
-      bars.width,
-      bars.height,
-      0,
-      0,
-      displayBars.width,
-      displayBars.height,
-    );
+    const displayBars = document.querySelector(
+      "#display-bars",
+    ) as HTMLImageElement;
+    displayBars.setAttribute("src", bars.toDataURL("image/png"));
   };
 
   let autoPlay = false;
@@ -178,6 +142,7 @@
     (
       document!.querySelector("#select-files-label") as HTMLElement
     ).style.display = "none";
+
     generateBaseAndBars(px);
 
     if (autoPlay) {
@@ -431,15 +396,26 @@
 
         <!-- Project Name -->
         <div class="mt-auto pt-3 w-full flex flex-col gap-2">
-          <label for="name">
+          <label for="name" class="relative">
             <input
               type="text"
               id="name"
               bind:value={name}
-              placeholder="Project Name|"
               class="appearance-none w-full h-12 text-lg text-black dark:text-light-100 bg-transparent rounded-lg outline-none placeholder:text-black dark:placeholder:text-light-100"
               autocomplete="off"
+              on:focus={() => (isNameActive = true)}
+              on:blur={() => (isNameActive = false)}
             />
+            {#if !isNameActive}
+              <div
+                class="pointer-events-none absolute left-0 top-0 w-full h-full flex items-center gap-[1px]"
+              >
+                <span class="text-lg">Project Name</span>
+                <div
+                  class="w-[1px] h-4 bg-black dark:bg-light-100 animate-blink"
+                />
+              </div>
+            {/if}
           </label>
         </div>
       </div>
@@ -477,11 +453,17 @@
         class="mt-10 hidden items-center justify-center"
       >
         <div class="display-inner-container relative overflow-hidden">
-          <canvas data-name="base" id="display-base" />
-          <canvas
-            data-name="bars"
+          <img
+            id="display-base"
+            src=""
+            alt=""
+            class="non-draggable absolute inset-0 w-full h-full"
+          />
+          <img
             id="display-bars"
-            class="non-draggable w-full absolute top-0 right-0"
+            src=""
+            alt=""
+            class="non-draggable absolute top-0 right-0 min-w-[200%] h-full"
           />
         </div>
       </div>
