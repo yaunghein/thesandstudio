@@ -448,10 +448,7 @@
         </button>
       {/if}
 
-      <div
-        id="display-container"
-        class="mt-10 hidden items-center justify-center"
-      >
+      <div id="display-container" class="hidden items-center justify-center">
         <div class="display-inner-container relative overflow-hidden">
           <img
             id="display-base"
