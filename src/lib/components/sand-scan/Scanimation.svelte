@@ -188,11 +188,11 @@
     <div class="w-[18rem] flex shrink-0 flex-col">
       <div class="relative flex flex-col h-full px-10 py-9 overflow-hidden">
         <div
-          class="w-full grid place-items-center overflow-hidden h-40 rounded-2xl mb-5 dark:invert"
+          class="w-full grid place-items-center overflow-hidden rounded-2xl mb-5 dark:invert"
         >
           <img
             src="/images/sand-scan.gif"
-            class="w-full h-full object-cover"
+            class="w-full h-40 object-cover"
             alt="SAND Scan Icon"
           />
         </div>
