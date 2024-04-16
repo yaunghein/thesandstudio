@@ -406,7 +406,7 @@
               on:focus={() => (isNameActive = true)}
               on:blur={() => (isNameActive = false)}
             />
-            {#if !isNameActive}
+            {#if !isNameActive && !name}
               <div
                 class="pointer-events-none absolute left-0 top-0 w-full h-full flex items-center gap-[1px]"
               >
