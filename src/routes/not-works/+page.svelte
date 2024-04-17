@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Logo from "$lib/svgs/Logo.svelte";
+  import Logo from "$lib/svgs/LogoMain.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import { changeCursorType } from "$lib/stores/cursor";
   import TypographicChallenge from "./(components)/TypographicChallenge.svelte";

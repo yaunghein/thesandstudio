@@ -19,7 +19,7 @@
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Child from "$lib/components/Child.svelte";
-  import Logo from "$lib/svgs/Logo.svelte";
+  import LogoMain from "$lib/svgs/LogoMain.svelte";
   import Header from "$lib/components/mobile/Header.svelte";
   import MobileAppShell from "$lib/components/mobile/AppShell.svelte";
   import SlideHome from "$lib/components/mobile/SlideHome.svelte";
@@ -302,7 +302,7 @@
         $SelectedBackground?.name === "bg-scene" && "hidden",
       )}
     >
-      <Logo />
+      <LogoMain />
     </div>
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
