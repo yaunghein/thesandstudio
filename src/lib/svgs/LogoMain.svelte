@@ -80,15 +80,15 @@
       eyesShapes.forEach((shape) => {
         if ($SelectedBackground.name === "bg-scene") {
           gsap.to(shape, {
-            x: `${stayBetween(+track.y * 2, [-20, 20])}px`,
-            y: `${stayBetween(+track.x * 2, [-20, 20])}px`,
+            x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
+            y: `${stayBetween(+track.y * 2, [-10, 10])}px`,
             duration: 0.7,
             ease: "power4",
           });
         } else {
           gsap.to(shape, {
-            x: `${stayBetween(+track.x * 2, [-20, 20])}px`,
-            y: `${stayBetween(+track.y * 2, [-20, 20])}px`,
+            x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
+            y: `${stayBetween(+track.y * 2, [-10, 10])}px`,
             duration: 0.7,
             ease: "power4",
           });
