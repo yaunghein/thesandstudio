@@ -2,7 +2,7 @@
   import { twMerge as twm } from "tailwind-merge";
   import AppShell from "$lib/components/AppShell.svelte";
   import Work from "$lib/components/Work.svelte";
-  import Logo from "$lib/svgs/Logo.svelte";
+  import LogoMain from "$lib/svgs/LogoMain.svelte";
   import type { Work as TWork, WorkGroup } from "$lib/types";
   import deepClone from "$lib/utils/deepClone";
 
@@ -194,8 +194,8 @@
         grand. If you’re a person with an idea. Come say hi!)
       </div>
       <div class="flex items-center justify-end grow">
-        <div class="w-[7.5rem] scale-125 -mb-2">
-          <Logo />
+        <div class="w-[7.5rem] aspect-square scale-125 -mb-2">
+          <LogoMain />
         </div>
       </div>
     </div>

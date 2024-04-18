@@ -64,8 +64,8 @@
           password[0] && !isChecking && "animate-spin-once ",
           !password[0] && "animate-spin-back-once",
           isChecking && "animate-spin",
-          error && password && "text-sand-red",
-          isSuccess && "text-sand-green",
+          error && password && "text-sand-red dark:text-sand-red",
+          isSuccess && "text-sand-green dark:text-sand-green",
         )}
       >
         <LogoShape />

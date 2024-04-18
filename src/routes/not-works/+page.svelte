@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Logo from "$lib/svgs/LogoMain.svelte";
+  import LogoMain from "$lib/svgs/LogoMain.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import { changeCursorType } from "$lib/stores/cursor";
   import TypographicChallenge from "./(components)/TypographicChallenge.svelte";
@@ -20,7 +20,7 @@
       <div class="flex items-center text-[26rem] leading-none my-5">
         <div>N</div>
         <div class="w-[25rem] aspect-square mx-5 flex items-center">
-          <Logo />
+          <LogoMain />
         </div>
         <div class="mr-24">T</div>
         <div>WORKS</div>

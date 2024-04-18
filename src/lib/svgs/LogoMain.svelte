@@ -36,7 +36,7 @@
       renderer: "svg",
       loop: false,
       autoplay: false,
-      path: "lotties/logo-shape.json",
+      path: "/lotties/logo-shape.json",
     });
     !document.documentElement.classList.contains("dark") &&
       logoShapeLottie.goToAndStop(100, true);
@@ -118,12 +118,12 @@
 <button
   id="theme-switcher"
   on:click|stopPropagation={switchMode}
-  class="main-logo w-full h-full"
+  class="relative main-logo w-full h-full"
 >
   <div class="logo-shape" />
   <div class="logo-mouth absolute inset-0 w-full h-full">
     <div
-      class="text-black w-[4.5rem] absolute left-1/2 -translate-x-1/2 bottom-20"
+      class="text-black w-[40%] absolute left-1/2 -translate-x-1/2 bottom-[35%]"
     >
       <svg
         width="100%"
@@ -143,7 +143,9 @@
     </div>
   </div>
   <div class=" absolute inset-0 w-full h-full">
-    <div class="text-black w-6 absolute left-1/2 -translate-x-1/2 bottom-28">
+    <div
+      class="text-black w-[12%] absolute left-1/2 -translate-x-1/2 bottom-[52%]"
+    >
       <div class="logo-eyes">
         <svg
           width="100%"

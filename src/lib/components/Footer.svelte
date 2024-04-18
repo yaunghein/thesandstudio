@@ -1,5 +1,4 @@
 <script lang="ts">
-  // footer transparent might take time
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import gsap from "gsap";
@@ -26,7 +25,7 @@
       CursorType.set("normal");
     },
   }}
-  class="relative z-[20] text-light-10 dark:text-light-100 text-5xl font-sans -mx-3"
+  class="relative z-[20] text-light-10 dark:text-light-100 text-5xl font-sans"
 >
   <div class="transparent-layer" />
   <div
@@ -74,7 +73,7 @@
       ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
-    <div class="relative flex items-center gap-12 px-[3.75rem] pt-6 text-3xl">
+    <div class="relative flex items-center gap-12 px-[3rem] pt-6 text-3xl">
       <a href="/" on:mouseenter={() => CursorType.set("normal")}> INSTAGRAM </a>
 
       <a href="/" on:mouseenter={() => CursorType.set("normal")}> FACEBOOK </a>
