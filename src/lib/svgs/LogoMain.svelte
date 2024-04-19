@@ -7,6 +7,8 @@
   let logoShapeLottie: any;
 
   const switchMode = () => {
+    const is3D = $SelectedBackground.name === "bg-scene";
+    const timeout = is3D ? 0 : 1000;
     const rootClasses = document.documentElement.classList;
     const toggleMode = () => {
       if (rootClasses.contains("dark")) {
@@ -17,7 +19,7 @@
         localStorage.setItem("sand-theme", "dark");
       }
     };
-    setTimeout(() => toggleMode(), 1000);
+    setTimeout(() => toggleMode(), timeout);
     if (logoShapeLottie) {
       rootClasses.contains("dark")
         ? logoShapeLottie.setDirection(1)
