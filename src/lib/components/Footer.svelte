@@ -187,6 +187,7 @@
                 renderer="svg"
                 background="transparent"
                 width={window.innerWidth}
+                height="100%"
                 controls=""
                 controlsLayout=""
               />

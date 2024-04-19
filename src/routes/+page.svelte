@@ -38,7 +38,7 @@
   onMount(() => {
     if (!browser) return;
     const swiper = new Swiper(".swiper", {
-      loop: true,
+      loop: false,
       modules: [Pagination],
       pagination: {
         el: ".swiper-pagination",
@@ -212,7 +212,7 @@
           height="${100 / 3}%"
           width="100%"
           controls=""
-          controlLayout=""
+          controlsLayout=""
         />
         <LottiePlayer
           src="/images/backgrounds/morph-motion.json"
@@ -222,7 +222,7 @@
           background="transparent"
           height="${100 / 3}%"
           controls=""
-          controlLayout=""
+          controlsLayout=""
         />
         <LottiePlayer
           src="/images/backgrounds/morph-design.json"
@@ -233,7 +233,7 @@
           height="${100 / 3}%"
           width="100%"
           controls=""
-          controlLayout=""
+          controlsLayout=""
         />
       </div>
     {/if}
