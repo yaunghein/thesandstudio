@@ -25,7 +25,7 @@
       </a>
 
       <button
-        class="bg-white rounded-full px-4 py-2 text-black flex items-center gap-2"
+        class="bg-white rounded-full px-4 py-2 text-black flex items-center gap-2 pointer-events-none opacity-25"
       >
         <div class="w-7 aspect-square">
           <LogoShape />

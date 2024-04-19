@@ -2,7 +2,7 @@
   import AppShell from "$lib/components/AppShell.svelte";
   import Heading from "./(components)/Heading.svelte";
   import Products from "./(components)/Products.svelte";
-  import Logo from "$lib/svgs/Logo.svelte";
+  import LogoMain from "$lib/svgs/LogoMain.svelte";
 </script>
 
 <AppShell>
@@ -15,7 +15,7 @@
       </p>
     </div>
     <div class="w-64 absolute top-12 right-[49rem]">
-      <Logo />
+      <LogoMain />
     </div>
     <div class="px-2">
       <Heading />

@@ -100,7 +100,7 @@
     pupil_left_x = Math.min(Math.max(pupil_left_x, -10), 10);
     pupil_right_x = Math.min(Math.max(pupil_right_x, -10), 10);
 
-    spline.setVariables({
+    spline?.setVariables({
       pupil_left_x,
       pupil_left_y,
       pupil_right_x,
@@ -108,17 +108,20 @@
     });
   };
 
+  // a couple timeout wrappers to ensure the spline app loads properly 🥲
   const create3DBackground = (node: HTMLCanvasElement) => {
     CursorType.set("loading");
     spline = new Application(node);
-    spline
-      .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
-      .then(() => {
-        isSplineLoaded = true;
-        CursorType.set("normal");
-        spline.addEventListener("mouseDown", clickWebThemeSwitcher);
-        window.addEventListener("mousemove", (e) => moveEye(e, spline));
-      });
+    setTimeout(() => {
+      spline
+        .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
+        .then(() => {
+          setTimeout(() => (isSplineLoaded = true), 1000);
+          CursorType.set("normal");
+          spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+          window.addEventListener("mousemove", (e) => moveEye(e, spline));
+        });
+    }, 3000);
   };
 
   onDestroy(() => {
@@ -131,6 +134,12 @@
       const hasSpline = !!spline;
       const is3DBg = $SelectedBackground.name === "bg-scene";
       const isLightMode = localStorage.getItem("sand-theme") === "light";
+
+      if (!is3DBg) {
+        spline = null;
+        isSplineLoaded = false;
+        isSplineThemeChangeComplete = false;
+      }
 
       if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
         setTimeout(() => (isSplineThemeChangeComplete = true), 0);
@@ -297,7 +306,8 @@
     <div
       class={twm(
         "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
-        $SelectedBackground?.name === "bg-scene" && "hidden",
+        $SelectedBackground?.name === "bg-scene" &&
+          "opacity-0 pointer-events-none",
       )}
     >
       <LogoMain />

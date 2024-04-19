@@ -85,7 +85,9 @@
   id="cursor"
   class={twm(
     "pointer-events-none select-none fixed top-0 z-[100000000]",
-    $CursorType !== "contact" && !pillCursors.includes($CursorType)
+    $CursorType !== "contact" &&
+      !pillCursors.includes($CursorType) &&
+      $CursorType !== "loading"
       ? "mix-blend-difference"
       : "mix-blend-normal",
   )}

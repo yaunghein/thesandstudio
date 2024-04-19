@@ -74,6 +74,7 @@
         });
       });
 
+      // TODO: pass y multiple factor as a prop
       const eyesShapes = document.querySelectorAll(
         ".logo-eyes",
       ) as NodeListOf<HTMLElement>;
@@ -81,14 +82,14 @@
         if ($SelectedBackground.name === "bg-scene") {
           gsap.to(shape, {
             x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
-            y: `${stayBetween(+track.y * 2, [-10, 10])}px`,
+            y: `${stayBetween(+track.y * 3, [-10, 10])}px`,
             duration: 0.7,
             ease: "power4",
           });
         } else {
           gsap.to(shape, {
             x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
-            y: `${stayBetween(+track.y * 2, [-10, 10])}px`,
+            y: `${stayBetween(+track.y * 3, [-10, 10])}px`,
             duration: 0.7,
             ease: "power4",
           });
@@ -121,9 +122,12 @@
   class="relative main-logo w-full h-full"
 >
   <div class="logo-shape" />
+  <!-- <div
+    class="absolute bg-red-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[50%] aspect-square"
+  ></div> -->
   <div class="logo-mouth absolute inset-0 w-full h-full">
     <div
-      class="text-black w-[40%] absolute left-1/2 -translate-x-1/2 bottom-[35%]"
+      class="text-black w-[40%] absolute left-1/2 -translate-x-1/2 bottom-[30%]"
     >
       <svg
         width="100%"
@@ -144,7 +148,7 @@
   </div>
   <div class=" absolute inset-0 w-full h-full">
     <div
-      class="text-black w-[12%] absolute left-1/2 -translate-x-1/2 bottom-[52%]"
+      class="text-black w-[12%] absolute left-1/2 -translate-x-1/2 bottom-[50%]"
     >
       <div class="logo-eyes">
         <svg
