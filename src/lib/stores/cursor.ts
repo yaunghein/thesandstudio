@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 import type { Writable } from "svelte/store";
 
 export type TCursor =
@@ -10,7 +10,8 @@ export type TCursor =
   | "remove-files"
   | "bg-scene"
   | "bg-default"
-  | "bg-legacy";
+  | "bg-legacy"
+  | "loading";
 
 export const CursorType: Writable<TCursor> = writable("normal");
 
@@ -18,8 +19,10 @@ export const changeCursorType = (
   node: HTMLElement,
   { inType, outType }: { inType: TCursor; outType: TCursor },
 ) => {
-  const handleMouseEnter = () => CursorType.set(inType);
-  const handleMouseLeave = () => CursorType.set(outType);
+  const handleMouseEnter = () =>
+    get(CursorType) !== "loading" && CursorType.set(inType);
+  const handleMouseLeave = () =>
+    get(CursorType) !== "loading" && CursorType.set(outType);
   node.addEventListener("mouseenter", handleMouseEnter);
   node.addEventListener("mouseleave", handleMouseLeave);
   return {
