@@ -106,12 +106,12 @@
     const y = "+=" + (17.0967 - 9) / 2;
 
     const tl = gsap.timeline({ repeat: -1, defaults: { duration: 0.1 } });
-    tl.to(node, { attr: { d: close }, y, duration: 0.2, delay: 2 })
-      .to(node, { attr: { d: open }, y: 0, duration: 0.2 })
-      .to(node, { attr: { d: close }, y, duration: 0.2 })
-      .to(node, { attr: { d: open }, y: 0, duration: 0.2 })
-      .to(node, { attr: { d: close }, y, duration: 0.2, delay: 4 })
-      .to(node, { attr: { d: open }, y: 0, duration: 0.2 });
+    tl.to(node, { attr: { d: close }, y, delay: 2 })
+      .to(node, { attr: { d: open }, y: 0 })
+      .to(node, { attr: { d: close }, y })
+      .to(node, { attr: { d: open }, y: 0 })
+      .to(node, { attr: { d: close }, y, delay: 4 })
+      .to(node, { attr: { d: open }, y: 0 });
   };
 </script>
 

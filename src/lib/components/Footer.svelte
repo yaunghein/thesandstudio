@@ -65,6 +65,61 @@
       </button>
     {/if}
   </div>
+
+  {#if isOpen}
+    <div class="absolute top-0 left-0 right-0 w-full">
+      <div
+        class="w-[1.63rem] aspect-square absolute left-0 bottom-0 text-white dark:text-light-12"
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 26C10.7452 26 0 15.2548 0 2V26H24Z"
+            class="fill-light-90 dark:fill-black opacity-50"
+          />
+          <path
+            d="M1 0V2.5C1 14.9264 11.0736 25 23.5 25C24.3342 25 25.1675 25 26 25"
+            class="stroke-[0.125rem] stroke-current"
+            stroke="#1400FF"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+
+      <div
+        class="absolute left-[1.63rem] right-[1.63rem] h-[0.11rem] bottom-0 bg-white dark:bg-light-12"
+      />
+
+      <div
+        class="w-[1.63rem] aspect-square absolute right-0 bottom-0 -scale-x-[1] text-white dark:text-light-12"
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 26C10.7452 26 0 15.2548 0 2V26H24Z"
+            class="fill-light-90 dark:fill-black opacity-50"
+          />
+          <path
+            d="M1 0V2.5C1 14.9264 11.0736 25 23.5 25C24.3342 25 25.1675 25 26 25"
+            class="stroke-[0.125rem] stroke-current"
+            stroke="#1400FF"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+    </div>
+  {/if}
+
   <div
     role="region"
     on:mouseenter={() => CursorType.set("normal")}
