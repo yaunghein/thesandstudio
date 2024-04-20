@@ -32,7 +32,8 @@
       />
 
       <a
-        href="/"
+        target="_blank"
+        href="https://archive.thesandstudio.com/typographic-challenge"
         class="relative w-1/2 rounded-full px-8 py-5 text-white dark:text-light-12 flex items-center justify-between text-[2.5rem]"
         on:mouseenter={() => gsap.to("#bg", { x: "0%", ease: "power4" })}
       >
@@ -57,7 +58,8 @@
       </a>
 
       <a
-        href="/"
+        target="_blank"
+        href="https://archive.thesandstudio.com/gallery"
         class="relative w-1/2 rounded-full px-8 py-5 text-white dark:text-light-12 flex items-center justify-between text-[2.5rem]"
         on:mouseenter={() => gsap.to("#bg", { x: "100%", ease: "power4" })}
       >
