@@ -213,7 +213,7 @@
     {#if browser && $SelectedBackground?.name === "bg-legacy"}
       <div class="dark:invert opacity-50">
         <LottiePlayer
-          src="/images/backgrounds/morph-archi.json"
+          src="/lotties/categories-displace-v2.json"
           autoplay={true}
           loop={true}
           renderer="svg"
@@ -223,18 +223,20 @@
           controls=""
           controlsLayout=""
         />
+        <div>
+          <LottiePlayer
+            src="/lotties/categories-displace-v2.json"
+            autoplay={true}
+            loop={true}
+            renderer="svg"
+            background="transparent"
+            height="${100 / 3}%"
+            controls=""
+            controlsLayout=""
+          />
+        </div>
         <LottiePlayer
-          src="/images/backgrounds/morph-motion.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          controls=""
-          controlsLayout=""
-        />
-        <LottiePlayer
-          src="/images/backgrounds/morph-design.json"
+          src="/lotties/categories-displace-v2.json"
           autoplay={true}
           loop={true}
           renderer="svg"

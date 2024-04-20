@@ -29,10 +29,10 @@
 
 <div class="relative text-light-10 w-full h-full overflow-hidden">
   <div
-    class="absolute inset-0 w-full h-full bg-light-20 dark:hidden opacity-60 rounded-[1.4rem]"
+    class="absolute inset-0 w-full h-full bg-light-20 dark:hidden opacity-40 rounded-[1.4rem]"
   />
   <div
-    class="absolute inset-0 w-full h-full bg-[#ff9411] mix-blend-multiply opacity-75 hidden dark:block rounded-[1.2rem]"
+    class="absolute inset-0 w-full h-full bg-[#ff9411] mix-blend-multiply opacity-20 hidden dark:block rounded-[1.2rem]"
   />
   <div
     class="absolute inset-0 w-full h-full bg-sand-yellow mix-blend-multiply opacity-[15%] hidden dark:block rounded-[1.2rem]"

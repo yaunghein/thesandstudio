@@ -10,9 +10,11 @@
   use:drag
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square"
+  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square mix-blend-multiply"
 >
-  <div class="dark:hidden w-full aspect-square flex items-center">
+  <!-- <div class="w-full h-full bg-sand-blue"></div> -->
+
+  <div class="w-full aspect-square flex items-center">
     <svg
       width="100%"
       height="100%"
@@ -85,7 +87,7 @@
     </svg>
   </div>
 
-  <div class="hidden w-full aspect-square dark:hidden items-center">
+  <!-- <div class="hidden w-full aspect-square dark:block items-center">
     <svg
       width="100%"
       height="100%"
@@ -156,10 +158,10 @@
         </filter>
       </defs>
     </svg>
-  </div>
+  </div> -->
 
   <div
-    class="flex flex-col items-center gap-5 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white dark:text-sand-blue sand-transition"
+    class="flex flex-col items-center gap-5 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white sand-transition"
   >
     <div class="font-sand-medium text-6xl max-w-[35rem]">
       the prodigal child* will return

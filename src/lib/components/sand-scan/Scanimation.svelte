@@ -410,7 +410,9 @@
               <div
                 class="pointer-events-none absolute left-0 top-0 w-full h-full flex items-center gap-[1px]"
               >
-                <span class="text-lg">Project Name</span>
+                <span class="text-lg text-light-70 dark:text-light-25">
+                  Project Name
+                </span>
                 <div
                   class="w-[1px] h-4 bg-black dark:bg-light-100 animate-blink"
                 />

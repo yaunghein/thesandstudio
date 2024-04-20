@@ -14,6 +14,7 @@
           name: "_ALLWeNeed.",
           textColor: "dark",
           images: [
+            "/images/archives/challenges/direction-of-mind/Teaser.gif",
             "/images/archives/works/all-we-need/AWN Bag 1.webp",
             "/images/archives/works/all-we-need/AWN Bag 2.webp",
             "/images/archives/works/all-we-need/AWN Tape 1.webp",
@@ -201,7 +202,7 @@
     </div>
     {#each WORKS_GROUPS as workGroup}
       <div
-        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-3xl"
+        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-lg"
       >
         <div class="transparent-layer" />
         <div
