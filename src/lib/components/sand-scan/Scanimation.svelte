@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { scale } from "svelte/transition";
+  import { backIn, backOut } from "svelte/easing";
   import { gsap } from "gsap";
   import { Draggable } from "gsap/dist/Draggable";
   import { twMerge as twm } from "tailwind-merge";
@@ -7,8 +9,8 @@
   import transformToImageObjects from "$lib/utils/scanimation/transformToImageObjects";
   import drawBars from "$lib/utils/scanimation/drawBars";
   import downloadImages from "$lib/utils/scanimation/downloadImages";
+  import { updated } from "$app/stores";
 
-  // need to fix some issue while drawing bars and auto moving
   onMount(() => {
     gsap.registerPlugin(Draggable);
   });
@@ -26,6 +28,7 @@
   let isNameActive = false;
 
   const DISPLAY_WIDTH = 400;
+  const BARS_WIDTH_SCALE = 2;
 
   const generateBaseAndBars = (px: number): void => {
     const base = document.getElementById("base") as HTMLCanvasElement;
@@ -37,7 +40,7 @@
     base!.width = imgW;
     base!.height = imgH;
 
-    bars.width = imgW * 2;
+    bars.width = imgW * BARS_WIDTH_SCALE;
     bars.height = imgH;
 
     const ctx = base.getContext("2d");
@@ -83,6 +86,16 @@
       "#display-bars",
     ) as HTMLImageElement;
     displayBars.setAttribute("src", bars.toDataURL("image/png"));
+    // fk this is so ugly
+    if (base.width > DISPLAY_WIDTH) {
+      displayBars.style.minWidth = `${
+        displayInnerContainer.getBoundingClientRect().width * BARS_WIDTH_SCALE
+      }px`;
+    } else {
+      displayBars.style.width = `${
+        displayInnerContainer.getBoundingClientRect().width * BARS_WIDTH_SCALE
+      }px`;
+    }
   };
 
   let autoPlay = false;
@@ -119,7 +132,7 @@
     move();
   };
 
-  const cancleMoveAnimation = () => {
+  const cancelMoveAnimation = () => {
     cancelAnimationFrame(movingId);
   };
 
@@ -128,10 +141,6 @@
     (
       document!.querySelector("#display-container") as HTMLElement
     ).style.display = "none";
-
-    (
-      document!.querySelector("#select-files-label") as HTMLElement
-    ).style.display = "grid";
   };
 
   $: if (images.length > 0) {
@@ -139,24 +148,20 @@
       document!.querySelector("#display-container") as HTMLElement
     ).style.display = "flex";
 
-    (
-      document!.querySelector("#select-files-label") as HTMLElement
-    ).style.display = "none";
-
     generateBaseAndBars(px);
 
     if (autoPlay) {
       drag[0]?.disable();
       animateMove();
     } else {
-      cancleMoveAnimation();
+      cancelMoveAnimation();
       if (drag) {
         drag[0].enable();
       } else {
         drag = Draggable.create("#display-bars", {
           type: "x,y",
           edgeResistance: 0,
-          bounds: ".display-inner-container",
+          bounds: "#display-container",
         });
       }
     }
@@ -441,46 +446,53 @@
         <canvas data-name="bars" id="bars" />
       </div>
 
-      {#if images.length >= 0}
+      {#if images.length > 0}
         <button
+          in:scale={{ start: 0.9, duration: 200, easing: backOut }}
+          out:scale={{ start: 0.9, duration: 200, easing: backIn }}
           on:click={reset}
-          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-red absolute bottom-4 right-4 grid place-items-center text-xl text-white border-2 border-white dark:border-light-12"
+          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-red absolute z-[10000] bottom-4 right-4 grid place-items-center text-xl text-white border-2 border-white dark:border-light-12"
         >
           Reset
         </button>
       {/if}
 
-      <div id="display-container" class="hidden items-center justify-center">
-        <div class="display-inner-container relative overflow-hidden">
+      <div
+        id="display-container"
+        class="hidden items-center justify-center overflow-hidden w-full h-full relative rounded-3xl"
+      >
+        <div class="display-inner-container relative">
           <img
             id="display-base"
             src=""
             alt=""
             class="non-draggable absolute inset-0 w-full h-full"
           />
-          <img
-            id="display-bars"
-            src=""
-            alt=""
-            class="non-draggable absolute top-0 right-0 min-w-[200%] h-full"
-          />
         </div>
+        <img
+          id="display-bars"
+          src=""
+          alt=""
+          class="non-draggable absolute top-0 right-0 h-full"
+        />
       </div>
 
-      <label
-        id="select-files-label"
-        for="select-files"
-        class="bg-transparent hover:bg-light-80 dark:hover:bg-light-12 sand-transition rounded-xl w-[18rem] aspect-[1.85/1] text-black dark:text-white text-lg cursor-none grid place-items-center border-2 border-black dark:border-white border-dashed"
-      >
-        <input
-          use:handleFilesChange
-          type="file"
-          multiple
-          id="select-files"
-          class="hidden"
-        />
-        <span>Select Frames</span>
-      </label>
+      {#if images.length === 0}
+        <label
+          id="select-files-label"
+          for="select-files"
+          class="bg-transparent hover:bg-light-80 dark:hover:bg-light-12 sand-transition rounded-xl w-[18rem] aspect-[1.85/1] text-black dark:text-white text-lg cursor-none grid place-items-center border-2 border-black dark:border-white border-dashed"
+        >
+          <input
+            use:handleFilesChange
+            type="file"
+            multiple
+            id="select-files"
+            class="hidden"
+          />
+          <span>Select Frames</span>
+        </label>
+      {/if}
     </div>
   </div>
 </div>

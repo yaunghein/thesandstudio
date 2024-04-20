@@ -53,7 +53,7 @@
   use:drag
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
+  class="fixed select-none z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
   <div class="transparent-layer" />
