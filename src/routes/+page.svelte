@@ -181,22 +181,21 @@
       },
     };
   };
+
+  const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
+    const player = lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: true,
+      autoplay: false,
+      path: "/lotties/categories-displace-v2.json",
+    });
+    player.goToAndPlay(startFrame, true);
+  };
 </script>
 
 <div class="hidden sm:block">
   <AppShell>
-    <!-- <div
-      class={twm(
-        "sticky top-0 bottom-0 h-screen sand-transition",
-        isSplineLoaded && isSplineThemeChangeComplete
-          ? "opacity-100"
-          : "opacity-0",
-        $SelectedBackground?.name === "bg-scene" ? "opacity-100" : "opacity-0",
-      )}
-    >
-      <canvas use:create3DBackground></canvas>
-    </div> -->
-
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
         class={twm(
@@ -210,42 +209,11 @@
       </div>
     {/if}
 
-    {#if browser && $SelectedBackground?.name === "bg-legacy"}
-      <div class="dark:invert opacity-50">
-        <LottiePlayer
-          src="/lotties/categories-displace-v2.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          width="100%"
-          controls=""
-          controlsLayout=""
-        />
-        <div>
-          <LottiePlayer
-            src="/lotties/categories-displace-v2.json"
-            autoplay={true}
-            loop={true}
-            renderer="svg"
-            background="transparent"
-            height="${100 / 3}%"
-            controls=""
-            controlsLayout=""
-          />
-        </div>
-        <LottiePlayer
-          src="/lotties/categories-displace-v2.json"
-          autoplay={true}
-          loop={true}
-          renderer="svg"
-          background="transparent"
-          height="${100 / 3}%"
-          width="100%"
-          controls=""
-          controlsLayout=""
-        />
+    {#if $SelectedBackground?.name === "bg-legacy"}
+      <div class="dark:invert">
+        <div use:legacyLottie={0} />
+        <div use:legacyLottie={120} />
+        <div use:legacyLottie={240} />
       </div>
     {/if}
 
@@ -347,14 +315,7 @@
 
 <div class="sm:hidden">
   <MobileAppShell>
-    <!-- <img
-      src="/images/mobile-dot-bg.png"
-      class="absolute inset-0 h-full w-full object-cover dark:invert sand-transition
-      {swiperIndex === 3 ? 'opacity-0' : 'opacity-100'}"
-      alt=""
-    /> -->
     <Header />
-
     <div class="swiper relative pb-3">
       <div class="swiper-wrapper flex h-[calc(100dvh-9rem)] pt-2 pb-3">
         <SlideHome />
@@ -366,9 +327,6 @@
         <SlideWork />
         <SlideExplorer />
       </div>
-      <!-- <div
-        class="swiper-pagination h-10 20 flex items-center justify-center sand-transition"
-      ></div> -->
     </div>
   </MobileAppShell>
 </div>
