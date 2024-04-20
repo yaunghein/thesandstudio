@@ -4,6 +4,8 @@
   import lottie from "lottie-web";
   import { SelectedBackground } from "$lib/stores/background";
 
+  export let allowY: number = 10;
+
   let logoShapeLottie: any;
 
   const switchMode = () => {
@@ -76,26 +78,16 @@
         });
       });
 
-      // TODO: pass y multiple factor as a prop
       const eyesShapes = document.querySelectorAll(
         ".logo-eyes",
       ) as NodeListOf<HTMLElement>;
       eyesShapes.forEach((shape) => {
-        if ($SelectedBackground.name === "bg-scene") {
-          gsap.to(shape, {
-            x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
-            y: `${stayBetween(+track.y * 3, [-10, 10])}px`,
-            duration: 0.7,
-            ease: "power4",
-          });
-        } else {
-          gsap.to(shape, {
-            x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
-            y: `${stayBetween(+track.y * 3, [-10, 10])}px`,
-            duration: 0.7,
-            ease: "power4",
-          });
-        }
+        gsap.to(shape, {
+          x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
+          y: `${stayBetween(+track.y * 3, [-allowY, allowY])}px`,
+          duration: 0.7,
+          ease: "power4",
+        });
       });
     };
 

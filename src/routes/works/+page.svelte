@@ -196,7 +196,7 @@
       </div>
       <div class="flex items-center justify-end grow">
         <div class="w-[7.5rem] aspect-square scale-125 -mb-2">
-          <LogoMain />
+          <LogoMain allowY={5} />
         </div>
       </div>
     </div>
