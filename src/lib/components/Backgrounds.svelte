@@ -61,8 +61,13 @@
             class="relative rounded-xl aspect-[1.91/1] overflow-hidden"
           >
             <img
-              class="object-cover scale-105"
-              src={bg.thumbnail}
+              class="object-cover scale-[1.01] dark:hidden"
+              src={bg.thumbnail.light}
+              alt={bg.name}
+            />
+            <img
+              class="object-cover scale-[1.01] hidden dark:block"
+              src={bg.thumbnail.dark}
               alt={bg.name}
             />
           </div>
