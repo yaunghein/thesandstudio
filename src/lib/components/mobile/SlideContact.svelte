@@ -134,7 +134,7 @@
   <div class="h-full w-full">
     <form
       on:submit|preventDefault
-      class="relative text-xl h-[calc(100dvh-10rem)] w-full flex flex-col"
+      class="relative text-xl h-full w-full flex flex-col"
     >
       <PixelBorder />
       <div
@@ -215,7 +215,7 @@
                 </p>
               {/if} -->
 
-              <div class="relative flex items-center gap-3">
+              <div class="relative flex items-center justify-start gap-3">
                 <label
                   for="attachments"
                   class="relative w-auto h-10 flex items-center shrink-0"
@@ -226,7 +226,7 @@
                 </label>
 
                 <span
-                  class="font-sand-mobile-regular text-xl whitespace-nowrap"
+                  class="font-sand-mobile-regular text-xl whitespace-nowrap mr-auto"
                 >
                   {formInputs.attachments ? "Remove" : "Upload Files"}
                 </span>

@@ -171,7 +171,7 @@
           </div>
         </div>
 
-        <div class="mt-4 -mx-4 -my-4">
+        <div class="mt-4 -mx-4 -my-4 sticky top-0">
           {#each WORKS_GROUPS as workGroup}
             <div
               class="relative z-10 grid grid-cols-2 gap-8 px-5 py-3 rounded-[1.2rem] bg-white dark:bg-black"

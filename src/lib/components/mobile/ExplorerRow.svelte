@@ -92,7 +92,7 @@
                 <a
                   class="p-4 text-center leading-[0.75]"
                   href={media.mediaSrc}
-                  target="_blank">View {media.label}</a
+                  target="_blank">{media.label}</a
                 >
               {/if}
             {/each}

@@ -3,6 +3,7 @@
   import Explorer from "$lib/svgs/mobile/Explorer.svelte";
   import Tube from "$lib/svgs/mobile/Tube.svelte";
   import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
+  import PixelBorder from "./PixelBorder.svelte";
 
   import type { Swiper } from "swiper/types";
 
@@ -17,13 +18,9 @@
   };
 </script>
 
-<button on:click={() => goToSlideByName("works")} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("works")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
+    <PixelBorder />
     <img class="relative dark:invert" src="/images/mobile/works.gif" alt="" />
   </div>
   <div
@@ -33,13 +30,9 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("fatk")} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("fatk")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
+    <PixelBorder />
     <div class="relative w-[85%] flex items-center justify-center">
       <FATK />
     </div>
@@ -51,18 +44,11 @@
   </div>
 </button>
 
-<button
-  on:click={() => goToSlideByName("not-works")}
-  class=" p-[0.125rem] pb-0"
->
+<button on:click={() => goToSlideByName("not-works")} class="p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
+    <PixelBorder />
     <img
       class="relative rotate-180 dark:invert"
       src="/images/mobile/not-works.gif"
@@ -76,15 +62,11 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("about")} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("about")} class="p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
+    <PixelBorder />
     <img class="relative dark:invert" src="/images/mobile/about.gif" alt="" />
   </div>
   <div
@@ -94,14 +76,10 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("contact")} class=" p-[0.125rem] pb-0">
+<button on:click={() => goToSlideByName("contact")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
-    <div class="relative w-[70%] h-[3rem] flex items-center justify-center">
+    <PixelBorder />
+    <div class="relative w-[80%] h-[3rem] flex items-center justify-center">
       <Tube />
     </div>
   </div>
@@ -114,11 +92,7 @@
 
 <button on:click={() => goToSlideByName("explorer")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
-    <img
-      class="absolute inset-0 w-full h-full dark:invert"
-      src="/images/mobile/border-square.png"
-      alt=""
-    />
+    <PixelBorder />
     <div class="relative w-[75%] flex items-center justify-center">
       <Explorer />
     </div>

@@ -31,7 +31,10 @@
 </script>
 
 <div class="flex flex-col items-center justify-center h-[100dvh]">
-  <form on:submit|preventDefault class="flex flex-col gap-4 w-96 relative">
+  <form
+    on:submit|preventDefault
+    class="flex flex-col gap-4 w-64 sm:w-96 relative"
+  >
     <input
       bind:value={password}
       type="password"
@@ -40,7 +43,7 @@
         error[0] && password[0]
           ? "border-sand-red text-sand-red placeholder:text-sand-red animate-vibrate-once"
           : "border-black dark:border-light-100 text-black dark:text-white",
-        "appearance-none outline-none bg-transparent  text-2xl p-3 border-b-2  sand-transition",
+        "appearance-none outline-none bg-transparent text-lg sm:text-2xl sm:p-3 border-b sm:border-b-2 sand-transition rounded-none",
       )}
     />
     <button
@@ -50,7 +53,7 @@
     >
       <span
         class={twm(
-          "text-2xl sand-transition",
+          "text-lg sm:text-2xl sand-transition",
           error && password && "text-sand-red",
           isSuccess && "text-sand-green",
           !error && !isSuccess && "text-light-100 dark:text-black",
@@ -60,7 +63,7 @@
       </span>
       <div
         class={twm(
-          "w-10 h-10 flex items-center sand-transition text-white dark:text-black",
+          "w-7 h-7 sm:w-10 sm:h-10 flex items-center sand-transition text-white dark:text-black",
           password[0] && !isChecking && "animate-spin-once ",
           !password[0] && "animate-spin-back-once",
           isChecking && "animate-spin",
