@@ -5,6 +5,11 @@
   import { handleFileClickMobile } from "$lib/stores/explorer";
 
   export let files: File[];
+
+  const getFiles = (file: any) =>
+    file.data?.filter((i: any) => i.type === "file");
+  const getFolders = (file: any) =>
+    file.data?.filter((i: any) => i.type === "folder");
 </script>
 
 {#if files}
@@ -71,7 +76,7 @@
         </button>
 
         {#if file.isOpen}
-          {@const medias = file.data?.filter((i) => i.type === "file")}
+          {@const medias = getFiles(file)}
           <div class="grid grid-cols-2 p-1 pt-[2px] gap-[2px] align-top">
             {#each medias as media}
               {#if media.mediaType === "img"}
@@ -98,7 +103,7 @@
             {/each}
           </div>
 
-          {@const folders = file.data?.filter((i) => i.type === "folder")}
+          {@const folders = getFolders(file)}
           {#if folders.length > 0}
             <div class="-mt-1">
               <svelte:self files={folders} />

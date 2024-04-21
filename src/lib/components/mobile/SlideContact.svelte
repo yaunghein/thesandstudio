@@ -154,7 +154,7 @@
           >
             <div
               id="paper"
-              class="absolute w-100% left-0 right-0 h-full bg-white dark:bg-black sm:dark:bg-light-7 rounded-lg p-4 flex flex-col text-xl text-black dark:text-light-100"
+              class="absolute w-100% left-0 right-0 h-full bg-white dark:bg-black sm:dark:bg-light-7 rounded-lg p-4 flex flex-col text-xl items-start text-black dark:text-light-100"
             >
               <input
                 autocomplete="off"
@@ -218,7 +218,7 @@
               <div class="relative flex items-center justify-start gap-3">
                 <label
                   for="attachments"
-                  class="relative w-auto h-10 flex items-center shrink-0"
+                  class="relative w-11 h-10 flex items-center shrink-0"
                 >
                   <ContactFormUpload
                     hasAttachments={!!formInputs.attachments}
@@ -226,7 +226,7 @@
                 </label>
 
                 <span
-                  class="font-sand-mobile-regular text-xl whitespace-nowrap mr-auto"
+                  class="font-sand-mobile-regular text-xl whitespace-nowrap mr-auto shrink-0"
                 >
                   {formInputs.attachments ? "Remove" : "Upload Files"}
                 </span>
