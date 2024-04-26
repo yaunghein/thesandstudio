@@ -27,7 +27,11 @@
     <div
       class="w-28 absolute group-hover:scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[125%] sand-transition"
     >
-      <div class="" use:playLottie={"/lotties/sand-scan.json"} />
+      <img
+        src="/images/icons/app-sand-scan.gif"
+        alt="Sand Scan Icon"
+        class="w-full h-full object-contain"
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -107,9 +111,13 @@
     />
 
     <div
-      class="w-28 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[10%] group-hover:-translate-y-[90%] sand-transition"
+      class="w-20 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:translate-x-[10%] group-hover:-translate-y-[120%] sand-transition"
     >
-      <div use:playLottie={"/lotties/archives.json"} />
+      <img
+        src="/images/icons/app-archive.gif"
+        alt="Archive Icon"
+        class="w-full h-full object-contain"
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

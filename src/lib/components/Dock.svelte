@@ -191,29 +191,3 @@
     </div>
   </button>
 </div>
-
-<!-- <div
-  class="icon-wrapper invert dark:invert-0 group-hover:scale-150 group-hover:invert-0 dark:group-hover:invert sand-transition"
->
-  <svelte:component this={IconChild} />
-</div> -->
-
-<!-- {#each NAV_ITEMS as item, index}
-  <div class={index === 0 ? "" : "pl-4"}>
-    <AppIcon icon={item} isInDock={true} />
-  </div>
-{/each} -->
-
-<!-- {#if browser}
-  <LottiePlayer
-    src="lotties/icon-sand-scan.json"
-    autoplay={true}
-    loop={true}
-    renderer="svg"
-    background="transparent"
-    width="100%"
-    height="100%"
-    controls=""
-    controlLayout=""
-  />
-{/if} -->
