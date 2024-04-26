@@ -69,20 +69,6 @@
       </div>
     </a>
 
-    <a href="/">
-      <div class="overflow-hidden">
-        <div
-          class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
-        >
-          <div class="transparent-layer" />
-          <span class="block relative text-3xl">SAND Rug 2022</span>
-        </div>
-      </div>
-      <div
-        class="relative w-full aspect-square overflow-hidden bg-[#4A3326]"
-      ></div>
-    </a>
-
     <a
       href="mailto:hi@thesandstudio.com"
       use:changeCursorType={{ inType: "contact", outType: "normal" }}
@@ -97,11 +83,34 @@
       </div>
 
       <div
-        class="relative w-full aspect-square overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
+        class="relative w-full aspect-square overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 pt-10 pl-10"
       >
         <!-- <span class="text-4xl font-sand-medium">Do you have an idea?</span> -->
-        <div use:doYouHaveAnIdeaLottie></div>
+        <!-- <div use:doYouHaveAnIdeaLottie></div> -->
+        <img
+          src="/images/fatk-make-shit.svg"
+          alt="Make shit with us"
+          class="invert dark:invert-0 w-[65%]"
+        />
       </div>
+    </a>
+
+    <a href="/">
+      <div class="overflow-hidden">
+        <div
+          class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
+        >
+          <div class="transparent-layer" />
+          <span class="block relative text-3xl">-</span>
+          <!-- <span class="block relative text-3xl">SAND Rug 2022</span> -->
+        </div>
+      </div>
+      <div
+        class="relative w-full aspect-square overflow-hidden bg-light-90 dark:bg-light-12"
+      ></div>
+      <!-- <div
+        class="relative w-full aspect-square overflow-hidden bg-[#4A3326]"
+      ></div> -->
     </a>
   </div>
 </section>
