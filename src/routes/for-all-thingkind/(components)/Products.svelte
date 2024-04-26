@@ -1,7 +1,19 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import lottie from "lottie-web";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import { changeCursorType } from "$lib/stores/cursor";
+
+  // this lottie file is not working at the moment
+  const doYouHaveAnIdeaLottie = (node: HTMLDivElement) => {
+    lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/do-you-have-an-idea.json",
+    });
+  };
 </script>
 
 <section class="grow">
@@ -87,7 +99,8 @@
       <div
         class="relative w-full aspect-square overflow-hidden text-light-10 dark:text-light-100 bg-light-100 dark:bg-light-10 grid place-items-center"
       >
-        <span class="text-4xl font-sand-medium">Do you have an idea?</span>
+        <!-- <span class="text-4xl font-sand-medium">Do you have an idea?</span> -->
+        <div use:doYouHaveAnIdeaLottie></div>
       </div>
     </a>
   </div>
