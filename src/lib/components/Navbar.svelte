@@ -35,7 +35,7 @@
     </div>
 
     <a href="/" class="grid place-items-center text-2xl">
-      {PAGE_NAMES_MAP[$page.url.pathname]}
+      {PAGE_NAMES_MAP[$page.url.pathname] || ""}
     </a>
 
     {#if $page.url.pathname !== "/"}
