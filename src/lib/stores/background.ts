@@ -28,8 +28,8 @@ export const Backgrounds: Writable<Background[]> = writable([
     id: crypto.randomUUID(),
     name: "bg-default",
     thumbnail: {
-      light: "/images/backgrounds/thumbnail-solid.jpg",
-      dark: "/images/backgrounds/thumbnail-solid.jpg",
+      light: "/images/backgrounds/default-light.webp",
+      dark: "/images/backgrounds/default-dark.webp",
     },
     src: "",
     isOpen: true,
@@ -38,8 +38,8 @@ export const Backgrounds: Writable<Background[]> = writable([
     id: crypto.randomUUID(),
     name: "bg-legacy",
     thumbnail: {
-      light: "/images/backgrounds/thumbnail-legacy.jpg",
-      dark: "/images/backgrounds/thumbnail-legacy.jpg",
+      light: "/images/backgrounds/legacy-light.webp",
+      dark: "/images/backgrounds/legacy-dark.webp",
     },
     src: "",
     isOpen: false,
