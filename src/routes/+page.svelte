@@ -6,7 +6,7 @@
   import { twMerge as twm } from "tailwind-merge";
   import Swiper from "swiper";
   import { Pagination } from "swiper/modules";
-  import { OpenShells } from "$lib/stores/shell";
+  import { addShell, OpenShells } from "$lib/stores/shell";
   import { SelectedBackground } from "$lib/stores/background";
   import { MobileHomeSwiper } from "$lib/stores/slider";
   import { CursorType } from "$lib/stores/cursor";
@@ -15,6 +15,7 @@
   import Apps from "$lib/components/Apps.svelte";
   import Finder from "$lib/components/Finder.svelte";
   import MediaWindow from "$lib/components/MediaWindow.svelte";
+  import CopyrightWindow from "$lib/components/CopyrightWindow.svelte";
   import Weather from "$lib/components/Weather.svelte";
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
@@ -62,6 +63,7 @@
 
   $: isSandScanOpen = $OpenShells.find((shell) => shell.id === "sand-scan");
   $: isFinderOpen = $OpenShells.find((shell) => shell.id === "finder");
+  $: isCopyrightOpen = $OpenShells.find((shell) => shell.id === "copyright");
   $: isBackgroundsOpen = $OpenShells.find(
     (shell) => shell.id === "backgrounds",
   );
@@ -191,6 +193,32 @@
     });
     player.goToAndPlay(startFrame, true);
   };
+
+  const openTermsAndConditions = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById(
+        "Terms-&-Conditions",
+      ) as HTMLButtonElement;
+      el.click();
+    }, 0);
+  };
+
+  const openCookiesPolicy = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById("Cookies-Policy") as HTMLButtonElement;
+      el.click();
+    }, 0);
+  };
+
+  const openPrivacyPolicy = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById("Privacy-Policy") as HTMLButtonElement;
+      el.click();
+    }, 0);
+  };
 </script>
 
 <div class="hidden sm:block">
@@ -238,25 +266,25 @@
         <Weather />
       </div>
 
-      <div class="mt-12 flex flex-col gap-2">
-        <a
-          href="/"
+      <div class="mt-12 flex flex-col items-start gap-2">
+        <button
+          on:click={openPrivacyPolicy}
           class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           Privacy Policy
-        </a>
-        <a
-          href="/"
+        </button>
+        <button
+          on:click={openTermsAndConditions}
           class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           Terms and Conditions
-        </a>
-        <a
-          href="/"
+        </button>
+        <button
+          on:click={openCookiesPolicy}
           class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
-          Cookie Policy
-        </a>
+          Cookies Policy
+        </button>
         <a
           href="/"
           class="mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
@@ -296,6 +324,10 @@
 
     {#if isFinderOpen}
       <Finder />
+    {/if}
+
+    {#if isCopyrightOpen}
+      <CopyrightWindow />
     {/if}
 
     {#if isBackgroundsOpen}

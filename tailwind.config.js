@@ -98,6 +98,9 @@ export default {
         "starwar-gradient-dark":
           "linear-gradient(to bottom, #000, transparent)",
       },
+      listStyleType: {
+        circle: "circle",
+      },
     },
   },
   plugins: [],
