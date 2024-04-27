@@ -1,67 +1,49 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
-  import { onDestroy } from "svelte";
-  import { fade } from "svelte/transition";
+  import Swiper from "swiper";
+  import { Autoplay, EffectFade } from "swiper/modules";
   import type { Work } from "$lib/types";
 
   export let work: Work;
-  // export let loop: boolean = false;
 
-  let index = 0;
+  const getRandomNumber = () => {
+    const numbers = [3, 4, 5, 6, 7];
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    return numbers[randomIndex];
+  };
 
-  // const getRandomNumber = () => {
-  //   const numbers = [5, 6, 7, 8];
-  //   const randomIndex = Math.floor(Math.random() * numbers.length);
-  //   return numbers[randomIndex];
-  // };
-
-  const intervalId = setInterval(() => {
-    // if (index === work.images.length - 1) return (index = 0);
-    // index++;
-  }, 1000);
-
-  onDestroy(() => clearInterval(intervalId));
+  const swiper = (node: HTMLDivElement) => {
+    new Swiper(node, {
+      modules: [Autoplay, EffectFade],
+      effect: "fade",
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      autoplay: {
+        delay: 1000 * getRandomNumber(),
+        disableOnInteraction: false,
+      },
+    });
+  };
 </script>
 
 <div
   role="region"
+  use:swiper
   on:mouseenter={() => dispatch("hoverIn", work)}
   class="group w-full aspect-[1.63/1] relative overflow-hidden {work.textColor ===
   'light'
     ? 'bg-light-10'
     : 'bg-light-100'}"
 >
-  <div class="absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20">
-    {#key index}
-      <img
-        transition:fade={{ duration: 200 }}
-        src={work.images[index]}
-        alt={work.name}
-        class="absolute inset-0 w-full h-full object-cover scale-[1.05]"
-      />
-    {/key}
-  </div>
-  <!-- <img
-    src={work.hoverImage}
-    alt={work.name}
-    class="absolute z-10 inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition rounded-lg scale-[1.05]"
-  />
   <div
-    class="relative z-20 p-11 grid gap-6 opacity-0 group-hover:opacity-100 transition rounded-lg"
+    class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >
-    {#each work.details as i}
-      <div>
-        {#each i as j}
-          <div
-            class="text-lg leading-tight {work.textColor === 'light'
-              ? 'text-light-100'
-              : 'text-light-10'}"
-          >
-            {j}
-          </div>
-        {/each}
+    {#each work.images as image}
+      <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
+        <img src={image} alt={work.name} class="w-full h-full object-cover" />
       </div>
     {/each}
-  </div> -->
+  </div>
 </div>

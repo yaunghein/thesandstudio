@@ -8,21 +8,76 @@
 
   const WORKS_GROUPS: WorkGroup[] = [
     {
-      type: "Works",
+      type: "Projects",
       data: [
         {
-          name: "_ALLWeNeed.",
+          name: "Sawbwa Morning Blend.",
           textColor: "dark",
           images: [
-            "/images/archives/challenges/direction-of-mind/Teaser.gif",
             "/images/archives/works/all-we-need/AWN Bag 1.webp",
             "/images/archives/works/all-we-need/AWN Bag 2.webp",
             "/images/archives/works/all-we-need/AWN Tape 1.webp",
             "/images/archives/works/all-we-need/AWN Tape 2.webp",
           ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
+          categories: ["Packaging"],
+          meta: ["Specialty Coffee", "Myanmar", "2022"],
         },
+        {
+          name: "ENVISEAM",
+          textColor: "light",
+          images: [
+            "/images/archives/works/another-club/AC Window Stickers.webp",
+            "/images/archives/works/another-club/AC Logo.webp",
+            "/images/archives/works/another-club/AC Coffee Bags.webp",
+            "/images/archives/works/another-club/AC Coasters.webp",
+            "/images/archives/works/another-club/AC Mockups.webp",
+          ],
+          categories: [
+            "Visual Identity",
+            "Motion Graphics and Animation",
+            "Web Maintenance and Support",
+          ],
+          meta: [
+            "Art, Culture & Entertainment",
+            "International",
+            "2023-Ongoing",
+          ],
+        },
+      ],
+    },
+    {
+      type: "Archives",
+      data: [
+        {
+          name: "The Elephant Cafe",
+          textColor: "light",
+          images: [
+            "/images/works/elephant-cafe/Elephant_Cafe_1.webp",
+            "/images/works/elephant-cafe/Elephant_Cafe_2.webp",
+            "/images/works/elephant-cafe/Elephant_Cafe_3.webp",
+            "/images/works/elephant-cafe/Elephant_Cafe_4.webp",
+            "/images/works/elephant-cafe/Elephant_Cafe_5.webp",
+          ],
+          categories: [
+            "Visual Identity",
+            "Interior Design",
+            "3D Modelling and Visualization",
+          ],
+          meta: ["Restaurant", "Myanmar", "2022"],
+        },
+        {
+          name: "The Other Cakes",
+          textColor: "dark",
+          images: [
+            "/images/archives/works/the-other-cakes/TOC Logos.webp",
+            "/images/archives/works/the-other-cakes/TOC Alternate Logos.webp",
+            "/images/archives/works/the-other-cakes/TOC Misc.webp",
+            "/images/archives/works/the-other-cakes/TOC Tags and Sticker.webp",
+          ],
+          categories: ["Visual Identity", "Packaging"],
+          meta: ["Bakery", "Yangon", "2019"],
+        },
+        // PFM CBD
         {
           name: "Another Club",
           textColor: "light",
@@ -33,41 +88,12 @@
             "/images/archives/works/another-club/AC Coasters.webp",
             "/images/archives/works/another-club/AC Mockups.webp",
           ],
-          categories: ["Visual Identity"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "Burmese Hype",
-          textColor: "dark",
-          images: [
-            "/images/works/burmese-hype/Burmese Hype 1.webp",
-            "/images/works/burmese-hype/Burmese Hype 2.webp",
+          categories: [
+            "Visual Identity",
+            "Interior Design",
+            "3D Modelling and Visualization",
           ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "Elephant Cafe",
-          textColor: "light",
-          images: [
-            "/images/works/elephant-cafe/Elephant_Cafe_1.webp",
-            "/images/works/elephant-cafe/Elephant_Cafe_2.webp",
-            "/images/works/elephant-cafe/Elephant_Cafe_3.webp",
-            "/images/works/elephant-cafe/Elephant_Cafe_4.webp",
-            "/images/works/elephant-cafe/Elephant_Cafe_5.webp",
-          ],
-          categories: ["Motion Graphics and Animation"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "Game Sauce",
-          textColor: "light",
-          images: [
-            "/images/archives/works/game-sauce/GS Logo.webp",
-            "/images/archives/works/game-sauce/GS Logo Animation.gif",
-          ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
+          meta: ["Restaurant", "Myanmar", "2021"],
         },
         {
           name: "Grand Hotel",
@@ -80,42 +106,8 @@
             "/images/archives/works/grand-hotel/GH Laundry Bag.webp",
             "/images/archives/works/grand-hotel/GH Paperbag.webp",
           ],
-          categories: ["Packaging"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "HOG",
-          textColor: "light",
-          images: [
-            "/images/archives/works/hog/HOG Logo.webp",
-            "/images/archives/works/hog/HOG Mascot.webp",
-          ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "The Other Cakes",
-          textColor: "dark",
-          images: [
-            "/images/archives/works/the-other-cakes/TOC Logos.webp",
-            "/images/archives/works/the-other-cakes/TOC Alternate Logos.webp",
-            "/images/archives/works/the-other-cakes/TOC Misc.webp",
-            "/images/archives/works/the-other-cakes/TOC Tags and Sticker.webp",
-          ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
-        },
-        {
-          name: "RIO",
-          textColor: "dark",
-          images: [
-            "/images/archives/works/rio/RIO Logo.webp",
-            "/images/archives/works/rio/RIO Alternate Symbol.webp",
-            "/images/archives/works/rio/RIO Colors.webp",
-            "/images/archives/works/rio/RIO Tote Bag.webp",
-          ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
+          categories: ["Visual Identity"],
+          meta: ["Hotel", "Myanmar", "2021"],
         },
         {
           name: "YG",
@@ -129,14 +121,69 @@
             "/images/archives/works/yangon-galacticos/YG Screens 2.webp",
             "/images/archives/works/yangon-galacticos/YG Stickers.webp",
           ],
-          categories: ["Graphic Design"],
-          meta: ["Restaurant", "Yangin", "2019"],
+          categories: ["Visual Identity"],
+          meta: ["E-Sports Team", "Myanmar", "2020"],
+        },
+        {
+          name: "Game Sauce",
+          textColor: "light",
+          images: [
+            "/images/archives/works/game-sauce/GS Logo.webp",
+            "/images/archives/works/game-sauce/GS Logo Animation.gif",
+          ],
+          categories: ["Visual Identity", "Motion Graphics and Animation"],
+          meta: ["E-Sports", "Myanmar", "2019"],
+        },
+        {
+          name: "RIO",
+          textColor: "dark",
+          images: [
+            "/images/archives/works/rio/RIO Logo.webp",
+            "/images/archives/works/rio/RIO Alternate Symbol.webp",
+            "/images/archives/works/rio/RIO Colors.webp",
+            "/images/archives/works/rio/RIO Tote Bag.webp",
+          ],
+          categories: ["Visual Identity", "Packaging"],
+          meta: ["Restaurant", "Myanmar", "2019"],
+        },
+        {
+          name: "Burmese Hype",
+          textColor: "dark",
+          images: [
+            "/images/works/burmese-hype/Burmese Hype 1.webp",
+            "/images/works/burmese-hype/Burmese Hype 2.webp",
+          ],
+          categories: ["Visual Identity"],
+          meta: ["Culture & Social Platform", "Myanmar", "2019"],
+        },
+        {
+          name: "_ALLWeNeed.",
+          textColor: "dark",
+          images: [
+            "/images/archives/works/all-we-need/AWN Bag 1.webp",
+            "/images/archives/works/all-we-need/AWN Bag 2.webp",
+            "/images/archives/works/all-we-need/AWN Tape 1.webp",
+            "/images/archives/works/all-we-need/AWN Tape 2.webp",
+          ],
+          categories: ["Visual Identity", "Packaging"],
+          meta: ["Culture & Apparel", "Yangon", "2019"],
+        },
+        {
+          name: "HOG",
+          textColor: "light",
+          images: [
+            "/images/archives/works/hog/HOG Logo.webp",
+            "/images/archives/works/hog/HOG Mascot.webp",
+          ],
+          categories: ["Visual Identity"],
+          meta: ["E-Sports", "Yangon", "2017"],
         },
       ],
     },
   ];
 
   let hoveredWork: TWork | null;
+  let hoveredType: string;
 
   const initialDisplayLabels = [
     { label: "Visual Identity", isActive: false },
@@ -147,7 +194,7 @@
     { label: "E-commerce Solutions", isActive: false },
     { label: "Architectural Design", isActive: false },
     { label: "Interior Design", isActive: false },
-    { label: "3D Modeling and Visualization", isActive: false },
+    { label: "3D Modelling and Visualization", isActive: false },
     { label: "Consultation and Strategy", isActive: false },
   ];
   let displayLabels = deepClone(initialDisplayLabels);
@@ -157,12 +204,10 @@
       displayLabels = deepClone(initialDisplayLabels);
     } else {
       const newDisplayLables = [];
-      for (const label of displayLabels) {
-        for (const category of hoveredWork!.categories) {
-          label.label === category
-            ? newDisplayLables.push({ ...label, isActive: true })
-            : newDisplayLables.push({ ...label, isActive: false });
-        }
+      for (const labelItem of displayLabels) {
+        hoveredWork!.categories.includes(labelItem.label)
+          ? newDisplayLables.push({ ...labelItem, isActive: true })
+          : newDisplayLables.push({ ...labelItem, isActive: false });
       }
       displayLabels = newDisplayLables;
     }
@@ -202,9 +247,15 @@
     </div>
     {#each WORKS_GROUPS as workGroup}
       <div
-        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-lg"
+        role="region"
+        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
       >
+        <!-- <div
+        role="region"
+        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-lg"
+      > -->
         <div class="transparent-layer" />
+        <!-- <div class="absolute inset-0 w-full h-full backdrop-blur-lg" /> -->
         <div
           class="absolute inset-0 flex gap-10 -ml-[0.125rem] opacity-sand overflow-hidden"
         >
@@ -212,10 +263,20 @@
             <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
           {/each}
         </div>
-        <h2 class="text-6xl relative px-10">{workGroup.type}</h2>
+        <div class="relative grid grid-cols-2 items-center w-full h-full">
+          <h2 class="text-6xl relative px-9">{workGroup.type}</h2>
+          {#if hoveredWork && hoveredType === workGroup.type}
+            <div class="grid grid-cols-3 items-center text-light-100 pl-6">
+              {#each hoveredWork.meta as item}
+                <div class="text-2xl">{item}</div>
+              {/each}
+            </div>
+          {/if}
+        </div>
       </div>
       <div
         role="region"
+        on:mouseenter={() => (hoveredType = workGroup.type)}
         on:mouseleave={() => (hoveredWork = null)}
         class="relative grid grid-cols-2 border-b-2 border-white dark:border-light-12"
       >
