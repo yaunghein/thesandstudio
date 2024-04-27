@@ -209,7 +209,9 @@
     {/if}
 
     {#if $SelectedBackground?.name === "bg-legacy"}
-      <div class="dark:invert h-full overflow-hidden">
+      <div
+        class="dark:invert h-full overflow-hidden opacity-30 dark:opacity-50"
+      >
         <div use:legacyLottie={0} />
         <div use:legacyLottie={120} />
         <div use:legacyLottie={240} />

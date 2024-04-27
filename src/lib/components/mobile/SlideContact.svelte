@@ -139,7 +139,7 @@
       <PixelBorder />
       <div
         id="tube"
-        class="px-1 pt-12 ml-auto w-[200px] h-[91%] flex flex-col translate-y-[115%]"
+        class="px-1 pt-12 ml-auto w-[200px] h-[91%] flex flex-col translate-y-[115%] -translate-x-4"
       >
         <div class="flex">
           <ContactFormTubeAPhone />
@@ -264,7 +264,7 @@
           disabled={formState === "sending"}
           on:click={handleSubmit[formState]}
           id="submit-btn"
-          class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem]"
+          class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] -translate-x-4 translate-y-2"
         >
           <PixelBorder />
           {#if formState === "locked"}

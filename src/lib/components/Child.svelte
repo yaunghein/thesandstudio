@@ -10,7 +10,7 @@
   use:drag
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square mix-blend-multiply"
+  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square mix-blend-multiply pointer-events-none"
 >
   <!-- <div class="w-full h-full bg-sand-blue"></div> -->
 

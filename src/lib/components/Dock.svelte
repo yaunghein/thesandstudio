@@ -89,7 +89,7 @@
   };
 </script>
 
-<div
+<!-- <div
   class="fixed h-[1px] w-full right-0 left-0 bottom-80 bg-red-500 z-[2000]"
 />
 <div
@@ -100,7 +100,7 @@
 />
 <div
   class="fixed h-[1px] w-full right-0 left-0 bottom-20 bg-red-500 z-[2000]"
-/>
+/> -->
 
 <div
   use:magnify

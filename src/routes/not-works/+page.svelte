@@ -50,7 +50,7 @@
               <img
                 src="/images/not-works-collaborate.svg"
                 alt="Make shit with us"
-                class="invert dark:invert-0 w-[65%]"
+                class="invert dark:invert-0 w-[50%]"
               />
             </div>
           </a>
