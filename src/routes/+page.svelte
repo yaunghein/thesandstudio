@@ -183,6 +183,12 @@
     };
   };
 
+  let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
+  $: if (loadedLegacyLotties.length === 3) {
+    for (const lottie of loadedLegacyLotties) {
+      lottie.player.goToAndPlay(lottie.startFrame, true);
+    }
+  }
   const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
     const player = lottie.loadAnimation({
       container: node,
@@ -191,7 +197,9 @@
       autoplay: false,
       path: "/lotties/categories-displace-v2.json",
     });
-    player.goToAndPlay(startFrame, true);
+    player.addEventListener("DOMLoaded", () => {
+      loadedLegacyLotties = [...loadedLegacyLotties, { player, startFrame }];
+    });
   };
 
   const openTermsAndConditions = () => {
@@ -238,7 +246,12 @@
 
     {#if $SelectedBackground?.name === "bg-legacy"}
       <div
-        class="dark:invert h-full flex flex-col justify-between overflow-hidden opacity-30 dark:opacity-50"
+        class={twm(
+          "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
+          loadedLegacyLotties.length === 3
+            ? "opacity-30 dark:opacity-50"
+            : "opacity-0",
+        )}
       >
         <div use:legacyLottie={0} />
         <div use:legacyLottie={120} />
