@@ -97,9 +97,23 @@ export default {
           "linear-gradient(to bottom, #e6e6e6, transparent)",
         "starwar-gradient-dark":
           "linear-gradient(to bottom, #000, transparent)",
+        "404-gradient-light":
+          "radial-gradient(circle, white 0%, rgba(255, 255, 255, 0.5) 50%,transparent 70%, transparent 100%)",
+        "404-gradient-dark":
+          "radial-gradient(circle, black 0%, rgba(0, 0, 0, 0.5) 50%,transparent 70%, transparent 100%)",
       },
       listStyleType: {
         circle: "circle",
+      },
+      dropShadow: {
+        "404-light": [
+          "0px 0px 20px rgba(255, 255, 255, 0.3)",
+          "0px 0px 30px rgba(255, 255, 255, 0.3)",
+        ],
+        "404-dark": [
+          "0px 0px 60px rgba(20, 20, 20, 0.8)",
+          "0px 0px 100px rgba(20, 20, 20, 0.5)",
+        ],
       },
     },
   },
