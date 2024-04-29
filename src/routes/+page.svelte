@@ -184,6 +184,9 @@
   };
 
   let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
+  $: if ($SelectedBackground.name !== "bg-legacy") {
+    loadedLegacyLotties = [];
+  }
   $: if (loadedLegacyLotties.length === 3) {
     for (const lottie of loadedLegacyLotties) {
       lottie.player.goToAndPlay(lottie.startFrame, true);

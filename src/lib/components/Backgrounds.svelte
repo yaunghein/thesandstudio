@@ -22,7 +22,7 @@
   use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="overflow-hidden fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65rem] h-[42rem] rounded-3xl text-light-100 border-2 border-white dark:border-light-12"
+  class="overflow-hidden fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65rem] h-[43.2rem] rounded-3xl text-light-100 border-2 border-white dark:border-light-12"
   style="z-index: {shell?.zIndex}"
 >
   <div class="transparent-layer" />
@@ -42,7 +42,7 @@
     </div>
 
     <div
-      class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl p-6 grid grid-cols-2 gap-x-3 gap-y-6"
+      class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl p-6 grid grid-cols-2 gap-3"
     >
       {#each $Backgrounds as bg}
         <button
@@ -58,8 +58,12 @@
         >
           <div
             use:changeCursorType={{ inType: bg.name, outType: "normal" }}
-            class="relative rounded-xl aspect-[1.91/1] overflow-hidden"
+            class="relative rounded-xl overflow-hidden"
           >
+            <!-- <div
+            use:changeCursorType={{ inType: bg.name, outType: "normal" }}
+            class="relative rounded-xl aspect-[1.91/1] overflow-hidden"
+          > -->
             <img
               class="object-cover scale-[1.01] dark:hidden"
               src={bg.thumbnail.light}
