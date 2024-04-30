@@ -89,7 +89,7 @@
 
 <div
   id="iris-container"
-  style="clip-path: circle(150% at 50% 100%); display: flex;"
+  style="clip-path: circle(150% at 50% 100%); display: block;"
 >
   <slot />
 </div>

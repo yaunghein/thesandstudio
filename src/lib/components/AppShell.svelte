@@ -5,7 +5,7 @@
   import Finder from "$lib/components/Finder.svelte";
   import { removeShell, OpenShells } from "$lib/stores/shell";
 
-  // $: $page, removeShell("finder");
+  $: $page, removeShell("finder");
   $: isFinderOpen = $OpenShells.find((shell) => shell.id === "finder");
 </script>
 
