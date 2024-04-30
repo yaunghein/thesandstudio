@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { openContactTab } from "$lib/stores/finder";
+  import { addShell } from "$lib/stores/shell";
   import LogoMain from "$lib/svgs/LogoMain.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import { changeCursorType } from "$lib/stores/cursor";
@@ -30,8 +32,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-3">
           <TypographicChallenge />
 
-          <a
-            href="mailto:hi@thesandstudio.com"
+          <button
+            on:click={() => {
+              addShell({ id: "finder", zIndex: 65 });
+              openContactTab();
+            }}
             use:changeCursorType={{ inType: "contact", outType: "normal" }}
           >
             <div class="overflow-hidden">
@@ -53,7 +58,7 @@
                 class="invert dark:invert-0 w-[50%]"
               />
             </div>
-          </a>
+          </button>
 
           <div>
             <div class="overflow-hidden">

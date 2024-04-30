@@ -13,7 +13,6 @@
   import Dock from "$lib/components/Dock.svelte";
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
-  import Finder from "$lib/components/Finder.svelte";
   import MediaWindow from "$lib/components/MediaWindow.svelte";
   import CopyrightWindow from "$lib/components/CopyrightWindow.svelte";
   import Weather from "$lib/components/Weather.svelte";
@@ -62,7 +61,6 @@
   };
 
   $: isSandScanOpen = $OpenShells.find((shell) => shell.id === "sand-scan");
-  $: isFinderOpen = $OpenShells.find((shell) => shell.id === "finder");
   $: isCopyrightOpen = $OpenShells.find((shell) => shell.id === "copyright");
   $: isBackgroundsOpen = $OpenShells.find(
     (shell) => shell.id === "backgrounds",
@@ -336,10 +334,6 @@
 
     {#if isSandScanOpen}
       <SandScan />
-    {/if}
-
-    {#if isFinderOpen}
-      <Finder />
     {/if}
 
     {#if isCopyrightOpen}

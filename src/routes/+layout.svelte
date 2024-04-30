@@ -87,7 +87,7 @@
   <title>SAND Studio</title>
 </svelte:head>
 
-<div id="iris-container" style="clip-path: circle(150% at 50% 100%)">
+<div id="iris-container" class="" style="clip-path: circle(150% at 50% 100%)">
   <slot />
 </div>
 

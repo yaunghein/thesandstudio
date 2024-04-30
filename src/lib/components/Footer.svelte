@@ -7,6 +7,8 @@
   import clickOutside from "$lib/utils/clickOutside";
   import Logo from "$lib/svgs/Logo.svelte";
   import { CursorType } from "$lib/stores/cursor";
+  import { openContactTab } from "$lib/stores/finder";
+  import { addShell } from "$lib/stores/shell";
 
   let isOpen = false;
 
@@ -67,7 +69,7 @@
   </div>
 
   {#if isOpen}
-    <div class="absolute top-0 left-0 right-0 w-full">
+    <div class="absolute z-20 top-0 left-0 right-0 w-full">
       <div
         class="w-[1.63rem] aspect-square absolute left-0 bottom-0 text-white dark:text-light-12"
       >
@@ -142,13 +144,16 @@
       </a>
     </div>
 
-    <a
-      href="mailto:hi@thesandstudio.com"
+    <button
+      on:click={() => {
+        addShell({ id: "finder", zIndex: 65 });
+        openContactTab();
+      }}
       on:mouseenter={() => CursorType.set("contact")}
       on:mouseleave={() => CursorType.set("normal")}
       class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
     >
-      <div class="flex items-center">
+      <div class="flex items-center h-full">
         <div use:moveText class="flex h-full">
           <div
             class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
@@ -195,6 +200,6 @@
           {/if}
         </div>
       </div>
-    </a>
+    </button>
   </div>
 </footer>

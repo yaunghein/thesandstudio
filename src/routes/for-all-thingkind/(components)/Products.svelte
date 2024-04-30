@@ -1,19 +1,9 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import lottie from "lottie-web";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import { changeCursorType } from "$lib/stores/cursor";
-
-  // this lottie file is not working at the moment
-  const doYouHaveAnIdeaLottie = (node: HTMLDivElement) => {
-    lottie.loadAnimation({
-      container: node,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path: "/lotties/do-you-have-an-idea.json",
-    });
-  };
+  import { openContactTab } from "$lib/stores/finder";
+  import { addShell } from "$lib/stores/shell";
 </script>
 
 <section class="grow">
@@ -69,8 +59,11 @@
       </div>
     </a>
 
-    <a
-      href="mailto:hi@thesandstudio.com"
+    <button
+      on:click={() => {
+        addShell({ id: "finder", zIndex: 65 });
+        openContactTab();
+      }}
       use:changeCursorType={{ inType: "contact", outType: "normal" }}
     >
       <div class="overflow-hidden">
@@ -93,7 +86,7 @@
           class="invert dark:invert-0 w-[50%]"
         />
       </div>
-    </a>
+    </button>
 
     <a href="/">
       <div class="overflow-hidden">
