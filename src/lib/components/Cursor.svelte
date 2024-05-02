@@ -42,11 +42,11 @@
           !!(target as HTMLElement)?.closest("textarea") ||
           !!(target as HTMLElement)?.closest("label");
 
-        gsap.to("#cursor", {
+        gsap.set("#cursor", {
           x: x - cursorRect!.width / 2,
           y: y - cursorRect!.height / 2,
           opacity: 1,
-          ...easing,
+          // ...easing,
         });
       };
       window.addEventListener("mousemove", handleMouseMove);

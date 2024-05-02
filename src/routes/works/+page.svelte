@@ -75,7 +75,7 @@
             "/images/archives/works/the-other-cakes/TOC Tags and Sticker.webp",
           ],
           categories: ["Visual Identity", "Packaging"],
-          meta: ["Bakery", "Yangon", "2019"],
+          meta: ["Bakery", "Myanmar", "2019"],
         },
         // PFM CBD
         {
