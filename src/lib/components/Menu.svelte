@@ -5,6 +5,7 @@
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
+  import { addShell } from "$lib/stores/shell";
 
   let isOpen = false;
 
@@ -16,6 +17,32 @@
       autoplay: true,
       path,
     });
+  };
+
+  const openTermsAndConditions = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById(
+        "Terms-&-Conditions",
+      ) as HTMLButtonElement;
+      el.click();
+    }, 0);
+  };
+
+  const openCookiesPolicy = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById("Cookies-Policy") as HTMLButtonElement;
+      el.click();
+    }, 0);
+  };
+
+  const openPrivacyPolicy = () => {
+    addShell({ id: "copyright", zIndex: 65 });
+    setTimeout(() => {
+      const el = document.getElementById("Privacy-Policy") as HTMLButtonElement;
+      el.click();
+    }, 0);
   };
 </script>
 
@@ -153,25 +180,25 @@
           </a>
         </div>
 
-        <div class="flex flex-col gap-2">
-          <a
+        <div class="flex flex-col items-start gap-2">
+          <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="/"
+            on:click={openPrivacyPolicy}
           >
             Privacy Policy
-          </a>
-          <a
+          </button>
+          <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="/"
+            on:click={openTermsAndConditions}
           >
             Terms and Conditions
-          </a>
-          <a
+          </button>
+          <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="/"
+            on:click={openCookiesPolicy}
           >
             Cookie policy
-          </a>
+          </button>
         </div>
 
         <div class="flex flex-col gap-2">

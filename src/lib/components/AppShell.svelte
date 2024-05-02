@@ -3,10 +3,17 @@
   import Navbar from "./Navbar.svelte";
   import Footer from "./Footer.svelte";
   import Finder from "$lib/components/Finder.svelte";
+  import CopyrightWindow from "$lib/components/CopyrightWindow.svelte";
   import { removeShell, OpenShells } from "$lib/stores/shell";
 
-  $: $page, removeShell("finder");
+  $: {
+    if ($page) {
+      removeShell("finder");
+      removeShell("copyright");
+    }
+  }
   $: isFinderOpen = $OpenShells.find((shell) => shell.id === "finder");
+  $: isCopyrightOpen = $OpenShells.find((shell) => shell.id === "copyright");
 </script>
 
 <div
@@ -20,6 +27,9 @@
       <slot />
       {#if isFinderOpen}
         <Finder />
+      {/if}
+      {#if isCopyrightOpen}
+        <CopyrightWindow />
       {/if}
     </div>
   </div>

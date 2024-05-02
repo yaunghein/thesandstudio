@@ -14,7 +14,6 @@
   import AppShell from "$lib/components/AppShell.svelte";
   import Apps from "$lib/components/Apps.svelte";
   import MediaWindow from "$lib/components/MediaWindow.svelte";
-  import CopyrightWindow from "$lib/components/CopyrightWindow.svelte";
   import Weather from "$lib/components/Weather.svelte";
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
@@ -61,7 +60,7 @@
   };
 
   $: isSandScanOpen = $OpenShells.find((shell) => shell.id === "sand-scan");
-  $: isCopyrightOpen = $OpenShells.find((shell) => shell.id === "copyright");
+
   $: isBackgroundsOpen = $OpenShells.find(
     (shell) => shell.id === "backgrounds",
   );
@@ -334,10 +333,6 @@
 
     {#if isSandScanOpen}
       <SandScan />
-    {/if}
-
-    {#if isCopyrightOpen}
-      <CopyrightWindow />
     {/if}
 
     {#if isBackgroundsOpen}

@@ -17,7 +17,7 @@
     new Swiper(node, {
       modules: [Autoplay, EffectFade],
       effect: "fade",
-      loop: true,
+      loop: false,
       slidesPerView: 1,
       spaceBetween: 0,
       autoplay: {
