@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
   import getDateAndTime from "$lib/utils/getDateAndTime";
   import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
-  import IconWeather from "$lib/svgs/IconWeather.svelte";
   // import a from "./weather.json"; // delete this file
 
   const LOCATIONS: Record<string, string> = {
@@ -16,7 +14,146 @@
     LOCAL: "",
   };
 
+  const ICONS: Record<
+    string,
+    { conditions: string[]; image: string; size: number }
+  > = {
+    "sunny-clear": {
+      conditions: ["Sunny", "Clear"],
+      image: "/images/weather-icons/sunny-clear.webp",
+      size: 100,
+    },
+    "partly-cloudy": {
+      conditions: ["Partly cloudy"],
+      image: "/images/weather-icons/partly-cloudy.webp",
+      size: 100,
+    },
+    cloudy: {
+      conditions: ["Cloudy"],
+      image: "/images/weather-icons/cloudy.webp",
+      size: 100,
+    },
+    overcast: {
+      conditions: ["Overcast"],
+      image: "/images/weather-icons/overcast.webp",
+      size: 125,
+    },
+    "fog-mist": {
+      conditions: ["Mist", "Fog"],
+      image: "/images/weather-icons/fog-mist.webp",
+      size: 125,
+    },
+    "freezing-fog": {
+      conditions: ["Freezing fog"],
+      image: "/images/weather-icons/freezing-fog.webp",
+      size: 150,
+    },
+    "all-rain": {
+      conditions: [
+        "Patchy rain possible",
+        "Patchy light rain",
+        "Light rain",
+        "Moderate rain at times",
+        "Moderate rain",
+        "Heavy rain at times",
+        "Heavy rain",
+        "Light rain shower",
+        "Moderate or heavy rain shower",
+        "Torrential rain shower",
+        "Patchy light drizzle",
+        "Light drizzle",
+      ],
+      image: "/images/weather-icons/all-rain.webp",
+      size: 100,
+    },
+    "all-freezing-rain": {
+      conditions: [
+        "Light freezing rain",
+        "Moderate or heavy freezing rain",
+        "Patchy freezing drizzle possible",
+        "Freezing drizzle",
+        "Heavy freezing drizzle",
+      ],
+      image: "/images/weather-icons/all-freezing-rain.webp",
+      size: 150,
+    },
+    "all-snow": {
+      conditions: [
+        "Patchy snow possible",
+        "Patchy light snow",
+        "Light snow",
+        "Patchy moderate snow",
+        "Moderate snow",
+        "Patchy heavy snow",
+        "Heavy snow",
+        "Light snow showers",
+      ],
+      image: "/images/weather-icons/all-snow.webp",
+      size: 100,
+    },
+    thunder: {
+      conditions: ["Thundery outbreaks possible"],
+      image: "/images/weather-icons/thunder.webp",
+      size: 100,
+    },
+    "snow-thunder": {
+      conditions: [
+        "Patchy light snow with thunder",
+        "Moderate or heavy snow with thunder",
+      ],
+      image: "/images/weather-icons/snow-thunder.webp",
+      size: 100,
+    },
+    "rain-thunder": {
+      conditions: [
+        "Patchy light rain with thunder",
+        "Moderate or heavy rain with thunder",
+      ],
+      image: "/images/weather-icons/rain-thunder.webp",
+      size: 100,
+    },
+    "all-sleet-blizzard-pellets": {
+      conditions: [
+        "Patchy sleet possible",
+        "Blizzard",
+        "Light sleet",
+        "Moderate or heavy sleet",
+        "Ice pellets",
+        "Light sleet showers",
+        "Moderate or heavy sleet showers",
+        "Moderate or heavy snow showers",
+        "Light showers of ice pellets",
+        "Moderate or heavy showers of ice pellets",
+      ],
+      image: "/images/weather-icons/all-sleet-blizzard-pellets.webp",
+      size: 100,
+    },
+    "blowing-snow": {
+      conditions: ["Blowing snow"],
+      image: "/images/weather-icons/blowing-snow.webp",
+      size: 100,
+    },
+  };
+
+  const GAPS: Record<string, string> = {
+    100: "gap-5",
+    125: "gap-2",
+    150: "gap-0",
+  };
+
+  const SIZES: Record<string, string> = {
+    100: "w-20",
+    125: "w-24",
+    150: "w-28",
+  };
+
   let weather: any;
+  $: icon =
+    ICONS[
+      Object.keys(ICONS).find((k) =>
+        ICONS[k].conditions.includes(weather?.current.condition.text),
+      ) as string
+    ];
   let unit: "C" | "F" = "C";
   let selectedLocation = "Bangkok";
 
@@ -70,9 +207,9 @@
 {#if weather}
   <div class="relative">
     <div class="relative flex gap-10">
-      <div class="flex flex-col items-center justify-start">
-        <div class="w-24 aspect-square -mt-3">
-          <IconWeather />
+      <div class="flex flex-col items-center justify-start {GAPS[icon.size]}">
+        <div class="{SIZES[icon.size]} aspect-square -mt-3">
+          <img src={icon.image} alt="Weather Icon" />
         </div>
         <div class="flex text-4xl leading-none gap-2">
           <div>
