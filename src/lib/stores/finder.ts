@@ -1149,13 +1149,13 @@ const getArchiveTab = (isOpen: boolean): Tab => {
               // },
             ],
           },
-          {
-            id: crypto.randomUUID(),
-            type: "folder",
-            label: "SAND Rug",
-            isOpen: false,
-            data: [],
-          },
+          // {
+          //   id: crypto.randomUUID(),
+          //   type: "folder",
+          //   label: "SAND Rug",
+          //   isOpen: false,
+          //   data: [],
+          // },
         ],
       },
       {
