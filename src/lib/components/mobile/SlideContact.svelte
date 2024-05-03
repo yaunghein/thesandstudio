@@ -21,14 +21,24 @@
   const defaults = { ease: "power4.inOut", duration: 1 };
 
   let openTubeTl: any;
+  let wrapperWidth: string;
   $: if (swiperIndex === 3 && browser) {
     if (openTubeTl) {
       openTubeTl.restart();
     } else {
-      openTubeTl = gsap.timeline({ defaults });
+      openTubeTl = gsap.timeline({
+        defaults,
+        onComplete() {
+          wrapperWidth = `${
+            document.querySelector("#paper-wrapper")?.getBoundingClientRect()
+              .width
+          }px`;
+        },
+      });
       openTubeTl
         .to("#tube", { y: "0%" })
-        .from("#paper-wrapper", { width: "7.3rem" }, "<50%");
+        .from("#paper-wrapper", { width: "7.3rem" }, "<50%")
+        .to("#paper-wrapper", { right: "-2.2rem" }, "<");
     }
   } else if (browser && swiperIndex !== 3) {
     openTubeTl?.reverse();
@@ -58,11 +68,13 @@
     }
     formState = "locked";
     gsap.to("#paper-wrapper", { width: "7.3rem", ...defaults });
+    gsap.to("#paper-wrapper", { right: "0.75rem", ...defaults });
   };
 
   const unlock = () => {
     formState = "idel";
-    gsap.to("#paper-wrapper", { width: "76vw", ...defaults });
+    gsap.to("#paper-wrapper", { width: wrapperWidth, ...defaults });
+    gsap.to("#paper-wrapper", { right: "-2.2rem", ...defaults });
   };
 
   const sendTheTube = () => {
@@ -74,10 +86,11 @@
         }
       },
     });
-    tl.to("#tube", { y: "-115%" })
-      .set("#tube", { y: "115%" })
+    tl.to("#tube", { y: "-125%" })
+      .set("#tube", { y: "125%" })
       .to("#tube", { y: "0%" })
-      .to("#paper-wrapper", { width: "76vw" }, "<50%");
+      .to("#paper-wrapper", { width: wrapperWidth }, "<50%")
+      .to("#paper-wrapper", { right: "-2.2rem" }, "<");
   };
 
   const submit = async () => {
@@ -139,7 +152,7 @@
       <PixelBorder />
       <div
         id="tube"
-        class="px-1 pt-12 ml-auto w-[200px] h-[91%] flex flex-col translate-y-[115%] -translate-x-4"
+        class="px-1 pt-12 ml-auto w-[200px] h-[91%] flex flex-col translate-y-[125%] -translate-x-5"
       >
         <div class="flex">
           <ContactFormTubeAPhone />
@@ -150,7 +163,7 @@
         >
           <div
             id="paper-wrapper"
-            class="absolute w-[76vw] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 border-black dark:border-white"
+            class="absolute w-[calc(100vw-4.35rem)] right-3 top-3 bottom-3 overflow-hidden rounded-lg border-2 sm:border-0 border-black dark:border-white"
           >
             <div
               id="paper"
@@ -166,7 +179,7 @@
                   formErrors?.name
                     ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                     : "placeholder:text-black dark:placeholder:text-light-100",
-                  "h-8 text-xl outline-none bg-transparent sand-transition",
+                  "h-8 text-xl outline-none bg-transparent sand-transition w-full",
                 )}
                 on:input={() =>
                   formErrors?.name ? (formErrors.name = undefined) : null}
@@ -186,7 +199,7 @@
                   formErrors?.email
                     ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                     : "placeholder:text-black dark:placeholder:text-light-100",
-                  "h-8 text-xl outline-none bg-transparent sand-transition",
+                  "h-8 text-xl outline-none bg-transparent sand-transition mt-1 w-full",
                 )}
                 on:input={() =>
                   formErrors?.email ? (formErrors.email = undefined) : null}
@@ -204,7 +217,7 @@
                   formErrors?.message
                     ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                     : "placeholder:text-black dark:placeholder:text-light-100",
-                  "h-full w-[70vw] text-xl mt-5 leading-none outline-none resize-none bg-transparent",
+                  "h-full w-full text-xl mt-5 leading-[0.7] outline-none resize-none bg-transparent",
                 )}
                 on:input={() =>
                   formErrors?.message ? (formErrors.message = undefined) : null}
@@ -255,8 +268,10 @@
         </div>
       </div>
 
-      <div class="absolute bottom-7 w-full flex items-center justify-end pr-2">
-        <div class="w-20 h-4 mx-auto">
+      <div
+        class="absolute bottom-7 w-full flex items-center justify-end pl-0 pr-5"
+      >
+        <div class="w-20 mx-auto h-4">
           <ContactFormTubeLabel />
         </div>
 
@@ -264,7 +279,7 @@
           disabled={formState === "sending"}
           on:click={handleSubmit[formState]}
           id="submit-btn"
-          class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] -translate-x-4 translate-y-2"
+          class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white"
         >
           <PixelBorder />
           {#if formState === "locked"}
@@ -301,7 +316,7 @@
           <div
             id="btn-logo-shape"
             class={twm(
-              "flex w-6 aspect-square ml-auto transition duration-[800ms] ease-out",
+              "flex w-6 aspect-square ml-auto mr-2 transition duration-[800ms] ease-out",
               formState === "idel" && "animate-spin-back-once",
               formState === "locked" && "animate-spin-once text-sand-green",
               formState === "sending" && "animate-spin text-sand-red",

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { scale } from "svelte/transition";
   import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
   import getDateAndTime from "$lib/utils/getDateAndTime";
@@ -135,11 +136,11 @@
     },
   };
 
-  const GAPS: Record<string, string> = {
-    100: "gap-5",
-    125: "gap-2",
-    150: "gap-0",
-  };
+  // const GAPS: Record<string, string> = {
+  //   100: "gap-5",
+  //   125: "gap-2",
+  //   150: "gap-0",
+  // };
 
   const SIZES: Record<string, string> = {
     100: "w-20",
@@ -207,9 +208,19 @@
 {#if weather}
   <div class="relative">
     <div class="relative flex gap-10">
-      <div class="flex flex-col items-center justify-start {GAPS[icon.size]}">
-        <div class="{SIZES[icon.size]} aspect-square -mt-3">
-          <img src={icon.image} alt="Weather Icon" />
+      <div class="flex flex-col items-center justify-start gap-2">
+        <div class="w-28 aspect-square overflow-hidden -mt-5 relative">
+          {#key icon}
+            <img
+              in:scale={{ delay: 300, duration: 300, start: 0.9 }}
+              out:scale={{ duration: 300, start: 0.9 }}
+              src={icon.image}
+              alt="Weather Icon"
+              class="{SIZES[
+                icon.size
+              ]} aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            />
+          {/key}
         </div>
         <div class="flex text-4xl leading-none gap-2">
           <div>

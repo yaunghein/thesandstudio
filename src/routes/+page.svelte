@@ -43,6 +43,7 @@
         clickable: true,
       },
     });
+    swiper.slideTo(2);
 
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
