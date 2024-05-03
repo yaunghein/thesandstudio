@@ -1071,13 +1071,13 @@ const files: File[] = [
           // },
         ],
       },
-      {
-        id: crypto.randomUUID(),
-        type: "folder",
-        label: "SAND Rug",
-        isOpen: false,
-        data: [],
-      },
+      // {
+      //   id: crypto.randomUUID(),
+      //   type: "folder",
+      //   label: "SAND Rug",
+      //   isOpen: false,
+      //   data: [],
+      // },
     ],
   },
   {
@@ -1892,7 +1892,6 @@ export const Files: Writable<File[]> = writable(deepClone(files));
 
 export const handleFileClickMobile = (file: File) => {
   const selectedFileLevel = getNestedLevel(files, file.id);
-  console.log({ selectedFileLevel });
 
   Files.update((files: File[]) => {
     const findAndUpdateIsOpen = (files: File[]) => {

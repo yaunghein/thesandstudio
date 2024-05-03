@@ -29,6 +29,9 @@
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
+  import SlidePrivacyPolicy from "$lib/components/mobile/SlidePrivacyPolicy.svelte";
+  import SlideTnC from "$lib/components/mobile/SlideTnC.svelte";
+  import SlideCookiePolicy from "$lib/components/mobile/SlideCookiePolicy.svelte";
 
   import "swiper/css/pagination";
 
@@ -43,7 +46,6 @@
         clickable: true,
       },
     });
-    swiper.slideTo(2);
 
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
@@ -365,6 +367,9 @@
         <SlideNotWork />
         <SlideWork />
         <SlideExplorer />
+        <SlidePrivacyPolicy />
+        <SlideTnC />
+        <SlideCookiePolicy />
       </div>
     </div>
   </MobileAppShell>

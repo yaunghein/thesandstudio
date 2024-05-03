@@ -5,8 +5,6 @@
   import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
   import PixelBorder from "./PixelBorder.svelte";
 
-  import type { Swiper } from "swiper/types";
-
   const goToSlideByName = (slideName: string) => {
     const slides = $swiper!.slides;
     for (let i = 0; i < slides.length; i++) {
