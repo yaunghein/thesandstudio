@@ -266,7 +266,9 @@
         <div class="relative grid grid-cols-2 items-center w-full h-full">
           <h2 class="text-6xl relative px-9">{workGroup.type}</h2>
           {#if hoveredWork && hoveredType === workGroup.type}
-            <div class="grid grid-cols-3 items-center text-light-100 pl-6">
+            <div
+              class="grid grid-cols-3 items-center text-light-10 dark:text-light-100 pl-6"
+            >
               {#each hoveredWork.meta as item}
                 <div class="text-2xl">{item}</div>
               {/each}

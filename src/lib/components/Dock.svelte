@@ -189,7 +189,7 @@
     />
 
     <div
-      class="w-32 absolute origin-top-left scale-[1.1] group-hover:scale-[1.5] group-hover:translate-y-[8%] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-0 left-0 sand-transition"
+      class="w-32 absolute origin-top-left scale-[1.1] group-hover:scale-[1.5] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-0 left-0 sand-transition"
     >
       <div use:playLottieOnHover={"/lotties/contact.json"} />
     </div>
