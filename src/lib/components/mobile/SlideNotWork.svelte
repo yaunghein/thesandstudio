@@ -1,6 +1,7 @@
 <script>
   import PixelBorder from "./PixelBorder.svelte";
   import TypographicChallengeHeading from "../../../routes/not-works/(components)/TypographicChallengeHeading.svelte";
+  import { MobileHomeSwiper } from "$lib/stores/slider";
 </script>
 
 <div
@@ -79,10 +80,16 @@
         <div
           class="font-sand-mobile-bold text-7xl leading-[0.75] max-w-[18rem] mt-6"
         >
-          Do you have an idea?
+          <!-- Do you have an idea? -->
+          <img
+            src="/images/not-works-collaborate-mobile.svg"
+            alt="Make shit with us"
+            class="invert dark:invert-0 w-[75%]"
+          />
         </div>
         <div class="flex items-center justify-center mt-6 mb-20">
           <button
+            on:click={() => $MobileHomeSwiper?.slideTo(3)}
             class="relative w-[12.5rem] h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
           >
             <PixelBorder />

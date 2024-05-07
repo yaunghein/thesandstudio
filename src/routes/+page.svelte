@@ -376,9 +376,6 @@
         <SlideNotWork />
         <SlideWork />
         <SlideExplorer />
-        <SlidePrivacyPolicy />
-        <SlideTnC />
-        <SlideCookiePolicy />
       </div>
     </div>
   </MobileAppShell>
