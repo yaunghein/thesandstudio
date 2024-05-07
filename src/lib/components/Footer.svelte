@@ -140,7 +140,7 @@
         href="/"
         on:mouseenter={() => CursorType.set("normal")}
       >
-        @{new Date().getFullYear()}
+        ©{new Date().getFullYear()}
       </a>
     </div>
 
