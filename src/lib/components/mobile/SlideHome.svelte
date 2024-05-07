@@ -2,7 +2,6 @@
   import Sand from "$lib/svgs/mobile/Sand.svelte";
   import PixelBorder from "./PixelBorder.svelte";
   import Weather from "./Weather.svelte";
-  import { MobileHomeSwiper as swiper } from "$lib/stores/slider";
 </script>
 
 <div
@@ -27,24 +26,24 @@
           <Weather />
 
           <div class="relative flex flex-col mb-5">
-            <button
-              on:click={() => $swiper?.slideTo(8)}
+            <a
+              href="/mobile-policy?page=privacy"
               class="leading-[0.9] text-xl text-left"
             >
               Privacy Policy
-            </button>
-            <button
-              on:click={() => $swiper?.slideTo(9)}
+            </a>
+            <a
+              href="/mobile-policy?page=terms"
               class="leading-[0.9] text-xl text-left"
             >
               Terms and Conditions
-            </button>
-            <button
-              on:click={() => $swiper?.slideTo(10)}
+            </a>
+            <a
+              href="/mobile-policy?page=cookie"
               class="leading-[0.9] text-xl text-left"
             >
               Cookie Policy
-            </button>
+            </a>
             <span class="leading-[0.9] text-xl mt-5">
               Made by The Sand Studio {new Date().getFullYear()}
             </span>

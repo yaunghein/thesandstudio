@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import { page } from "$app/stores";
   import { onMount, onDestroy } from "svelte";
   import { Application } from "@splinetool/runtime";
   import lottie from "lottie-web";
@@ -52,6 +53,14 @@
     });
     MobileHomeSwiper.set(swiper);
   });
+
+  $: if ($page) {
+    const pageName = $page.url.searchParams.get("page");
+    if (pageName) {
+      pageName === "home" && $MobileHomeSwiper?.slideTo(0);
+      pageName === "menu" && $MobileHomeSwiper?.slideTo(1);
+    }
+  }
 
   export let data;
 
