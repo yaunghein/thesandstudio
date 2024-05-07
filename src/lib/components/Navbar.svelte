@@ -13,7 +13,7 @@
 </script>
 
 <header
-  class="sticky z-50 top-0 right-0 left-0 w-full h-20 flex items-center px-12 shrink-0"
+  class="hidden sticky z-50 top-0 right-0 left-0 w-full h-20 sm:flex items-center px-12 shrink-0"
 >
   <div class="w-full grid grid-cols-3">
     <div class="w-full flex items-center gap-10 text-2xl font-sand-medium">

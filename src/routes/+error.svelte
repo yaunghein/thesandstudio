@@ -99,16 +99,16 @@
 <AppShell>
   <div class="grid place-items-center h-full bg-white dark:bg-black">
     {#if $page.status === 404}
-      <div class="text-center flex flex-col gap-7">
+      <div class="text-center flex flex-col gap-2 sm:gap-7">
         <div class="relative">
-          <div class="flex items-center gap-[15rem]">
+          <div class="flex items-center gap-20 sm:gap-[15rem]">
             <div
-              class="font-sand-black text-[32rem] leading-none drop-shadow-404-dark dark:drop-shadow-404-light text-light-40 dark:text-white"
+              class="font-sand-black text-9xl sm:text-[32rem] leading-none drop-shadow-404-dark dark:drop-shadow-404-light text-light-40 dark:text-white"
             >
               4
             </div>
             <div
-              class="font-sand-black text-[32rem] leading-none drop-shadow-404-dark dark:drop-shadow-404-light text-light-40 dark:text-white"
+              class="font-sand-black text-9xl sm:text-[32rem] leading-none drop-shadow-404-dark dark:drop-shadow-404-light text-light-40 dark:text-white"
             >
               4
             </div>
@@ -124,12 +124,12 @@
           >
             <button
               on:click|stopPropagation={switchMode}
-              class="relative main-logo w-[25rem] aspect-square drop-shadow-404-dark dark:drop-shadow-404-light invert dark:invert-0 -translate-y-2"
+              class="relative main-logo w-[8rem] sm:w-[25rem] aspect-square drop-shadow-404-dark dark:drop-shadow-404-light invert dark:invert-0 -translate-y-2"
             >
               <div class="logo-shape" />
 
               <div
-                class="absolute w-28 aspect-auto top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 opacity-30 -mt-[1.5rem]"
+                class="absolute w-10 sm:w-28 aspect-auto top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 opacity-30 -mt-[0.5rem] sm:-mt-[1.5rem]"
               >
                 <svg
                   width="100%"
@@ -152,7 +152,7 @@
                 </svg>
               </div>
               <div
-                class="absolute w-36 aspect-auto top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 opacity-30 mt-[3rem]"
+                class="absolute w-10 sm:w-36 aspect-auto top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 opacity-30 mt-[1rem] sm:mt-[3rem]"
               >
                 <svg
                   width="100%"
@@ -173,7 +173,7 @@
             </button>
           </div>
         </div>
-        <p class="text-3xl">Oops! Page Not Found.</p>
+        <p class="text-xs sm:text-3xl">Oops! Page Not Found.</p>
       </div>
     {:else}
       <div class="text-center">

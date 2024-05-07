@@ -27,7 +27,7 @@
       CursorType.set("normal");
     },
   }}
-  class="relative z-[20] text-light-10 dark:text-light-100 text-5xl font-sans"
+  class="hidden sm:flex relative z-[20] text-light-10 dark:text-light-100 text-5xl font-sans"
 >
   <div class="transparent-layer" />
   <div
