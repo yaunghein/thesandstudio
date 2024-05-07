@@ -4,6 +4,8 @@
   import Swiper from "swiper";
   import { Autoplay, EffectFade } from "swiper/modules";
   import type { Work } from "$lib/types";
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
   export let work: Work;
 
@@ -26,9 +28,43 @@
       },
     });
   };
+
+  const inView = (node: HTMLDivElement) => {
+    if (window.innerWidth > 640) return;
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({
+      trigger: node,
+      scroller: "#mobile-work-container",
+      start: "top 50%",
+      end: "bottom 50%",
+      onEnter: () => dispatch("enter", work),
+      onEnterBack: () => dispatch("enterBack", work),
+    });
+  };
 </script>
 
 <div
+  use:inView
+  role="region"
+  use:swiper
+  on:mouseenter={() => dispatch("hoverIn", work)}
+  class="group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden {work.textColor ===
+  'light'
+    ? 'bg-light-10'
+    : 'bg-light-100'}"
+>
+  <!-- <div
+  use:inView={{ name: work.name }}
+  role="region"
+  use:swiper
+  on:mouseenter={() => dispatch("hoverIn", work)}
+  class="group w-full h-[10rem] relative overflow-hidden {work.textColor ===
+  'light'
+    ? 'bg-light-10'
+    : 'bg-light-100'}"
+> -->
+  <!-- <div
+  use:inView={{ name: work.name }}
   role="region"
   use:swiper
   on:mouseenter={() => dispatch("hoverIn", work)}
@@ -36,7 +72,7 @@
   'light'
     ? 'bg-light-10'
     : 'bg-light-100'}"
->
+> -->
   <div
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >

@@ -166,7 +166,7 @@
             "/images/archives/works/all-we-need/AWN Tape 2.webp",
           ],
           categories: ["Visual Identity", "Packaging"],
-          meta: ["Culture & Apparel", "Yangon", "2019"],
+          meta: ["Culture & Apparel", "Myanmar", "2019"],
         },
         {
           name: "HOG",
@@ -176,7 +176,7 @@
             "/images/archives/works/hog/HOG Mascot.webp",
           ],
           categories: ["Visual Identity"],
-          meta: ["E-Sports", "Yangon", "2017"],
+          meta: ["E-Sports", "Myanmar", "2017"],
         },
       ],
     },
