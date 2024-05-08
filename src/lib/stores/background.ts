@@ -32,7 +32,7 @@ export const Backgrounds: Writable<Background[]> = writable([
       dark: "/images/backgrounds/default-dark.webp",
     },
     src: "",
-    isOpen: false,
+    isOpen: true,
   },
   {
     id: crypto.randomUUID(),
@@ -42,7 +42,7 @@ export const Backgrounds: Writable<Background[]> = writable([
       dark: "/images/backgrounds/legacy-dark.webp",
     },
     src: "",
-    isOpen: true,
+    isOpen: false,
   },
 ]);
 
