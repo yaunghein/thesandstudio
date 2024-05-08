@@ -35,7 +35,7 @@
   >
     {#if !isOpen && $page.url.pathname === "/"}
       <span class="absolute top-0 left-1/2 -translate-x-1/2 hidden">
-        ©{new Date().getFullYear()} The Sand Studio
+        © {new Date().getFullYear()} The Sand Studio
       </span>
     {/if}
 
@@ -140,7 +140,7 @@
         href="/"
         on:mouseenter={() => CursorType.set("normal")}
       >
-        ©{new Date().getFullYear()}
+        © {new Date().getFullYear()}
       </a>
     </div>
 

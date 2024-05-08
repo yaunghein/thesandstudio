@@ -93,7 +93,7 @@
             class="relative w-[12.5rem] h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
           >
             <PixelBorder />
-            Yes
+            Hop in the DeLorean!
           </button>
         </div>
       </div>

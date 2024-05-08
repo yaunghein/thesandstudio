@@ -143,9 +143,9 @@
   // };
 
   const SIZES: Record<string, string> = {
-    100: "w-20",
-    125: "w-24",
-    150: "w-28",
+    100: "w-[4.5rem]",
+    125: "w-24", // adjust
+    150: "w-28", // adjust
   };
 
   let weather: any;
@@ -222,7 +222,7 @@
             />
           {/key}
         </div>
-        <div class="flex text-4xl leading-none gap-2">
+        <div class="flex text-4xl leading-none gap-2 -translate-y-4">
           <div>
             {unit === "C" ? weather.current.temp_c : weather.current.temp_f}
           </div>
