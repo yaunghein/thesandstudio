@@ -6,6 +6,7 @@
   import ButtonClose from "./ButtonClose.svelte";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
   import { addShell } from "$lib/stores/shell";
+  import { openContactTab } from "$lib/stores/finder";
 
   let isOpen = false;
 
@@ -157,12 +158,15 @@
         class="text-2xl text-light-80 dark:text-light-20 grid gap-8 mt-8 px-[0.6rem]"
       >
         <div class="flex flex-col gap-2">
-          <a
-            class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="mailto:hi@thesandstudio.com"
+          <button
+            class="leading-none text-left hover:text-black dark:hover:text-white sand-transition"
+            on:click={() => {
+              addShell({ id: "finder", zIndex: 65 });
+              openContactTab();
+            }}
           >
             hi@thesandstudio.com
-          </a>
+          </button>
         </div>
 
         <div class="flex flex-col gap-2">
