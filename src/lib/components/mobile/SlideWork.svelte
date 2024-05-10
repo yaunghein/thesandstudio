@@ -227,7 +227,7 @@
         <div class="mt-4 -mx-4 -my-4">
           {#each WORKS_GROUPS as workGroup}
             <div
-              class="z-10 grid grid-cols-2 gap-x-8 gap-y-1 px-5 py-3 rounded-[1.2rem] bg-white dark:bg-black sticky -top-4"
+              class="z-10 grid grid-cols-2 gap-x-8 gap-y-1 px-5 py-3 rounded-[1.2rem] bg-white dark:bg-black sticky -top-4 overflow-hidden"
             >
               <PixelBorder />
               <div class="text-xl font-sand-mobile-bold leading-[0.75]">
