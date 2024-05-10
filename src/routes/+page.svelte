@@ -151,33 +151,33 @@
   //   }
   // }
 
-  // const sandTextLottie = (node: HTMLDivElement) => {
-  //   const player = lottie.loadAnimation({
-  //     container: node,
-  //     renderer: "svg",
-  //     loop: false,
-  //     autoplay: false,
-  //     path: "lotties/sand-text.json",
-  //   });
-  //   const handleMouseEnter = () => {
-  //     player.setDirection(1);
-  //     player.setLoop(true);
-  //     player.play();
-  //   };
-  //   const handleMouseLeave = () => {
-  //     player.setDirection(-1);
-  //     player.setLoop(false);
-  //   };
-  //   node.addEventListener("mouseenter", handleMouseEnter);
-  //   node.addEventListener("mouseleave", handleMouseLeave);
+  const sandTextLottie = (node: HTMLDivElement) => {
+    const player = lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "/lotties/sand-text.json",
+    });
+    const handleMouseEnter = () => {
+      player.setDirection(1);
+      player.setLoop(true);
+      player.play();
+    };
+    const handleMouseLeave = () => {
+      player.setDirection(-1);
+      player.setLoop(false);
+    };
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
 
-  //   return {
-  //     destroy: () => {
-  //       node.removeEventListener("mouseenter", handleMouseEnter);
-  //       node.removeEventListener("mouseleave", handleMouseLeave);
-  //     },
-  //   };
-  // };
+    return {
+      destroy: () => {
+        node.removeEventListener("mouseenter", handleMouseEnter);
+        node.removeEventListener("mouseleave", handleMouseLeave);
+      },
+    };
+  };
 
   // let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
   // $: if ($SelectedBackground.name !== "bg-legacy") {
@@ -268,10 +268,10 @@
         fan.
       </p>
       <div class="overflow-hidden">
-        <!-- <div
+        <div
           use:sandTextLottie
           class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-        /> -->
+        />
       </div>
 
       <div class="min-h-[10.8rem]">
