@@ -2,7 +2,6 @@
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import gsap from "gsap";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import { twMerge as twm } from "tailwind-merge";
   import clickOutside from "$lib/utils/clickOutside";
   import Logo from "$lib/svgs/Logo.svelte";
@@ -161,19 +160,7 @@
             <Logo />
           </div>
           {#if browser}
-            <div class="dark:invert flex items-center h-full">
-              <LottiePlayer
-                src="/lotties/sand-footer-text.json"
-                autoplay={true}
-                loop={true}
-                renderer="svg"
-                background="transparent"
-                width={window.innerWidth}
-                height="100%"
-                controls=""
-                controlsLayout=""
-              />
-            </div>
+            <div class="dark:invert flex items-center h-full"></div>
           {/if}
         </div>
 
@@ -184,19 +171,7 @@
             <Logo />
           </div>
           {#if browser}
-            <div class="dark:invert flex items-center h-full">
-              <LottiePlayer
-                src="/lotties/sand-footer-text.json"
-                autoplay={true}
-                loop={true}
-                renderer="svg"
-                background="transparent"
-                width={window.innerWidth}
-                height="100%"
-                controls=""
-                controlsLayout=""
-              />
-            </div>
+            <div class="dark:invert flex items-center h-full"></div>
           {/if}
         </div>
       </div>

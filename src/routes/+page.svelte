@@ -19,20 +19,7 @@
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Child from "$lib/components/Child.svelte";
-  import LogoMain from "$lib/svgs/LogoMain.svelte";
-  import Header from "$lib/components/mobile/Header.svelte";
-  import MobileAppShell from "$lib/components/mobile/AppShell.svelte";
-  import SlideHome from "$lib/components/mobile/SlideHome.svelte";
-  import SlideMenu from "$lib/components/mobile/SlideMenu.svelte";
-  import SlideAbout from "$lib/components/mobile/SlideAbout.svelte";
-  import SlideContact from "$lib/components/mobile/SlideContact.svelte";
-  import SlideFATK from "$lib/components/mobile/SlideFATK.svelte";
-  import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
-  import SlideWork from "$lib/components/mobile/SlideWork.svelte";
-  import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
-  import SlidePrivacyPolicy from "$lib/components/mobile/SlidePrivacyPolicy.svelte";
-  import SlideTnC from "$lib/components/mobile/SlideTnC.svelte";
-  import SlideCookiePolicy from "$lib/components/mobile/SlideCookiePolicy.svelte";
+  // import LogoMain from "$lib/svgs/LogoMain.svelte";
 
   import "swiper/css/pagination";
 
@@ -101,118 +88,118 @@
     );
   }
 
-  const moveEye = (e: MouseEvent, spline: any) => {
-    let pupil_left_x = mapRange(e.clientX, 0, window.innerWidth, -10, 20);
-    let pupil_left_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
-    let pupil_right_x = mapRange(e.clientX, 0, window.innerWidth, -20, 10);
-    let pupil_right_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
+  // const moveEye = (e: MouseEvent, spline: any) => {
+  //   let pupil_left_x = mapRange(e.clientX, 0, window.innerWidth, -10, 20);
+  //   let pupil_left_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
+  //   let pupil_right_x = mapRange(e.clientX, 0, window.innerWidth, -20, 10);
+  //   let pupil_right_y = -mapRange(e.clientY, 0, window.innerHeight, -8, 8);
 
-    pupil_left_x = Math.min(Math.max(pupil_left_x, -10), 10);
-    pupil_right_x = Math.min(Math.max(pupil_right_x, -10), 10);
+  //   pupil_left_x = Math.min(Math.max(pupil_left_x, -10), 10);
+  //   pupil_right_x = Math.min(Math.max(pupil_right_x, -10), 10);
 
-    spline?.setVariables({
-      pupil_left_x,
-      pupil_left_y,
-      pupil_right_x,
-      pupil_right_y,
-    });
-  };
+  //   spline?.setVariables({
+  //     pupil_left_x,
+  //     pupil_left_y,
+  //     pupil_right_x,
+  //     pupil_right_y,
+  //   });
+  // };
 
   // a couple timeout wrappers to ensure the spline app loads properly 🥲
-  const create3DBackground = (node: HTMLCanvasElement) => {
-    CursorType.set("loading");
-    spline = new Application(node);
-    setTimeout(() => {
-      spline
-        .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
-        .then(() => {
-          setTimeout(() => (isSplineLoaded = true), 1000);
-          CursorType.set("normal");
-          spline.addEventListener("mouseDown", clickWebThemeSwitcher);
-          window.addEventListener("mousemove", (e) => moveEye(e, spline));
-        });
-    }, 3000);
-  };
+  // const create3DBackground = (node: HTMLCanvasElement) => {
+  //   CursorType.set("loading");
+  //   spline = new Application(node);
+  //   setTimeout(() => {
+  //     spline
+  //       .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
+  //       .then(() => {
+  //         setTimeout(() => (isSplineLoaded = true), 1000);
+  //         CursorType.set("normal");
+  //         spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+  //         window.addEventListener("mousemove", (e) => moveEye(e, spline));
+  //       });
+  //   }, 3000);
+  // };
 
-  onDestroy(() => {
-    if (!browser) return;
-    window.removeEventListener("mousemove", (e) => moveEye(e, spline));
-  });
+  // onDestroy(() => {
+  //   if (!browser) return;
+  //   window.removeEventListener("mousemove", (e) => moveEye(e, spline));
+  // });
 
-  $: if ($SelectedBackground) {
-    if (browser) {
-      const hasSpline = !!spline;
-      const is3DBg = $SelectedBackground.name === "bg-scene";
-      const isLightMode = localStorage.getItem("sand-theme") === "light";
+  // $: if ($SelectedBackground) {
+  //   if (browser) {
+  //     const hasSpline = !!spline;
+  //     const is3DBg = $SelectedBackground.name === "bg-scene";
+  //     const isLightMode = localStorage.getItem("sand-theme") === "light";
 
-      if (!is3DBg) {
-        spline = null;
-        isSplineLoaded = false;
-        isSplineThemeChangeComplete = false;
-      }
+  //     if (!is3DBg) {
+  //       spline = null;
+  //       isSplineLoaded = false;
+  //       isSplineThemeChangeComplete = false;
+  //     }
 
-      if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
-        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
-      }
+  //     if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
+  //       setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+  //     }
 
-      if (hasSpline && is3DBg && isLightMode && isSplineLoaded) {
-        spline.removeEventListener("mouseDown", clickWebThemeSwitcher);
-        spline.emitEvent("mouseDown", "Logo");
-        spline.addEventListener("mouseDown", clickWebThemeSwitcher);
-        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
-      }
-    }
-  }
+  //     if (hasSpline && is3DBg && isLightMode && isSplineLoaded) {
+  //       spline.removeEventListener("mouseDown", clickWebThemeSwitcher);
+  //       spline.emitEvent("mouseDown", "Logo");
+  //       spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+  //       setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+  //     }
+  //   }
+  // }
 
-  const sandTextLottie = (node: HTMLDivElement) => {
-    const player = lottie.loadAnimation({
-      container: node,
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-      path: "lotties/sand-text.json",
-    });
-    const handleMouseEnter = () => {
-      player.setDirection(1);
-      player.setLoop(true);
-      player.play();
-    };
-    const handleMouseLeave = () => {
-      player.setDirection(-1);
-      player.setLoop(false);
-    };
-    node.addEventListener("mouseenter", handleMouseEnter);
-    node.addEventListener("mouseleave", handleMouseLeave);
+  // const sandTextLottie = (node: HTMLDivElement) => {
+  //   const player = lottie.loadAnimation({
+  //     container: node,
+  //     renderer: "svg",
+  //     loop: false,
+  //     autoplay: false,
+  //     path: "lotties/sand-text.json",
+  //   });
+  //   const handleMouseEnter = () => {
+  //     player.setDirection(1);
+  //     player.setLoop(true);
+  //     player.play();
+  //   };
+  //   const handleMouseLeave = () => {
+  //     player.setDirection(-1);
+  //     player.setLoop(false);
+  //   };
+  //   node.addEventListener("mouseenter", handleMouseEnter);
+  //   node.addEventListener("mouseleave", handleMouseLeave);
 
-    return {
-      destroy: () => {
-        node.removeEventListener("mouseenter", handleMouseEnter);
-        node.removeEventListener("mouseleave", handleMouseLeave);
-      },
-    };
-  };
+  //   return {
+  //     destroy: () => {
+  //       node.removeEventListener("mouseenter", handleMouseEnter);
+  //       node.removeEventListener("mouseleave", handleMouseLeave);
+  //     },
+  //   };
+  // };
 
-  let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
-  $: if ($SelectedBackground.name !== "bg-legacy") {
-    loadedLegacyLotties = [];
-  }
-  $: if (loadedLegacyLotties.length === 3) {
-    for (const lottie of loadedLegacyLotties) {
-      lottie.player.goToAndPlay(lottie.startFrame, true);
-    }
-  }
-  const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
-    const player = lottie.loadAnimation({
-      container: node,
-      renderer: "svg",
-      loop: true,
-      autoplay: false,
-      path: "/lotties/categories-displace-v2.json",
-    });
-    player.addEventListener("DOMLoaded", () => {
-      loadedLegacyLotties = [...loadedLegacyLotties, { player, startFrame }];
-    });
-  };
+  // let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
+  // $: if ($SelectedBackground.name !== "bg-legacy") {
+  //   loadedLegacyLotties = [];
+  // }
+  // $: if (loadedLegacyLotties.length === 3) {
+  //   for (const lottie of loadedLegacyLotties) {
+  //     lottie.player.goToAndPlay(lottie.startFrame, true);
+  //   }
+  // }
+  // const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
+  //   const player = lottie.loadAnimation({
+  //     container: node,
+  //     renderer: "svg",
+  //     loop: true,
+  //     autoplay: false,
+  //     path: "/lotties/categories-displace-v2.json",
+  //   });
+  //   player.addEventListener("DOMLoaded", () => {
+  //     loadedLegacyLotties = [...loadedLegacyLotties, { player, startFrame }];
+  //   });
+  // };
 
   const openTermsAndConditions = () => {
     addShell({ id: "copyright", zIndex: 65 });
@@ -243,7 +230,7 @@
 
 <div class="hidden sm:block">
   <AppShell>
-    {#if $SelectedBackground?.name === "bg-scene"}
+    <!-- {#if $SelectedBackground?.name === "bg-scene"}
       <div
         class={twm(
           "sticky top-0 bottom-0 h-screen sand-transition",
@@ -254,9 +241,9 @@
       >
         <canvas use:create3DBackground></canvas>
       </div>
-    {/if}
+    {/if} -->
 
-    {#if $SelectedBackground?.name === "bg-legacy"}
+    <!-- {#if $SelectedBackground?.name === "bg-legacy"}
       <div
         class={twm(
           "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
@@ -269,7 +256,7 @@
         <div use:legacyLottie={120} />
         <div use:legacyLottie={240} />
       </div>
-    {/if}
+    {/if} -->
 
     <div
       class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
@@ -281,10 +268,10 @@
         fan.
       </p>
       <div class="overflow-hidden">
-        <div
+        <!-- <div
           use:sandTextLottie
           class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-        />
+        /> -->
       </div>
 
       <div class="min-h-[10.8rem]">
@@ -327,7 +314,7 @@
       </a>
     </div>
 
-    <div
+    <!-- <div
       class={twm(
         "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
         $SelectedBackground?.name === "bg-scene" &&
@@ -335,7 +322,7 @@
       )}
     >
       <LogoMain />
-    </div>
+    </div> -->
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
       <Apps />
@@ -361,22 +348,4 @@
       {/each}
     {/if}
   </AppShell>
-</div>
-
-<div class="sm:hidden">
-  <MobileAppShell>
-    <Header />
-    <div class="swiper relative pb-3">
-      <div class="swiper-wrapper flex h-[calc(100dvh-9rem)] pt-2 pb-3">
-        <SlideHome />
-        <SlideMenu />
-        <SlideAbout />
-        <SlideContact {swiperIndex} />
-        <SlideFATK />
-        <SlideNotWork />
-        <SlideWork />
-        <SlideExplorer />
-      </div>
-    </div>
-  </MobileAppShell>
 </div>
