@@ -168,13 +168,15 @@
         <div class="flex flex-col gap-2">
           <a
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="Instagram"
+            href="https://www.instagram.com/the.sandstudio/"
+            target="_blank"
           >
             Instagram
           </a>
           <a
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            href="Instagram"
+            href="https://www.facebook.com/thesandstudio.works"
+            target="_blank"
           >
             Facebook
           </a>

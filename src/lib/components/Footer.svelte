@@ -131,9 +131,17 @@
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
     <div class="relative flex items-center gap-12 px-[3rem] pt-6 text-3xl">
-      <a href="/" on:mouseenter={() => CursorType.set("normal")}> INSTAGRAM </a>
+      <a
+        href="https://www.instagram.com/the.sandstudio/"
+        target="_blank"
+        on:mouseenter={() => CursorType.set("normal")}>INSTAGRAM</a
+      >
 
-      <a href="/" on:mouseenter={() => CursorType.set("normal")}> FACEBOOK </a>
+      <a
+        href="https://www.facebook.com/thesandstudio.works"
+        target="_blank"
+        on:mouseenter={() => CursorType.set("normal")}>FACEBOOK</a
+      >
 
       <a
         class="ml-auto"
