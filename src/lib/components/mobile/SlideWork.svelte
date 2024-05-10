@@ -195,7 +195,7 @@
       <div
         id="mobile-work-container"
         style="overscroll-behavior: none;"
-        class="p-4 w-full h-full rounded-[0.8rem] relative overflow-scroll hide-scrollbar"
+        class="p-4 w-full h-full rounded-[1.08rem] relative overflow-scroll hide-scrollbar"
       >
         <div class="grid grid-cols-2 gap-8">
           <div>
