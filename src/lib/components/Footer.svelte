@@ -2,6 +2,8 @@
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import gsap from "gsap";
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
   import clickOutside from "$lib/utils/clickOutside";
   import Logo from "$lib/svgs/Logo.svelte";
@@ -10,6 +12,16 @@
   import { addShell } from "$lib/stores/shell";
 
   let isOpen = false;
+
+  const playLottie = (node: HTMLDivElement, path: string) => {
+    lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path,
+    });
+  };
 
   const moveText = (node: HTMLDivElement) => {
     const tl = gsap.timeline({ repeat: Infinity });
@@ -34,7 +46,7 @@
   >
     {#if !isOpen && $page.url.pathname === "/"}
       <span class="absolute top-0 left-1/2 -translate-x-1/2 hidden">
-        ©{new Date().getFullYear()} The Sand Studio
+        © {new Date().getFullYear()} The Sand Studio
       </span>
     {/if}
 
@@ -130,16 +142,24 @@
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
   >
     <div class="relative flex items-center gap-12 px-[3rem] pt-6 text-3xl">
-      <a href="/" on:mouseenter={() => CursorType.set("normal")}> INSTAGRAM </a>
+      <a
+        href="https://www.instagram.com/the.sandstudio/"
+        target="_blank"
+        on:mouseenter={() => CursorType.set("normal")}>INSTAGRAM</a
+      >
 
-      <a href="/" on:mouseenter={() => CursorType.set("normal")}> FACEBOOK </a>
+      <a
+        href="https://www.facebook.com/thesandstudio.works"
+        target="_blank"
+        on:mouseenter={() => CursorType.set("normal")}>FACEBOOK</a
+      >
 
       <a
         class="ml-auto"
         href="/"
         on:mouseenter={() => CursorType.set("normal")}
       >
-        ©{new Date().getFullYear()}
+        © {new Date().getFullYear()}
       </a>
     </div>
 
@@ -152,16 +172,17 @@
       on:mouseleave={() => CursorType.set("normal")}
       class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
     >
-      <div class="flex items-center h-full">
+      <div class="flex items-center h-full shrink-0">
         <div use:moveText class="flex h-full">
           <div
             class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
           >
             <Logo />
           </div>
-          {#if browser}
-            <div class="dark:invert flex items-center h-full"></div>
-          {/if}
+
+          <div class="dark:invert flex items-center h-full shrink-0">
+            <div use:playLottie={"/lotties/sand-text-footer.json"} />
+          </div>
         </div>
 
         <div use:moveText class="flex h-full">
@@ -170,11 +191,12 @@
           >
             <Logo />
           </div>
-          {#if browser}
-            <div class="dark:invert flex items-center h-full"></div>
-          {/if}
+
+          <div class="dark:invert flex items-center h-full shrink-0">
+            <div use:playLottie={"/lotties/sand-text-footer.json"} />
+          </div>
         </div>
-      </div>
-    </button>
+      </div></button
+    >
   </div>
 </footer>

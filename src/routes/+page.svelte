@@ -2,7 +2,6 @@
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import { onMount, onDestroy } from "svelte";
-  import { Application } from "@splinetool/runtime";
   import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
   import Swiper from "swiper";
