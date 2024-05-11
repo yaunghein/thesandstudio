@@ -21,32 +21,32 @@
   > = {
     "sunny-clear": {
       conditions: ["Sunny", "Clear"],
-      image: "/images/weather-icons/sunny-clear.webp",
+      image: "/weather-icons/sunny-clear.webp",
       size: 100,
     },
     "partly-cloudy": {
       conditions: ["Partly cloudy"],
-      image: "/images/weather-icons/partly-cloudy.webp",
+      image: "/weather-icons/partly-cloudy.webp",
       size: 100,
     },
     cloudy: {
       conditions: ["Cloudy"],
-      image: "/images/weather-icons/cloudy.webp",
+      image: "/weather-icons/cloudy.webp",
       size: 100,
     },
     overcast: {
       conditions: ["Overcast"],
-      image: "/images/weather-icons/overcast.webp",
+      image: "/weather-icons/overcast.webp",
       size: 125,
     },
     "fog-mist": {
       conditions: ["Mist", "Fog"],
-      image: "/images/weather-icons/fog-mist.webp",
+      image: "/weather-icons/fog-mist.webp",
       size: 125,
     },
     "freezing-fog": {
       conditions: ["Freezing fog"],
-      image: "/images/weather-icons/freezing-fog.webp",
+      image: "/weather-icons/freezing-fog.webp",
       size: 150,
     },
     "all-rain": {
@@ -64,7 +64,7 @@
         "Patchy light drizzle",
         "Light drizzle",
       ],
-      image: "/images/weather-icons/all-rain.webp",
+      image: "/weather-icons/all-rain.webp",
       size: 100,
     },
     "all-freezing-rain": {
@@ -75,7 +75,7 @@
         "Freezing drizzle",
         "Heavy freezing drizzle",
       ],
-      image: "/images/weather-icons/all-freezing-rain.webp",
+      image: "/weather-icons/all-freezing-rain.webp",
       size: 150,
     },
     "all-snow": {
@@ -89,12 +89,12 @@
         "Heavy snow",
         "Light snow showers",
       ],
-      image: "/images/weather-icons/all-snow.webp",
+      image: "/weather-icons/all-snow.webp",
       size: 100,
     },
     thunder: {
       conditions: ["Thundery outbreaks possible"],
-      image: "/images/weather-icons/thunder.webp",
+      image: "/weather-icons/thunder.webp",
       size: 100,
     },
     "snow-thunder": {
@@ -102,7 +102,7 @@
         "Patchy light snow with thunder",
         "Moderate or heavy snow with thunder",
       ],
-      image: "/images/weather-icons/snow-thunder.webp",
+      image: "/weather-icons/snow-thunder.webp",
       size: 100,
     },
     "rain-thunder": {
@@ -110,7 +110,7 @@
         "Patchy light rain with thunder",
         "Moderate or heavy rain with thunder",
       ],
-      image: "/images/weather-icons/rain-thunder.webp",
+      image: "/weather-icons/rain-thunder.webp",
       size: 100,
     },
     "all-sleet-blizzard-pellets": {
@@ -126,12 +126,12 @@
         "Light showers of ice pellets",
         "Moderate or heavy showers of ice pellets",
       ],
-      image: "/images/weather-icons/all-sleet-blizzard-pellets.webp",
+      image: "/weather-icons/all-sleet-blizzard-pellets.webp",
       size: 100,
     },
     "blowing-snow": {
       conditions: ["Blowing snow"],
-      image: "/images/weather-icons/blowing-snow.webp",
+      image: "/weather-icons/blowing-snow.webp",
       size: 100,
     },
   };
