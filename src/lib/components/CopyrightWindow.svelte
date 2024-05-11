@@ -94,7 +94,7 @@
               </p>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">1. Definitions</div>
+                <div class="text-3xl font-sand-medium mb-4">1. Definitions</div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
                   <li>
                     "Company": Refers to SAND, where we do all sorts of
@@ -113,7 +113,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   2. Scope of Services
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -145,7 +145,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   3. Client Responsibilities
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -165,7 +165,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   4. Payment and Pricing
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -185,7 +185,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   5. Intellectual Property Rights
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -202,7 +202,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   6. Disclaimers and Limitation of Liability
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -220,7 +220,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   7. Indemnification
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -234,7 +234,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   8. Termination and Project Cancellation
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -254,7 +254,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   9. Privacy Policy and Data Protection
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -271,7 +271,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   10. Governing Law and Dispute Resolution
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -288,7 +288,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   11. Changes to the Terms and Conditions
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -304,7 +304,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   12. Contact Information
                 </div>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
@@ -331,7 +331,7 @@
               </p>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   1. Information Collection and Consent
                 </div>
                 <p>
@@ -347,7 +347,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   2. Use of Personal Information
                 </div>
                 <p>
@@ -369,7 +369,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   3. Data We Collect
                 </div>
                 <p class="mb-4">
@@ -385,7 +385,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   4. Cookies and Third-Party Technologies
                 </div>
                 <p>
@@ -399,7 +399,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   5. Children's Privacy
                 </div>
                 <p>
@@ -413,7 +413,9 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">6. Data Security</div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  6. Data Security
+                </div>
                 <p>
                   We implement industry-standard security measures to protect
                   your personal information from unauthorized access, loss, or
@@ -424,7 +426,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   7. Your Rights and Choices
                 </div>
                 <p>
@@ -436,7 +438,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   8. Changes to This Policy
                 </div>
                 <p>
@@ -449,7 +451,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">9. Contact Us</div>
+                <div class="text-3xl font-sand-medium mb-4">9. Contact Us</div>
                 <p>
                   If you have questions about this Privacy Policy,
                   hi@thesandstudio.com. We're happy to assist with any
@@ -470,7 +472,7 @@
               </p>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   1. What Are Cookies?
                 </div>
                 <p>
@@ -482,7 +484,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   2. Why We Use Cookies
                 </div>
                 <p class="mb-4">We use cookies to:</p>
@@ -495,7 +497,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   3. Third-Party Cookies
                 </div>
                 <p>
@@ -507,7 +509,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   4. Managing Cookies
                 </div>
                 <p class="mb-4">
@@ -529,7 +531,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   5. Privacy Policy and Data Protection
                 </div>
                 <p>
@@ -540,7 +542,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">
+                <div class="text-3xl font-sand-medium mb-4">
                   6. Changes to This Policy
                 </div>
                 <p>
@@ -552,7 +554,7 @@
               </div>
 
               <div>
-                <div class="text-3xl font-sand-bold mb-4">7. Contact Us</div>
+                <div class="text-3xl font-sand-medium mb-4">7. Contact Us</div>
                 <p>
                   If you have questions about our Cookies Policy or need
                   assistance managing cookies, hi@thesandstudio.com. We're here

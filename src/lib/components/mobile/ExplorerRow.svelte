@@ -79,8 +79,8 @@
           {@const medias = getFiles(file)}
           <div
             class="grid {file.label === 'Sawbwa Morning Blend'
-              ? 'grid-cols-1'
-              : 'grid-cols-2'} p-1 pt-[2px] gap-[2px] align-top"
+              ? 'grid-cols-2'
+              : 'grid-cols-1'} p-1 pt-[2px] gap-[2px] align-top"
           >
             {#each medias as media}
               {#if media.mediaType === "img"}

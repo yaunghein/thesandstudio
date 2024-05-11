@@ -1707,14 +1707,14 @@ const files: File[] = [
         label: "Sawbwa Morning Blend",
         isOpen: false,
         data: [
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "Sawbwa.webp",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc: "/images/archives/works/sawbwa-morning-blend/Sawbwa.webp",
-          },
+          // {
+          //   id: crypto.randomUUID(),
+          //   type: "file",
+          //   label: "Sawbwa.webp",
+          //   isOpen: false,
+          //   mediaType: "img",
+          //   mediaSrc: "/images/archives/works/sawbwa-morning-blend/Sawbwa.webp",
+          // },
           {
             id: crypto.randomUUID(),
             type: "file",
