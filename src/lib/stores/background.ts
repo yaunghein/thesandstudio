@@ -9,7 +9,6 @@ type Background = {
     light: string;
     dark: string;
   };
-  src: string; // what is this for :3
   isOpen: boolean;
 };
 
@@ -18,8 +17,8 @@ export const Backgrounds: Writable<Background[]> = writable([
     id: crypto.randomUUID(),
     name: "bg-scene",
     thumbnail: {
-      light: "/images/backgrounds/3d-scene-light.webp",
-      dark: "/images/backgrounds/3d-scene-dark.webp",
+      light: "/background-thumbnails/3d-scene-light.webp",
+      dark: "/background-thumbnails/3d-scene-dark.webp",
     },
     src: "",
     isOpen: false,
@@ -28,21 +27,21 @@ export const Backgrounds: Writable<Background[]> = writable([
     id: crypto.randomUUID(),
     name: "bg-default",
     thumbnail: {
-      light: "/images/backgrounds/default-light.webp",
-      dark: "/images/backgrounds/default-dark.webp",
+      light: "/background-thumbnails/default-light.webp",
+      dark: "/background-thumbnails/default-dark.webp",
     },
     src: "",
-    isOpen: true,
+    isOpen: false,
   },
   {
     id: crypto.randomUUID(),
     name: "bg-legacy",
     thumbnail: {
-      light: "/images/backgrounds/legacy-light.webp",
-      dark: "/images/backgrounds/legacy-dark.webp",
+      light: "/background-thumbnails/legacy-light.webp",
+      dark: "/background-thumbnails/legacy-dark.webp",
     },
     src: "",
-    isOpen: false,
+    isOpen: true,
   },
 ]);
 
