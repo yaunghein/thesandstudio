@@ -2,7 +2,7 @@
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
   import { OpenShells, removeShell } from "$lib/stores/shell";
-  import { Backgrounds } from "$lib/stores/background";
+  import { Backgrounds, changeBackground } from "$lib/stores/background";
   import { changeCursorType } from "$lib/stores/cursor";
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
@@ -45,17 +45,7 @@
       class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl p-6 grid grid-cols-2 gap-3"
     >
       {#each $Backgrounds as bg}
-        <button
-          on:click={() => {
-            Backgrounds.set(
-              $Backgrounds.map((item) =>
-                item.id === bg.id
-                  ? { ...item, isOpen: true }
-                  : { ...item, isOpen: false },
-              ),
-            );
-          }}
-        >
+        <button on:click={() => changeBackground(bg.name)}>
           <div
             use:changeCursorType={{ inType: bg.name, outType: "normal" }}
             class="relative rounded-xl overflow-hidden"

@@ -38,8 +38,6 @@
   onMount(() => {
     if (!browser) return;
     document.addEventListener("click", handleClick);
-
-    alert(`isMac: ${data.isMac}\nisMobile: ${data.isMobile}`);
   });
 
   onDestroy(() => {

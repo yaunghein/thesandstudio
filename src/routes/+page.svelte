@@ -8,7 +8,7 @@
   import Swiper from "swiper";
   import { Pagination } from "swiper/modules";
   import { addShell, OpenShells } from "$lib/stores/shell";
-  import { SelectedBackground } from "$lib/stores/background";
+  import { SelectedBackground, changeBackground } from "$lib/stores/background";
   import { MobileHomeSwiper } from "$lib/stores/slider";
   import { CursorType } from "$lib/stores/cursor";
   import Dock from "$lib/components/Dock.svelte";
@@ -30,17 +30,24 @@
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
-  import SlidePrivacyPolicy from "$lib/components/mobile/SlidePrivacyPolicy.svelte";
-  import SlideTnC from "$lib/components/mobile/SlideTnC.svelte";
-  import SlideCookiePolicy from "$lib/components/mobile/SlideCookiePolicy.svelte";
 
   import "swiper/css/pagination";
 
   export let data;
+  const { isMac, isMobile } = data;
 
   let swiperIndex = 0;
+
   onMount(() => {
-    if (!browser || !data.isMobile) return;
+    if (!browser) return;
+
+    // set legacy bg as default only in Mac
+    if (isMac) {
+      changeBackground("bg-legacy");
+    }
+
+    // this means codes below are for mobile
+    if (!isMobile) return;
     const swiper = new Swiper(".swiper", {
       loop: false,
       modules: [Pagination],
@@ -49,7 +56,6 @@
         clickable: true,
       },
     });
-
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
     });
@@ -241,7 +247,7 @@
   };
 </script>
 
-{#if !data.isMobile}
+{#if !isMobile}
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
@@ -370,7 +376,7 @@
   </AppShell>
 {/if}
 
-{#if data.isMobile}
+{#if isMobile}
   <MobileAppShell>
     <Header />
     <div class="swiper relative pb-3">
