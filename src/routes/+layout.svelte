@@ -38,6 +38,8 @@
   onMount(() => {
     if (!browser) return;
     document.addEventListener("click", handleClick);
+
+    alert(`isMac: ${data.isMac}\nisMobile: ${data.isMobile}`);
   });
 
   onDestroy(() => {
@@ -94,7 +96,7 @@
   <slot />
 </div>
 
-<div class="hidden sm:block">
+{#if !data.isMobile}
   <Cursor />
   <Grains />
-</div>
+{/if}

@@ -115,10 +115,12 @@
   on:click|stopPropagation={switchMode}
   class="relative main-logo w-full h-full"
 >
-  <div class="logo-shape" />
   <!-- <div
-    class="absolute bg-red-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[50%] aspect-square"
+    class="absolute z-10 bg-red-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[50%] aspect-square"
   ></div> -->
+
+  <div class="logo-shape" />
+
   <div class="logo-mouth absolute inset-0 w-full h-full">
     <div
       class="text-black w-[40%] absolute left-1/2 -translate-x-1/2 bottom-[30%]"
@@ -140,6 +142,7 @@
       </svg>
     </div>
   </div>
+
   <div class=" absolute inset-0 w-full h-full">
     <div
       class="text-black w-[12%] absolute left-1/2 -translate-x-1/2 bottom-[50%]"

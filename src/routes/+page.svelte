@@ -19,13 +19,28 @@
   import Backgrounds from "$lib/components/Backgrounds.svelte";
   import SandScan from "$lib/components/sand-scan/SandScan.svelte";
   import Child from "$lib/components/Child.svelte";
-  // import LogoMain from "$lib/svgs/LogoMain.svelte";
+  import LogoMain from "$lib/svgs/LogoMain.svelte";
+  import Header from "$lib/components/mobile/Header.svelte";
+  import MobileAppShell from "$lib/components/mobile/AppShell.svelte";
+  import SlideHome from "$lib/components/mobile/SlideHome.svelte";
+  import SlideMenu from "$lib/components/mobile/SlideMenu.svelte";
+  import SlideAbout from "$lib/components/mobile/SlideAbout.svelte";
+  import SlideContact from "$lib/components/mobile/SlideContact.svelte";
+  import SlideFATK from "$lib/components/mobile/SlideFATK.svelte";
+  import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
+  import SlideWork from "$lib/components/mobile/SlideWork.svelte";
+  import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
+  import SlidePrivacyPolicy from "$lib/components/mobile/SlidePrivacyPolicy.svelte";
+  import SlideTnC from "$lib/components/mobile/SlideTnC.svelte";
+  import SlideCookiePolicy from "$lib/components/mobile/SlideCookiePolicy.svelte";
 
   import "swiper/css/pagination";
 
+  export let data;
+
   let swiperIndex = 0;
   onMount(() => {
-    if (!browser) return;
+    if (!browser || !data.isMobile) return;
     const swiper = new Swiper(".swiper", {
       loop: false,
       modules: [Pagination],
@@ -48,8 +63,6 @@
       pageName === "menu" && $MobileHomeSwiper?.slideTo(1);
     }
   }
-
-  export let data;
 
   let { supabase, session } = data;
   $: ({ supabase, session } = data);
@@ -228,7 +241,7 @@
   };
 </script>
 
-<div class="hidden sm:block">
+{#if !data.isMobile}
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
@@ -314,6 +327,13 @@
       </a>
     </div>
 
+    {#if $SelectedBackground?.name !== "bg-scene"}
+      <div
+        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
+      >
+        <LogoMain />
+      </div>
+    {/if}
     <!-- <div
       class={twm(
         "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
@@ -348,4 +368,22 @@
       {/each}
     {/if}
   </AppShell>
-</div>
+{/if}
+
+{#if data.isMobile}
+  <MobileAppShell>
+    <Header />
+    <div class="swiper relative pb-3">
+      <div class="swiper-wrapper flex h-[calc(100dvh-9rem)] pt-2 pb-3">
+        <SlideHome />
+        <SlideMenu />
+        <SlideAbout />
+        <SlideContact {swiperIndex} />
+        <SlideFATK />
+        <SlideNotWork />
+        <SlideWork />
+        <SlideExplorer />
+      </div>
+    </div>
+  </MobileAppShell>
+{/if}
