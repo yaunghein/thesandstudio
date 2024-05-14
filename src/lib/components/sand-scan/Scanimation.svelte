@@ -9,7 +9,7 @@
   import transformToImageObjects from "$lib/utils/scanimation/transformToImageObjects";
   import drawBars from "$lib/utils/scanimation/drawBars";
   import downloadImages from "$lib/utils/scanimation/downloadImages";
-  import { updated } from "$app/stores";
+  import playLottie from "$lib/utils/playLottie";
 
   onMount(() => {
     gsap.registerPlugin(Draggable);
@@ -193,12 +193,20 @@
     <div class="w-[18rem] flex shrink-0 flex-col">
       <div class="relative flex flex-col h-full px-10 py-9 overflow-hidden">
         <div
-          class="w-full grid place-items-center overflow-hidden rounded-2xl mb-5 dark:invert"
+          class="w-full grid place-items-center overflow-hidden rounded-2xl mb-5"
         >
-          <img
+          <!-- <img
             src="/images/sand-scan.gif"
             class="w-full h-40 object-cover"
             alt="SAND Scan Icon"
+          /> -->
+          <div
+            class="hidden dark:block"
+            use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715710030/lotties/sand-scan-display-logo-white_ldxqc5.json"}
+          />
+          <div
+            class="dark:hidden"
+            use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715710027/lotties/sand-scan-display-logo-dark_cgoacy.json"}
           />
         </div>
 
