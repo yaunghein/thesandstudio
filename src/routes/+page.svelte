@@ -173,7 +173,7 @@
   const sandTextLottie = (node: HTMLDivElement) => {
     const player = lottie.loadAnimation({
       container: node,
-      renderer: "svg",
+      renderer: "canvas",
       loop: false,
       autoplay: false,
       path: "/lotties/sand-text.json",
@@ -210,10 +210,10 @@
   const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
     const player = lottie.loadAnimation({
       container: node,
-      renderer: "svg",
+      renderer: "canvas",
       loop: true,
       autoplay: false,
-      path: "/lotties/background-legacy.json",
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715748233/lotties/background-legacy_zdjgh0.json",
     });
     player.addEventListener("DOMLoaded", () => {
       loadedLegacyLotties = [...loadedLegacyLotties, { player, startFrame }];
@@ -271,9 +271,9 @@
             : "opacity-0",
         )}
       >
-        <div use:legacyLottie={0} />
-        <div use:legacyLottie={120} />
-        <div use:legacyLottie={240} />
+        <div use:legacyLottie={0} class="h-[28rem]" />
+        <div use:legacyLottie={120} class="h-[28rem]" />
+        <div use:legacyLottie={240} class="h-[28rem]" />
       </div>
     {/if}
 

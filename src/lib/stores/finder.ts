@@ -37,51 +37,47 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         type: "file",
         label: "Sand Scan",
         isOpen: false,
-        icon: "/lotties/sand-scan.json",
+        icon: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763208/lotties/sand-scan_okfmci.json",
         handleClick: () => addShell({ id: "sand-scan", zIndex: 65 }),
         description:
           "Barrier-grid animation and stereography automation software.",
         mediaType: "img",
-        mediaSrc:
-          "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
+        mediaSrc: "",
       },
       {
         id: crypto.randomUUID(),
         type: "file",
         label: "For All Thingkind",
         isOpen: false,
-        icon: "/lotties/fatk.json",
+        icon: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763241/lotties/fatk_tdug6t.json",
         handleClick: () => goto("/for-all-thingkind"),
         description:
           "We embrace all forms, materials, and ideas, shaping them into products that  reflect a confluence of diverse inspirations and tangible craftsmanship.",
         mediaType: "img",
-        mediaSrc:
-          "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
+        mediaSrc: "",
       },
       {
         id: crypto.randomUUID(),
         type: "file",
         label: "Works",
         isOpen: false,
-        icon: "/lotties/works.json",
+        icon: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763270/lotties/works_tyaamm.json",
         handleClick: () => goto("/works"),
         description: "Paid Works",
         mediaType: "img",
-        mediaSrc:
-          "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
+        mediaSrc: "",
       },
       {
         id: crypto.randomUUID(),
         type: "file",
         label: "Not Works",
         isOpen: false,
-        icon: "/lotties/not-works.gif",
+        icon: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715763428/app-images/not-works_kxc53g.gif",
         handleClick: () => goto("/not-works"),
         description:
           "Valuing and cultivating the creative aspect of the human spirit, recognizing it as a powerful tool for solving problems, expressing oneself, and understanding the world. Encouraging innovation and original thought, breaking free from traditional constraints, and exploring new ideas without being hindered by fear or skepticism.",
         mediaType: "img",
-        mediaSrc:
-          "https://www.musicmundial.com/en/wp-content/uploads/2022/01/What-would-happen-to-ITZY-Ryujin-almost-became-a-YG-Entertainment-trainee..jpg",
+        mediaSrc: "",
       },
     ],
   };
