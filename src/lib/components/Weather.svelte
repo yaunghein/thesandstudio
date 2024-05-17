@@ -15,6 +15,18 @@
     LOCAL: "",
   };
 
+  const SIZES: Record<string, string> = {
+    100: "w-[4.5rem]",
+    125: "w-24",
+    150: "w-28",
+  };
+
+  const MARGIN_TOPS: Record<string, string> = {
+    100: "-mt-3",
+    125: "-mt-5",
+    150: "-mt-3",
+  };
+
   const ICONS: Record<
     string,
     { conditions: string[]; image: string; size: number }
@@ -29,7 +41,11 @@
       conditions: ["Partly cloudy"],
       image:
         "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/partly-cloudy_en5jdk.webp",
+      // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/overcast_r8j36z.webp",
+      // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881620/weather-icons/all-freezing-rain_reta7o.webp",
       size: 100,
+      // size: 125,
+      // size: 150,
     },
     cloudy: {
       conditions: ["Cloudy"],
@@ -150,18 +166,6 @@
     },
   };
 
-  // const GAPS: Record<string, string> = {
-  //   100: "gap-5",
-  //   125: "gap-2",
-  //   150: "gap-0",
-  // };
-
-  const SIZES: Record<string, string> = {
-    100: "w-[4.5rem]",
-    125: "w-24", // adjust
-    150: "w-28", // adjust
-  };
-
   let weather: any;
   $: icon =
     ICONS[
@@ -236,7 +240,7 @@
             />
           {/key}
         </div>
-        <div class="flex text-4xl leading-none gap-2 -translate-y-4">
+        <div class="flex text-4xl leading-none gap-2 {MARGIN_TOPS[icon.size]}">
           <div>
             {unit === "C" ? weather.current.temp_c : weather.current.temp_f}
           </div>
