@@ -82,7 +82,7 @@
         >
           <div
             use:playLottie={image}
-            class="w-2/3 mx-auto h-full object-cover"
+            class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
           />
         </div>
       {:else}

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import { changeCursorType } from "$lib/stores/cursor";
   import { openContactTab } from "$lib/stores/finder";
   import { addShell } from "$lib/stores/shell";
+  import playLottie from "$lib/utils/playLottie";
 </script>
 
 <section class="grow">
@@ -41,17 +41,7 @@
           <div
             class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem]"
           >
-            <LottiePlayer
-              src="/fatk-bag.json"
-              autoplay={true}
-              loop={true}
-              renderer="svg"
-              background="transparent"
-              height="100%"
-              width="100%"
-              controls=""
-              controlsLayout=""
-            />
+            <div use:playLottie={"/fatk-bag.json"} />
           </div>
         {/if}
         <!-- <img
@@ -84,7 +74,7 @@
         <!-- <span class="text-4xl font-sand-medium">Do you have an idea?</span> -->
         <!-- <div use:doYouHaveAnIdeaLottie></div> -->
         <img
-          src="/images/fatk-make-shit.svg"
+          src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715955807/general/fatk-make-shit_kiswpm.svg"
           alt="Make shit with us"
           class="invert dark:invert-0 w-[50%]"
         />

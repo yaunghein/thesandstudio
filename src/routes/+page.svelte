@@ -247,7 +247,7 @@
   };
 </script>
 
-{#if !isMobile && false}
+{#if !isMobile}
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
@@ -376,7 +376,7 @@
   </AppShell>
 {/if}
 
-{#if isMobile || true}
+{#if isMobile}
   <MobileAppShell>
     <Header />
     <div class="swiper relative pb-3">

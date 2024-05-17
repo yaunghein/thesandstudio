@@ -147,7 +147,9 @@
     <div
       class="w-28 absolute scale-[1.2] group-hover:scale-[2.2] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[14%] group-hover:-translate-y-[95%] sand-transition"
     >
-      <div use:playLottie={"/lotties/about.json"} />
+      <div
+        use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715957920/lotties/about_i69vp3.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

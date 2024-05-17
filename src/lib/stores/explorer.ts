@@ -80,8 +80,7 @@ const files: File[] = [
             label: "Teaser.gif",
             isOpen: false,
             mediaType: "img",
-            mediaSrc:
-              "/images/archives/challenges/direction-of-mind/Teaser.mp4",
+            mediaSrc: "/Teaser.gif",
             description: "This is description.",
           },
           {
@@ -90,7 +89,7 @@ const files: File[] = [
             label: "Title.gif",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/challenges/direction-of-mind/Title.mp4",
+            mediaSrc: "/Title.gif",
             description: "This is description.",
           },
           {
@@ -824,11 +823,10 @@ const files: File[] = [
                   {
                     id: crypto.randomUUID(),
                     type: "file",
-                    label: "Submission 1.gif", // gif exceed 10MB
+                    label: "Submission 1.gif",
                     isOpen: false,
                     mediaType: "img",
-                    mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-wanna/Submission 1.gif",
+                    mediaSrc: "/wanna-submission.gif",
                   },
                 ],
               },

@@ -15,8 +15,9 @@ export const Backgrounds: Writable<Background[]> = writable([
   {
     name: "bg-scene",
     thumbnail: {
-      light: "/background-thumbnails/3d-scene-light.webp",
-      dark: "/background-thumbnails/3d-scene-dark.webp",
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957718/background-thumbnails/3d-scene-light_srgkid.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957718/background-thumbnails/3d-scene-dark_ohdezg.webp",
     },
     src: "",
     isOpen: false,
@@ -24,8 +25,9 @@ export const Backgrounds: Writable<Background[]> = writable([
   {
     name: "bg-default",
     thumbnail: {
-      light: "/background-thumbnails/default-light.webp",
-      dark: "/background-thumbnails/default-dark.webp",
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957719/background-thumbnails/default-light_kltga6.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957719/background-thumbnails/default-dark_jo5ohe.webp",
     },
     src: "",
     isOpen: true,
@@ -33,8 +35,9 @@ export const Backgrounds: Writable<Background[]> = writable([
   {
     name: "bg-legacy",
     thumbnail: {
-      light: "/background-thumbnails/legacy-light.webp",
-      dark: "/background-thumbnails/legacy-dark.webp",
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957721/background-thumbnails/legacy-light_psulku.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957721/background-thumbnails/legacy-dark_obivui.webp",
     },
     src: "",
     isOpen: false,
