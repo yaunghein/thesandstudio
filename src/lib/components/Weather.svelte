@@ -21,32 +21,38 @@
   > = {
     "sunny-clear": {
       conditions: ["Sunny", "Clear"],
-      image: "/weather-icons/sunny-clear.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881624/weather-icons/sunny-clear_axxrgx.webp",
       size: 100,
     },
     "partly-cloudy": {
       conditions: ["Partly cloudy"],
-      image: "/weather-icons/partly-cloudy.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/partly-cloudy_en5jdk.webp",
       size: 100,
     },
     cloudy: {
       conditions: ["Cloudy"],
-      image: "/weather-icons/cloudy.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881621/weather-icons/cloudy_pd0fcc.webp",
       size: 100,
     },
     overcast: {
       conditions: ["Overcast"],
-      image: "/weather-icons/overcast.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/overcast_r8j36z.webp",
       size: 125,
     },
     "fog-mist": {
       conditions: ["Mist", "Fog"],
-      image: "/weather-icons/fog-mist.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881622/weather-icons/fog-mist_vspnpu.webp",
       size: 125,
     },
     "freezing-fog": {
       conditions: ["Freezing fog"],
-      image: "/weather-icons/freezing-fog.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881622/weather-icons/freezing-fog_zlsszg.webp",
       size: 150,
     },
     "all-rain": {
@@ -64,7 +70,8 @@
         "Patchy light drizzle",
         "Light drizzle",
       ],
-      image: "/weather-icons/all-rain.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881620/weather-icons/all-rain_xuo3jn.webp",
       size: 100,
     },
     "all-freezing-rain": {
@@ -75,7 +82,8 @@
         "Freezing drizzle",
         "Heavy freezing drizzle",
       ],
-      image: "/weather-icons/all-freezing-rain.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881620/weather-icons/all-freezing-rain_reta7o.webp",
       size: 150,
     },
     "all-snow": {
@@ -94,7 +102,8 @@
     },
     thunder: {
       conditions: ["Thundery outbreaks possible"],
-      image: "/weather-icons/thunder.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881621/weather-icons/all-snow_lveczp.webp",
       size: 100,
     },
     "snow-thunder": {
@@ -102,7 +111,8 @@
         "Patchy light snow with thunder",
         "Moderate or heavy snow with thunder",
       ],
-      image: "/weather-icons/snow-thunder.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881624/weather-icons/snow-thunder_dgwoyz.webp",
       size: 100,
     },
     "rain-thunder": {
@@ -110,7 +120,8 @@
         "Patchy light rain with thunder",
         "Moderate or heavy rain with thunder",
       ],
-      image: "/weather-icons/rain-thunder.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881624/weather-icons/rain-thunder_eys85o.webp",
       size: 100,
     },
     "all-sleet-blizzard-pellets": {
@@ -126,12 +137,14 @@
         "Light showers of ice pellets",
         "Moderate or heavy showers of ice pellets",
       ],
-      image: "/weather-icons/all-sleet-blizzard-pellets.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881620/weather-icons/all-sleet-blizzard-pellets_jbof6i.webp",
       size: 100,
     },
     "blowing-snow": {
       conditions: ["Blowing snow"],
-      image: "/weather-icons/blowing-snow.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881621/weather-icons/blowing-snow_kprzge.webp",
       size: 100,
     },
   };

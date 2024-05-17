@@ -176,7 +176,7 @@
       renderer: "canvas",
       loop: false,
       autoplay: false,
-      path: "/lotties/sand-text.json",
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936485/lotties/sand-text_cae3ah.json",
     });
     const handleMouseEnter = () => {
       player.setDirection(1);

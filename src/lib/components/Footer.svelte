@@ -13,13 +13,13 @@
 
   let isOpen = false;
 
-  const playLottie = (node: HTMLDivElement, path: string) => {
+  const playLottie = (node: HTMLDivElement) => {
     lottie.loadAnimation({
       container: node,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      path,
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936686/lotties/sand-text-footer_jby9yx.json",
     });
   };
 
@@ -181,7 +181,7 @@
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
-            <div use:playLottie={"/lotties/sand-text-footer.json"} />
+            <div use:playLottie />
           </div>
         </div>
 
@@ -193,7 +193,7 @@
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
-            <div use:playLottie={"/lotties/sand-text-footer.json"} />
+            <div use:playLottie />
           </div>
         </div>
       </div></button

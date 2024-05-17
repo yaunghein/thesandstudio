@@ -109,7 +109,9 @@
     <div
       class="w-32 absolute scale-1 group-hover:scale-[1.6] invert dark:invert-0 group-hover:invert-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[75%] sand-transition"
     >
-      <div use:playLottieOnHover={"/lotties/child.json"} />
+      <div
+        use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936871/lotties/child_un9s0j.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -130,7 +132,9 @@
     <div
       class="w-32 absolute scale-[1.2] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[92%] sand-transition"
     >
-      <div use:playLottieOnHover={"/lotties/explorer-2000.json"} />
+      <div
+        use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936923/lotties/explorer-2000_wpzh6k.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:-translate-y-[6%] sand-transition"
@@ -153,7 +157,9 @@
     <div
       class="w-32 absolute scale-[1.4] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[73%] sand-transition"
     >
-      <div use:playLottieOnHover={"/lotties/backgrounds.json"} />
+      <div
+        use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936952/lotties/backgrounds_avq1k3.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -178,7 +184,9 @@
     <div
       class="w-32 absolute origin-top-left scale-[1.1] group-hover:scale-[1.5] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-0 left-0 sand-transition"
     >
-      <div use:playLottieOnHover={"/lotties/contact.json"} />
+      <div
+        use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936957/lotties/contact_ja4oy7.json"}
+      />
     </div>
     <div
       class="w-44 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-1/2 -translate-x-1/2 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
