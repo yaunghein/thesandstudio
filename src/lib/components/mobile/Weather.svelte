@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { scale } from "svelte/transition";
   import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
   import getDateAndTime from "$lib/utils/getDateAndTime";
   import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
-  import IconWeather from "$lib/svgs/IconWeather.svelte";
   // import a from "./weather.json"; // delete this file
 
   const LOCATIONS: Record<string, string> = {
@@ -16,7 +15,154 @@
     LOCAL: "",
   };
 
+  const ICONS: Record<
+    string,
+    { conditions: string[]; image: string; size: number }
+  > = {
+    "sunny-clear": {
+      conditions: ["Sunny", "Clear"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881781/weather-icons-mobile/sunny-clear_u28o34.webp",
+      size: 100,
+    },
+    "partly-cloudy": {
+      conditions: ["Partly cloudy"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881780/weather-icons-mobile/partly-cloudy_qvycz6.webp",
+      size: 100,
+    },
+    cloudy: {
+      conditions: ["Cloudy"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881778/weather-icons-mobile/cloudy_y6zbdz.webp",
+      size: 100,
+    },
+    overcast: {
+      conditions: ["Overcast"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881779/weather-icons-mobile/overcast_rpzuua.webp",
+      size: 125,
+    },
+    "fog-mist": {
+      conditions: ["Mist", "Fog"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881778/weather-icons-mobile/fog-mist_hqx5gg.webp",
+      size: 125,
+    },
+    "freezing-fog": {
+      conditions: ["Freezing fog"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881779/weather-icons-mobile/freezing-fog_y1j5mc.webp",
+      size: 150,
+    },
+    "all-rain": {
+      conditions: [
+        "Patchy rain possible",
+        "Patchy light rain",
+        "Light rain",
+        "Moderate rain at times",
+        "Moderate rain",
+        "Heavy rain at times",
+        "Heavy rain",
+        "Light rain shower",
+        "Moderate or heavy rain shower",
+        "Torrential rain shower",
+        "Patchy light drizzle",
+        "Light drizzle",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/all-rain_yebx51.webp",
+      size: 100,
+    },
+    "all-freezing-rain": {
+      conditions: [
+        "Light freezing rain",
+        "Moderate or heavy freezing rain",
+        "Patchy freezing drizzle possible",
+        "Freezing drizzle",
+        "Heavy freezing drizzle",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881776/weather-icons-mobile/all-freezing-rain_hb54qn.webp",
+      size: 150,
+    },
+    "all-snow": {
+      conditions: [
+        "Patchy snow possible",
+        "Patchy light snow",
+        "Light snow",
+        "Patchy moderate snow",
+        "Moderate snow",
+        "Patchy heavy snow",
+        "Heavy snow",
+        "Light snow showers",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/all-snow_kvdqox.webp",
+      size: 100,
+    },
+    thunder: {
+      conditions: ["Thundery outbreaks possible"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881782/weather-icons-mobile/thunder_mlheyx.webp",
+      size: 100,
+    },
+    "snow-thunder": {
+      conditions: [
+        "Patchy light snow with thunder",
+        "Moderate or heavy snow with thunder",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881624/weather-icons/snow-thunder_dgwoyz.webp",
+      size: 100,
+    },
+    "rain-thunder": {
+      conditions: [
+        "Patchy light rain with thunder",
+        "Moderate or heavy rain with thunder",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881781/weather-icons-mobile/rain-thunder_vk5vca.webp",
+      size: 100,
+    },
+    "all-sleet-blizzard-pellets": {
+      conditions: [
+        "Patchy sleet possible",
+        "Blizzard",
+        "Light sleet",
+        "Moderate or heavy sleet",
+        "Ice pellets",
+        "Light sleet showers",
+        "Moderate or heavy sleet showers",
+        "Moderate or heavy snow showers",
+        "Light showers of ice pellets",
+        "Moderate or heavy showers of ice pellets",
+      ],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881776/weather-icons-mobile/all-sleet-blizzard-pellets_grs5la.webp",
+      size: 100,
+    },
+    "blowing-snow": {
+      conditions: ["Blowing snow"],
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/blowing-snow_dep7kx.webp",
+      size: 100,
+    },
+  };
+
+  const SIZES: Record<string, string> = {
+    100: "w-20",
+    125: "w-24",
+    150: "w-28",
+  };
+
   let weather: any;
+  $: icon =
+    ICONS[
+      Object.keys(ICONS).find((k) =>
+        ICONS[k].conditions.includes(weather?.current.condition.text),
+      ) as string
+    ];
   let unit: "C" | "F" = "C";
   let selectedLocation = "Bangkok";
 
@@ -70,7 +216,18 @@
 {#if weather}
   <div class="relative w-full pr-4">
     <div class="relative flex justify-between gap-4 w-full">
-      <div class="flex flex-col items-center justify-start">
+      <div class="flex flex-col items-center justify-start gap-2">
+        <div class="relative w-10 aspect-square">
+          {#key icon}
+            <img
+              in:scale={{ delay: 300, duration: 300, start: 0.9 }}
+              out:scale={{ duration: 300, start: 0.9 }}
+              src={icon.image}
+              alt="Weather Icon"
+              class=" aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            />
+          {/key}
+        </div>
         <div class="flex text-2xl leading-none gap-1">
           <div>
             {unit === "C" ? weather.current.temp_c : weather.current.temp_f}

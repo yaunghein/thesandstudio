@@ -14,7 +14,7 @@
         craftsmanship.
       </p>
     </div>
-    <div class="w-64 absolute top-12 right-[49rem]">
+    <div class="w-64 aspect-square absolute top-12 right-[49rem]">
       <LogoMain />
     </div>
     <div class="px-2">

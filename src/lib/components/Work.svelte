@@ -6,11 +6,12 @@
   import type { Work } from "$lib/types";
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import lottie from "lottie-web";
 
   export let work: Work;
 
   const getRandomNumber = () => {
-    const numbers = [3, 4, 5, 6, 7];
+    const numbers = [10, 12, 15];
     const randomIndex = Math.floor(Math.random() * numbers.length);
     return numbers[randomIndex];
   };
@@ -19,7 +20,7 @@
     new Swiper(node, {
       modules: [Autoplay, EffectFade],
       effect: "fade",
-      loop: false,
+      loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
       autoplay: {
@@ -41,6 +42,27 @@
       onEnterBack: () => dispatch("enterBack", work),
     });
   };
+
+  const playLottie = (node: HTMLDivElement, path: string) => {
+    let isReversing = false;
+    const animation = lottie.loadAnimation({
+      container: node,
+      renderer: "canvas",
+      loop: false,
+      autoplay: true,
+      path,
+    });
+    animation.addEventListener("complete", () => {
+      if (!isReversing) {
+        isReversing = true;
+        animation.setDirection(-1);
+      } else {
+        isReversing = false;
+        animation.setDirection(1);
+      }
+      animation.play();
+    });
+  };
 </script>
 
 <div
@@ -48,38 +70,26 @@
   role="region"
   use:swiper
   on:mouseenter={() => dispatch("hoverIn", work)}
-  class="group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden {work.textColor ===
-  'light'
-    ? 'bg-light-10'
-    : 'bg-light-100'}"
+  class="group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden"
 >
-  <!-- <div
-  use:inView={{ name: work.name }}
-  role="region"
-  use:swiper
-  on:mouseenter={() => dispatch("hoverIn", work)}
-  class="group w-full h-[10rem] relative overflow-hidden {work.textColor ===
-  'light'
-    ? 'bg-light-10'
-    : 'bg-light-100'}"
-> -->
-  <!-- <div
-  use:inView={{ name: work.name }}
-  role="region"
-  use:swiper
-  on:mouseenter={() => dispatch("hoverIn", work)}
-  class="group w-full aspect-[1.63/1] relative overflow-hidden {work.textColor ===
-  'light'
-    ? 'bg-light-10'
-    : 'bg-light-100'}"
-> -->
   <div
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >
     {#each work.images as image}
-      <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
-        <img src={image} alt={work.name} class="w-full h-full object-cover" />
-      </div>
+      {#if work.name === "ENVISEAM"}
+        <div
+          class="swiper-slide w-full h-full overflow-hidden shrink-0 bg-white dark:bg-black"
+        >
+          <div
+            use:playLottie={image}
+            class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
+          />
+        </div>
+      {:else}
+        <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
+          <img src={image} alt={work.name} class="w-full h-full object-cover" />
+        </div>
+      {/if}
     {/each}
   </div>
 </div>

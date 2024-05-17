@@ -18,5 +18,8 @@ export const load = async ({ fetch, data, depends }) => {
     data: { session },
   } = await supabase.auth.getSession();
 
-  return { supabase, session };
+  const isMac = data.isMac;
+  const isMobile = data.isMobile;
+
+  return { supabase, session, isMac, isMobile };
 };

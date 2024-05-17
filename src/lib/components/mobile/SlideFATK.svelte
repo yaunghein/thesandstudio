@@ -1,4 +1,5 @@
 <script>
+  import playLottie from "$lib/utils/playLottie";
   import { browser } from "$app/environment";
   import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import PixelBorder from "./PixelBorder.svelte";
@@ -43,7 +44,10 @@
                 playsinline
                 class="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/videos/moving-sunset-sky.mp4" type="video/mp4" />
+                <source
+                  src="https://res.cloudinary.com/dlhbpswom/video/upload/v1715944268/general/moving-sunset-sky_csvrih.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support HTML5 video.
               </video>
 
@@ -51,17 +55,7 @@
                 <div
                   class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[9.5rem]"
                 >
-                  <LottiePlayer
-                    src="/lotties/fatk-bag.json"
-                    autoplay={true}
-                    loop={true}
-                    renderer="svg"
-                    background="transparent"
-                    height="100%"
-                    width="100%"
-                    controls=""
-                    controlsLayout=""
-                  />
+                  <div use:playLottie={"/fatk-bag.json"} />
                 </div>
               {/if}
 
@@ -95,7 +89,7 @@
         >
           <!-- Do you have an idea? -->
           <img
-            src="/images/fatk-make-shit-mobile.svg"
+            src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943851/general/mobile-fatk-make-shit_uqjvop.svg"
             alt="Make shit with us"
             class="invert dark:invert-0 w-[75%]"
           />

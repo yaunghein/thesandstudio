@@ -2,13 +2,13 @@
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import { onMount, onDestroy } from "svelte";
-  import { Application } from "@splinetool/runtime";
   import lottie from "lottie-web";
+  import { Application } from "@splinetool/runtime";
   import { twMerge as twm } from "tailwind-merge";
   import Swiper from "swiper";
   import { Pagination } from "swiper/modules";
   import { addShell, OpenShells } from "$lib/stores/shell";
-  import { SelectedBackground } from "$lib/stores/background";
+  import { SelectedBackground, changeBackground } from "$lib/stores/background";
   import { MobileHomeSwiper } from "$lib/stores/slider";
   import { CursorType } from "$lib/stores/cursor";
   import Dock from "$lib/components/Dock.svelte";
@@ -30,15 +30,24 @@
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
-  import SlidePrivacyPolicy from "$lib/components/mobile/SlidePrivacyPolicy.svelte";
-  import SlideTnC from "$lib/components/mobile/SlideTnC.svelte";
-  import SlideCookiePolicy from "$lib/components/mobile/SlideCookiePolicy.svelte";
 
   import "swiper/css/pagination";
 
+  export let data;
+  const { isMac, isMobile } = data;
+
   let swiperIndex = 0;
+
   onMount(() => {
     if (!browser) return;
+
+    // set legacy bg as default only in Mac
+    if (isMac) {
+      changeBackground("bg-legacy");
+    }
+
+    // this means codes below are for mobile
+    if (!isMobile) return;
     const swiper = new Swiper(".swiper", {
       loop: false,
       modules: [Pagination],
@@ -47,7 +56,6 @@
         clickable: true,
       },
     });
-
     swiper.on("activeIndexChange", function (this: Swiper) {
       swiperIndex = this.realIndex;
     });
@@ -61,8 +69,6 @@
       pageName === "menu" && $MobileHomeSwiper?.slideTo(1);
     }
   }
-
-  export let data;
 
   let { supabase, session } = data;
   $: ({ supabase, session } = data);
@@ -167,10 +173,10 @@
   const sandTextLottie = (node: HTMLDivElement) => {
     const player = lottie.loadAnimation({
       container: node,
-      renderer: "svg",
+      renderer: "canvas",
       loop: false,
       autoplay: false,
-      path: "lotties/sand-text.json",
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936485/lotties/sand-text_cae3ah.json",
     });
     const handleMouseEnter = () => {
       player.setDirection(1);
@@ -204,10 +210,10 @@
   const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
     const player = lottie.loadAnimation({
       container: node,
-      renderer: "svg",
+      renderer: "canvas",
       loop: true,
       autoplay: false,
-      path: "/lotties/categories-displace-v2.json",
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715748233/lotties/background-legacy_zdjgh0.json",
     });
     player.addEventListener("DOMLoaded", () => {
       loadedLegacyLotties = [...loadedLegacyLotties, { player, startFrame }];
@@ -241,7 +247,7 @@
   };
 </script>
 
-<div class="hidden sm:block">
+{#if !isMobile}
   <AppShell>
     {#if $SelectedBackground?.name === "bg-scene"}
       <div
@@ -265,9 +271,9 @@
             : "opacity-0",
         )}
       >
-        <div use:legacyLottie={0} />
-        <div use:legacyLottie={120} />
-        <div use:legacyLottie={240} />
+        <div use:legacyLottie={0} class="h-[28rem]" />
+        <div use:legacyLottie={120} class="h-[28rem]" />
+        <div use:legacyLottie={240} class="h-[28rem]" />
       </div>
     {/if}
 
@@ -327,7 +333,14 @@
       </a>
     </div>
 
-    <div
+    {#if $SelectedBackground?.name !== "bg-scene"}
+      <div
+        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
+      >
+        <LogoMain />
+      </div>
+    {/if}
+    <!-- <div
       class={twm(
         "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
         $SelectedBackground?.name === "bg-scene" &&
@@ -335,7 +348,7 @@
       )}
     >
       <LogoMain />
-    </div>
+    </div> -->
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
       <Apps />
@@ -361,9 +374,9 @@
       {/each}
     {/if}
   </AppShell>
-</div>
+{/if}
 
-<div class="sm:hidden">
+{#if isMobile}
   <MobileAppShell>
     <Header />
     <div class="swiper relative pb-3">
@@ -379,4 +392,4 @@
       </div>
     </div>
   </MobileAppShell>
-</div>
+{/if}

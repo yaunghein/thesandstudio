@@ -23,12 +23,11 @@
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white opacity-sand group-hover:opacity-100 sand-transition"
     />
-    <!-- mix-blend-multiply group-hover:mix-blend-screen dark:mix-blend-screen dark:group-hover:mix-blend-multiply -->
     <div
       class="w-28 absolute group-hover:scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[125%] sand-transition"
     >
       <img
-        src="/images/icons/app-sand-scan.gif"
+        src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763648/app-images/sand-scan_yqwnto.gif"
         alt="Sand Scan Icon"
         class="w-full h-full object-contain"
       />
@@ -52,7 +51,9 @@
     <div
       class="w-28 absolute scale-[1.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
     >
-      <div use:playLottie={"/lotties/fatk.json"} />
+      <div
+        use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763241/lotties/fatk_tdug6t.json"}
+      />
     </div>
   </a>
 
@@ -68,7 +69,9 @@
     <div
       class="w-28 absolute scale-[1.4] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[20%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
     >
-      <div use:playLottie={"/lotties/works.json"} />
+      <div
+        use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763270/lotties/works_tyaamm.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -89,7 +92,10 @@
     <div
       class="w-28 absolute scale-[1] group-hover:scale-[1.5] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
     >
-      <img src="/lotties/not-works.gif" alt="Not Works" />
+      <img
+        src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763646/app-images/not-works_wnc5c5.gif"
+        alt="Not Works"
+      />
     </div>
     <div
       class="text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -114,7 +120,7 @@
       class="w-20 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:translate-x-[10%] group-hover:-translate-y-[120%] sand-transition"
     >
       <img
-        src="/images/icons/app-archive.gif"
+        src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763640/app-images/archive_jsvdej.gif"
         alt="Archive Icon"
         class="w-full h-full object-contain"
       />
@@ -141,7 +147,9 @@
     <div
       class="w-28 absolute scale-[1.2] group-hover:scale-[2.2] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[14%] group-hover:-translate-y-[95%] sand-transition"
     >
-      <div use:playLottie={"/lotties/about.json"} />
+      <div
+        use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715957920/lotties/about_i69vp3.json"}
+      />
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

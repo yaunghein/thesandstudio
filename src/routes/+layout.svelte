@@ -94,7 +94,7 @@
   <slot />
 </div>
 
-<div class="hidden sm:block">
+{#if !data.isMobile}
   <Cursor />
   <Grains />
-</div>
+{/if}

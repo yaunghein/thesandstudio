@@ -1,48 +1,46 @@
-import { writable, derived } from "svelte/store";
+import { writable, derived, get } from "svelte/store";
 import type { Writable } from "svelte/store";
 import type { TCursor } from "./cursor";
 
 type Background = {
-  id: string;
   name: TCursor;
   thumbnail: {
     light: string;
     dark: string;
   };
-  src: string; // what is this for :3
   isOpen: boolean;
 };
 
 export const Backgrounds: Writable<Background[]> = writable([
   {
-    id: crypto.randomUUID(),
     name: "bg-scene",
     thumbnail: {
-      light: "/images/backgrounds/3d-scene-light.webp",
-      dark: "/images/backgrounds/3d-scene-dark.webp",
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957718/background-thumbnails/3d-scene-light_srgkid.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957718/background-thumbnails/3d-scene-dark_ohdezg.webp",
     },
     src: "",
     isOpen: false,
   },
   {
-    id: crypto.randomUUID(),
     name: "bg-default",
     thumbnail: {
-      light: "/images/backgrounds/default-light.webp",
-      dark: "/images/backgrounds/default-dark.webp",
-    },
-    src: "",
-    isOpen: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "bg-legacy",
-    thumbnail: {
-      light: "/images/backgrounds/legacy-light.webp",
-      dark: "/images/backgrounds/legacy-dark.webp",
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957719/background-thumbnails/default-light_kltga6.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957719/background-thumbnails/default-dark_jo5ohe.webp",
     },
     src: "",
     isOpen: true,
+  },
+  {
+    name: "bg-legacy",
+    thumbnail: {
+      light:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957721/background-thumbnails/legacy-light_psulku.webp",
+      dark: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715957721/background-thumbnails/legacy-dark_obivui.webp",
+    },
+    src: "",
+    isOpen: false,
   },
 ]);
 
@@ -50,3 +48,11 @@ export const SelectedBackground = derived(
   Backgrounds,
   ($b) => $b.find((b) => b.isOpen) as Background,
 );
+
+export const changeBackground = (name: TCursor) => {
+  Backgrounds.set(
+    get(Backgrounds).map((bg) =>
+      bg.name === name ? { ...bg, isOpen: true } : { ...bg, isOpen: false },
+    ),
+  );
+};

@@ -39,7 +39,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/BRIEF.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715882609/challenges/direction-of-mind/BRIEF_zh8mps.webp",
             description: "This is description.",
           },
           {
@@ -49,7 +49,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/CHALLENGE MATERIAL.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715883046/challenges/direction-of-mind/CHALLENGE_MATERIAL_skjd9o.webp",
             description: "This is description.",
           },
           {
@@ -59,7 +59,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/COVER.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715882611/challenges/direction-of-mind/COVER_io812u.webp",
             description: "This is description.",
           },
           {
@@ -71,7 +71,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/rene-descartes-philosophical-essays-and-correspondence.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/rene-descartes-philosophical-essays-and-correspondence_aioyzn.webp",
             description: "This is description.",
           },
           {
@@ -80,8 +80,7 @@ const files: File[] = [
             label: "Teaser.gif",
             isOpen: false,
             mediaType: "img",
-            mediaSrc:
-              "/images/archives/challenges/direction-of-mind/Teaser.gif",
+            mediaSrc: "/Teaser.gif",
             description: "This is description.",
           },
           {
@@ -90,7 +89,7 @@ const files: File[] = [
             label: "Title.gif",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/challenges/direction-of-mind/Title.gif",
+            mediaSrc: "/Title.gif",
             description: "This is description.",
           },
           {
@@ -102,7 +101,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "pdf",
             mediaSrc:
-              "/images/archives/challenges/direction-of-mind/CHALLENGE-MATERIAL-René-Descartes-PhilosophicalEssays-and-Correspondence-Page-2-to-28.pdf",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880762/challenges/direction-of-mind/CHALLENGE-MATERIAL-Ren%C3%A9-Descartes-PhilosophicalEssays-and-Correspondence-Page-2-to-28_lvxa4g.pdf",
             description: "This is description.",
           },
           {
@@ -124,7 +123,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission 1.gif",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-aung-pyae-kyaw/Submission_1_qlmlwo.gif",
                     description: "This is description.",
                   },
                 ],
@@ -142,7 +141,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 1 - SEE.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880769/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_1_-_SEE_jacrjl.webp",
                     description: "This is description.",
                   },
                   {
@@ -152,7 +151,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 2 - OBSERVE.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880768/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_2_-_OBSERVE_ojzzlf.webp",
                     description: "This is description.",
                   },
                   {
@@ -162,7 +161,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 3 - INVESTIGATE.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880768/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_3_-_INVESTIGATE_og7wd8.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -171,7 +170,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 4 - FIND EVIDENCE.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_4_-_FIND_EVIDENCE_vfizgj.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -180,7 +179,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 5 - ASSUME.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880768/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_5_-_ASSUME_xw2ywp.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -189,7 +188,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER 6 - RULES.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880768/challenges/direction-of-mind/by-aung-kyaw-phyoe/POSTER_6_-_RULES_mntxmw.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -198,7 +197,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/PROCESS-MINDMAP.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880769/challenges/direction-of-mind/by-aung-kyaw-phyoe/PROCESS-MINDMAP_wsnvvv.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -207,7 +206,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-aung-kyaw-phyoe/PROCESS - TYPE.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880768/challenges/direction-of-mind/by-aung-kyaw-phyoe/PROCESS_-_TYPE_tywhwe.webp",
                   },
                 ],
               },
@@ -224,7 +223,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-cant-chall/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880755/challenges/direction-of-mind/by-cant-chall/Submission_1_wvp2lv.webp",
                   },
                 ],
               },
@@ -241,7 +240,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-co-co-maung/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880770/challenges/direction-of-mind/by-co-co-maung/Submission_1_ic6l7b.webp",
                   },
                 ],
               },
@@ -258,7 +257,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-do-shine/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/by-do-shine/Submission_1_p67oon.webp",
                   },
                 ],
               },
@@ -275,7 +274,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-htet-aung-lin/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880755/challenges/direction-of-mind/by-htet-aung-lin/Submission_1_iv6amy.webp",
                   },
                 ],
               },
@@ -292,7 +291,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-kyaw-moe-khine/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-kyaw-moe-khine/Submission_1_nomqxm.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -301,7 +300,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-kyaw-moe-khine/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-kyaw-moe-khine/Submission_2_u0agtr.webp",
                   },
                 ],
               },
@@ -318,7 +317,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-lin-htet-aung/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-lin-htet-aung/Submission_1_xtljj3.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -327,7 +326,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-lin-htet-aung/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-lin-htet-aung/Submission_2_oqsyyz.webp",
                   },
                 ],
               },
@@ -344,7 +343,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-htet-dipar/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/by-min-htet-dipar/Submission_1_grbz1r.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -353,7 +352,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-htet-dipar/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/by-min-htet-dipar/Submission_2_v6iy7k.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -362,7 +361,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-htet-dipar/Submission 3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/by-min-htet-dipar/Submission_3_ylfdsc.webp",
                   },
                 ],
               },
@@ -379,7 +378,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-khant/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880770/challenges/direction-of-mind/by-min-khant/Submission_1_csen0g.webp",
                   },
                 ],
               },
@@ -396,7 +395,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-sett-hein/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880756/challenges/direction-of-mind/by-min-sett-hein/Submission_1_b4qjeb.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -405,7 +404,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-sett-hein/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880757/challenges/direction-of-mind/by-min-sett-hein/Submission_2_v93jlk.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -414,7 +413,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-sett-hein/Submission 3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880755/challenges/direction-of-mind/by-min-sett-hein/Submission_3_gf1885.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -423,7 +422,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-min-sett-hein/Submission 4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880755/challenges/direction-of-mind/by-min-sett-hein/Submission_4_aqrgny.webp",
                   },
                 ],
               },
@@ -440,7 +439,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-nguyen-huy-hung/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-nguyen-huy-hung/Submission_1_yngmrd.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -449,7 +448,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-nguyen-huy-hung/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880767/challenges/direction-of-mind/by-nguyen-huy-hung/Submission_2_qjcwfi.webp",
                   },
                 ],
               },
@@ -466,7 +465,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-phyoe-hein-kyaw/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880754/challenges/direction-of-mind/by-phyoe-hein-kyaw/Submission_1_yw8asw.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -475,7 +474,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-phyoe-hein-kyaw/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880754/challenges/direction-of-mind/by-phyoe-hein-kyaw/Submission_2_stp37c.webp",
                   },
                 ],
               },
@@ -492,7 +491,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-rabbie/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-rabbie/Submission_1_amwoq7.webp",
                   },
                 ],
               },
@@ -509,7 +508,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ryan-pyae/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-ryan-pyae/Submission_1_ow8eta.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -518,7 +517,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ryan-pyae/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-ryan-pyae/Submission_2_f3ja2l.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -527,7 +526,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ryan-pyae/Submission 3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-ryan-pyae/Submission_3_cprzvk.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -536,7 +535,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ryan-pyae/Submission 4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-ryan-pyae/Submission_4_thbmkl.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -545,7 +544,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ryan-pyae/Submission 5.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880763/challenges/direction-of-mind/by-ryan-pyae/Submission_5_mig0zo.webp",
                   },
                 ],
               },
@@ -562,7 +561,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-sai-shwe-toe/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880754/challenges/direction-of-mind/by-sai-shwe-toe/Submission_1_wofdg2.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -571,7 +570,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "video",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-sai-shwe-toe/Motion.mp4",
+                      "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880774/challenges/direction-of-mind/by-sai-shwe-toe/Motion_uynpis.mp4",
                   },
                 ],
               },
@@ -588,7 +587,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Flip.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880758/challenges/direction-of-mind/by-thiha-min-zin/Flip_uyzv1g.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -597,7 +596,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Horizontal1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880760/challenges/direction-of-mind/by-thiha-min-zin/Horizontal1_at1slf.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -606,7 +605,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Horizontal2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880759/challenges/direction-of-mind/by-thiha-min-zin/Horizontal2_xrssrl.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -615,7 +614,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Horizontal3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880759/challenges/direction-of-mind/by-thiha-min-zin/Horizontal3_wcz1xf.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -624,7 +623,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Path1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880759/challenges/direction-of-mind/by-thiha-min-zin/Path1_b6uczd.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -633,7 +632,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Path2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880760/challenges/direction-of-mind/by-thiha-min-zin/Path2_fjxebw.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -642,7 +641,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Path3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Path3_vt4ysb.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -651,7 +650,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Path4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Path4_oknrk1.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -660,7 +659,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot1_tynauo.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -669,7 +668,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880757/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot2_dtcfp9.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -678,7 +677,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880757/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot3_xbxleu.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -687,7 +686,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880758/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot4_cvatyx.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -696,7 +695,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot5.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880758/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot5_vhq5hw.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -705,7 +704,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot6.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot6_lquz3t.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -714,7 +713,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot7.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880760/challenges/direction-of-mind/by-thiha-min-zin/Photoshoot7_jjrkt8.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -723,7 +722,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Question.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Question_thk3ph.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -732,7 +731,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Sketches.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Sketches_hzikms.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -741,7 +740,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "video",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thiha-min-zin/Video.mp4",
+                      "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880761/challenges/direction-of-mind/by-thiha-min-zin/Video_wztj3v.mp4",
                   },
                 ],
               },
@@ -758,7 +757,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thihan-cho-oo/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880766/challenges/direction-of-mind/by-thihan-cho-oo/Submission_1_mzakqc.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -767,7 +766,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-thihan-cho-oo/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880766/challenges/direction-of-mind/by-thihan-cho-oo/Submission_2_yoodyz.webp",
                   },
                 ],
               },
@@ -784,7 +783,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-tom-lin/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/by-tom-lin/Submission_1_e180dm.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -793,7 +792,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-tom-lin/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-tom-lin/Submission_2_xzdzlo.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -802,7 +801,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-tom-lin/Submission 3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-tom-lin/Submission_3_wusxtt.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -811,7 +810,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-tom-lin/Submission 4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-tom-lin/Submission_4_ron0fx.webp",
                   },
                 ],
               },
@@ -827,8 +826,7 @@ const files: File[] = [
                     label: "Submission 1.gif",
                     isOpen: false,
                     mediaType: "img",
-                    mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-wanna/Submission 1.gif",
+                    mediaSrc: "/wanna-submission.gif",
                   },
                 ],
               },
@@ -845,7 +843,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-win-hlaing-oo/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880769/challenges/direction-of-mind/by-win-hlaing-oo/Submission_1_oc7ord.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -854,7 +852,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-win-hlaing-oo/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880769/challenges/direction-of-mind/by-win-hlaing-oo/Submission_2_vl842b.webp",
                   },
                 ],
               },
@@ -871,7 +869,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ye-lin-htet/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-ye-lin-htet/Submission_1_w9gqz9.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -880,7 +878,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-ye-lin-htet/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880764/challenges/direction-of-mind/by-ye-lin-htet/Submission_2_cbwqhe.webp",
                   },
                 ],
               },
@@ -897,7 +895,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zarni/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880753/challenges/direction-of-mind/by-zarni/Submission_1_kv84wc.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -906,7 +904,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zarni/Submission 2.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880753/challenges/direction-of-mind/by-zarni/Submission_2_zfonvi.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -915,7 +913,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zarni/Submission 3.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880753/challenges/direction-of-mind/by-zarni/Submission_3_heaamm.webp",
                   },
                   {
                     id: crypto.randomUUID(),
@@ -924,7 +922,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zarni/Submission 4.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880753/challenges/direction-of-mind/by-zarni/Submission_4_bbnav8.webp",
                   },
                 ],
               },
@@ -941,7 +939,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zayar-htet-naing/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880766/challenges/direction-of-mind/by-zayar-htet-naing/Submission_1_mksyux.webp",
                   },
                 ],
               },
@@ -958,7 +956,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "img",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zin/Submission 1.webp",
+                      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880766/challenges/direction-of-mind/by-zin/Submission_1_sj0rhr.webp",
                   },
                 ],
               },
@@ -975,7 +973,7 @@ const files: File[] = [
                     isOpen: false,
                     mediaType: "video",
                     mediaSrc:
-                      "/images/archives/challenges/direction-of-mind/by-zwe-htet-arkar/Submission 1.mp4",
+                      "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880758/challenges/direction-of-mind/by-zwe-htet-arkar/Submission_1_tq8r1e.mov",
                   },
                 ],
               },
@@ -1004,7 +1002,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Teaser Poster1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Teaser_Poster1_regivj.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1013,7 +1011,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Teaser Poster2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Teaser_Poster2_vzrdhi.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1022,7 +1020,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Teaser Poster3.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/for-all-thingkind/sand-ambivalent-tote-bag/Teaser_Poster3_jzp30o.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1031,7 +1029,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Teaser Poster4.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Teaser_Poster4_bk0wsk.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1040,7 +1038,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Teaser Poster5.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Teaser_Poster5_vzrkxi.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1049,7 +1047,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Web Screen 1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Web_Screen_1_ptv1d5.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1058,7 +1056,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/for-all-thingkind/sand-ambivalent-tote-bag/Web Screen 2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880752/for-all-thingkind/sand-ambivalent-tote-bag/Web_Screen_2_gyx2ol.webp",
           },
           // {
           //   id: crypto.randomUUID(),
@@ -1094,7 +1092,7 @@ const files: File[] = [
         isOpen: false,
         mediaType: "pdf",
         mediaSrc:
-          "/images/archives/not-works/Cultural Dimensions of Geert Hofstede 1928-2020 (2023).pdf",
+          "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880745/not-works/Cultural_Dimensions_of_Geert_Hofstede_1928-2020_2023_mqrieo.ai",
       },
       {
         id: crypto.randomUUID(),
@@ -1104,7 +1102,7 @@ const files: File[] = [
         isOpen: false,
         mediaType: "pdf",
         mediaSrc:
-          "/images/archives/not-works/Hiddern PPF Design Competition Submission (2023)_compressed.pdf",
+          "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880749/not-works/Hiddern_PPF_Design_Competition_Submission_2023__compressed_qgc7yi.pdf",
       },
       {
         id: crypto.randomUUID(),
@@ -1120,7 +1118,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Bookshot.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/not-works/humanity-and-the-universe-book-2017/HATU-Bookshot_zlydch.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1129,7 +1127,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Cover-Art.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/not-works/humanity-and-the-universe-book-2017/HATU-Cover-Art_nsfk2p.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1138,7 +1136,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Cover-Art-2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/not-works/humanity-and-the-universe-book-2017/HATU-Cover-Art-2_eablzd.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1147,7 +1145,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Details.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880750/not-works/humanity-and-the-universe-book-2017/HATU-Details_euu4lx.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1157,7 +1155,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-In-the-memory-of-Carl-Sagan.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880750/not-works/humanity-and-the-universe-book-2017/HATU-In-the-memory-of-Carl-Sagan_kq6xip.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1166,7 +1164,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Pages.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/not-works/humanity-and-the-universe-book-2017/HATU-Pages_bmnsbq.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1175,7 +1173,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/humanity-and-the-universe-book-2017/HATU-Spine.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880751/not-works/humanity-and-the-universe-book-2017/HATU-Spine_dwrdwy.webp",
           },
         ],
       },
@@ -1192,7 +1190,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-A.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880750/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-A_x5jgf5.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1201,7 +1199,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-B.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880747/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-B_nuzsnj.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1210,7 +1208,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-C.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880749/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-C_rlhaoq.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1219,7 +1217,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-D.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880750/not-works/marmor-hotel-2018/MMH-Brand-Guide-Page-D_qvzxfs.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1228,7 +1226,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Brand-Guidelines.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880750/not-works/marmor-hotel-2018/MMH-Brand-Guidelines_u2lfae.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1237,7 +1235,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Door-Tags.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880748/not-works/marmor-hotel-2018/MMH-Door-Tags_fmx00e.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1246,7 +1244,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Evenlope.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880748/not-works/marmor-hotel-2018/MMH-Evenlope_mey09i.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1255,7 +1253,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Matches.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880748/not-works/marmor-hotel-2018/MMH-Matches_bpuvup.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1264,7 +1262,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/marmor-hotel-2018/MMH-Name-Cards.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880749/not-works/marmor-hotel-2018/MMH-Name-Cards_ll5qcr.webp",
           },
         ],
       },
@@ -1281,7 +1279,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/mottainia-magazine-2018/MOTT-Bookshot-1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880744/not-works/mottainia-magazine-2018/MOTT-Bookshot-1_allcpj.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1290,7 +1288,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/mottainia-magazine-2018/MOTT-Bookshot-2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880744/not-works/mottainia-magazine-2018/MOTT-Bookshot-2_b5ocfh.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1299,7 +1297,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/mottainia-magazine-2018/MOTT-Bookshot-3.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880743/not-works/mottainia-magazine-2018/MOTT-Bookshot-3_gffbnh.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1308,7 +1306,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/mottainia-magazine-2018/MOTT-Pages.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880747/not-works/mottainia-magazine-2018/MOTT-Pages_vmyfo8.webp",
           },
         ],
       },
@@ -1326,7 +1324,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880748/not-works/small-and-ordinary-book/SNO_Bookshot_1_wnsc6d.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1335,7 +1333,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880745/not-works/small-and-ordinary-book/SNO_Bookshot_2_wdbfdr.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1344,7 +1342,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 3.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880745/not-works/small-and-ordinary-book/SNO_Bookshot_3_fw9qqs.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1353,7 +1351,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 4.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880746/not-works/small-and-ordinary-book/SNO_Bookshot_4_mspm2h.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1362,7 +1360,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 5.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880745/not-works/small-and-ordinary-book/SNO_Bookshot_5_gchk13.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1371,7 +1369,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 6.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880747/not-works/small-and-ordinary-book/SNO_Bookshot_6_y2bxgi.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1380,7 +1378,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 7.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880747/not-works/small-and-ordinary-book/SNO_Bookshot_7_obq4i1.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1389,7 +1387,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/not-works/small-and-ordinary-book/SNO Bookshot 8.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880746/not-works/small-and-ordinary-book/SNO_Bookshot_8_zmtuz3.webp",
           },
         ],
       },
@@ -1413,7 +1411,8 @@ const files: File[] = [
             label: "AWN Bag 1.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Bag 1.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/all-we-need/AWN_Bag_1_tiidue.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1421,7 +1420,8 @@ const files: File[] = [
             label: "AWN Bag 2.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Bag 2.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/all-we-need/AWN_Bag_2_dpafxx.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1430,7 +1430,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/all-we-need/AWN Logo on Black.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880729/works/all-we-need/AWN_Logo_on_Black_aoorzg.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1439,7 +1439,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/all-we-need/AWN Logo on White.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880733/works/all-we-need/AWN_Logo_on_White_cfwizv.jpg",
           },
           {
             id: crypto.randomUUID(),
@@ -1447,7 +1447,8 @@ const files: File[] = [
             label: "AWN Name Card.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Name Card.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880733/works/all-we-need/AWN_Name_Card_b4xjpi.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1455,7 +1456,8 @@ const files: File[] = [
             label: "AWN Tape 1.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Tape 1.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880727/works/all-we-need/AWN_Tape_1_fk2jho.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1463,7 +1465,8 @@ const files: File[] = [
             label: "AWN Tape 2.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Tape 2.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880729/works/all-we-need/AWN_Tape_2_r9ziya.webp ",
           },
           {
             id: crypto.randomUUID(),
@@ -1471,7 +1474,8 @@ const files: File[] = [
             label: "AWN Tape 3.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/all-we-need/AWN Tape 3.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/all-we-need/AWN_Tape_3_xvgmqk.webp",
           },
         ],
       },
@@ -1487,7 +1491,8 @@ const files: File[] = [
             label: "AC Coasters.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/another-club/AC Coasters.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880739/works/another-club/AC_Coasters_onalyl.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1495,23 +1500,26 @@ const files: File[] = [
             label: "AC Coffee Bags.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/another-club/AC Coffee Bags.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Coffee_Bags_ofov8x.webp",
           },
+          // {
+          //   id: crypto.randomUUID(),
+          //   type: "file",
+          //   label: "AC Drawings 1.webp",
+          //   isOpen: false,
+          //   mediaType: "img",
+          //   mediaSrc:
+          //     "/images/archives/works/another-club/AC Drawings 1.webp",
+          // },
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "AC Drawings 1.webp",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc: "/images/archives/works/another-club/AC Drawings 1.webp",
-          },
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "AC Logos.pdf",
+            label: "AC Logo.pdf",
             isOpen: false,
             mediaType: "pdf",
-            mediaSrc: "/images/archives/works/another-club/AC Logos.pdf",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Logo_zh7gg0.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1519,7 +1527,8 @@ const files: File[] = [
             label: "AC Mockups.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/another-club/AC Mockups.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Mockups_lbhccj.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1528,7 +1537,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/another-club/AC Window Stickers.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp",
           },
         ],
       },
@@ -1544,7 +1553,8 @@ const files: File[] = [
             label: "GS Logo.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/game-sauce/GS Logo.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/game-sauce/GS_Logo_wqq4dc.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1552,7 +1562,8 @@ const files: File[] = [
             label: "GS Logo Animation.mp4",
             isOpen: false,
             mediaType: "video",
-            mediaSrc: "/images/archives/works/game-sauce/GS Logo Animation.mp4",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880740/works/game-sauce/GS_Logo_Animation_xfoor7.mp4",
           },
         ],
       },
@@ -1568,7 +1579,8 @@ const files: File[] = [
             label: "GH Collaterals.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Collaterals.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880726/works/grand-hotel/GH_Collaterals_mgqkrz.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1576,7 +1588,8 @@ const files: File[] = [
             label: "GH Documents.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Documents.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880726/works/grand-hotel/GH_Documents_rjkh7v.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1584,7 +1597,8 @@ const files: File[] = [
             label: "GH Envenlope.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Envenlope.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/grand-hotel/GH_Envenlope_chtjan.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1592,7 +1606,8 @@ const files: File[] = [
             label: "GH Laundary Bag.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Laundry Bag.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880726/works/grand-hotel/GH_Laundry_Bag_vljzng.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1600,7 +1615,8 @@ const files: File[] = [
             label: "GH Logos.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Logos.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/grand-hotel/GH_Logos_mmcfmz.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1608,7 +1624,8 @@ const files: File[] = [
             label: "GH Paperbag.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/grand-hotel/GH Paperbag.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880727/works/grand-hotel/GH_Paperbag_lchdgv.webp",
           },
         ],
       },
@@ -1624,7 +1641,8 @@ const files: File[] = [
             label: "HOG Logo.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/hog/HOG Logo.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880736/works/hog/HOG_Logo_elngx6.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1632,7 +1650,8 @@ const files: File[] = [
             label: "HOG Mascot.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/hog/HOG Mascot.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880736/works/hog/HOG_Mascot_ri5p0c.webp",
           },
         ],
       },
@@ -1648,7 +1667,8 @@ const files: File[] = [
             label: "PFM Logo.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/performance-cbd/PFM Logo.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/performance-cbd/PFM_Logo_pnzak2.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1657,7 +1677,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "video",
             mediaSrc:
-              "/images/archives/works/performance-cbd/PFM Logo Animation.mp4",
+              "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880742/works/performance-cbd/PFM_Logo_Animation_myvi3s.mp4",
           },
         ],
       },
@@ -1673,7 +1693,8 @@ const files: File[] = [
             label: "RIO Alternate Symbol.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/rio/RIO Alternate Symbol.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/rio/RIO_Alternate_Symbol_ww2mtm.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1681,7 +1702,8 @@ const files: File[] = [
             label: "RIO Colors.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/rio/RIO Colors.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880726/works/rio/RIO_Colors_tzoaxn.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1689,7 +1711,8 @@ const files: File[] = [
             label: "RIO Logo.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/rio/RIO Logo.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/rio/RIO_Logo_p3cjds.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1697,7 +1720,8 @@ const files: File[] = [
             label: "RIO Tote Bag.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/rio/RIO Tote Bag.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880734/works/rio/RIO_Tote_Bag_yxwv8m.webp",
           },
         ],
       },
@@ -1722,33 +1746,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB Farmer.gif",
-          },
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "SB Plant 1.gif",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB Plant 1.gif",
-          },
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "SB Plant 2.gif",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB Plant 2.gif",
-          },
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "SB Seed.gif",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc: "/images/archives/works/sawbwa-morning-blend/SB Seed.gif",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/sawbwa-morning-blend/SB_Farmer_yrwamk.gif",
           },
           {
             id: crypto.randomUUID(),
@@ -1757,7 +1755,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB Field.gif",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880731/works/sawbwa-morning-blend/SB_Field_zpdr7s.gif",
           },
           {
             id: crypto.randomUUID(),
@@ -1766,8 +1764,44 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/sawbwa-morning-blend/SB House.gif",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880732/works/sawbwa-morning-blend/SB_House_f3abca.gif",
           },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "SB Plant 1.gif",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880730/works/sawbwa-morning-blend/SB_Plant_1_ovykzn.gif",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "SB Plant 2.gif",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880729/works/sawbwa-morning-blend/SB_Plant_2_ynncob.gif",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "SB Seed.gif",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880731/works/sawbwa-morning-blend/SB_Seed_ciddwl.gif",
+          },
+          // {
+          //   id: crypto.randomUUID(),
+          //   type: "file",
+          //   label: "SB Packaging.ai",
+          //   isOpen: false,
+          //   mediaType: "pdf",
+          //   mediaSrc:
+          //     "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880727/works/sawbwa-morning-blend/SB_Packaging_pg7gpx.ai",
+          // },
         ],
       },
       {
@@ -1783,7 +1817,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/the-other-cakes/TOC Alternate Logos.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880742/works/the-other-cakes/TOC_Alternate_Logos_tqr0v8.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1791,7 +1825,8 @@ const files: File[] = [
             label: "TOC Logos.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/the-other-cakes/TOC Logos.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880744/works/the-other-cakes/TOC_Logos_beropf.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1799,7 +1834,8 @@ const files: File[] = [
             label: "TOC Misc.webp",
             isOpen: false,
             mediaType: "img",
-            mediaSrc: "/images/archives/works/the-other-cakes/TOC Misc.webp",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880742/works/the-other-cakes/TOC_Misc_p9euyo.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1808,7 +1844,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/the-other-cakes/TOC Tags and Sticker.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880742/works/the-other-cakes/TOC_Tags_and_Sticker_w1uefd.webp",
           },
         ],
       },
@@ -1825,7 +1861,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Apparels 1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_Apparels_1_l57ewl.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1834,7 +1870,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Apparels 2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880734/works/yangon-galacticos/YG_Apparels_2_qqdvqy.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1843,7 +1879,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Merch Kit.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880734/works/yangon-galacticos/YG_Merch_Kit_bqhdan.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1852,7 +1888,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Mouse Pad.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_Mouse_Pad_fasc3m.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1861,7 +1897,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Screens 1.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_Screens_1_wpvfbf.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1870,7 +1906,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Screens 2.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_Screens_2_cm2ksj.webp",
           },
           {
             id: crypto.randomUUID(),
@@ -1879,7 +1915,7 @@ const files: File[] = [
             isOpen: false,
             mediaType: "img",
             mediaSrc:
-              "/images/archives/works/yangon-galacticos/YG Stickers.webp",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_Stickers_gjx0vi.webp",
           },
         ],
       },

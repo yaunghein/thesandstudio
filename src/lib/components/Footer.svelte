@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import gsap from "gsap";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
   import clickOutside from "$lib/utils/clickOutside";
   import Logo from "$lib/svgs/Logo.svelte";
@@ -11,6 +10,16 @@
   import { addShell } from "$lib/stores/shell";
 
   let isOpen = false;
+
+  const playLottie = (node: HTMLDivElement) => {
+    lottie.loadAnimation({
+      container: node,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936686/lotties/sand-text-footer_jby9yx.json",
+    });
+  };
 
   const moveText = (node: HTMLDivElement) => {
     const tl = gsap.timeline({ repeat: Infinity });
@@ -161,28 +170,17 @@
       on:mouseleave={() => CursorType.set("normal")}
       class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
     >
-      <div class="flex items-center h-full">
+      <div class="flex items-center h-full shrink-0">
         <div use:moveText class="flex h-full">
           <div
             class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
           >
             <Logo />
           </div>
-          {#if browser}
-            <div class="dark:invert flex items-center h-full">
-              <LottiePlayer
-                src="/lotties/sand-footer-text.json"
-                autoplay={true}
-                loop={true}
-                renderer="svg"
-                background="transparent"
-                width={window.innerWidth}
-                height="100%"
-                controls=""
-                controlsLayout=""
-              />
-            </div>
-          {/if}
+
+          <div class="dark:invert flex items-center h-full shrink-0">
+            <div use:playLottie />
+          </div>
         </div>
 
         <div use:moveText class="flex h-full">
@@ -191,23 +189,12 @@
           >
             <Logo />
           </div>
-          {#if browser}
-            <div class="dark:invert flex items-center h-full">
-              <LottiePlayer
-                src="/lotties/sand-footer-text.json"
-                autoplay={true}
-                loop={true}
-                renderer="svg"
-                background="transparent"
-                width={window.innerWidth}
-                height="100%"
-                controls=""
-                controlsLayout=""
-              />
-            </div>
-          {/if}
+
+          <div class="dark:invert flex items-center h-full shrink-0">
+            <div use:playLottie />
+          </div>
         </div>
-      </div>
-    </button>
+      </div></button
+    >
   </div>
 </footer>

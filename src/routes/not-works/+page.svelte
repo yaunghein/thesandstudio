@@ -53,7 +53,7 @@
             >
               <!-- <span class="text-4xl font-sand-medium">Do you have an idea?</span> -->
               <img
-                src="/images/not-works-collaborate.svg"
+                src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715955807/general/not-works-collaborate_xbzd1y.svg"
                 alt="Make shit with us"
                 class="invert dark:invert-0 w-[50%]"
               />

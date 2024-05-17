@@ -31,7 +31,7 @@
               class="relative w-full aspect-[1/1.3] overflow-hidden bg-[#4A3326]"
             >
               <img
-                src="/images/competitions/3.webp"
+                src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715944571/general/not-work-typo-challenge_vvslvc.webp"
                 alt=""
                 class="w-full h-full object-cover scale-[1.01]"
               />
@@ -79,7 +79,7 @@
         >
           <!-- Do you have an idea? -->
           <img
-            src="/images/not-works-collaborate-mobile.svg"
+            src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715944624/general/not-works-collaborate-mobile_v8zal7.svg"
             alt="Make shit with us"
             class="invert dark:invert-0 w-[75%]"
           />

@@ -57,42 +57,42 @@
 
   <img
     class="relative z-20 dark:hidden w-full -mb-16 mt-10 pointer-events-none"
-    src="/images/sand-scan-usage-guide.webp"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709502/app-images/sand-scan-usage-guide_uf0rdd.webp"
     alt="SAND Scan Usage Guide"
   />
   <img
     class="relative z-20 hidden dark:block w-full -mb-16 mt-10 pointer-events-none"
-    src="/images/sand-scan-usage-guide-for-dark.webp"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709502/app-images/sand-scan-usage-guide-for-dark_scv4yl.webp"
     alt="SAND Scan Usage Guide"
   />
 
   <img
     class="opacity-100 dark:opacity-0 sand-transition absolute z-30 top-44 left-40 w-48 h-44"
-    src="/images/sand-scan-one.gif"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709672/app-images/sand-scan-one_lxitod.gif"
     alt=""
   />
   <div
-    use:runningLottie={"lotties/running-black.json"}
+    use:runningLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715588393/lotties/sand-scan-running-black_okxci6.json"}
     class="absolute z-10 top-[8.2rem] right-28 w-[36rem] dark:w-0 h-[17rem] dark:hidden overflow-hidden"
   />
   <img
     class="opacity-100 dark:opacity-0 sand-transition absolute z-30 bottom-[11.5rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
-    src="/images/sand-scan-three.gif"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709674/app-images/sand-scan-three_w1iv1t.gif"
     alt=""
   />
 
   <img
     class="opacity-0 dark:opacity-100 sand-transition absolute z-30 top-44 left-40 w-48 h-44"
-    src="/images/sand-scan-one-for-dark.gif"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709671/app-images/sand-scan-one-for-dark_hpdkg5.gif"
     alt=""
   />
   <div
-    use:runningLottie={"lotties/running-white.json"}
+    use:runningLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715588283/lotties/sand-scan-running-white_r4x1n9.json"}
     class="absolute z-10 top-[8.2rem] right-28 w-0 dark:w-[36rem] h-[17rem] hidden dark:block"
   />
   <img
     class="opacity-0 dark:opacity-100 sand-transition absolute z-30 bottom-[11.5rem] right-[4.2rem] w-[10.3rem] aspect-square rounded-2xl"
-    src="/images/sand-scan-three-for-dark.gif"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715709675/app-images/sand-scan-three-for-dark_dl52xb.gif"
     alt=""
   />
 </div>

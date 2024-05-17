@@ -25,7 +25,10 @@
     const app = document.querySelector("#sand-scan-app");
     const loadingEle = document.querySelector("#sand-scan-loading");
     const image = loadingEle!.querySelector("img");
-    image!.setAttribute("src", "/images/sand-scan-loading.gif");
+    image!.setAttribute(
+      "src",
+      "https://res.cloudinary.com/dlhbpswom/image/upload/v1715587553/app-images/sand-scan-loading_ed4vcj.gif",
+    );
     gsap.from(app, {
       opacity: 0,
       ease: "power4",

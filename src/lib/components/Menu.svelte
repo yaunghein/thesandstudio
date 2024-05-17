@@ -7,18 +7,9 @@
   import LogoShape from "$lib/svgs/LogoShape.svelte";
   import { addShell } from "$lib/stores/shell";
   import { openContactTab } from "$lib/stores/finder";
+  import playLottie from "$lib/utils/playLottie";
 
   let isOpen = false;
-
-  const playLottie = (node: HTMLDivElement, path: string) => {
-    lottie.loadAnimation({
-      container: node,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path,
-    });
-  };
 
   const openTermsAndConditions = () => {
     addShell({ id: "copyright", zIndex: 65 });
@@ -48,7 +39,11 @@
 </script>
 
 <button on:click={() => (isOpen = !isOpen)} class="grid place-items-end">
-  <img class="w-11 aspect-square" src="/images/hamburger.png" alt="Menu" />
+  <img
+    class="w-11 aspect-square"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715955911/general/hamburger_ibrafo.webp"
+    alt="Menu"
+  />
 </button>
 
 {#if isOpen}
@@ -107,7 +102,9 @@
           <div
             class="w-32 absolute scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
           >
-            <div use:playLottie={"/lotties/fatk.json"} />
+            <div
+              use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763241/lotties/fatk_tdug6t.json"}
+            />
           </div>
         </a>
 
@@ -123,7 +120,9 @@
           <div
             class="w-32 absolute scale-[1.4] group-hover:scale-[2.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[40%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
           >
-            <div use:playLottie={"/lotties/works.json"} />
+            <div
+              use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763270/lotties/works_tyaamm.json"}
+            />
           </div>
           <div
             class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -144,7 +143,10 @@
           <div
             class="w-32 absolute scale-[1] group-hover:scale-[1.6] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
           >
-            <img src="/lotties/not-works.gif" alt="Not Works" />
+            <img
+              src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763646/app-images/not-works_wnc5c5.gif"
+              alt="Not Works"
+            />
           </div>
           <div
             class="text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
