@@ -1,22 +1,22 @@
 <div class="absolute z-50 pointer-events-none inset-0 w-full h-full">
   <img
     class="absolute top-0 left-0 w-3 invert dark:invert-0 sand-transition"
-    src="/images/mobile/pixel-border.svg"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943439/general/pixel-border_b0keq0.svg"
     alt=""
   />
   <img
     class="absolute top-0 right-0 w-3 invert dark:invert-0 rotate-90 sand-transition"
-    src="/images/mobile/pixel-border.svg"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943439/general/pixel-border_b0keq0.svg"
     alt=""
   />
   <img
     class="absolute bottom-0 right-0 w-3 invert dark:invert-0 rotate-180 sand-transition"
-    src="/images/mobile/pixel-border.svg"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943439/general/pixel-border_b0keq0.svg"
     alt=""
   />
   <img
     class="absolute bottom-0 left-0 w-3 invert dark:invert-0 -rotate-90 sand-transition"
-    src="/images/mobile/pixel-border.svg"
+    src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943439/general/pixel-border_b0keq0.svg"
     alt=""
   />
   <div

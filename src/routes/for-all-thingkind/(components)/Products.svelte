@@ -30,7 +30,10 @@
           playsinline
           class="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/moving-sunset-sky.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dlhbpswom/video/upload/v1715944268/general/moving-sunset-sky_csvrih.mp4"
+            type="video/mp4"
+          />
           Your browser does not support HTML5 video.
         </video>
 
@@ -39,7 +42,7 @@
             class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem]"
           >
             <LottiePlayer
-              src="/lotties/fatk-bag.json"
+              src="/fatk-bag.json"
               autoplay={true}
               loop={true}
               renderer="svg"

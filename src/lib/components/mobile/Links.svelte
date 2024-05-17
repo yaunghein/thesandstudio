@@ -19,7 +19,11 @@
 <button on:click={() => goToSlideByName("works")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <PixelBorder />
-    <img class="relative dark:invert" src="/images/mobile/works.gif" alt="" />
+    <img
+      class="relative dark:invert"
+      src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943579/general/mobile-works_gpgxlr.gif"
+      alt=""
+    />
   </div>
   <div
     class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"
@@ -49,7 +53,7 @@
     <PixelBorder />
     <img
       class="relative rotate-180 dark:invert"
-      src="/images/mobile/not-works.gif"
+      src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943575/general/mobile-not-works_onymkk.gif"
       alt=""
     />
   </div>
@@ -65,7 +69,11 @@
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
     <PixelBorder />
-    <img class="relative dark:invert" src="/images/mobile/about.gif" alt="" />
+    <img
+      class="relative dark:invert"
+      src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715943567/general/mobile-about_tj6vbb.gif"
+      alt=""
+    />
   </div>
   <div
     class="leading-none pl-[2px] pt-1 text-lg text-left whitespace-nowrap font-sand-mobile-bold"

@@ -97,13 +97,14 @@
         "Heavy snow",
         "Light snow showers",
       ],
-      image: "/weather-icons/all-snow.webp",
+      image:
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881621/weather-icons/all-snow_lveczp.webp",
       size: 100,
     },
     thunder: {
       conditions: ["Thundery outbreaks possible"],
       image:
-        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881621/weather-icons/all-snow_lveczp.webp",
+        "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881625/weather-icons/thunder_nctdfs.webp",
       size: 100,
     },
     "snow-thunder": {
