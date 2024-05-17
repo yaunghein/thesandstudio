@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import gsap from "gsap";
-  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
   import lottie from "lottie-web";
   import { twMerge as twm } from "tailwind-merge";
   import clickOutside from "$lib/utils/clickOutside";

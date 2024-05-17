@@ -8,7 +8,6 @@ export type AppIcon = {
 export type Work = {
   name: string;
   images: string[];
-  textColor: "light" | "dark";
   categories: string[];
   meta: string[];
 };
