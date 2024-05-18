@@ -334,7 +334,7 @@
       <a
         href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
         target="_black"
-        class="block rounded-full px-4 py-3 text-sand-green dark:text-black dark:bg-sand-green border-2 border-sand-green text-left mt-16"
+        class="block scale-[0.7] origin-top-left rounded-full px-4 py-3 text-sand-green border-2 border-sand-green text-left mt-16"
       >
         Calculate CO2 Emission
       </a>

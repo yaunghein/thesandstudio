@@ -37,7 +37,7 @@ const getDesktopTab = (isOpen: boolean): Tab => {
         type: "file",
         label: "Sand Scan",
         isOpen: false,
-        icon: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763208/lotties/sand-scan_okfmci.json",
+        icon: "https://res.cloudinary.com/dlhbpswom/image/upload/v1715763648/app-images/sand-scan_yqwnto.gif",
         handleClick: () => addShell({ id: "sand-scan", zIndex: 65 }),
         description:
           "Barrier-grid animation and stereography automation software.",
