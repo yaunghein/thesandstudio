@@ -3,17 +3,17 @@
 
   export let data;
 
-  let { supabase } = data;
-  $: ({ supabase } = data);
+  // let { supabase } = data;
+  // $: ({ supabase } = data);
 
   let password = "";
 
   const updatePassword = async () => {
-    const { data, error } = await supabase.auth.updateUser({ password });
+    // const { data, error } = await supabase.auth.updateUser({ password });
 
     if (data) goto("/");
 
-    if (error) goto("/auth/login");
+    // if (error) goto("/auth/login");
   };
 </script>
 

@@ -1,17 +1,17 @@
 <script>
   export let data;
 
-  let { supabase } = data;
-  $: ({ supabase } = data);
+  // let { supabase } = data;
+  // $: ({ supabase } = data);
 
   let email = "";
   let isSent = false;
 
   const sendPasswordResetLink = async () => {
-    await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:5173/auth/callback?next=/auth/new-password",
-    });
-    isSent = true;
+    // await supabase.auth.resetPasswordForEmail(email, {
+    //   redirectTo: "http://localhost:5173/auth/callback?next=/auth/new-password",
+    // });
+    // isSent = true;
   };
 </script>
 

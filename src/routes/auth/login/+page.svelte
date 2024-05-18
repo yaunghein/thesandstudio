@@ -3,21 +3,21 @@
 
   export let data;
 
-  let { supabase } = data;
-  $: ({ supabase } = data);
+  // let { supabase } = data;
+  // $: ({ supabase } = data);
 
   let email = "";
   let password = "";
 
   const handleSignIn = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    // const { data, error } = await supabase.auth.signInWithPassword({
+    //   email,
+    //   password,
+    // });
 
     if (data) goto("/");
 
-    if (error) goto("/auth/login");
+    // if (error) goto("/auth/login");
   };
 </script>
 

@@ -11,20 +11,20 @@
 
   export let data;
 
-  let { supabase, session } = data;
-  $: ({ supabase, session } = data);
+  // let { supabase, session } = data;
+  // $: ({ supabase, session } = data);
 
-  onMount(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event: any, _session: any) => {
-      if (_session?.expires_at !== session?.expires_at) {
-        invalidate("supabase:auth");
-      }
-    });
+  // onMount(() => {
+  //   const {
+  //     data: { subscription },
+  //   } = supabase.auth.onAuthStateChange((event: any, _session: any) => {
+  //     if (_session?.expires_at !== session?.expires_at) {
+  //       invalidate("supabase:auth");
+  //     }
+  //   });
 
-    return () => subscription.unsubscribe();
-  });
+  //   return () => subscription.unsubscribe();
+  // });
 
   const duration = 1;
   let clickPos = { x: 0, y: 0 };

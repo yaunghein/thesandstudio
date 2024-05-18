@@ -5,21 +5,22 @@ import {
 import { createSupabaseLoadClient } from "@supabase/auth-helpers-sveltekit";
 
 export const load = async ({ fetch, data, depends }) => {
-  depends("supabase:auth");
+  // depends("supabase:auth");
 
-  const supabase = createSupabaseLoadClient({
-    supabaseUrl: PUBLIC_SUPABASE_URL,
-    supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
-    event: { fetch },
-    serverSession: data.session,
-  });
+  // const supabase = createSupabaseLoadClient({
+  //   supabaseUrl: PUBLIC_SUPABASE_URL,
+  //   supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+  //   event: { fetch },
+  //   serverSession: data.session,
+  // });
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  // const {
+  //   data: { session },
+  // } = await supabase.auth.getSession();
 
   const isMac = data.isMac;
   const isMobile = data.isMobile;
 
-  return { supabase, session, isMac, isMobile };
+  // return { supabase, session, isMac, isMobile };
+  return { isMac, isMobile };
 };

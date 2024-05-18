@@ -33,6 +33,9 @@
 
   import "swiper/css/pagination";
 
+  // let { supabase, session } = data;
+  // $: ({ supabase, session } = data);
+
   export let data;
   const { isMac, isMobile } = data;
 
@@ -70,12 +73,9 @@
     }
   }
 
-  let { supabase, session } = data;
-  $: ({ supabase, session } = data);
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-  };
+  // const handleSignOut = async () => {
+  //   await supabase.auth.signOut();
+  // };
 
   $: isSandScanOpen = $OpenShells.find((shell) => shell.id === "sand-scan");
 
