@@ -5,6 +5,7 @@
   import LogoMain from "$lib/svgs/LogoMain.svelte";
   import type { Work as TWork, WorkGroup } from "$lib/types";
   import deepClone from "$lib/utils/deepClone";
+  import MetaData from "$lib/components/MetaData.svelte";
 
   export const WORKS_GROUPS: WorkGroup[] = [
     {
@@ -212,6 +213,11 @@
   }
 </script>
 
+<MetaData
+  pageTitle="Works - The Sand Studio"
+  title="Works - The Sand Studio"
+  description="Every idea matters to us – no concept too small, no vision too grand. If you’re a person with an idea. Come say hi!"
+/>
 <AppShell>
   <section class="relative">
     <div

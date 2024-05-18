@@ -56,6 +56,7 @@
         }}
         class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 transition-all"
       >
+        <span class="sr-only">Open Footer</span>
         {#if !isOpen}
           <span class={twm("mt-2 transition", isOpen && "rotate-180")}>
             <svg

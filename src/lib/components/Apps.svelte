@@ -44,6 +44,7 @@
     href="/for-all-thingkind"
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
+    <span class="sr-only">For All Thingkind</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white opacity-sand group-hover:opacity-100 sand-transition"
     />
@@ -95,6 +96,7 @@
       <img
         src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763646/app-images/not-works_wnc5c5.gif"
         alt="Not Works"
+        class="w-full h-full"
       />
     </div>
     <div
@@ -149,6 +151,7 @@
     >
       <div
         use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715957920/lotties/about_i69vp3.json"}
+        class="w-full h-full"
       />
     </div>
     <div

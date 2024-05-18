@@ -3,8 +3,14 @@
   import Heading from "./(components)/Heading.svelte";
   import Products from "./(components)/Products.svelte";
   import LogoMain from "$lib/svgs/LogoMain.svelte";
+  import MetaData from "$lib/components/MetaData.svelte";
 </script>
 
+<MetaData
+  pageTitle="For All Thingkind -  The Sand Studio"
+  title="For All Thingkind -  The Sand Studio"
+  description="We embrace all forms, materials, and ideas, shaping them into products that reflect a confluence of diverse inspirations and tangible craftsmanship."
+/>
 <AppShell>
   <div class="flex flex-col h-full">
     <div class="text-[1.375rem] pl-12 pt-12 select-none">

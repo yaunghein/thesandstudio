@@ -102,6 +102,7 @@
     on:click={() => addShell({ id: "child", zIndex: 65 })}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
+    <span class="sr-only">Child</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-sand-blue opacity-sand group-hover:opacity-100 sand-transition"
     />
@@ -125,6 +126,7 @@
     on:click={() => addShell({ id: "finder", zIndex: 65 })}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
+    <span class="sr-only">Explorer 2000</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
     />
@@ -150,6 +152,7 @@
     on:click={() => addShell({ id: "backgrounds", zIndex: 65 })}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
+    <span class="sr-only">Backgrounds</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
     />
@@ -177,6 +180,7 @@
     on:click={openInquiryForm}
     class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
+    <span class="sr-only">Contact</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
     />

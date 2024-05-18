@@ -5,8 +5,14 @@
   import AppShell from "$lib/components/AppShell.svelte";
   import { changeCursorType } from "$lib/stores/cursor";
   import TypographicChallenge from "./(components)/TypographicChallenge.svelte";
+  import MetaData from "$lib/components/MetaData.svelte";
 </script>
 
+<MetaData
+  pageTitle="Not Works - The Sand Studio"
+  title="Not Works - The Sand Studio"
+  description="Valuing and cultivating the creative aspect of the human spirit, recognizing it as a powerful tool for solving problems, expressing oneself, and understanding the world. Encouraging innovation and original thought, breaking free from traditional constraints, and exploring new ideas without being hindered by fear or skepticism."
+/>
 <div>
   <AppShell>
     <div class="flex flex-col h-full">

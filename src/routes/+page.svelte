@@ -30,6 +30,7 @@
   import SlideNotWork from "$lib/components/mobile/SlideNotWork.svelte";
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
+  import MetaData from "$lib/components/MetaData.svelte";
 
   import "swiper/css/pagination";
 
@@ -246,6 +247,12 @@
     }, 0);
   };
 </script>
+
+<MetaData
+  pageTitle="The Sand Studio"
+  title="The Sand Studio"
+  description="Yeah... We do shit. Come make amazing shits with us. Any type of shit but probably email first. Join us in harnessing a diverse spectrum of minds and voices to catalyze unprecedented shits. Let thy shit hit thy fan."
+/>
 
 {#if !isMobile}
   <AppShell>

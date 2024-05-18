@@ -146,6 +146,7 @@
             <img
               src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763646/app-images/not-works_wnc5c5.gif"
               alt="Not Works"
+              class="w-full h-full"
             />
           </div>
           <div

@@ -115,6 +115,7 @@
   on:click|stopPropagation={switchMode}
   class="relative main-logo w-full h-full"
 >
+  <span class="sr-only">Change Theme</span>
   <!-- <div
     class="absolute z-10 bg-red-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[50%] aspect-square"
   ></div> -->
