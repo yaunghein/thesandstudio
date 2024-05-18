@@ -41,7 +41,7 @@
       conditions: ["Partly cloudy"],
       image:
         "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/partly-cloudy_en5jdk.webp",
-      // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/overcast_r8j36z.webp",
+      // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881622/weather-icons/fog-mist_vspnpu.webp",
       // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881620/weather-icons/all-freezing-rain_reta7o.webp",
       size: 100,
       // size: 125,
@@ -63,7 +63,7 @@
       conditions: ["Mist", "Fog"],
       image:
         "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881622/weather-icons/fog-mist_vspnpu.webp",
-      size: 125,
+      size: 100,
     },
     "freezing-fog": {
       conditions: ["Freezing fog"],
