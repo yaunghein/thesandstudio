@@ -87,7 +87,11 @@
         </div>
       {:else}
         <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
-          <img src={image} alt={work.name} class="w-full h-full object-cover" />
+          <img
+            src={image}
+            alt={work.name}
+            class="w-full h-full object-cover scale-[1.01]"
+          />
         </div>
       {/if}
     {/each}
