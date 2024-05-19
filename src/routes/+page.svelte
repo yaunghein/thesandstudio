@@ -47,7 +47,8 @@
 
     // set legacy bg as default only in Mac
     if (isMac) {
-      changeBackground("bg-legacy");
+      changeBackground("bg-scene");
+      // changeBackground("bg-legacy");
     }
 
     // this means codes below are for mobile
@@ -125,6 +126,8 @@
     });
   };
 
+  const handleMoveEyes = (e: MouseEvent) => moveEye(e, spline);
+
   // a couple timeout wrappers to ensure the spline app loads properly 🥲
   const create3DBackground = (node: HTMLCanvasElement) => {
     CursorType.set("loading");
@@ -136,14 +139,14 @@
           setTimeout(() => (isSplineLoaded = true), 1000);
           CursorType.set("normal");
           spline.addEventListener("mouseDown", clickWebThemeSwitcher);
-          window.addEventListener("mousemove", (e) => moveEye(e, spline));
+          window.addEventListener("mousemove", handleMoveEyes);
         });
     }, 3000);
   };
 
   onDestroy(() => {
     if (!browser) return;
-    window.removeEventListener("mousemove", (e) => moveEye(e, spline));
+    window.removeEventListener("mousemove", handleMoveEyes);
   });
 
   $: if ($SelectedBackground) {
@@ -340,14 +343,14 @@
       </a>
     </div>
 
-    {#if $SelectedBackground?.name !== "bg-scene"}
+    <!-- {#if $SelectedBackground?.name !== "bg-scene"}
       <div
         class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
       >
         <LogoMain />
       </div>
-    {/if}
-    <!-- <div
+    {/if} -->
+    <div
       class={twm(
         "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
         $SelectedBackground?.name === "bg-scene" &&
@@ -355,7 +358,7 @@
       )}
     >
       <LogoMain />
-    </div> -->
+    </div>
 
     <div class="absolute top-12 right-12 flex gap-5 z-[2]">
       <Apps />

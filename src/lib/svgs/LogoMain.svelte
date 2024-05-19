@@ -34,6 +34,50 @@
     return Math.min(range[1], Math.max(range[0], value));
   };
 
+  const animateLogo = (e: MouseEvent) => {
+    const rect = document.querySelector(".main-logo")!.getBoundingClientRect();
+    const track = {
+      x: e.clientX / (rect!.left + rect!.width / 2) - 1,
+      y: e.clientY / (rect!.top + rect!.height / 2) - 1,
+    };
+
+    const outerShapes = document.querySelectorAll(
+      ".logo-shape",
+    ) as NodeListOf<HTMLElement>;
+    outerShapes.forEach((shape) => {
+      gsap.to(shape, {
+        rotate: `${+track.x * 200}deg`,
+        transformOrigin: "center",
+        duration: 0.7,
+        ease: "power4",
+      });
+    });
+
+    const mouthShapes = document.querySelectorAll(
+      ".logo-mouth",
+    ) as NodeListOf<HTMLElement>;
+    mouthShapes.forEach((shape) => {
+      gsap.to(shape, {
+        rotate: `${stayBetween(+track.x * 10, [-20, 20])}deg`,
+        transformOrigin: "center",
+        duration: 0.7,
+        ease: "power4",
+      });
+    });
+
+    const eyesShapes = document.querySelectorAll(
+      ".logo-eyes",
+    ) as NodeListOf<HTMLElement>;
+    eyesShapes.forEach((shape) => {
+      gsap.to(shape, {
+        x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
+        y: `${stayBetween(+track.y * 3, [-allowY, allowY])}px`,
+        duration: 0.7,
+        ease: "power4",
+      });
+    });
+  };
+
   onMount(() => {
     logoShapeLottie = lottie.loadAnimation({
       container: document.querySelector(".logo-shape") as HTMLDivElement,
@@ -45,54 +89,8 @@
     !document.documentElement.classList.contains("dark") &&
       logoShapeLottie.goToAndStop(100, true);
 
-    const animateLogo = (e: MouseEvent) => {
-      const rect = document
-        .querySelector(".main-logo")!
-        .getBoundingClientRect();
-      const track = {
-        x: e.clientX / (rect!.left + rect!.width / 2) - 1,
-        y: e.clientY / (rect!.top + rect!.height / 2) - 1,
-      };
-
-      const outerShapes = document.querySelectorAll(
-        ".logo-shape",
-      ) as NodeListOf<HTMLElement>;
-      outerShapes.forEach((shape) => {
-        gsap.to(shape, {
-          rotate: `${+track.x * 200}deg`,
-          transformOrigin: "center",
-          duration: 0.7,
-          ease: "power4",
-        });
-      });
-
-      const mouthShapes = document.querySelectorAll(
-        ".logo-mouth",
-      ) as NodeListOf<HTMLElement>;
-      mouthShapes.forEach((shape) => {
-        gsap.to(shape, {
-          rotate: `${stayBetween(+track.x * 10, [-20, 20])}deg`,
-          transformOrigin: "center",
-          duration: 0.7,
-          ease: "power4",
-        });
-      });
-
-      const eyesShapes = document.querySelectorAll(
-        ".logo-eyes",
-      ) as NodeListOf<HTMLElement>;
-      eyesShapes.forEach((shape) => {
-        gsap.to(shape, {
-          x: `${stayBetween(+track.x * 5, [-10, 10])}px`,
-          y: `${stayBetween(+track.y * 3, [-allowY, allowY])}px`,
-          duration: 0.7,
-          ease: "power4",
-        });
-      });
-    };
-
-    window.addEventListener("mousemove", (e) => animateLogo(e));
-    return () => window.removeEventListener("mousemove", (e) => animateLogo(e));
+    window.addEventListener("mousemove", animateLogo);
+    return () => window.removeEventListener("mousemove", animateLogo);
   });
 
   const blinkEyes = (node: SVGPathElement) => {
