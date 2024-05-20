@@ -2,31 +2,34 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
   import Swiper from "swiper";
+  import type { Swiper as TSwiper } from "swiper";
   import { Autoplay, EffectFade } from "swiper/modules";
   import type { Work } from "$lib/types";
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
   import lottie from "lottie-web";
+  import { changeCursorType } from "$lib/stores/cursor";
 
   export let work: Work;
 
-  const getRandomNumber = () => {
-    const numbers = [10, 12, 15];
-    const randomIndex = Math.floor(Math.random() * numbers.length);
-    return numbers[randomIndex];
-  };
+  // const getRandomNumber = () => {
+  //   const numbers = [10, 12, 15];
+  //   const randomIndex = Math.floor(Math.random() * numbers.length);
+  //   return numbers[randomIndex];
+  // };
 
+  let slider: TSwiper;
   const swiper = (node: HTMLDivElement) => {
-    new Swiper(node, {
+    slider = new Swiper(node, {
       modules: [Autoplay, EffectFade],
-      effect: "fade",
+      effect: "slide",
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      autoplay: {
-        delay: 1000 * getRandomNumber(),
-        disableOnInteraction: false,
-      },
+      // autoplay: {
+      //   delay: 1000 * getRandomNumber(),
+      //   disableOnInteraction: false,
+      // },
     });
   };
 
@@ -63,13 +66,27 @@
       animation.play();
     });
   };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (window.innerWidth <= 640) return;
+    const _slider = slider?.el;
+    const _slides = slider?.slides;
+    const sliderWidth = _slider.clientWidth;
+    const mouseX = e.clientX - _slider.getBoundingClientRect().left;
+    const segmentWidth = sliderWidth / _slides.length;
+    const segmentIndex = Math.floor(mouseX / segmentWidth);
+    slider?.slideTo(segmentIndex);
+  };
 </script>
 
 <div
-  use:inView
   role="region"
+  dir="rtl"
+  use:inView
   use:swiper
+  use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
   on:mouseenter={() => dispatch("hoverIn", work)}
+  on:mousemove={handleMouseMove}
   class="group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden"
 >
   <div

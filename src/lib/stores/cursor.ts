@@ -11,7 +11,8 @@ export type TCursor =
   | "bg-scene"
   | "bg-default"
   | "bg-legacy"
-  | "loading";
+  | "loading"
+  | "work-slider";
 
 export const CursorType: Writable<TCursor> = writable("normal");
 

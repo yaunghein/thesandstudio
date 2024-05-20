@@ -14,6 +14,7 @@
     "bg-scene",
     "bg-default",
     "bg-legacy",
+    "work-slider",
   ];
   const pillLabels: Record<string, string> = {
     "upload-files": "Upload Files",
@@ -21,6 +22,7 @@
     "bg-scene": "Scene",
     "bg-default": "Default",
     "bg-legacy": "Legacy",
+    "work-slider": "Move Left and Right",
   };
 
   let isTargetClickable = false;

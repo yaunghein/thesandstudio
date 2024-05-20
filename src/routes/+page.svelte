@@ -47,8 +47,7 @@
 
     // set legacy bg as default only in Mac
     if (isMac) {
-      changeBackground("bg-scene");
-      // changeBackground("bg-legacy");
+      changeBackground("bg-legacy");
     }
 
     // this means codes below are for mobile
