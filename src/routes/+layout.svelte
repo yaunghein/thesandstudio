@@ -1,11 +1,12 @@
 <script lang="ts">
   import "../app.css";
   import "simplebar";
+  import { page } from "$app/stores";
+  import gsap from "gsap";
   import "simplebar/dist/simplebar.css";
   import { onMount, onDestroy } from "svelte";
   import { invalidate, onNavigate } from "$app/navigation";
   import { browser } from "$app/environment";
-  import gsap from "gsap";
   import Cursor from "$lib/components/Cursor.svelte";
   import Grains from "$lib/components/Grains.svelte";
 
@@ -38,6 +39,7 @@
   onMount(() => {
     if (!browser) return;
     document.addEventListener("click", handleClick);
+    gsap.set(".page-wrapper", { opacity: 0 });
   });
 
   onDestroy(() => {
@@ -52,7 +54,7 @@
   onNavigate(async (navigation) => {
     if (!document.startViewTransition) return;
     /**
-     * adding timeline inside a setTimeout is kind of a code smell
+     * adding timeline inside a setTimeout is kind of bad
      * but if i don't do this, by the time the timeline plays, clipPath In/Out variables(svelte states) are not ready
      * please let me know if you know better approach
      */
@@ -81,6 +83,30 @@
       });
     });
   });
+
+  $: if ($page && browser) {
+    gsap.set(".page-wrapper", { opacity: 0 });
+    setTimeout(
+      () => {
+        gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
+        gsap.fromTo(
+          ".fade-up",
+          {
+            y: "2rem",
+            opacity: 0,
+          },
+          {
+            y: "0rem",
+            opacity: 1,
+            stagger: 0.15,
+            ease: "power4.out",
+            duration: 2,
+          },
+        );
+      },
+      duration * 1000 * 1,
+    );
+  }
 </script>
 
 <svelte:head>

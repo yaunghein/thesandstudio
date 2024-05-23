@@ -92,7 +92,7 @@
 <div
   use:magnify
   use:changeCursorType={{ inType: "a-chon-lyy", outType: "normal" }}
-  class="z-[2] h-36 p-4 fixed bottom-16 left-1/2 -translate-x-1/2 border-2 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
+  class="fade-up z-[2] h-36 p-4 fixed bottom-16 left-1/2 -translate-x-1/2 border-2 border-white dark:border-light-12 flex items-end rounded-3xl gap-4"
 >
   <div
     class="absolute rounded-[1.3rem] inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"
@@ -100,7 +100,7 @@
   <!-- ########## Child ########## -->
   <button
     on:click={() => addShell({ id: "child", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Child</span>
     <div
@@ -124,7 +124,7 @@
   <!-- ########## Explorer ########## -->
   <button
     on:click={() => addShell({ id: "finder", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Explorer 2000</span>
     <div
@@ -150,7 +150,7 @@
   <!-- ########## Background ########## -->
   <button
     on:click={() => addShell({ id: "backgrounds", zIndex: 65 })}
-    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Backgrounds</span>
     <div
@@ -178,7 +178,7 @@
   <!-- ########## Contact ########## -->
   <button
     on:click={openInquiryForm}
-    class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
+    class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Contact</span>
     <div

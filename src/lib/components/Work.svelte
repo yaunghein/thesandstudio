@@ -87,7 +87,7 @@
   use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
   on:mouseenter={() => dispatch("hoverIn", work)}
   on:mousemove={handleMouseMove}
-  class="group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden"
+  class="fade-up group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden"
 >
   <div
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"

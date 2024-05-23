@@ -219,11 +219,11 @@
   description="Every idea matters to us – no concept too small, no vision too grand. If you’re a person with an idea. Come say hi!"
 />
 <AppShell>
-  <section class="relative">
+  <section class="page-wrapper relative">
     <div
       class="p-10 h-[12.5rem] sticky top-0 z-20 bg-light-95 dark:bg-light-7 flex items-start gap-32"
     >
-      <div class="grid grid-rows-3 grid-flow-col gap-y-2 gap-x-32">
+      <div class="fade-up grid grid-rows-3 grid-flow-col gap-y-2 gap-x-32">
         {#each displayLabels as label}
           <span
             class={twm(
@@ -238,12 +238,12 @@
         {/each}
       </div>
       <div
-        class="text-light-80 dark:text-light-20 sand-transition text-2xl leading-tight max-w-[22rem]"
+        class="fade-up text-light-80 dark:text-light-20 sand-transition text-2xl leading-tight max-w-[22rem]"
       >
         Others (Every idea matters to us – no concept too small, no vision too
         grand. If you’re a person with an idea. Come say hi!)
       </div>
-      <div class="flex items-center justify-end grow">
+      <div class="fade-up flex items-center justify-end grow">
         <div class="w-[7.5rem] aspect-square scale-125 -mb-2">
           <LogoMain allowY={5} />
         </div>
@@ -252,7 +252,7 @@
     {#each WORKS_GROUPS as workGroup}
       <div
         role="region"
-        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
+        class="fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
       >
         <!-- <div
         role="region"

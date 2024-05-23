@@ -9,6 +9,7 @@
 <section class="grow">
   <div class="grid grid-cols-1 sm:grid-cols-3">
     <a
+      class="fade-up"
       target="_blank"
       href="https://archive.thesandstudio.com/for-all-thingkind"
     >
@@ -58,6 +59,7 @@
         openContactTab();
       }}
       use:changeCursorType={{ inType: "contact", outType: "normal" }}
+      class="fade-up"
     >
       <div class="overflow-hidden">
         <div
@@ -81,7 +83,7 @@
       </div>
     </button>
 
-    <div>
+    <div class="fade-up">
       <div class="overflow-hidden">
         <div
           class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"

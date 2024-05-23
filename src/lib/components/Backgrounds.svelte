@@ -45,7 +45,10 @@
       class="grow overflow-auto border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl p-6 grid grid-cols-2 gap-3"
     >
       {#each $Backgrounds as bg}
-        <button on:click={() => changeBackground(bg.name)}>
+        <button
+          on:click={() => changeBackground(bg.name)}
+          class="w-full aspect-[1.91/1]"
+        >
           <div
             use:changeCursorType={{ inType: bg.name, outType: "normal" }}
             class="relative rounded-xl overflow-hidden"

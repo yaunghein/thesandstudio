@@ -46,9 +46,9 @@
     if (!browser) return;
 
     // set legacy bg as default only in Mac
-    if (isMac) {
-      changeBackground("bg-legacy");
-    }
+    // if (isMac) {
+    //   changeBackground("bg-legacy");
+    // }
 
     // this means codes below are for mobile
     if (!isMobile) return;
@@ -258,130 +258,132 @@
 
 {#if !isMobile}
   <AppShell>
-    {#if $SelectedBackground?.name === "bg-scene"}
-      <div
-        class={twm(
-          "sticky top-0 bottom-0 h-screen sand-transition",
-          isSplineLoaded && isSplineThemeChangeComplete
-            ? "opacity-100"
-            : "opacity-0",
-        )}
-      >
-        <canvas use:create3DBackground></canvas>
-      </div>
-    {/if}
-
-    {#if $SelectedBackground?.name === "bg-legacy"}
-      <div
-        class={twm(
-          "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
-          loadedLegacyLotties.length === 3
-            ? "opacity-30 dark:opacity-50"
-            : "opacity-0",
-        )}
-      >
-        <div use:legacyLottie={0} class="h-[28rem]" />
-        <div use:legacyLottie={120} class="h-[28rem]" />
-        <div use:legacyLottie={240} class="h-[28rem]" />
-      </div>
-    {/if}
-
-    <div
-      class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
-    >
-      <p class="max-w-[32rem] leading-[1.35]">
-        Yeah... We do shit. Come make amazing shits with us. Any type of shit
-        but probably email first. Join us in harnessing a diverse spectrum of
-        minds and voices to catalyze unprecedented shits. Let thy shit hit thy
-        fan.
-      </p>
-      <div class="overflow-hidden">
+    <div class="page-wrapper">
+      {#if $SelectedBackground?.name === "bg-scene"}
         <div
-          use:sandTextLottie
-          class="dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-        />
-      </div>
+          class={twm(
+            "sticky top-0 bottom-0 h-screen sand-transition",
+            isSplineLoaded && isSplineThemeChangeComplete
+              ? "opacity-100"
+              : "opacity-0",
+          )}
+        >
+          <canvas use:create3DBackground></canvas>
+        </div>
+      {/if}
 
-      <div class="min-h-[10.8rem]">
-        <Weather />
-      </div>
+      {#if $SelectedBackground?.name === "bg-legacy"}
+        <div
+          class={twm(
+            "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
+            loadedLegacyLotties.length === 3
+              ? "opacity-30 dark:opacity-50"
+              : "opacity-0",
+          )}
+        >
+          <div use:legacyLottie={0} class="h-[28rem]" />
+          <div use:legacyLottie={120} class="h-[28rem]" />
+          <div use:legacyLottie={240} class="h-[28rem]" />
+        </div>
+      {/if}
 
-      <div class="mt-12 flex flex-col items-start gap-2">
-        <button
-          on:click={openPrivacyPolicy}
-          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-        >
-          Privacy Policy
-        </button>
-        <button
-          on:click={openTermsAndConditions}
-          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-        >
-          Terms and Conditions
-        </button>
-        <button
-          on:click={openCookiesPolicy}
-          class="text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-        >
-          Cookies Policy
-        </button>
+      <div
+        class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
+      >
+        <p class="fade-up max-w-[32rem] leading-[1.35]">
+          Yeah... We do shit. Come make amazing shits with us. Any type of shit
+          but probably email first. Join us in harnessing a diverse spectrum of
+          minds and voices to catalyze unprecedented shits. Let thy shit hit thy
+          fan.
+        </p>
+        <div class="overflow-hidden">
+          <div
+            use:sandTextLottie
+            class="fade-up dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
+          />
+        </div>
+
+        <div class="fade-up min-h-[10.8rem]">
+          <Weather />
+        </div>
+
+        <div class="mt-12 flex flex-col items-start gap-2">
+          <button
+            on:click={openPrivacyPolicy}
+            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          >
+            Privacy Policy
+          </button>
+          <button
+            on:click={openTermsAndConditions}
+            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          >
+            Terms and Conditions
+          </button>
+          <button
+            on:click={openCookiesPolicy}
+            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          >
+            Cookies Policy
+          </button>
+          <a
+            href="/"
+            class="fade-up mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          >
+            Made by The Sand Studio {new Date().getFullYear()}
+          </a>
+        </div>
+
         <a
-          href="/"
-          class="mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
+          target="_black"
+          class="fade-up block scale-[0.7] origin-top-left rounded-full px-4 py-3 text-sand-green border-2 border-sand-green text-left mt-16"
         >
-          Made by The Sand Studio {new Date().getFullYear()}
+          Calculate CO2 Emission
         </a>
       </div>
 
-      <a
-        href="https://www.websitecarbon.com/website/thesandstudio-vercel-app/"
-        target="_black"
-        class="block scale-[0.7] origin-top-left rounded-full px-4 py-3 text-sand-green border-2 border-sand-green text-left mt-16"
-      >
-        Calculate CO2 Emission
-      </a>
-    </div>
-
-    <!-- {#if $SelectedBackground?.name !== "bg-scene"}
+      <!-- {#if $SelectedBackground?.name !== "bg-scene"}
       <div
         class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
       >
         <LogoMain />
       </div>
     {/if} -->
-    <div
-      class={twm(
-        "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
-        $SelectedBackground?.name === "bg-scene" &&
-          "opacity-0 pointer-events-none",
-      )}
-    >
-      <LogoMain />
+      <div
+        class={twm(
+          "w-52 fade-up aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
+          $SelectedBackground?.name === "bg-scene" &&
+            "opacity-0 pointer-events-none",
+        )}
+      >
+        <LogoMain />
+      </div>
+
+      <div class="absolute top-12 right-12 flex gap-5 z-[2]">
+        <Apps />
+      </div>
+
+      <Dock />
+
+      {#if isSandScanOpen}
+        <SandScan />
+      {/if}
+
+      {#if isBackgroundsOpen}
+        <Backgrounds />
+      {/if}
+
+      {#if isChildOpen}
+        <Child />
+      {/if}
+
+      {#if openMediaFiles.length > 0}
+        {#each openMediaFiles as file, index (file.id)}
+          <MediaWindow {file} {index} />
+        {/each}
+      {/if}
     </div>
-
-    <div class="absolute top-12 right-12 flex gap-5 z-[2]">
-      <Apps />
-    </div>
-
-    <Dock />
-
-    {#if isSandScanOpen}
-      <SandScan />
-    {/if}
-
-    {#if isBackgroundsOpen}
-      <Backgrounds />
-    {/if}
-
-    {#if isChildOpen}
-      <Child />
-    {/if}
-
-    {#if openMediaFiles.length > 0}
-      {#each openMediaFiles as file, index (file.id)}
-        <MediaWindow {file} {index} />
-      {/each}
-    {/if}
   </AppShell>
 {/if}
 

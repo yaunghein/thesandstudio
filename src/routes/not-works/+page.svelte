@@ -15,9 +15,9 @@
 />
 <div>
   <AppShell>
-    <div class="flex flex-col h-full">
+    <div class="page-wrapper flex flex-col h-full">
       <div class="text-[1.375rem] pl-12 pt-12 select-none">
-        <p class="max-w-[65rem] leading-[1.35]">
+        <p class="fade-up max-w-[65rem] leading-[1.35]">
           Valuing and cultivating the creative aspect of the human spirit,
           recognizing it as a powerful tool for solving problems, expressing
           oneself, and understanding the world. Encouraging innovation and
@@ -26,16 +26,16 @@
         </p>
       </div>
       <div class="flex items-center text-[26rem] leading-none my-5">
-        <div>N</div>
-        <div class="w-[25rem] aspect-square mx-5 flex items-center">
+        <div class="fade-up">N</div>
+        <div class="fade-up w-[25rem] aspect-square mx-5 flex items-center">
           <LogoMain />
         </div>
-        <div class="mr-24">T</div>
-        <div>WORKS</div>
+        <div class="fade-up mr-24">T</div>
+        <div class="fade-up">WORKS</div>
       </div>
 
       <section class="grow -mt-20">
-        <div class="grid grid-cols-1 sm:grid-cols-3">
+        <div class="fade-up grid grid-cols-1 sm:grid-cols-3">
           <TypographicChallenge />
 
           <button
@@ -44,6 +44,7 @@
               openContactTab();
             }}
             use:changeCursorType={{ inType: "contact", outType: "normal" }}
+            class="fade-up"
           >
             <div class="overflow-hidden">
               <div
@@ -66,7 +67,7 @@
             </div>
           </button>
 
-          <div>
+          <div class="fade-up">
             <div class="overflow-hidden">
               <div
                 class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"

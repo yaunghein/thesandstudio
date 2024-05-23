@@ -84,7 +84,7 @@
       renderer: "svg",
       loop: false,
       autoplay: false,
-      path: "/lotties/logo-shape.json",
+      path: "https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936557/lotties/logo-shape_nhorul.json",
     });
     !document.documentElement.classList.contains("dark") &&
       logoShapeLottie.goToAndStop(100, true);
