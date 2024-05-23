@@ -98,7 +98,7 @@
           {
             y: "0rem",
             opacity: 1,
-            stagger: 0.15,
+            stagger: 0.08,
             ease: "power4.out",
             duration: 2,
           },
