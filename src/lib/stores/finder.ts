@@ -1626,11 +1626,11 @@ const getArchiveTab = (isOpen: boolean): Tab => {
               {
                 id: crypto.randomUUID(),
                 type: "file",
-                label: "GS Logo Animation.mp4",
+                label: "GS Logo Animation.gif",
                 isOpen: false,
-                mediaType: "video",
+                mediaType: "img",
                 mediaSrc:
-                  "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880740/works/game-sauce/GS_Logo_Animation_xfoor7.mp4",
+                  "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573445/works/game-sauce/GS_Logo_Animation_wg2fmo.gif",
               },
             ],
           },

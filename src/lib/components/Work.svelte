@@ -26,6 +26,7 @@
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
+      speed: 750,
       // autoplay: {
       //   delay: 1000 * getRandomNumber(),
       //   disableOnInteraction: false,
@@ -87,13 +88,13 @@
   use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
   on:mouseenter={() => dispatch("hoverIn", work)}
   on:mousemove={handleMouseMove}
-  class="fade-up group w-full h-96 sm:h-auto sm:aspect-[1.63/1] relative overflow-hidden"
+  class="fade-up group w-full h-96 sm:h-auto sm:aspect-[1.6/1] relative overflow-hidden"
 >
   <div
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >
     {#each work.images as image}
-      {#if work.name === "ENVISEAM"}
+      <!-- {#if work.name === "ENVISEAM"}
         <div
           class="swiper-slide w-full h-full overflow-hidden shrink-0 bg-white dark:bg-black"
         >
@@ -102,15 +103,15 @@
             class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
           />
         </div>
-      {:else}
-        <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
-          <img
-            src={image}
-            alt={work.name}
-            class="w-full h-full object-cover scale-[1.01]"
-          />
-        </div>
-      {/if}
+      {:else} -->
+      <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
+        <img
+          src={image}
+          alt={work.name}
+          class="w-full h-full object-cover scale-[1.01]"
+        />
+      </div>
+      <!-- {/if} -->
     {/each}
   </div>
 </div>

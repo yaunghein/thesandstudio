@@ -22,7 +22,7 @@
     "bg-scene": "Scene",
     "bg-default": "Default",
     "bg-legacy": "Legacy",
-    "work-slider": "Move Left and Right",
+    "work-slider": "< >",
   };
 
   let isTargetClickable = false;
