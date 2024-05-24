@@ -78,17 +78,23 @@
     const segmentIndex = Math.floor(mouseX / segmentWidth);
     slider?.slideTo(segmentIndex);
   };
+
+  const direction = (node: HTMLDivElement) => {
+    if (window.innerWidth > 640) {
+      node.setAttribute("dir", "rtl");
+    }
+  };
 </script>
 
 <div
   role="region"
-  dir="rtl"
+  use:direction
   use:inView
   use:swiper
   use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
   on:mouseenter={() => dispatch("hoverIn", work)}
   on:mousemove={handleMouseMove}
-  class="fade-up group w-full h-96 sm:h-auto sm:aspect-[1.6/1] relative overflow-hidden"
+  class="fade-up group w-full h-[115vw] sm:h-auto sm:aspect-[1.6/1] relative overflow-hidden"
 >
   <div
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
