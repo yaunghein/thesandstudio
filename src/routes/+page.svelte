@@ -272,6 +272,16 @@
         </div>
       {/if}
 
+      {#if $SelectedBackground?.name === "bg-default"}
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+          <img
+            alt=""
+            src="https://res.cloudinary.com/dlhbpswom/image/upload/v1716632656/general/ascii-bg_gmzis6.webp"
+            class="w-full h-full object-cover object-center opacity-10 dark:invert origin-top"
+          />
+        </div>
+      {/if}
+
       {#if $SelectedBackground?.name === "bg-legacy"}
         <div
           class={twm(
