@@ -1673,11 +1673,11 @@ const files: File[] = [
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "PFM Logo Animation.mp4",
+            label: "PFM Logo Animation.gif",
             isOpen: false,
-            mediaType: "video",
+            mediaType: "img",
             mediaSrc:
-              "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880742/works/performance-cbd/PFM_Logo_Animation_myvi3s.mp4",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716611876/works/performance-cbd/PFM_Logo_Animation_aivauv.gif",
           },
         ],
       },

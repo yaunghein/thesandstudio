@@ -162,6 +162,9 @@
           id="lottie-container"
         >
           <!-- Here comes image: lottie or gif -->
+          {#if data.label === "Sand Scan"}
+            <img src={data.icon} alt="" />
+          {/if}
         </div>
       </div>
       <div

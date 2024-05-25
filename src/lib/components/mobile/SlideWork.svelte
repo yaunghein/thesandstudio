@@ -209,23 +209,24 @@
           <div>
             <h1 class="font-sand-mobile-bold text-6xl">Works</h1>
             <div class="max-w-[7rem] leading-[0.75] text-xl">
-              <div class="opacity-50">Visual Identity/</div>
-              <div class="opacity-50">Motion Graphics and Animation/</div>
-              <div class="opacity-50">Packaging/</div>
-              <div class="opacity-50">Web Design and Development/</div>
-              <div class="opacity-50">Web Maintenance and Support/</div>
+              <div class="">Visual Identity/</div>
+              <div class="">Motion Graphics and Animation/</div>
+              <div class="">Packaging/</div>
+              <div class="">Web Design and Development/</div>
+              <div class="">Web Maintenance and Support/</div>
+              <div class="">App Design and Development/</div>
             </div>
           </div>
 
           <div>
             <div class="leading-[0.75] text-xl">
-              <div class="opacity-50">E-commerce Solutions/</div>
-              <div class="opacity-50">Architectural Design/</div>
-              <div class="opacity-50">Interior Design/</div>
-              <div class="opacity-50">3D Modeling and Visualization/</div>
-              <div class="opacity-50">Consultation and Strategy/</div>
+              <div class="">E-commerce Solutions/</div>
+              <div class="">Architectural Design/</div>
+              <div class="">Interior Design/</div>
+              <div class="">3D Modeling and Visualization/</div>
+              <div class="">Consultation and Strategy/</div>
             </div>
-            <div class="opacity-50 leading-[0.75] text-xl mt-4">
+            <div class=" leading-[0.75] text-xl mt-4">
               Others (Every idea matters to us – no concept too small, no vision
               too grand. If you’re a person with an idea. Come say hi!)
             </div>
@@ -255,7 +256,9 @@
                 class="-mx-5 col-span-2 text-xl font-sand-mobile-bold leading-[0.75] flex items-center gap-2 animate-marquee"
               >
                 {#each [...Array(20)] as _}
-                  <div class="shrink-0">{currentWork.categories.join(" ")}</div>
+                  <div class="shrink-0">
+                    {currentWork.categories.join(" / ")}
+                  </div>
                 {/each}
               </div>
             </div>

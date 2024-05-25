@@ -39,6 +39,7 @@
             "Visual Identity",
             "Motion Graphics and Animation",
             "Web Maintenance and Support",
+            "App Design and Development",
           ],
           meta: [
             "Art, Culture & Entertainment",
@@ -236,6 +237,7 @@
     { label: "Interior Design", isActive: false },
     { label: "3D Modelling and Visualization", isActive: false },
     { label: "Consultation and Strategy", isActive: false },
+    { label: "App Design and Development", isActive: false },
   ];
   let displayLabels = deepClone(initialDisplayLabels);
 
