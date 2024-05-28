@@ -272,7 +272,7 @@
         </div>
       {/if}
 
-      {#if $SelectedBackground?.name === "bg-default"}
+      <!-- {#if $SelectedBackground?.name === "bg-default"}
         <div class="absolute inset-0 w-full h-full overflow-hidden">
           <img
             alt=""
@@ -280,7 +280,7 @@
             class="w-full h-full object-cover object-center opacity-[0.15] dark:opacity-10 dark:invert origin-top"
           />
         </div>
-      {/if}
+      {/if} -->
 
       {#if $SelectedBackground?.name === "bg-legacy"}
         <div
@@ -360,14 +360,16 @@
         <LogoMain />
       </div>
     {/if} -->
-      <div
-        class={twm(
-          "w-52 fade-up aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
-          $SelectedBackground?.name === "bg-scene" &&
-            "opacity-0 pointer-events-none",
-        )}
-      >
-        <LogoMain />
+      <div class="fade-up">
+        <div
+          class={twm(
+            "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
+            $SelectedBackground?.name === "bg-scene" &&
+              "opacity-0 pointer-events-none",
+          )}
+        >
+          <LogoMain />
+        </div>
       </div>
 
       <div class="absolute top-12 right-12 flex gap-5 z-[2]">

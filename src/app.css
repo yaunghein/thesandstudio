@@ -49,7 +49,10 @@
 *::after,
 a,
 button {
-  cursor: none !important;
+  /* cursor: none !important; */
+  /* cursor: url("https://t4.ftcdn.net/jpg/02/52/93/81/360_F_252938192_JQQL8VoqyQVwVB98oRnZl83epseTVaHe.jpg") !important; */
+  /* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
+    auto; */
 }
 
 html {
@@ -64,6 +67,8 @@ html {
 
 body {
   overscroll-behavior: none;
+  /* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
+    auto; */
   height: 100%;
 }
 

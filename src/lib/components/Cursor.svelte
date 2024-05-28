@@ -14,7 +14,6 @@
     "bg-scene",
     "bg-default",
     "bg-legacy",
-    "work-slider",
   ];
   const pillLabels: Record<string, string> = {
     "upload-files": "Upload Files",
@@ -22,7 +21,6 @@
     "bg-scene": "Scene",
     "bg-default": "Default",
     "bg-legacy": "Legacy",
-    "work-slider": "< >",
   };
 
   let isTargetClickable = false;
@@ -87,15 +85,16 @@
   id="cursor"
   class={twm(
     "pointer-events-none select-none fixed top-0 z-[100000000]",
-    $CursorType !== "contact" &&
-      !pillCursors.includes($CursorType) &&
+    !pillCursors.includes($CursorType) &&
+      $CursorType !== "contact" &&
+      $CursorType !== "work-slider" &&
       $CursorType !== "loading"
       ? "mix-blend-difference"
       : "mix-blend-normal",
   )}
 >
   {#if $CursorType === "normal"}
-    <div
+    <!-- <div
       transition:scale={options}
       class="dark:invert w-10 aspect-square absolute"
     >
@@ -114,7 +113,7 @@
           stroke="black"
         />
       </svg>
-    </div>
+    </div> -->
   {/if}
 
   {#if $CursorType === "a-chon-lyy"}
@@ -188,6 +187,33 @@
           stroke-linejoin="round"
         />
       </svg>
+    </div>
+  {/if}
+
+  {#if $CursorType === "work-slider"}
+    <div
+      transition:scale={options}
+      class="absolute -translate-x-1/2 -translate-y-1/2 text-xl rounded-full p-2 text-white dark:text-black border-2 border-light-12 dark:border-white overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-80"
+      />
+      <div class="relative w-14 h-[1.34rem]">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 57 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.7343 22.4685L2 11.7343L12.7343 1M44.7343 1.00023L55.4685 11.7345L44.7343 22.4688"
+            stroke="currentColor"
+            stroke-width="1.87662"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
     </div>
   {/if}
 
