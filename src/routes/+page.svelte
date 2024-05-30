@@ -31,6 +31,7 @@
   import SlideWork from "$lib/components/mobile/SlideWork.svelte";
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
   import MetaData from "$lib/components/MetaData.svelte";
+  import LoadingScreen from "$lib/components/LoadingScreen.svelte";
 
   import "swiper/css/pagination";
 
@@ -46,9 +47,9 @@
     if (!browser) return;
 
     // set legacy bg as default only in Mac
-    // if (isMac) {
-    //   changeBackground("bg-legacy");
-    // }
+    if (isMac) {
+      changeBackground("bg-legacy");
+    }
 
     // this means codes below are for mobile
     if (!isMobile) return;
@@ -258,21 +259,22 @@
 
 {#if !isMobile}
   <AppShell>
-    <div class="page-wrapper">
-      {#if $SelectedBackground?.name === "bg-scene"}
-        <div
-          class={twm(
-            "sticky top-0 bottom-0 h-screen sand-transition",
-            isSplineLoaded && isSplineThemeChangeComplete
-              ? "opacity-100"
-              : "opacity-0",
-          )}
-        >
-          <canvas use:create3DBackground></canvas>
-        </div>
-      {/if}
+    <div class="overflow-hidden h-[calc(100vh-6rem)]">
+      <div class="page-wrapper">
+        {#if $SelectedBackground?.name === "bg-scene"}
+          <div
+            class={twm(
+              "sticky top-0 bottom-0 h-screen sand-transition",
+              isSplineLoaded && isSplineThemeChangeComplete
+                ? "opacity-100"
+                : "opacity-0",
+            )}
+          >
+            <canvas use:create3DBackground></canvas>
+          </div>
+        {/if}
 
-      <!-- {#if $SelectedBackground?.name === "bg-default"}
+        <!-- {#if $SelectedBackground?.name === "bg-default"}
         <div class="absolute inset-0 w-full h-full overflow-hidden">
           <img
             alt=""
@@ -282,85 +284,70 @@
         </div>
       {/if} -->
 
-      {#if $SelectedBackground?.name === "bg-legacy"}
         <div
-          class={twm(
-            "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
-            loadedLegacyLotties.length === 3
-              ? "opacity-30 dark:opacity-50"
-              : "opacity-0",
-          )}
+          class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
         >
-          <div use:legacyLottie={0} class="h-[28rem]" />
-          <div use:legacyLottie={120} class="h-[28rem]" />
-          <div use:legacyLottie={240} class="h-[28rem]" />
-        </div>
-      {/if}
+          <p class="fade-up max-w-[32rem] leading-[1.35]">
+            Yeah... We do shit. Come make amazing shits with us. Any type of
+            shit but probably email first. Join us in harnessing a diverse
+            spectrum of minds and voices to catalyze unprecedented shits. Let
+            thy shit hit thy fan.
+          </p>
+          <div class="overflow-hidden">
+            <div
+              use:sandTextLottie
+              class="fade-up dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
+            />
+          </div>
 
-      <div
-        class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
-      >
-        <p class="fade-up max-w-[32rem] leading-[1.35]">
-          Yeah... We do shit. Come make amazing shits with us. Any type of shit
-          but probably email first. Join us in harnessing a diverse spectrum of
-          minds and voices to catalyze unprecedented shits. Let thy shit hit thy
-          fan.
-        </p>
-        <div class="overflow-hidden">
-          <div
-            use:sandTextLottie
-            class="fade-up dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-          />
-        </div>
+          <div class="fade-up min-h-[10.8rem]">
+            <Weather />
+          </div>
 
-        <div class="fade-up min-h-[10.8rem]">
-          <Weather />
-        </div>
+          <div class="mt-12 flex flex-col items-start gap-2">
+            <button
+              on:click={openPrivacyPolicy}
+              class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+            >
+              Privacy Policy
+            </button>
+            <button
+              on:click={openTermsAndConditions}
+              class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+            >
+              Terms and Conditions
+            </button>
+            <button
+              on:click={openCookiesPolicy}
+              class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+            >
+              Cookies Policy
+            </button>
+            <a
+              href="/"
+              class="fade-up mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+            >
+              Made by The Sand Studio {new Date().getFullYear()}
+            </a>
+          </div>
 
-        <div class="mt-12 flex flex-col items-start gap-2">
-          <button
-            on:click={openPrivacyPolicy}
-            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-          >
-            Privacy Policy
-          </button>
-          <button
-            on:click={openTermsAndConditions}
-            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-          >
-            Terms and Conditions
-          </button>
-          <button
-            on:click={openCookiesPolicy}
-            class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
-          >
-            Cookies Policy
-          </button>
           <a
-            href="/"
-            class="fade-up mt-5 text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+            href="https://greenpixie.com/sites/www-thesandstudio-com"
+            target="_black"
+            class="fade-up block scale-[0.7] origin-top-left rounded-full px-4 py-3 text-sand-green hover:bg-sand-green hover:text-light-10 transition border-2 border-sand-green text-left mt-16"
           >
-            Made by The Sand Studio {new Date().getFullYear()}
+            Calculate CO2 Emission
           </a>
         </div>
 
-        <a
-          href="https://greenpixie.com/sites/www-thesandstudio-com"
-          target="_black"
-          class="fade-up block scale-[0.7] origin-top-left rounded-full px-4 py-3 text-sand-green hover:bg-sand-green hover:text-light-10 transition border-2 border-sand-green text-left mt-16"
-        >
-          Calculate CO2 Emission
-        </a>
-      </div>
-
-      <!-- {#if $SelectedBackground?.name !== "bg-scene"}
+        <!-- {#if $SelectedBackground?.name !== "bg-scene"}
       <div
         class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
       >
         <LogoMain />
       </div>
     {/if} -->
-      <div class="fade-up">
+
         <div
           class={twm(
             "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
@@ -370,33 +357,54 @@
         >
           <LogoMain />
         </div>
+
+        <div class="absolute top-12 right-12 flex gap-5 z-[2]">
+          <Apps />
+        </div>
+
+        <Dock />
+
+        {#if isSandScanOpen}
+          <SandScan />
+        {/if}
+
+        {#if isBackgroundsOpen}
+          <Backgrounds />
+        {/if}
+
+        {#if isChildOpen}
+          <Child />
+        {/if}
+
+        {#if openMediaFiles.length > 0}
+          {#each openMediaFiles as file, index (file.id)}
+            <MediaWindow {file} {index} />
+          {/each}
+        {/if}
+
+        <div class="fade-up h-[calc(100vh-3rem)] pointer-events-none">
+          {#if $SelectedBackground?.name === "bg-legacy"}
+            <div
+              class={twm(
+                "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
+                loadedLegacyLotties.length === 3
+                  ? "opacity-30 dark:opacity-50"
+                  : "opacity-0",
+              )}
+            >
+              <div use:legacyLottie={0} class="h-[28rem]" />
+              <div use:legacyLottie={120} class="h-[28rem]" />
+              <div use:legacyLottie={240} class="h-[28rem]" />
+            </div>
+          {/if}
+        </div>
       </div>
-
-      <div class="absolute top-12 right-12 flex gap-5 z-[2]">
-        <Apps />
-      </div>
-
-      <Dock />
-
-      {#if isSandScanOpen}
-        <SandScan />
-      {/if}
-
-      {#if isBackgroundsOpen}
-        <Backgrounds />
-      {/if}
-
-      {#if isChildOpen}
-        <Child />
-      {/if}
-
-      {#if openMediaFiles.length > 0}
-        {#each openMediaFiles as file, index (file.id)}
-          <MediaWindow {file} {index} />
-        {/each}
-      {/if}
     </div>
   </AppShell>
+
+  {#if data.shouldShowLoadingScreen}
+    <LoadingScreen />
+  {/if}
 {/if}
 
 {#if isMobile}

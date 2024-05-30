@@ -11,9 +11,20 @@ export const load = async (event) => {
     /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
   const isMobile = mobileRegex.test(userAgent);
 
+  const checkLoadingScreen = () => {
+    if (event.url.pathname === "/") {
+      const showedLoadingScreen = event.cookies.get(
+        "sand-showed-loading-screen",
+      );
+      return showedLoadingScreen === "yes" ? false : true;
+    }
+    return false;
+  };
+
   return {
     // session: await getSession(),
     isMac,
     isMobile,
+    shouldShowLoadingScreen: checkLoadingScreen(),
   };
 };

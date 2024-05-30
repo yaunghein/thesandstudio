@@ -86,32 +86,25 @@
 
   $: if ($page && browser) {
     gsap.set(".page-wrapper", { opacity: 0 });
-    setTimeout(
-      () => {
-        gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
-        gsap.fromTo(
-          ".fade-up",
-          {
-            y: "2rem",
-            opacity: 0,
-          },
-          {
-            y: "0rem",
-            opacity: 1,
-            stagger: 0.08,
-            ease: "power4.out",
-            duration: 2,
-          },
-        );
-      },
-      duration * 1000 * 1,
-    );
+    setTimeout(() => {
+      gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
+      gsap.fromTo(
+        ".fade-up",
+        {
+          y: "2rem",
+          opacity: 0,
+        },
+        {
+          y: "0rem",
+          opacity: 1,
+          stagger: 0.08,
+          ease: "power4.out",
+          duration: 2,
+        },
+      );
+    }, duration * 1000);
   }
 </script>
-
-<svelte:head>
-  <title>SAND Studio</title>
-</svelte:head>
 
 <div
   id="iris-container"
