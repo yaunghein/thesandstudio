@@ -134,7 +134,7 @@
     spline = new Application(node);
     setTimeout(() => {
       spline
-        .load("https://prod.spline.design/HPDt8uHqztL9xXMj/scene.splinecode")
+        .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
         .then(() => {
           setTimeout(() => (isSplineLoaded = true), 1000);
           CursorType.set("normal");
