@@ -112,7 +112,8 @@
           "complete",
           handleLogoShapeLottieLoop,
         );
-        setTimeout(() => helloLottie.play(), 0);
+        logoShapeLottie.goToAndStop(logoShapeLottie.totalFrames - 1, true);
+        helloLottie.play();
         const postLoadingTl = gsap.timeline();
         postLoadingTl
           .to(".loading_hello", { opacity: 1 })
@@ -129,13 +130,26 @@
             },
             "<",
           )
+          .to(
+            ".loading_logo-shape",
+            {
+              rotate: "180deg",
+              duration: 2,
+              ease: "power4.out",
+            },
+            "<",
+          )
           .fromTo(
             ".loading_logo-mouth",
             { rotate: "-180deg", opacity: 0 },
-            { rotate: "0deg", opacity: 1 },
-            "<50%",
+            { rotate: "0deg", opacity: 1, duration: 1.5, ease: "power4.out" },
+            "<10%",
           )
-          .to(".loading_logo-eyes", { opacity: 1 }, "<");
+          .to(
+            ".loading_logo-eyes",
+            { opacity: 1, duration: 1.5, ease: "power4.out" },
+            "<",
+          );
       },
     });
 
@@ -143,7 +157,7 @@
       .to(".loading_progress", { width: "30%", delay: 1 })
       .to(".loading_progress", { width: "50%", delay: 0 })
       .to(".loading_progress", { width: "75%", delay: 0 })
-      .to(".loading_progress", { width: "100%" })
+      .to(".loading_progress", { width: "100%", delay: 1.95 })
       .to(".loading_bar", { opacity: 0 });
 
     window.addEventListener("mousemove", animateLogo);
