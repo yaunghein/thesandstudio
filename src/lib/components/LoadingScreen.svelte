@@ -112,7 +112,7 @@
           "complete",
           handleLogoShapeLottieLoop,
         );
-        helloLottie.play();
+        setTimeout(() => helloLottie.play(), 0);
         const postLoadingTl = gsap.timeline();
         postLoadingTl
           .to(".loading_hello", { opacity: 1 })
