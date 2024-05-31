@@ -350,7 +350,7 @@
 
         <div
           class={twm(
-            "w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]",
+            "w-52 aspect-square fixed top-[8rem] left-1/2 -translate-x-1/2 z-[2]",
             $SelectedBackground?.name === "bg-scene" &&
               "opacity-0 pointer-events-none",
           )}

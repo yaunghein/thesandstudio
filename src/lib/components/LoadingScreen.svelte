@@ -222,7 +222,7 @@
 
   <button
     on:click={handleClick}
-    class="loading_logo-container w-[9.75rem] aspect-square invert-0 absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+    class="loading_logo-container w-[9.75rem] aspect-square invert-0 fixed top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2"
   >
     <div class="loading_logo-shape" />
 
