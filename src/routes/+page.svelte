@@ -46,8 +46,8 @@
   onMount(() => {
     if (!browser) return;
 
-    // set legacy bg as default only in Mac
-    if (isMac) {
+    // set legacy bg as default only in Mac (data.shouldShowLoadingScreen indicates this is first time or reset state)
+    if (isMac && data.shouldShowLoadingScreen) {
       changeBackground("bg-legacy");
     }
 
@@ -348,7 +348,7 @@
       </div>
     {/if} -->
 
-        <div
+        <!-- <div
           class={twm(
             "w-[13rem] aspect-square fixed top-[8rem] left-1/2 -translate-x-1/2 z-[2]",
             $SelectedBackground?.name === "bg-scene" &&
@@ -356,7 +356,7 @@
           )}
         >
           <LogoMain />
-        </div>
+        </div> -->
 
         <div class="absolute top-12 right-12 flex gap-5 z-[2]">
           <Apps />
@@ -403,7 +403,7 @@
   </AppShell>
 
   <!-- {#if data.shouldShowLoadingScreen} -->
-  <LoadingScreen />
+  <LoadingScreen show={data.shouldShowLoadingScreen} />
   <!-- {/if} -->
 {/if}
 
