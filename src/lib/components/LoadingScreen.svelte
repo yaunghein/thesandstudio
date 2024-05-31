@@ -105,6 +105,7 @@
     );
 
     const progressTl = gsap.timeline({
+      paused: true,
       defaults: { ease: "Power4.out", duration: 1 },
       onComplete: () => {
         isLoading = false;
@@ -152,13 +153,13 @@
           );
       },
     });
-
     progressTl
       .to(".loading_progress", { width: "30%", delay: 1 })
       .to(".loading_progress", { width: "50%", delay: 0 })
       .to(".loading_progress", { width: "75%", delay: 0 })
       .to(".loading_progress", { width: "100%", delay: 1.95 })
       .to(".loading_bar", { opacity: 0 });
+    logoShapeLottie.addEventListener("DOMLoaded", () => progressTl.play());
 
     window.addEventListener("mousemove", animateLogo);
 
