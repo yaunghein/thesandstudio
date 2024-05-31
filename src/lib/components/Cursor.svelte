@@ -193,24 +193,37 @@
   {#if $CursorType === "work-slider"}
     <div
       transition:scale={options}
-      class="absolute -translate-x-1/2 -translate-y-1/2 text-xl rounded-full p-2 text-white dark:text-black border-2 border-light-12 dark:border-white overflow-hidden"
+      class="absolute -translate-x-[51%] -translate-y-[65%] text-xl text-white dark:text-black"
     >
       <div
-        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-80"
+        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-25"
       />
-      <div class="relative w-14 h-[1.34rem]">
+      <div class="relative w-[7.9rem] h-[1.49rem]">
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 57 24"
+          viewBox="0 0 127 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <circle cx="63.9487" cy="11.8971" r="4.46154" fill="currentColor" />
           <path
-            d="M12.7343 22.4685L2 11.7343L12.7343 1M44.7343 1.00023L55.4685 11.7345L44.7343 22.4688"
+            d="M119.505 11.3671C119.798 11.66 119.798 12.1349 119.505 12.4278L114.732 17.2008C114.439 17.4937 113.964 17.4937 113.671 17.2008C113.378 16.9079 113.378 16.433 113.671 16.1401L117.914 11.8975L113.671 7.65482C113.378 7.36193 113.378 6.88705 113.671 6.59416C113.964 6.30127 114.439 6.30127 114.732 6.59416L119.505 11.3671ZM63.9487 11.1475H118.974V12.6475H63.9487V11.1475Z"
+            fill="currentColor"
+          />
+          <path
+            d="M8.39276 12.4278C8.09986 12.1349 8.09986 11.66 8.39276 11.3671L13.1657 6.59416C13.4586 6.30126 13.9335 6.30126 14.2264 6.59416C14.5193 6.88705 14.5193 7.36192 14.2264 7.65482L9.98375 11.8975L14.2264 16.1401C14.5193 16.433 14.5193 16.9079 14.2264 17.2008C13.9335 17.4937 13.4586 17.4937 13.1657 17.2008L8.39276 12.4278ZM63.9487 12.6475L8.92309 12.6475L8.92309 11.1475L63.9487 11.1475L63.9487 12.6475Z"
+            fill="currentColor"
+          />
+          <rect
+            x="0.75"
+            y="0.75"
+            width="124.91"
+            height="22.2949"
+            rx="11.1474"
             stroke="currentColor"
-            stroke-width="1.87662"
-            stroke-miterlimit="10"
+            stroke-width="1.5"
+            stroke-linejoin="round"
           />
         </svg>
       </div>

@@ -23,7 +23,7 @@
     <div class="fade-up w-64 aspect-square absolute top-12 right-[49rem]">
       <LogoMain />
     </div>
-    <div class="fade-up px-2">
+    <div class="fade-up px-2 pointer-events-none">
       <Heading />
     </div>
     <div class="-mt-28">

@@ -12,11 +12,11 @@
 
   export let work: Work;
 
-  // const getRandomNumber = () => {
-  //   const numbers = [10, 12, 15];
-  //   const randomIndex = Math.floor(Math.random() * numbers.length);
-  //   return numbers[randomIndex];
-  // };
+  const getRandomNumber = () => {
+    const numbers = [10, 13, 15];
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    return numbers[randomIndex];
+  };
 
   let slider: TSwiper;
   const swiper = (node: HTMLDivElement) => {
@@ -27,10 +27,10 @@
       slidesPerView: 1,
       spaceBetween: 0,
       speed: 750,
-      // autoplay: {
-      //   delay: 1000 * getRandomNumber(),
-      //   disableOnInteraction: false,
-      // },
+      autoplay: {
+        delay: 1000 * getRandomNumber(),
+        disableOnInteraction: false,
+      },
     });
   };
 
@@ -88,8 +88,8 @@
 
 <div
   role="region"
-  use:direction
   use:inView
+  use:direction
   use:swiper
   use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
   on:mouseenter={() => dispatch("hoverIn", work)}
@@ -100,16 +100,6 @@
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >
     {#each work.images as image}
-      <!-- {#if work.name === "ENVISEAM"}
-        <div
-          class="swiper-slide w-full h-full overflow-hidden shrink-0 bg-white dark:bg-black"
-        >
-          <div
-            use:playLottie={image}
-            class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
-          />
-        </div>
-      {:else} -->
       <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
         <img
           src={image}
@@ -117,7 +107,39 @@
           class="w-full h-full object-cover scale-[1.01]"
         />
       </div>
-      <!-- {/if} -->
     {/each}
   </div>
+
+  {#if work.links}
+    <div
+      use:changeCursorType={{ inType: "normal", outType: "work-slider" }}
+      class="absolute bottom-5 right-5 flex gap-5"
+    >
+      {#each work.links.reverse() as link}
+        <a
+          target="_blank"
+          href={link.to}
+          class="sand-transition flex flex-row-reverse items-center gap-10 text-black dark:text-white hover:text-white hover:dark:text-black text-xl rounded-full py-2 px-5 border-2 border-white hover:border-black dark:hover:border-white dark:border-light-12 bg-light-90 hover:bg-black dark:hover:bg-white bg-opacity-60 hover:bg-opacity-100 dark:hover:bg-opacity-100 dark:bg-opacity-60 dark:bg-black"
+        >
+          {link.label}
+          <div class="shrink-0 w-4 aspect-square">
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 17L17 1M17 1V17M17 1H1"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      {/each}
+    </div>
+  {/if}
 </div>

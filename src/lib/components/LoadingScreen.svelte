@@ -68,6 +68,13 @@
   };
 
   onMount(() => {
+    // you have to see in darkmode initially 👻
+    const rootClasses = document.documentElement.classList;
+    if (!rootClasses.contains("dark")) {
+      rootClasses.add("dark");
+      localStorage.setItem("sand-theme", "dark");
+    }
+
     let isReversing = false;
     const handleLogoShapeLottieLoop = () => {
       logoShapeLottie.setDirection(isReversing ? -1 : 1);
@@ -149,6 +156,8 @@
   const handleClick = () => {
     if (isLoading) return;
 
+    gsap.set(".loading_container", { pointerEvents: "none" });
+
     fetch("/api/set-cookie", {
       method: "POST",
       headers: {
@@ -194,13 +203,11 @@
 <div
   class="loading_container fixed inset-0 w-full h-full z-50 grid place-items-center"
 >
-  <div
-    class="loading_bg absolute inset-0 w-full h-full bg-light-95 dark:bg-light-4"
-  />
+  <div class="loading_bg absolute inset-0 w-full h-full bg-light-4" />
 
   <button
     on:click={handleClick}
-    class="loading_logo-container w-[9.75rem] aspect-square invert dark:invert-0 absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+    class="loading_logo-container w-[9.75rem] aspect-square invert-0 absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2"
   >
     <div class="loading_logo-shape" />
 
@@ -277,17 +284,17 @@
   </button>
 
   <div
-    class="loading_hello pointer-events-none opacity-0 w-[80rem] aspect-square invert dark:invert-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+    class="loading_hello pointer-events-none opacity-0 w-[80rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
   />
 
   <div
-    class="loading_bar h-2 w-[22.5rem] rounded-full border border-light-70 dark:border-white dark:border-opacity-[0.15] bg-light-80 dark:bg-light-12 absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+    class="loading_bar h-2 w-[22.5rem] rounded-full border border-white border-opacity-[0.15] bg-light-12 absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
   >
     <div
       class="absolute rounded-full -inset-[1px] h-2 w-[22.5rem] overflow-hidden"
     >
       <div
-        class="loading_progress absolute inset-0 right-auto h-2 w-0 bg-black dark:bg-white"
+        class="loading_progress absolute inset-0 right-auto h-2 w-0 bg-white"
       />
     </div>
   </div>

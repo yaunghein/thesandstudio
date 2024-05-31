@@ -10,6 +10,10 @@ export type Work = {
   images: string[];
   categories: string[];
   meta: string[];
+  links?: {
+    label: string;
+    to: string;
+  }[];
 };
 
 export type WorkGroup = {
