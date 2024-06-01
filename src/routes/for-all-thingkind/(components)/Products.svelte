@@ -8,11 +8,7 @@
 
 <section class="grow">
   <div class="grid grid-cols-1 sm:grid-cols-3">
-    <a
-      class="fade-up"
-      target="_blank"
-      href="https://archive.thesandstudio.com/for-all-thingkind"
-    >
+    <div class="fade-up">
       <div class="overflow-hidden">
         <div
           class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
@@ -51,7 +47,33 @@
           class="absolute right-56 bottom-10 w-40"
         /> -->
       </div>
-    </a>
+
+      <div class="absolute bottom-5 right-5 flex gap-5">
+        <a
+          target="_blank"
+          href="https://archive.thesandstudio.com/for-all-thingkind"
+          class="sand-transition flex items-center gap-10 text-black dark:text-white hover:text-white hover:dark:text-black text-xl rounded-full py-2 px-5 border-2 border-white hover:border-black dark:hover:border-white dark:border-light-12 bg-light-90 hover:bg-black dark:hover:bg-white bg-opacity-60 hover:bg-opacity-100 dark:hover:bg-opacity-100 dark:bg-opacity-60 dark:bg-black"
+        >
+          Visit
+          <div class="shrink-0 w-4 aspect-square">
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 17L17 1M17 1V17M17 1H1"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
 
     <button
       on:click={() => {
