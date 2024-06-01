@@ -265,6 +265,7 @@
 </script>
 
 <button
+  id="theme-switcher"
   on:click={switchMode}
   class={twm(
     $SelectedBackground?.name === "bg-scene" && "opacity-0",

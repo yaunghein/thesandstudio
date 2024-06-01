@@ -46,7 +46,10 @@
     >
       {#each $Backgrounds as bg}
         <button
-          on:click={() => changeBackground(bg.name)}
+          on:click={() => {
+            changeBackground(bg.name);
+            sessionStorage.setItem("sand-background", bg.name); // to check if bg is in 3D state when navigate to home from other pages
+          }}
           class="w-full aspect-[1.91/1]"
         >
           <div

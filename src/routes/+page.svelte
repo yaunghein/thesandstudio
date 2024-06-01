@@ -48,8 +48,7 @@
     if (!browser) return;
 
     // set legacy bg as default only in Mac (data.shouldShowLoadingScreen indicates this is first time or reset state)
-    if (isMac) {
-      // there is a bug here to solve on page changes
+    if (isMac && sessionStorage.getItem("sand-background") !== "bg-scene") {
       changeBackground("bg-legacy");
     }
 
