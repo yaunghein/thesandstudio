@@ -19,10 +19,20 @@ export const POST: RequestHandler = async ({ request }) => {
     });
     return json({
       success: true,
-      reply: data.choices?.[0].message.content,
-      role: "assistant",
+      content: data.choices?.[0].message.content,
     });
   } catch (err: any) {
-    throw error(500, err.message);
+    throw error(500, err);
   }
 };
+
+// return json({
+//   success: true,
+//   content:
+//     'In the context of our company, "The Sand Studio" is a creative agency crafted by talented individuals from around the globe, based in Bangkok. We offer a wide range of design, development, and consultation services.\n\nIf you\'re inquiring about the material "sand," it commonly refers to granular material composed of finely divided rock and mineral particles, typically found on beaches and deserts.\n\nHow else may I assist you today?',
+// });
+
+// const sleep: any = (time) => {
+//   return new Promise((res, _) => setTimeout(() => res(""), time));
+// };
+// await sleep(3000);

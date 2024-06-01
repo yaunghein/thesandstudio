@@ -8,7 +8,7 @@ export default function drag(node: HTMLDivElement) {
     allowEventDefault: true,
     allowNativeTouchScrolling: true,
     onPress: function (event) {
-      if (event.target.matches(".non-draggable")) {
+      if (event.target.closest(".non-draggable")) {
         this.disable();
         setTimeout(() => this.enable(), 0); // hehe this is working, smell tho
       }

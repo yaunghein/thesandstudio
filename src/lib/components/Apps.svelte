@@ -160,32 +160,4 @@
       About
     </div>
   </button>
-
-  <!-- ########## SChat ########## -->
-  <button
-    on:click={() => {
-      addShell({ id: "schat", zIndex: 65 });
-      openArchiveTab();
-    }}
-    class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
-  >
-    <div
-      class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white opacity-sand group-hover:opacity-100 sand-transition"
-    />
-
-    <div
-      class="w-20 absolute scale-[1.6] group-hover:scale-[2.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:translate-x-[10%] group-hover:-translate-y-[120%] sand-transition"
-    >
-      <img
-        src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715763640/app-images/archive_jsvdej.gif"
-        alt="Archive Icon"
-        class="w-full h-full object-contain"
-      />
-    </div>
-    <div
-      class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
-    >
-      SChat
-    </div>
-  </button>
 </div>
