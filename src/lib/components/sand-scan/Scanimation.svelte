@@ -489,7 +489,7 @@
         <label
           id="select-files-label"
           for="select-files"
-          class="bg-transparent hover:bg-light-80 dark:hover:bg-light-12 sand-transition rounded-xl w-[18rem] aspect-[1.85/1] text-black dark:text-white text-lg cursor-none grid place-items-center border-2 border-black dark:border-white border-dashed"
+          class="bg-transparent hover:bg-light-80 dark:hover:bg-light-12 sand-transition rounded-xl w-[18rem] aspect-[1.85/1] text-black dark:text-white text-lg cursor-pointer grid place-items-center border-2 border-black dark:border-white border-dashed"
         >
           <input
             use:handleFilesChange

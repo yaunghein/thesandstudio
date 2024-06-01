@@ -49,6 +49,30 @@
     const image = loadingEle!.querySelector("img");
     image!.setAttribute("src", "");
   });
+
+  const downloadZip = async () => {
+    try {
+      const response = await fetch(
+        "https://res.cloudinary.com/dlhbpswom/raw/upload/v1717260159/general/TRY_rdavf4.zip",
+      );
+      if (!response.ok) {
+        throw new Error(`Failed to fetch the file: ${response.statusText}`);
+      }
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = "Try.zip";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Error downloading the file:", error);
+    }
+  };
 </script>
 
 <div
@@ -86,21 +110,29 @@
       </div>
       <p class="text-2xl">SAND Scan</p>
 
-      {#if isUsageGuideOpen}
+      <div class="absolute top-[0.92rem] right-4 flex gap-3">
         <button
-          on:click={() => (isUsageGuideOpen = false)}
-          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow absolute top-[0.92rem] right-4 grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
+          on:click={downloadZip}
+          class="shrink-0 w-auto px-6 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
         >
-          Back
+          Download Try.zip
         </button>
-      {:else}
-        <button
-          on:click={() => (isUsageGuideOpen = true)}
-          class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow absolute top-[0.92rem] right-4 grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
-        >
-          Usage Guide
-        </button>
-      {/if}
+        {#if isUsageGuideOpen}
+          <button
+            on:click={() => (isUsageGuideOpen = false)}
+            class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
+          >
+            Back
+          </button>
+        {:else}
+          <button
+            on:click={() => (isUsageGuideOpen = true)}
+            class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
+          >
+            Usage Guide
+          </button>
+        {/if}
+      </div>
     </div>
     <div
       class="grow border-2 -m-[0.1875rem] border-white dark:border-light-12 rounded-3xl"
