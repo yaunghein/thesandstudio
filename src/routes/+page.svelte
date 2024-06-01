@@ -261,7 +261,7 @@
 />
 
 {#if !isMobile}
-  <AppShell>
+  <AppShell show={data.shouldShowLoadingScreen}>
     <LoadingScreen show={data.shouldShowLoadingScreen} />
     <div class="overflow-hidden h-[calc(100vh-6rem)]">
       <div class="page-wrapper">

@@ -1,13 +1,14 @@
 <script lang="ts">
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
-  import lottie from "lottie-web";
+  import { onMount } from "svelte";
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
   import { addShell } from "$lib/stores/shell";
   import { openContactTab } from "$lib/stores/finder";
   import playLottie from "$lib/utils/playLottie";
+  import gsap from "gsap";
 
   let isOpen = false;
 
@@ -36,6 +37,10 @@
       el.click();
     }, 0);
   };
+
+  onMount(() => {
+    gsap.set("#nav-wrapper", { zIndex: 56 }); // to hide nav while loading and show when loading done
+  });
 </script>
 
 <button on:click={() => (isOpen = !isOpen)} class="grid place-items-end">
@@ -70,6 +75,7 @@
         <!-- ########## Sand Desktop ########## -->
         <a
           href="/"
+          on:click={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
@@ -93,6 +99,7 @@
         <!-- ########## For All Thingkind ########## -->
         <a
           href="/for-all-thingkind"
+          on:click={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
@@ -111,6 +118,7 @@
         <!-- ########## Works ########## -->
         <a
           href="/works"
+          on:click={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
@@ -134,6 +142,7 @@
         <!-- ########## Not Works ########## -->
         <a
           href="/not-works"
+          on:click={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
