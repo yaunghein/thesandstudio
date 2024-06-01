@@ -109,13 +109,13 @@
         {
           name: "Another Club",
           images: [
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Logo_2_p4zxbj.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Mockups_lbhccj.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880739/works/another-club/Group_1_uz5lmh.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880739/works/another-club/AC_Coasters_onalyl.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Coffee_Bags_ofov8x.webp",
-            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Logo_zh7gg0.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Logo_2_p4zxbj.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Mockups_lbhccj.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880739/works/another-club/Group_1_uz5lmh.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880739/works/another-club/AC_Coasters_onalyl.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Coffee_Bags_ofov8x.webp",
+            "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880740/works/another-club/AC_Logo_zh7gg0.webp",
             //new
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574995/works/another-club/May-25-2024/Another_Club-3_yxp9fn.webp",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574987/works/another-club/May-25-2024/Another_Club-1_hhndyr.webp",

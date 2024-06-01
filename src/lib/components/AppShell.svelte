@@ -24,7 +24,7 @@
   class="text-light-10 dark:text-light-100 bg-light-90 dark:bg-black relative h-[100dvh] p-3 pt-0 flex flex-col sand-transition"
 >
   <Navbar />
-  <div class="h-[100dvh]">
+  <div class="h-[100dvh] z-[55]">
     <div
       class="fixed inset-3 sm:top-20 app-shell text-light-10 dark:text-light-100 bg-light-95 dark:bg-light-7 rounded-3xl border-light-100 dark:border-light-12 {isMounted
         ? 'border-2'

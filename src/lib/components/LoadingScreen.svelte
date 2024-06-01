@@ -228,11 +228,11 @@
           duration: 2,
         },
       );
-    }, 2500);
+    }, 1000);
     setTimeout(() => {
       document.querySelector(".loading_container")?.remove();
       gsap.set(".loading_logo-container", { pointerEvents: "all" });
-    }, 4000);
+    }, 2000);
   };
 
   const switchMode = () => {
@@ -268,13 +268,13 @@
   class={twm(
     $SelectedBackground?.name === "bg-scene" && "opacity-0",
     show ? "w-[9.75rem] top-[45%] -translate-y-1/2" : "w-[13rem] top-[8rem]",
-    "loading_logo-container aspect-square invert-0 fixed z-[51] left-1/2 -translate-x-1/2",
+    "loading_logo-container aspect-square invert-0 fixed z-[53] left-1/2 -translate-x-1/2",
   )}
 >
   <div class="loading_logo-shape" />
 
   <div
-    class="loading_click-me w-[5.88rem] h-[5.88rem] absolute top-0 -right-[5.88rem]"
+    class="loading_click-me w-[4rem] h-[5.88rem] absolute top-[0.5rem] -right-[4rem]"
   >
     <div class="scale-[0.8] opacity-0">
       <svg
@@ -354,12 +354,12 @@
 
 {#if show}
   <div
-    class="loading_container fixed inset-0 w-full h-full z-50 grid place-items-center"
+    class="loading_container fixed inset-0 w-full h-full z-[52] grid place-items-center"
   >
     <div class="loading_bg absolute inset-0 w-full h-full bg-light-4" />
 
     <div
-      class="loading_hello pointer-events-none opacity-0 w-[80rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      class="loading_hello pointer-events-none opacity-0 w-[72rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
     />
 
     <div

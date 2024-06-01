@@ -32,6 +32,7 @@
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
   import MetaData from "$lib/components/MetaData.svelte";
   import LoadingScreen from "$lib/components/LoadingScreen.svelte";
+  import SChat from "$lib/components/SChat.svelte";
 
   import "swiper/css/pagination";
 
@@ -47,7 +48,8 @@
     if (!browser) return;
 
     // set legacy bg as default only in Mac (data.shouldShowLoadingScreen indicates this is first time or reset state)
-    if (isMac && data.shouldShowLoadingScreen) {
+    if (isMac) {
+      // there is a bug here to solve on page changes
       changeBackground("bg-legacy");
     }
 
@@ -86,6 +88,7 @@
   );
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
   $: isChildOpen = $OpenShells.find((shell) => shell.id === "child");
+  $: isSChatOpen = $OpenShells.find((shell) => shell.id === "schat");
 
   let spline: any;
   let isSplineLoaded = false;
@@ -134,7 +137,7 @@
     spline = new Application(node);
     setTimeout(() => {
       spline
-        .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
+        .load("https://prod.spline.design/MdE7EFyaFnLrECs9/scene.splinecode")
         .then(() => {
           setTimeout(() => (isSplineLoaded = true), 1000);
           CursorType.set("normal");
@@ -259,6 +262,7 @@
 
 {#if !isMobile}
   <AppShell>
+    <LoadingScreen show={data.shouldShowLoadingScreen} />
     <div class="overflow-hidden h-[calc(100vh-6rem)]">
       <div class="page-wrapper">
         {#if $SelectedBackground?.name === "bg-scene"}
@@ -340,14 +344,6 @@
           </a>
         </div>
 
-        <!-- {#if $SelectedBackground?.name !== "bg-scene"}
-      <div
-        class="w-52 aspect-square absolute top-12 left-1/2 -translate-x-1/2 z-[2]"
-      >
-        <LogoMain />
-      </div>
-    {/if} -->
-
         <!-- <div
           class={twm(
             "w-[13rem] aspect-square fixed top-[8rem] left-1/2 -translate-x-1/2 z-[2]",
@@ -376,6 +372,10 @@
           <Child />
         {/if}
 
+        {#if isSChatOpen}
+          <SChat />
+        {/if}
+
         {#if openMediaFiles.length > 0}
           {#each openMediaFiles as file, index (file.id)}
             <MediaWindow {file} {index} />
@@ -401,10 +401,6 @@
       </div>
     </div>
   </AppShell>
-
-  <!-- {#if data.shouldShowLoadingScreen} -->
-  <LoadingScreen show={data.shouldShowLoadingScreen} />
-  <!-- {/if} -->
 {/if}
 
 {#if isMobile}
