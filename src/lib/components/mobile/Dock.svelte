@@ -33,22 +33,22 @@
   class="h-[4.5rem] fixed z-20 inset-5 top-auto max-w-[420px] mx-auto flex items-center justify-evenly bg-white dark:bg-black rounded-[1.1rem]"
 >
   <PixelBorder />
-  <a
-    href="/?page=home"
+  <button
+    on:click={() => goToSlideByName("home")}
     class="relative w-11 aspect-square flex items-center justify-center dark:invert sand-transition"
   >
     <Home />
-  </a>
+  </button>
   <button
     on:click={switchMode}
     class="relative w-11 aspect-square flex items-center justify-center"
   >
     <AChonLay />
   </button>
-  <a
-    href="/?page=menu"
+  <button
+    on:click={() => goToSlideByName("menu")}
     class="relative w-11 aspect-square flex items-center justify-center"
   >
     <Burger />
-  </a>
+  </button>
 </nav>
