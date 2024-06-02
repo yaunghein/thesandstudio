@@ -2,8 +2,9 @@
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
   import ButtonClose from "./ButtonClose.svelte";
-  import { OpenShells, removeShell } from "$lib/stores/shell";
+  import { OpenShells, removeShell, addShell } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
+  import { openContactTab } from "$lib/stores/finder";
 
   $: shell = $OpenShells.find((shell) => shell.id === "copyright");
   $: index = $OpenShells.findIndex((shell) => shell.id === "copyright");
@@ -84,235 +85,207 @@
           >
             <div class="flex flex-col gap-9">
               <p>
-                Welcome to SAND! These Terms and Conditions ("Terms") govern the
-                use of our services, which encompass a diverse range of
-                innovative solutions including architecture, design, motion
-                graphics, web development, and more. By engaging with our
-                services, you agree to these Terms, so read them carefully. If
-                you're into breaking the norm and exploring the new, you're in
-                the right place. Let's get to it.
+                Welcome to The Sand Studio's website. By accessing and using our
+                website, you agree to comply with and be bound by the following
+                terms and conditions. Please review them carefully. If you do
+                not agree to these terms, you should not use our website.
               </p>
 
               <div>
-                <div class="text-3xl font-sand-medium mb-4">1. Definitions</div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    "Company": Refers to SAND, where we do all sorts of
-                    incredible things.
-                  </li>
-                  <li>
-                    "Client": The individual, group, or entity that contracts
-                    our services.
-                  </li>
-                  <li>
-                    Services": The scope of work we provide, which can range
-                    from visual identity to web development and architectural
-                    design.
-                  </li>
-                </ul>
+                <div class="text-3xl font-sand-medium mb-4">
+                  1. Use of Website
+                </div>
+                <p>
+                  You agree to use our website only for lawful purposes and in a
+                  manner that does not infringe the rights of, restrict, or
+                  inhibit the use and enjoyment of the website by any third
+                  party. Prohibited behavior includes harassing or causing
+                  distress or inconvenience to any other user, transmitting
+                  obscene or offensive content, or disrupting the normal flow of
+                  dialogue within our website.
+                </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  2. Scope of Services
+                  2. Intellectual Property
                 </div>
+                <p>
+                  All content on this website, including text, graphics, logos,
+                  icons, images, audio clips, video clips, data compilations,
+                  and software, is the property of The Sand Studio or its
+                  content suppliers and is protected by international copyright
+                  laws. The compilation of all content on this website is the
+                  exclusive property of The Sand Studio, with copyright
+                  authorship for this collection by The Sand Studio, and
+                  protected by international copyright laws.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  3. Third-Party Intellectual Property
+                </div>
+                <p>
+                  The Sand Studio respects the intellectual property rights of
+                  others. Our website may contain third-party fonts, emojis, and
+                  other graphical elements that are not owned by The Sand
+                  Studio. All such elements are the property of their respective
+                  owners. The Sand Studio does not claim ownership of any
+                  third-party intellectual property, and the use of such
+                  elements is for illustrative and functional purposes only. If
+                  you believe that your intellectual property rights have been
+                  infringed by our website, please contact us so we can address
+                  your concerns.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">4. Privacy</div>
+                <p>
+                  Your use of our website is also governed by our Privacy
+                  Policy, which can be found here.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  5. Limitation of Liability
+                </div>
+                <p>
+                  The Sand Studio will not be liable for any damages of any kind
+                  arising from the use of this site, including but not limited
+                  to direct, indirect, incidental, punitive, and consequential
+                  damages.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">6. Disclaimers</div>
+                <p>
+                  The information provided on this website is for general
+                  informational purposes only. While we strive to provide
+                  accurate and up-to-date information, we make no warranties or
+                  representations about the accuracy, reliability, completeness,
+                  or timeliness of the content on this website. Your use of the
+                  website and its content is at your own risk.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  7. Links to Other Websites
+                </div>
+                <p>
+                  Our website may contain links to third-party websites that are
+                  not owned or controlled by The Sand Studio. We have no control
+                  over and assume no responsibility for the content, privacy
+                  policies, or practices of any third-party websites. You should
+                  read the terms and conditions and privacy policies of any
+                  third-party websites you visit.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  8. Modification of Terms
+                </div>
+                <p>
+                  The Sand Studio reserves the right to change or modify these
+                  terms and conditions at any time. Any changes will be
+                  effective immediately upon posting on our website. Your
+                  continued use of the website after any changes signifies your
+                  acceptance of the new terms and conditions.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  9. Governing Law
+                </div>
+                <p>
+                  These terms and conditions are governed by and construed in
+                  accordance with the laws of Thailand, and you irrevocably
+                  submit to the exclusive jurisdiction of the courts in that
+                  location.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  10. Contact Information
+                </div>
+                <p>
+                  If you have any questions about these terms and conditions,
+                  please contact us at: The Sand Studio
+                </p>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
                   <li>
-                    Our team offers a variety of services, including but not
-                    limited to:
-
-                    <ul
-                      class="list-circle mt-4 pl-[1.85rem] flex flex-col gap-4"
+                    Email: <button
+                      on:click={() => {
+                        addShell({ id: "finder", zIndex: 65 });
+                        openContactTab();
+                      }}
+                      class="underline"
                     >
-                      <li>Visual Identity</li>
-                      <li>Motion Graphics and Animation</li>
-                      <li>Packaging Design</li>
-                      <li>Web Design and Development</li>
-                      <li>Web Maintenance and Support</li>
-                      <li>E-commerce Solutions</li>
-                      <li>Consultation and Strategy</li>
-                      <li>Architectural Design</li>
-                      <li>Interior Design</li>
-                      <li>3D Modeling and Visualization</li>
-                    </ul>
-                  </li>
-                  <li>
-                    If you have a vision, we can help bring it to life. The
-                    specifics of each Project will be detailed in a separate
-                    agreement.
+                      hi@thesandstudio.com
+                    </button>
                   </li>
                 </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  3. Client Responsibilities
+                  11. Additional Terms for Specific Services
                 </div>
+                <p>11.1 Schat Virtual Assistant</p>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
                   <li>
-                    Clients must provide the necessary information and materials
-                    to keep projects moving smoothly.
-                  </li>
-                  <li>
-                    You agree to use our work responsibly and in compliance with
-                    applicable laws. Don't be that person who causes trouble.
-                  </li>
-                  <li>
-                    Clear communication is key—let us know your thoughts,
-                    feedback, and ideas as we go along.
+                    By using Schat, our virtual assistant, you agree to provide
+                    accurate information and understand that the assistance
+                    provided is based on the OpenAI model GPT-4, which may not
+                    always be accurate or complete. The information collected
+                    through Schat is used solely for the purpose of improving
+                    our services and responding to your inquiries.
                   </li>
                 </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  4. Payment and Pricing
+                  12. User Conduct
                 </div>
+                <p>Users are prohibited from:</p>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
                   <li>
-                    Pricing will be agreed upon in the contract or project
-                    agreement.
+                    Using our website in any way that is or may be damaging to
+                    the website.
                   </li>
                   <li>
-                    Payments are due as specified in the contract, usually upon
-                    hitting certain milestones.
+                    Using our website in any way that impacts user access to the
+                    website.
                   </li>
                   <li>
-                    Late payments could lead to additional charges or delayed
-                    project timelines, and that's no fun for anyone.
+                    Using our website contrary to applicable laws and
+                    regulations, or in a way that causes, or may cause, harm to
+                    the website or to any person or business entity.
                   </li>
                 </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  5. Intellectual Property Rights
+                  13. Termination
                 </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    We own all intellectual property until you've paid up. Once
-                    that's done, it's all yours.
-                  </li>
-                  <li>
-                    We do reserve the right to showcase our work for marketing
-                    and portfolio purposes, unless we agree otherwise in
-                    writing.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  6. Disclaimers and Limitation of Liability
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    We're not fortune tellers, so we can't guarantee specific
-                    outcomes. We do our best, but there are no guarantees on
-                    results.
-                  </li>
-                  <li>
-                    Our liability is limited to the total amount paid by you for
-                    the Project. We're not responsible for indirect or
-                    consequential damages, like lost business or profits.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  7. Indemnification
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    If your use of our services leads to legal trouble, you're
-                    on the hook. You agree to indemnify and hold us harmless
-                    against any claims, damages, or losses arising from the use
-                    of our work.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  8. Termination and Project Cancellation
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    If you or we need to end the Project, proper notice is
-                    required as outlined in the contract.
-                  </li>
-                  <li>
-                    If you terminate the Project, you are responsible for paying
-                    for the work completed up to that point.
-                  </li>
-                  <li>
-                    We can also terminate the Project if you're not meeting your
-                    responsibilities or violating these Terms.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  9. Privacy Policy and Data Protection
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    We take your privacy seriously. We collect and use client
-                    data according to our Privacy Policy, which you can find on
-                    our website.
-                  </li>
-                  <li>
-                    Make sure any personal or sensitive data you give us
-                    complies with data protection laws.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  10. Governing Law and Dispute Resolution
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    These Terms are governed by the laws of [Your Jurisdiction].
-                    Disputes will be resolved through mediation, arbitration, or
-                    litigation, depending on what we agree on.
-                  </li>
-                  <li>
-                    If we can't sort things out amicably, we'll follow the legal
-                    procedures outlined in the contract.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  11. Changes to the Terms and Conditions
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    We reserve the right to change these Terms as needed. If we
-                    do, we'll let you know via email or other appropriate means.
-                  </li>
-                  <li>
-                    Your continued use of our services after changes are made
-                    indicates your acceptance of the new Terms.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  12. Contact Information
-                </div>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>
-                    Got questions or need to chat? hi@thesandstudio.com. We're
-                    here to help.
-                  </li>
-                </ul>
+                <p>
+                  We may terminate or suspend access to our website immediately,
+                  without prior notice or liability, for any reason whatsoever,
+                  including without limitation if you breach the terms. All
+                  provisions of the terms which by their nature should survive
+                  termination shall survive termination, including, without
+                  limitation, ownership provisions, warranty disclaimers,
+                  indemnity, and limitations of liability.
+                </p>
               </div>
             </div>
           </div>
@@ -321,141 +294,195 @@
             class="leading-[1.35] p-9 text-[1.375rem] w-full overflow-scroll hide-scrollbar"
           >
             <div class="flex flex-col gap-9">
-              <p>
-                At SAND, we respect the privacy of everyone who visits our
-                website. This Privacy Policy ("Policy") explains how we collect,
-                use, share, and protect your personal information. By using our
-                website or services, you agree to the terms outlined in this
-                Policy. We are committed to transparency and respecting your
-                privacy.
-              </p>
-
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  1. Information Collection and Consent
+                  1. Introduction
                 </div>
                 <p>
-                  We do not collect personal information about our users without
-                  their knowledge and prior consent. We don't use scripts or
-                  devices to gather personal data without your awareness.
-                  Certain features of our website require you to register, which
-                  involves providing some personal information. This information
-                  is given voluntarily and used only as specified in this
-                  Policy. It will not be shared, traded, or sold to third
-                  parties without your prior consent.
+                  Welcome to The Sand Studio's website. We value your privacy
+                  and are committed to protecting your personal information.
+                  This privacy policy explains how we collect, use, and protect
+                  your information when you visit our website and use our
+                  services, including our Schat virtual assistant.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  2. Use of Personal Information
+                  2. Information We Collect
                 </div>
-                <p>
-                  The personal information provided during registration, except
-                  for your email address, may be displayed on your user profile.
-                  We reserve the right to use this information in other
-                  publications produced by SAND. By registering on our website,
-                  you accept these conditions. Additional information can be
-                  provided at your discretion but is not mandatory.
-                </p>
-                <p class="mt-4">
-                  If you submit a website or project to SAND for recognition or
-                  publication, you may need to provide specific information
-                  about the project. This information will be published on our
-                  website, and we reserve the right to use it in other
-                  publications produced by SAND. By submitting your site or
-                  project, you accept these conditions.
-                </p>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  3. Data We Collect
-                </div>
-                <p class="mb-4">
-                  In addition to personal information, we collect other data for
-                  administrative purposes and to improve our website and
-                  services. This includes:
-                </p>
+                <p>We may collect the following types of information:</p>
+                <p>2.1 Personal Information</p>
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>Pages visited</li>
-                  <li>Clickstream data</li>
-                  <li>Other browsing information</li>
+                  <li>
+                    Contact information such as your name, email address (e.g.,
+                    dipar@thesandstudio.com), and phone number when you fill out
+                    contact forms or subscribe to our newsletters.
+                  </li>
+                  <li>
+                    Information you provide when you communicate with us through
+                    Schat or other means.
+                  </li>
+                  <p>2.2 Technical Information</p>
+                  <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                    <li>P addresses, browser types, and access times.</li>
+                    <li>
+                      Cookies and similar technologies to track user activity on
+                      our site.
+                    </li>
+                  </ul>
                 </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  4. Cookies and Third-Party Technologies
+                  3. Use of Information
                 </div>
-                <p>
-                  Our website does not use cookies, but we use third-party
-                  technologies that employ cookies to provide useful features
-                  and services. Cookies identify a user's device, not the
-                  individual user. Most browsers accept cookies by default. You
-                  can set your browser to refuse cookies, but this may limit
-                  certain website features.
+                <p>We use your information to:</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>Provide and improve our services.</li>
+                  <li>Respond to your inquiries and communicate with you.</li>
+                  <li>Personalize your experience on our website.</li>
+                  <li>Analyze website usage to improve our offerings.</li>
+                  <li>Comply with legal obligations.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  4. Sharing of Information
+                </div>
+                <p class="mb-4">
+                  We do not sell, trade, or otherwise transfer your personal
+                  information to outside parties except to trusted third parties
+                  who assist us in operating our website, conducting our
+                  business, or serving our users, as long as those parties agree
+                  to keep this information confidential.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  5. Children's Privacy
+                  5. Data Security
                 </div>
                 <p>
-                  SAND complies with the requirements of the Children's Online
-                  Privacy Protection Act. We do not knowingly accept submissions
-                  or correspondence from children under 13 without written
-                  permission from a parent or legal guardian. If we discover
-                  that we have collected personal information from a child under
-                  13 without permission, we will delete it promptly.
+                  We implement a variety of security measures to maintain the
+                  safety of your personal information. Your personal data is
+                  contained behind secured networks and is only accessible by a
+                  limited number of persons who have special access rights to
+                  such systems and are required to keep the information
+                  confidential.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">6. Your Rights</div>
+                <p>You have the right to:</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>Access your personal information.</li>
+                  <li>
+                    Request correction of any incorrect or incomplete data.
+                  </li>
+                  <li>
+                    Request deletion of your personal information, subject to
+                    certain legal exceptions.
+                  </li>
+                  <li>
+                    Object to the processing of your personal information.
+                  </li>
+                  <li>
+                    Request the restriction of processing of your personal
+                    information..
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  7. Third-Party Links
+                </div>
+                <p>
+                  Our website may contain links to third-party sites. We are not
+                  responsible for the privacy practices or the content of these
+                  third-party sites.
+                </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">8. Cookies</div>
+                <p>
+                  Our website uses cookies to enhance user experience. You can
+                  choose to disable cookies through your browser settings, but
+                  this may affect your ability to use some features of our
+                  website.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  6. Data Security
+                  9. Children's Privacy
                 </div>
                 <p>
-                  We implement industry-standard security measures to protect
-                  your personal information from unauthorized access, loss, or
-                  misuse. However, no system is completely secure, and we cannot
-                  guarantee absolute security. Be cautious when sharing personal
-                  information online.
+                  We do not knowingly collect personal information from children
+                  under the age of 13. If we become aware that we have
+                  inadvertently received personal information from a child under
+                  the age of 13, we will delete such information from our
+                  records. If you are a parent or guardian and believe we have
+                  collected personal information from your child, please contact
+                  us at hi@thesandstudio.com so we can take appropriate action.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  7. Your Rights and Choices
+                  10. Changes to Our Privacy Policy
                 </div>
                 <p>
-                  You have the right to access, correct, or request deletion of
-                  your personal information. You can also opt out of receiving
-                  marketing communications at any time. To exercise these
-                  rights, contact us at hi@thesandstudio.com.
+                  We may update this privacy policy from time to time. We will
+                  notify you of any changes by posting the new privacy policy on
+                  this page. You are advised to review this privacy policy
+                  periodically for any changes.
                 </p>
+              </div>
+
+              <div>
+                <div class="text-3xl font-sand-medium mb-4">11. Contact Us</div>
+                <p>
+                  If you have any questions about this privacy policy, please
+                  contact us at:
+                </p>
+                <p>The Sand Studio</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>Email: hi@thesandstudio.com</li>
+                </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  8. Changes to This Policy
+                  12. Additional Information for Specific Services
                 </div>
-                <p>
-                  We may update this Policy to reflect changes in our practices
-                  or legal requirements. Significant changes will be
-                  communicated through our website or by email. Continued use of
-                  our website or services after changes indicates your
-                  acceptance of the updated Policy.
-                </p>
+                <p>12.1 Schat Virtual Assistant</p>
+                <p>The Sand Studio</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>
+                    Schat is a virtual assistant built on the OpenAI model
+                    GPT-4. When you interact with Schat, we may collect
+                    additional information to provide you with better
+                    assistance. This includes any personal data you provide
+                    during the chat session. The information collected through
+                    Schat is used solely for the purpose of improving our
+                    services and responding to your inquiries.
+                  </li>
+                </ul>
               </div>
 
               <div>
-                <div class="text-3xl font-sand-medium mb-4">9. Contact Us</div>
+                <div class="text-3xl font-sand-medium mb-4">
+                  13. Compliance with Laws
+                </div>
                 <p>
-                  If you have questions about this Privacy Policy,
-                  hi@thesandstudio.com. We're happy to assist with any
-                  privacy-related inquiries.
+                  1We will disclose your personal information where required to
+                  do so by law or subpoena.
                 </p>
               </div>
             </div>
@@ -466,9 +493,11 @@
           >
             <div class="flex flex-col gap-9">
               <p>
-                Welcome to SAND! This Cookies Policy ("Policy") outlines how we
-                use cookies on our website. By continuing to use our website,
-                you agree to the use of cookies as described in this Policy.
+                This Cookie Policy explains how The Sand Studio ("we", "us",
+                "our") uses cookies and similar technologies to recognize you
+                when you visit our website. It explains what these technologies
+                are and why we use them, as well as your rights to control our
+                use of them.
               </p>
 
               <div>
@@ -476,89 +505,140 @@
                   1. What Are Cookies?
                 </div>
                 <p>
-                  Cookies are small data files that websites place on your
-                  device to remember your preferences and track your activity.
-                  They are essential for our website to function and for us to
-                  provide a personalized experience.
+                  Cookies are small data files that are placed on your computer
+                  or mobile device when you visit a website. Cookies are widely
+                  used by website owners to make their websites work, or to work
+                  more efficiently, as well as to provide reporting information.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  2. Why We Use Cookies
-                </div>
-                <p class="mb-4">We use cookies to:</p>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>Ensure the website works as expected.</li>
-                  <li>Analyze website usage to improve our services.</li>
-                  <li>Deliver personalized content and advertisements.</li>
-                  <li>Remember your preferences for future visits.</li>
-                </ul>
-              </div>
-
-              <div>
-                <div class="text-3xl font-sand-medium mb-4">
-                  3. Third-Party Cookies
+                  2. Why Do We Use Cookies?
                 </div>
                 <p>
-                  We work with trusted third-party providers who may place
-                  cookies on our website. These partners help us with analytics
-                  and advertising. We recommend reviewing their policies to
-                  understand their use of cookies.
+                  We use cookies for several reasons. Some cookies are required
+                  for technical reasons for our website to operate, and we refer
+                  to these as "essential" or "strictly necessary" cookies. Other
+                  cookies also enable us to track and target the interests of
+                  our users to enhance their experience on our website. Third
+                  parties serve cookies through our website for advertising,
+                  analytics, and other purposes.
                 </p>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  4. Managing Cookies
+                  3. Types of Cookies We Use
                 </div>
-                <p class="mb-4">
-                  Most web browsers allow you to control or delete cookies. You
-                  can:
-                </p>
-                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                  <li>Block or allow specific cookies.</li>
-                  <li>Clear existing cookies from your device.</li>
+                <p>3.1 Essential Cookies</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4 mb-4">
                   <li>
-                    Adjust browser settings to alert you when cookies are in
-                    use.
+                    These cookies are strictly necessary to provide you with
+                    services available through our website and to use some of
+                    its features, such as access to secure areas.
                   </li>
                 </ul>
-                <p class="mt-4">
-                  Be aware that disabling cookies may affect your experience on
-                  our website.
-                </p>
+                <p>3.2 Performance and Functionality Cookies</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4 mb-4">
+                  <li>
+                    These cookies are used to enhance the performance and
+                    functionality of our website but are non-essential to its
+                    use. However, without these cookies, certain functionalities
+                    may become unavailable.
+                  </li>
+                </ul>
+                <p>3.3 Analytics and Customization Cookies</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4 mb-4">
+                  <li>
+                    These cookies collect information that is used either in
+                    aggregate form to help us understand how our website is
+                    being used or how effective our marketing campaigns are, or
+                    to help us customize our website for you.
+                  </li>
+                </ul>
+                <p>Advertising Cookies</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>
+                    These cookies are used to make advertising messages more
+                    relevant to you. They perform functions like preventing the
+                    same ad from continuously reappearing, ensuring that ads are
+                    properly displayed for advertisers, and in some cases
+                    selecting advertisements that are based on your interests.
+                  </li>
+                </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  5. Privacy Policy and Data Protection
+                  4. How Can You Control Cookies?
                 </div>
-                <p>
-                  Our use of cookies is in accordance with our Privacy Policy.
-                  By using our website, you agree to our Privacy Policy, which
-                  details how we collect and use your data.
+                <p class="">
+                  You have the right to decide whether to accept or reject
+                  cookies. You can exercise your cookie preferences by clicking
+                  on the appropriate opt-out links provided below. You can set
+                  or amend your web browser controls to accept or refuse
+                  cookies. If you choose to reject cookies, you may still use
+                  our website, though your access to some functionality and
+                  areas of our website may be restricted.
                 </p>
+                <p>4.1 Browser Controls</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4 mb-4">
+                  <li>
+                    You can set or modify your web browser controls to accept or
+                    refuse cookies. If you choose to reject cookies, you may
+                    still use our website, though your access to some
+                    functionality and areas of our website may be restricted. As
+                    the means by which you can refuse cookies through your web
+                    browser controls vary from browser to browser, you should
+                    visit your browser's help menu for more information.
+                  </li>
+                </ul>
+                <p>4.2 Disabling Most Interest-Based Advertising</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+                  <li>
+                    Most advertising networks offer you a way to opt out of
+                    interest-based advertising. If you would like to find out
+                    more information, please visit:
+                    <p>Your Online Choices</p>
+                    <ul class="list-disc pl-[1.85rem] flex flex-col">
+                      <li>Network Advertising Initiative</li>
+                      <li>Digital Advertising Alliance</li>
+                    </ul>
+                  </li>
+                </ul>
+                <p>4.3 Mobile Advertising</p>
+                <ul class="list-disc pl-[1.85rem] flex flex-col gap-4 mb-4">
+                  <li>
+                    You can opt out of having your mobile advertising
+                    identifiers used for certain types of interest-based
+                    advertising, including those performed by us, by accessing
+                    the settings on your Apple or Android mobile device and
+                    following the most recent published instructions. If you opt
+                    out, we will remove all data about you and no further data
+                    collection or tracking will occur.
+                  </li>
+                </ul>
               </div>
 
               <div>
                 <div class="text-3xl font-sand-medium mb-4">
-                  6. Changes to This Policy
+                  5. Changes to This Cookie Policy
                 </div>
                 <p>
-                  We may update this Policy from time to time. If we make
-                  significant changes, we'll notify you through the website or
-                  by email. Continued use of our website after changes indicates
-                  acceptance of the updated Policy.
+                  We may update this Cookie Policy from time to time to reflect,
+                  for example, changes to the cookies we use or for other
+                  operational, legal, or regulatory reasons. Please revisit this
+                  Cookie Policy regularly to stay informed about our use of
+                  cookies and related technologies.
                 </p>
               </div>
 
               <div>
-                <div class="text-3xl font-sand-medium mb-4">7. Contact Us</div>
+                <div class="text-3xl font-sand-medium mb-4">6. Contact Us</div>
                 <p>
-                  If you have questions about our Cookies Policy or need
-                  assistance managing cookies, hi@thesandstudio.com. We're here
-                  to help.
+                  If you have any questions about our use of cookies or other
+                  technologies, please email us at hi@thesandstudio.com.
                 </p>
               </div>
             </div>
@@ -568,3 +648,7 @@
     </div>
   </div>
 </div>
+
+<!-- <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
+  <li>Pages visited</li>
+</ul> -->
