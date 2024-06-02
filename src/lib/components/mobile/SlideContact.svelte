@@ -143,7 +143,7 @@
   };
 </script>
 
-<div data-slide-name="contact" class="swiper-slide h-full shrink-0 px-4">
+<div data-slide-name="contact" class="swiper-slide w-full h-full shrink-0 px-4">
   <div class="h-full w-full">
     <form
       on:submit|preventDefault
