@@ -131,7 +131,7 @@
     spline = new Application(node);
     setTimeout(() => {
       spline
-        .load("https://prod.spline.design/MdE7EFyaFnLrECs9/scene.splinecode")
+        .load("https://prod.spline.design/0JtwT9xb53fikO5h/scene.splinecode")
         .then(() => {
           setTimeout(() => (isSplineLoaded = true), 1000);
           CursorType.set("normal");
@@ -271,16 +271,6 @@
             <canvas use:create3DBackground></canvas>
           </div>
         {/if}
-
-        <!-- {#if $SelectedBackground?.name === "bg-default"}
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-          <img
-            alt=""
-            src="https://res.cloudinary.com/dlhbpswom/image/upload/v1716632656/general/ascii-bg_gmzis6.webp"
-            class="w-full h-full object-cover object-center opacity-[0.15] dark:opacity-10 dark:invert origin-top"
-          />
-        </div>
-      {/if} -->
 
         <div
           class="text-[1.375rem] absolute top-12 left-12 select-none flex flex-col items-start"
