@@ -121,6 +121,7 @@ input[type="number"] {
   margin-right: 0.5rem;
 }
 
+/* input, */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -130,6 +131,7 @@ input:-webkit-autofill:active {
   font-size: inherit;
 }
 
+/* .dark input, */
 .dark input:-webkit-autofill,
 .dark input:-webkit-autofill:hover,
 .dark input:-webkit-autofill:focus,

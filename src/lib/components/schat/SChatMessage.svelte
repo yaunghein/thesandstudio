@@ -1,7 +1,7 @@
 <script lang="ts">
   import { twMerge as twm } from "tailwind-merge";
 
-  export let role: "user" | "assistant" = "assistant";
+  export let role: "system" | "user" | "assistant" = "assistant";
   export let content: string = `In the context of our company, "The Sand Studio" is a creative agency crafted by talented individuals from around the globe, based in Bangkok. We offer a wide range of design, development, and consultation services.\n\nIf you\'re inquiring about the material "sand," it commonly refers to granular material composed of finely divided rock and mineral particles, typically found on beaches and deserts.\n\nHow else may I assist you today?`;
   const isAI = role === "assistant";
 </script>

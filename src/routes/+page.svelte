@@ -31,7 +31,7 @@
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
   import MetaData from "$lib/components/MetaData.svelte";
   import LoadingScreen from "$lib/components/LoadingScreen.svelte";
-  import SChat from "$lib/components/SChat.svelte";
+  import SChat from "$lib/components/schat/SChat.svelte";
 
   import "swiper/css/pagination";
 
@@ -39,7 +39,7 @@
   // $: ({ supabase, session } = data);
 
   export let data;
-  const { isMac, isMobile } = data;
+  const { isMac, isMobile, shouldShowLoadingScreen } = data;
 
   let swiperIndex = 0;
 
@@ -372,10 +372,13 @@
         <button
           on:click={() => addShell({ id: "schat", zIndex: 65 })}
           id="virtual-assistant"
-          class="group fixed top-[8rem] left-1/2 translate-x-[7rem] flex items-center gap-3"
+          class={twm(
+            "ade-up group fixed top-[8rem] left-1/2 translate-x-[7rem] flex items-center gap-3",
+            $SelectedBackground?.name === "bg-scene" && "hidden",
+          )}
         >
           <div
-            class="shrink-0 w-[3.44rem] h-[3.44rem] fade-up group-hover:text-sand-green sand-transition"
+            class="shrink-0 w-[3.44rem] h-[3.44rem] group-hover:text-sand-green sand-transition"
           >
             <svg
               width="100%"

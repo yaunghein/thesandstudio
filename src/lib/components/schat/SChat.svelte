@@ -2,9 +2,11 @@
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
-  import ButtonClose from "./ButtonClose.svelte";
-  import { OpenShells, removeShell } from "$lib/stores/shell";
+  import gsap from "gsap";
+  import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
   import drag from "$lib/utils/drag";
+  import ButtonClose from "../ButtonClose.svelte";
+  import { OpenShells, removeShell } from "$lib/stores/shell";
   import { twMerge as twm } from "tailwind-merge";
   import { addShell } from "$lib/stores/shell";
   import { openContactTab } from "$lib/stores/finder";
@@ -24,11 +26,34 @@
   let messages: any = [];
   let isAsking = false;
   let isSchatPolicyOpen = false;
+  let input: HTMLInputElement;
 
-  $: if (messages) {
+  $: if (messages.length > 2) {
+    gsap.registerPlugin(ScrollToPlugin);
     setTimeout(() => {
-      const chatContainer = document.getElementById("chat-container");
-      if (chatContainer) chatContainer.scrollTop = chatContainer.scrollHeight;
+      const chatEl = document.getElementById("chat-container") as HTMLElement;
+      const chatElHeight = chatEl!.getBoundingClientRect().height;
+      const messageEls = document.querySelectorAll(".message-container");
+      const messageElHeight1 =
+        messageEls[messageEls.length - 1].getBoundingClientRect().height; // last message
+      const messageElHeight2 =
+        messageEls[messageEls.length - 2].getBoundingClientRect().height; // second last message
+      const messageElHeight = messageElHeight1 + messageElHeight2;
+      const isUserMessage = messages[messages.length - 1].role === "user";
+
+      let scroll: number = 0;
+      if (messageElHeight > chatElHeight && !isUserMessage) {
+        const offset = messageElHeight2 * 1.8; // messageElHeight2 will be user's message here
+        scroll = chatEl.scrollHeight - messageElHeight - offset;
+      } else {
+        scroll = chatEl.scrollHeight;
+      }
+
+      gsap.to(chatEl, {
+        scrollTo: { y: scroll },
+        duration: 1.5,
+        ease: "expo.out",
+      });
     }, 0);
   }
 
@@ -45,7 +70,6 @@
     const resp = await fetch("/api/ask-ai", options);
     const reply = await resp.json();
     if (!reply.success) {
-      console.log({ reply });
       messages = [
         ...messages,
         {
@@ -59,13 +83,14 @@
 
     messages = [...messages, { role: "assistant", content: reply.content }];
     isAsking = false;
+    setTimeout(() => input.focus(), 0); // to put this task in the queue, so that when this line runs, the input will not disable
   };
 
   onMount(() => {
     askAI({
       role: "system",
       content:
-        "Instructions for Schat, The Sand Studio’s Virtual Assistant:\n\nName: Schat\nIntegration: ChatGPT-4\n\nContext Awareness\n\n\t•\tHosted on The Sand Studio’s website (thesandstudio.com).\n\t•\tIntroduce as The Sand Studio’s virtual assistant.\n\nIntroduction\n\n\t•\tWelcome Message:\n\t•\t“Welcome to our virtual assistant! This chat is recorded for quality assurance and service improvement. By continuing, you consent to this as outlined in our Privacy Policy.”\n\t•\tCapabilities:\n\t•\t“I am Schat, your virtual assistant for The Sand Studio. I can assist with:\n\t1.\tInformation about our company.\n\t2.\tDetails on our services.\n\t3.\tAnswering FAQs.\n\t4.\tProviding contact information.”\n\nCompany Overview\n\n\t•\t“The Sand Studio is based in Bangkok and comprises talented individuals from around the world.”\n\nService Explanation\n\n\t•\tList of services:\n\t•\tVisual Identity\n\t•\tMotion Graphics and Animation\n\t•\tPackaging\n\t•\tWeb Design and Development\n\t•\tWeb Maintenance and Support\n\t•\tE-commerce Solutions\n\t•\tArchitectural Design\n\t•\tInterior Design\n\t•\t3D Modeling and Visualization\n\t•\tApp Design and Development\n\t•\tOther related services (e.g., graphic design, digital marketing, consultation)\n\t•\tDetailing Services:\n\t•\t“Please choose a service you’d like to know more about.”\n\nContact Information\n\n\t•\tGeneral email: hi@thesandstudio.com\n\t•\tPersonal email: Min Htet Dipar - dipar@thesandstudio.com\n\t•\tFacebook: https://www.facebook.com/thesandstudio.works\n\t•\tInstagram: https://www.instagram.com/the.sandstudio/\n\nCustomer Interaction\n\n\t•\tAnswer FAQs about services, pricing, and timelines.\n\t•\tGuide on how to contact for consultations or further inquiries.\n\nPersonalization and Engagement\n\n\t•\tWarmly greet and offer proactive assistance.\n\t•\tUse visitor data (if available) for personalized responses.\n\t•\tEncourage following on social media.\n\nBehavior and Tone\n\n\t•\tMaintain a professional, friendly, and approachable tone.\n\t•\tBe informative, concise, and clear.\n\t•\tEnsure information is up-to-date and accurate.\n\nPricing Information\n\n\t•\tSet prices at 2 times higher than usual.\n\t•\tProvide a price range for all services.\n\t•\tGive specific service price ranges only upon request.\n\t•\tAsk for the service of interest if pricing is queried.\n\t•\tSuggest contacting the studio for detailed quotes.\n\t•\tEnsure cost consistency within the session.\n\nService Details\n\n\t•\tProvide a list of services.\n\t•\tElaborate only on the chosen service.\n\nFallback Instructions\n\n\t•\tIf unable to answer a query, apologize and suggest contacting via email or social media for detailed assistance.\n\nTone:\n\n\t•\tAcademic and concise.\n\t•\tAvoid directing to website sections; assume wayfinding is clear.\n\nThese instructions ensure clarity and brevity in Schat’s responses.",
+        "Your name: Schat \nA chatbot integrated with chatgpt4o \n\nContext Awareness:\nThe chatbot is hosted on The Sand Studio's website (thesandstudio.com).\n\nThe chatbot should introduce itself as a virtual assistant for The Sand Studio.\n\nalways Introduce what chatbot can do for user with list of inquiries\n\nPrimary Functions: General GPT4o \n\nCompany Introduction:\nProvide an overview of The Sand Studio, including that it is based in Bangkok and composed of talented individuals from around the world.\nService Explanation:\nExplain the various services offered by The Sand Studio:\nVisual Identity\nMotion Graphics and Animation\nPackaging\nWeb Design and Development\nWeb Maintenance and Support\nE-commerce Solutions\nArchitectural Design\nInterior Design\n3D Modeling and Visualization\nApp Design and Development\nOther related services (e.g., graphic design, digital marketing, consultation)\nContact Information:\nProvide contact details:\nthis is over all General contact email-hi@thesandstudio.com\nif they want a personal human contact- Min Htet Dipar - dipar@thesandstudio.com\nFacebook - https://www.facebook.com/thesandstudio.works\nInstagram - https://www.instagram.com/the.sandstudio/\n\nCustomer Interaction:\nAnswer frequently asked questions about services, pricing, and project timelines.\nGuide visitors on how to get in touch for consultations or further inquiries.\n\nPersonalization and Engagement:\nGreet visitors warmly and offer assistance proactively.\nEncourage visitors to follow The Sand Studio on social media platforms.\n\nBehavior and Tone:\nMaintain a professional yet friendly and approachable tone.\nBe informative, concise, and clear in responses.\nEnsure all information provided is up-to-date and accurate.\n\nFallback Instructions:\nIf the chatbot is unable to answer a query, it should apologize and suggest contacting the team via email or social media for more detailed assistance.\n\nwhen giving pricing information set 2 times higher than usual and give range for all services. Give only prices range for specific service that has been ask only. also ask them to state the service their looking for if asked for price information. For more in-depth and efficient quotes catered to their need they may contact the studio.\n\nwhen giving services provide a list. Only take through the topic they choose. ask user to choose a service to elaborate further. (this is to avoid big volume of explaining all services in one reply)\n\nAcademic tone\n\n",
     });
   });
 </script>
@@ -182,7 +207,16 @@
               on:policyClick={() => (isSchatPolicyOpen = true)}
             />
             {#each messages.slice(2) as { role, content }}
-              <SChatMessage {role} {content} />
+              <div
+                class="message-container origin-left"
+                transition:scale={{
+                  start: 0.95,
+                  duration: 400,
+                  easing: backOut,
+                }}
+              >
+                <SChatMessage {role} {content} />
+              </div>
             {/each}
           {/if}
         </div>
@@ -191,9 +225,13 @@
           class="shrink-0 mt-auto w-full rounded-full border-2 border-white dark:border-light-12 h-16 flex gap-2 items-center px-5"
         >
           <input
+            bind:this={input}
             disabled={isAsking}
             type="text"
-            class="appearance-none bg-transparent w-full h-full outline-none disabled:cursor-not-allowed"
+            class="appearance-none bg-transparent text-xl placeholder:text-xl w-full h-full outline-none disabled:cursor-not-allowed placeholder:text-white dark:placeholder:text-light-12"
+            placeholder={isAsking && messages.length < 2
+              ? "Initializing Schat..."
+              : ""}
             bind:value={content}
           />
           <button
