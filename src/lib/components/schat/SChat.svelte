@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { scale } from "svelte/transition";
+  import { scale, fade } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
   import gsap from "gsap";
   import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
@@ -12,6 +12,7 @@
   import { openContactTab } from "$lib/stores/finder";
   import SChatMessage from "./SChatMessage.svelte";
   import SChatStartMessage from "./SChatStartMessage.svelte";
+  import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
 
   $: shell = $OpenShells.find((shell) => shell.id === "schat");
   $: index = $OpenShells.findIndex((shell) => shell.id === "schat");
@@ -36,7 +37,7 @@
   let isSchatPolicyOpen = false;
   let input: HTMLInputElement;
 
-  $: if (messages.length > 2) {
+  $: if (messages.length > 3) {
     gsap.registerPlugin(ScrollToPlugin);
     setTimeout(() => {
       const chatEl = document.getElementById("chat-container") as HTMLElement;
@@ -94,13 +95,7 @@
     setTimeout(() => input.focus(), 0); // to put this task in the queue, so that when this line runs, the input will not disable
   };
 
-  onMount(() => {
-    askAI({
-      role: "system",
-      content:
-        "Your name: Schat \nA chatbot integrated with chatgpt4o \n\nContext Awareness:\nThe chatbot is hosted on The Sand Studio's website (thesandstudio.com).\n\nThe chatbot should introduce itself as a virtual assistant for The Sand Studio.\n\nalways Introduce what chatbot can do for user with list of inquiries\n\nPrimary Functions: General GPT4o \n\nCompany Introduction:\nProvide an overview of The Sand Studio, including that it is based in Bangkok and composed of talented individuals from around the world.\nService Explanation:\nExplain the various services offered by The Sand Studio:\nVisual Identity\nMotion Graphics and Animation\nPackaging\nWeb Design and Development\nWeb Maintenance and Support\nE-commerce Solutions\nArchitectural Design\nInterior Design\n3D Modeling and Visualization\nApp Design and Development\nOther related services (e.g., graphic design, digital marketing, consultation)\nContact Information:\nProvide contact details:\nthis is over all General contact email-hi@thesandstudio.com\nif they want a personal human contact- Min Htet Dipar - dipar@thesandstudio.com\nFacebook - https://www.facebook.com/thesandstudio.works\nInstagram - https://www.instagram.com/the.sandstudio/\n\nCustomer Interaction:\nAnswer frequently asked questions about services, pricing, and project timelines.\nGuide visitors on how to get in touch for consultations or further inquiries.\n\nPersonalization and Engagement:\nGreet visitors warmly and offer assistance proactively.\nEncourage visitors to follow The Sand Studio on social media platforms.\n\nBehavior and Tone:\nMaintain a professional yet friendly and approachable tone.\nBe informative, concise, and clear in responses.\nEnsure all information provided is up-to-date and accurate.\n\nFallback Instructions:\nIf the chatbot is unable to answer a query, it should apologize and suggest contacting the team via email or social media for more detailed assistance.\n\nwhen giving pricing information set 2 times higher than usual and give range for all services. Give only prices range for specific service that has been ask only. also ask them to state the service their looking for if asked for price information. For more in-depth and efficient quotes catered to their need they may contact the studio.\n\nwhen giving services provide a list. Only take through the topic they choose. ask user to choose a service to elaborate further. (this is to avoid big volume of explaining all services in one reply)\n\nAcademic tone\n\n",
-    });
-  });
+  onMount(() => askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS }));
 </script>
 
 <div
@@ -289,11 +284,7 @@
             {#each messages.slice(2) as { role, content }}
               <div
                 class="message-container origin-left"
-                transition:scale={{
-                  start: 0.95,
-                  duration: 400,
-                  easing: backOut,
-                }}
+                transition:fade={{ duration: 400 }}
               >
                 <SChatMessage {role} {content} />
               </div>

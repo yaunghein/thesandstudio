@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { marked } from "marked";
   import { twMerge as twm } from "tailwind-merge";
 
   export let role: "system" | "user" | "assistant" = "assistant";
   export let content: string = `In the context of our company, "The Sand Studio" is a creative agency crafted by talented individuals from around the globe, based in Bangkok. We offer a wide range of design, development, and consultation services.\n\nIf you\'re inquiring about the material "sand," it commonly refers to granular material composed of finely divided rock and mineral particles, typically found on beaches and deserts.\n\nHow else may I assist you today?`;
   const isAI = role === "assistant";
+
+  const addTargetAttributes = (html: any) => {
+    return html.replace(/<a /g, '<a target="_blank" ');
+  };
 </script>
 
 <div class="flex items-start gap-4">
@@ -49,9 +54,10 @@
     >
       {isAI ? "Schat" : "You"}
     </div>
-    <p class="text-xl">
-      {@html content?.replace(/\n/g, "<br>") ||
-        "Error. Please contact to hi@thesandstudio.com for this error if you have some times."}
+    <p
+      class="text-xl grid gap-2 [&_ol]:list-disc [&_ol]:ml-4 [&_ul]:list-disc [&_ul]:ml-4 [&_strong]:font-sand-bold [&_a]:underline [&_h1]:font-sand-bold [&_h2]:font-sand-bold [&_h3]:font-sand-bold [&_h4]:font-sand-bold [&_h5]:font-sand-bold [&_h6]:font-sand-bold"
+    >
+      {@html addTargetAttributes(marked.parse(content))}
     </p>
   </div>
 </div>
