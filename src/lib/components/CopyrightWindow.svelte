@@ -325,7 +325,7 @@
                   </li>
                   <p>2.2 Technical Information</p>
                   <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
-                    <li>P addresses, browser types, and access times.</li>
+                    <li>IP addresses, browser types, and access times.</li>
                     <li>
                       Cookies and similar technologies to track user activity on
                       our site.
