@@ -1,16 +1,27 @@
-<script>
+<script lang="ts">
   import { scale } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
-  import { removeShell } from "$lib/stores/shell";
+  import { OpenShells, removeShell } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
   import ButtonClose from "$lib/components/ButtonClose.svelte";
+
+  $: shell = $OpenShells.find((shell) => shell.id === "child");
+  $: index = $OpenShells.findIndex((shell) => shell.id === "child");
+
+  const position = (node: HTMLDivElement) => {
+    if (index < 0) return;
+    node.style.top = `${50 + index * 5}%`;
+    node.style.left = `${50 + index * 5}%`;
+  };
 </script>
 
 <div
   use:drag
+  use:position
   in:scale={{ start: 0.9, duration: 200, easing: backOut }}
   out:scale={{ start: 0.9, duration: 200, easing: backIn }}
-  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square mix-blend-multiply pointer-events-none"
+  style="z-index: {shell?.zIndex}"
+  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[71rem] aspect-square mix-blend-multiply"
 >
   <!-- <div class="w-full h-full bg-sand-blue"></div> -->
 
