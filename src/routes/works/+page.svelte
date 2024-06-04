@@ -335,14 +335,12 @@
     {#each WORKS_GROUPS as workGroup}
       <div
         role="region"
-        class="fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12"
+        class={twm(
+          "fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 sand-transition",
+          workGroup.type !== hoveredType && "opacity-25",
+        )}
       >
-        <!-- <div
-        role="region"
-        class="h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 backdrop-blur-lg"
-      > -->
         <div class="transparent-layer" />
-        <!-- <div class="absolute inset-0 w-full h-full backdrop-blur-lg" /> -->
         <div
           class="absolute inset-0 flex gap-10 -ml-[0.125rem] opacity-sand overflow-hidden"
         >

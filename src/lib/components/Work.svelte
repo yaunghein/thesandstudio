@@ -11,8 +11,6 @@
   import { changeCursorType } from "$lib/stores/cursor";
 
   export let work: Work;
-  export let isMobile: boolean = false;
-  console.log({ isMobile });
 
   const getRandomNumber = () => {
     const numbers = [10, 13, 15];
