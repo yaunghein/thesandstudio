@@ -35,9 +35,9 @@
         {
           name: "ENVISEAM",
           images: [
-            // "https://uploads-ssl.webflow.com/637f1d40ad46563adc48171e/641db77936aa4a5d92119ac4_NVAM%20logo%20v2.json",
-            "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573917/works/enviseam/Enviseam-New_1_yn6wik.webp",
-            "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573918/works/enviseam/Enviseam-New_2_ahkala.webp",
+            "https://res.cloudinary.com/dlhbpswom/raw/upload/v1717478894/lotties/enviseam_n3orkw.json",
+            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573917/works/enviseam/Enviseam-New_1_yn6wik.webp",
+            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573918/works/enviseam/Enviseam-New_2_ahkala.webp",
           ],
           categories: [
             "Visual Identity",

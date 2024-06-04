@@ -100,13 +100,24 @@
     class="swiper-wrapper absolute inset-0 w-full h-full bg-light-90 dark:bg-light-20 flex"
   >
     {#each work.images as image}
-      <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
-        <img
-          src={image}
-          alt={work.name}
-          class="w-full h-full object-cover scale-[1.01]"
-        />
-      </div>
+      {#if work.name === "ENVISEAM"}
+        <div
+          class="swiper-slide w-full h-full overflow-hidden shrink-0 bg-white dark:bg-black"
+        >
+          <div
+            use:playLottie={image}
+            class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
+          />
+        </div>
+      {:else}
+        <div class="swiper-slide w-full h-full overflow-hidden shrink-0">
+          <img
+            src={image}
+            alt={work.name}
+            class="w-full h-full object-cover scale-[1.01]"
+          />
+        </div>
+      {/if}
     {/each}
   </div>
 

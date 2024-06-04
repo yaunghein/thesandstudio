@@ -8,7 +8,7 @@
   import { removeShell, OpenShells } from "$lib/stores/shell";
   import gsap from "gsap";
 
-  export let show: boolean;
+  export let show: boolean = false;
 
   let isMounted = false;
   onMount(() => {

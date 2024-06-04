@@ -27,8 +27,9 @@
         {
           name: "ENVISEAM",
           images: [
-            "https://res.cloudinary.com/dlhbpswom/image/upload/v1716576631/works/enviseam/mobile/Enviseam_gcecua.webp",
-            "https://res.cloudinary.com/dlhbpswom/image/upload/v1716576631/works/enviseam/mobile/Enviseam-1_klixto.webp",
+            "https://res.cloudinary.com/dlhbpswom/raw/upload/v1717478894/lotties/enviseam_n3orkw.json",
+            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1716576631/works/enviseam/mobile/Enviseam_gcecua.webp",
+            // "https://res.cloudinary.com/dlhbpswom/image/upload/v1716576631/works/enviseam/mobile/Enviseam-1_klixto.webp",
           ],
           categories: [
             "Visual Identity",
