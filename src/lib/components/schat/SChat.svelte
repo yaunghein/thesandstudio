@@ -369,13 +369,13 @@
             addShell({ id: "finder", zIndex: 65 });
             openContactTab();
           }}
-          class="text-2xl text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          class="text-xl text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           hi@thesandstudio.com
         </button>
         <button
           on:click={() => (isSchatPolicyOpen = true)}
-          class="text-2xl text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
+          class="text-xl text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           Privacy & AI Disclosure
         </button>
