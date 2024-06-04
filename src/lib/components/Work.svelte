@@ -11,6 +11,7 @@
   import { changeCursorType } from "$lib/stores/cursor";
 
   export let work: Work;
+  export let isMobile: boolean = false;
 
   const getRandomNumber = () => {
     const numbers = [10, 13, 15];
@@ -49,14 +50,17 @@
 
   const playLottie = (node: HTMLDivElement, path: string) => {
     let isReversing = false;
+    const parent = node.parentNode;
+
     const animation = lottie.loadAnimation({
       container: node,
       renderer: "canvas",
       loop: false,
-      autoplay: true,
+      autoplay: isMobile ? true : false,
       path,
     });
-    animation.addEventListener("complete", () => {
+
+    const handleLoop = () => {
       if (!isReversing) {
         isReversing = true;
         animation.setDirection(-1);
@@ -65,7 +69,23 @@
         animation.setDirection(1);
       }
       animation.play();
-    });
+    };
+    animation.addEventListener("complete", handleLoop);
+
+    const handleMouseEnter = () => animation.play();
+    const handleMouseLeave = () => animation.goToAndStop(0, true);
+    if (!isMobile) {
+      parent?.addEventListener("mouseenter", handleMouseEnter);
+      parent?.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return {
+      destroy() {
+        animation.removeEventListener("complete", handleLoop);
+        parent?.removeEventListener("mouseenter", handleMouseEnter);
+        parent?.removeEventListener("mouseleave", handleMouseLeave);
+      },
+    };
   };
 
   const handleMouseMove = (e: MouseEvent) => {
