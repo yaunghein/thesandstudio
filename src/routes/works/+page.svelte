@@ -7,8 +7,6 @@
   import deepClone from "$lib/utils/deepClone";
   import MetaData from "$lib/components/MetaData.svelte";
 
-  export let data;
-
   export const WORKS_GROUPS: WorkGroup[] = [
     {
       type: "Projects",
@@ -372,11 +370,7 @@
         class="relative grid grid-cols-2 border-b-2 border-white dark:border-light-12"
       >
         {#each workGroup.data as work}
-          <Work
-            {work}
-            isMobile={data.isMobile}
-            on:hoverIn={(e) => (hoveredWork = e.detail)}
-          />
+          <Work {work} on:hoverIn={(e) => (hoveredWork = e.detail)} />
         {/each}
       </div>
     {/each}

@@ -12,6 +12,7 @@
 
   export let work: Work;
   export let isMobile: boolean = false;
+  console.log({ isMobile });
 
   const getRandomNumber = () => {
     const numbers = [10, 13, 15];
@@ -56,7 +57,7 @@
       container: node,
       renderer: "canvas",
       loop: false,
-      autoplay: isMobile ? true : false,
+      autoplay: window.innerWidth > 639 ? false : true,
       path,
     });
 
@@ -74,7 +75,7 @@
 
     const handleMouseEnter = () => animation.play();
     const handleMouseLeave = () => animation.goToAndStop(0, true);
-    if (!isMobile) {
+    if (window.innerWidth > 639) {
       parent?.addEventListener("mouseenter", handleMouseEnter);
       parent?.addEventListener("mouseleave", handleMouseLeave);
     }
