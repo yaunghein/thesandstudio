@@ -21,7 +21,7 @@
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880731/works/sawbwa-morning-blend/SB_Field_zpdr7s.gif",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880732/works/sawbwa-morning-blend/SB_House_f3abca.gif",
           ],
-          categories: ["Packaging"],
+          categories: ["Packaging   /"],
           meta: ["Specialty Coffee", "Myanmar", "2022"],
         },
         {
@@ -117,7 +117,7 @@
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578270/works/grand-hotel/mobile/Grand_Hotel-6_sqolsf.webp",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578273/works/grand-hotel/mobile/Grand_Hotel-8_rz37gq.webp",
           ],
-          categories: ["Visual Identity"],
+          categories: ["Visual Identity   /"],
           meta: ["Hotel", "Myanmar", "2021"],
         },
         {
@@ -127,7 +127,7 @@
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578816/works/yangon-galacticos/mobile/YG-2_muziqk.webp",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578818/works/yangon-galacticos/mobile/YG-1_vvennm.webp",
           ],
-          categories: ["Visual Identity"],
+          categories: ["Visual Identity   /"],
           meta: ["E-Sports Team", "Myanmar", "2020"],
         },
         {
@@ -159,7 +159,7 @@
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578930/works/burmese-hype/mobile/BH-3_afpfsx.webp",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716578936/works/burmese-hype/mobile/BH-4_efcii1.webp",
           ],
-          categories: ["Visual Identity"],
+          categories: ["Visual Identity   /"],
           meta: ["Culture & Social Platform", "Myanmar", "2019"],
         },
         {
@@ -184,7 +184,7 @@
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716579156/works/hog/mobile/HOG_kdyhfs.webp",
             "https://res.cloudinary.com/dlhbpswom/image/upload/v1716579154/works/hog/mobile/HOG-1_ueex1k.webp",
           ],
-          categories: ["Visual Identity"],
+          categories: ["Visual Identity   /"],
           meta: ["E-Sports", "Myanmar", "2017"],
         },
       ],
@@ -257,7 +257,7 @@
                 class="-mx-5 col-span-2 text-xl font-sand-mobile-bold leading-[0.75] flex items-center gap-2 animate-marquee"
               >
                 {#each [...Array(20)] as _}
-                  <div class="shrink-0">
+                  <div class="shrink-0 whitespace-pre">
                     {currentWork.categories.join(" / ")}
                   </div>
                 {/each}
