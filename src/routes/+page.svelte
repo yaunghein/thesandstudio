@@ -328,16 +328,6 @@
           </a>
         </div>
 
-        <!-- <div
-          class={twm(
-            "w-[13rem] aspect-square fixed top-[8rem] left-1/2 -translate-x-1/2 z-[2]",
-            $SelectedBackground?.name === "bg-scene" &&
-              "opacity-0 pointer-events-none",
-          )}
-        >
-          <LogoMain />
-        </div> -->
-
         <div class="absolute top-12 right-12 flex gap-5 z-[2]">
           <Apps />
         </div>
@@ -402,7 +392,7 @@
               class={twm(
                 "dark:invert h-full flex flex-col justify-between overflow-hidden sand-transition",
                 loadedLegacyLotties.length === 3
-                  ? "opacity-30 dark:opacity-50"
+                  ? "opacity-10 dark:opacity-20"
                   : "opacity-0",
               )}
             >
