@@ -257,6 +257,15 @@
                   >
                     Consultation and Strategy
                   </p>
+                  <p
+                    class="text-lg leading-none"
+                    style="
+                      background: linear-gradient(to left, #4200FF 0%, #F80077 100%);
+                      -webkit-background-clip: text;
+                      color: transparent;"
+                  >
+                    App Design and Development
+                  </p>
                 </div>
                 <div class="flex flex-col gap-2">
                   <p
