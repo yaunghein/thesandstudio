@@ -14,6 +14,7 @@
   import SChatStartMessage from "./SChatStartMessage.svelte";
   import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
   import { CursorType } from "$lib/stores/cursor";
+  import { Messages } from "$lib/stores/schat";
 
   $: shell = $OpenShells.find((shell) => shell.id === "schat");
   $: index = $OpenShells.findIndex((shell) => shell.id === "schat");
@@ -33,10 +34,25 @@
   };
 
   let content = "";
-  let messages: any = [];
+  let messages: any = $Messages;
   let isAsking = false;
   let isSchatPolicyOpen = false;
   let input: HTMLInputElement;
+
+  // to store initialization
+  $: if (messages.length === 2) {
+    Messages.set(messages);
+  }
+
+  onMount(() => {
+    if (messages.length >= 2) return; // already initialize
+    askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS });
+    CursorType.set("loading");
+  });
+
+  $: if (messages.length >= 2) {
+    CursorType.set("normal");
+  }
 
   $: if (messages.length > 3) {
     gsap.registerPlugin(ScrollToPlugin);
@@ -95,15 +111,6 @@
     isAsking = false;
     setTimeout(() => input.focus(), 0); // to put this task in the queue, so that when this line runs, the input will not disable
   };
-
-  onMount(() => {
-    askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS });
-    CursorType.set("loading");
-  });
-
-  $: if (messages.length >= 2) {
-    CursorType.set("normal");
-  }
 </script>
 
 <div
