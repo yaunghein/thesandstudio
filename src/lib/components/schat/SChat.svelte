@@ -13,7 +13,6 @@
   import SChatMessage from "./SChatMessage.svelte";
   import SChatStartMessage from "./SChatStartMessage.svelte";
   import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
-  import { CursorType } from "$lib/stores/cursor";
   import { Messages } from "$lib/stores/schat";
 
   $: shell = $OpenShells.find((shell) => shell.id === "schat");
@@ -33,28 +32,20 @@
     node.style.left = `${50 + index * 5}%`;
   };
 
+  type TRole = "system" | "user" | "assistant";
+
   let content = "";
-  let messages: any = $Messages;
+  let messages: { role: TRole; content: string }[] = [];
   let isAsking = false;
   let isSchatPolicyOpen = false;
   let input: HTMLInputElement;
 
-  // to store initialization
-  $: if (messages.length === 2) {
-    Messages.set(messages);
-  }
-
   onMount(() => {
-    if (messages.length >= 2) return; // already initialize
-    askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS });
-    CursorType.set("loading");
+    messages = [{ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS }];
+    input.focus();
   });
 
-  $: if (messages.length >= 2) {
-    CursorType.set("normal");
-  }
-
-  $: if (messages.length > 3) {
+  $: if (messages.length > 2) {
     gsap.registerPlugin(ScrollToPlugin);
     setTimeout(() => {
       const chatEl = document.getElementById("chat-container") as HTMLElement;
@@ -296,7 +287,7 @@
             <SChatStartMessage
               on:policyClick={() => (isSchatPolicyOpen = true)}
             />
-            {#each messages.slice(2) as { role, content }}
+            {#each messages.slice(1) as { role, content }}
               <div
                 class="message-container origin-left"
                 transition:fade={{ duration: 400 }}
@@ -316,9 +307,6 @@
               disabled={isAsking}
               type="text"
               class="appearance-none bg-transparent text-xl placeholder:text-xl w-full h-full outline-none placeholder:text-white dark:placeholder:text-light-25"
-              placeholder={isAsking && messages.length < 2
-                ? "Initializing Schat..."
-                : ""}
               bind:value={content}
             />
             <button
@@ -328,13 +316,13 @@
                   ? "text-light-50 dark:text-light-50"
                   : "text-white dark:text-light-12",
                 "shrink-0  aspect-square sand-transition relative",
-                isAsking && messages.length > 2
+                isAsking && messages.length > 1
                   ? "w-8 text-light-4 dark:text-light-100"
                   : "w-7",
               )}
             >
               <span class="sr-only">Ask</span>
-              {#if isAsking && messages.length > 2}
+              {#if isAsking && messages.length > 1}
                 <div class="absolute inset-0">
                   <div transition:scale={{ start: 0.5 }} class="animate-spin">
                     <svg
