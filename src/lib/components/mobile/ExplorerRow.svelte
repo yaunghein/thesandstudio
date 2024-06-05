@@ -5,6 +5,7 @@
   import { handleFileClickMobile } from "$lib/stores/explorer";
 
   export let files: File[];
+  export let isRecursive: boolean = false;
 
   const getFiles = (file: any) =>
     file.data?.filter((i: any) => i.type === "file");
@@ -25,20 +26,13 @@
           id={file.label}
           on:click={() => handleFileClickMobile(file)}
         >
-          <PixelBorder />
+          <div class={twm(isRecursive && "opacity-75")}>
+            <PixelBorder />
+          </div>
 
           <div class="w-full h-full flex items-center overflow-hidden">
-            <div>
-              <!-- <div
-              class={twm(
-                "marquee-content",
-                file.isMarquee && "animate-marquee",
-              )}
-            > -->
+            <div class={twm(isRecursive && "opacity-75")}>
               <span class="whitespace-nowrap">{file.label}</span>
-              <!-- {#if file.isMarquee}
-                <span class="whitespace-nowrap">{file.label}</span>
-              {/if} -->
             </div>
           </div>
 
@@ -84,7 +78,11 @@
           >
             {#each medias as media}
               {#if media.mediaType === "img"}
-                <img alt={media.label} src={media.mediaSrc} />
+                <img
+                  alt={media.label}
+                  src={media.mediaSrc}
+                  class="rounded-lg"
+                />
               {:else if media.mediaType === "video"}
                 <div class="w-full bg-black">
                   <video
@@ -109,8 +107,8 @@
 
           {@const folders = getFolders(file)}
           {#if folders.length > 0}
-            <div class="-mt-1">
-              <svelte:self files={folders} />
+            <div class="-mt-1 mb-4">
+              <svelte:self files={folders} isRecursive={true} />
             </div>
           {/if}
         {/if}
