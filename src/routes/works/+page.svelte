@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
   import AppShell from "$lib/components/AppShell.svelte";
   import Work from "$lib/components/Work.svelte";
@@ -264,7 +265,7 @@
   ];
 
   let hoveredWork: TWork | null;
-  let hoveredType: string;
+  let hoveredType: string = "Projects";
 
   const initialDisplayLabels = [
     { label: "Visual Identity", isActive: false },
@@ -335,10 +336,7 @@
     {#each WORKS_GROUPS as workGroup}
       <div
         role="region"
-        class={twm(
-          "fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 sand-transition",
-          workGroup.type !== hoveredType && "opacity-25",
-        )}
+        class="fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 sand-transition"
       >
         <div class="transparent-layer" />
         <div
@@ -349,7 +347,14 @@
           {/each}
         </div>
         <div class="relative grid grid-cols-2 items-center w-full h-full">
-          <h2 class="text-6xl relative px-9">{workGroup.type}</h2>
+          <h2
+            class={twm(
+              "text-6xl relative px-9 sand-transition",
+              workGroup.type !== hoveredType && "opacity-25",
+            )}
+          >
+            {workGroup.type}
+          </h2>
           {#if hoveredWork && hoveredType === workGroup.type}
             <div
               class="grid grid-cols-3 items-center text-light-10 dark:text-light-100 pl-6"
