@@ -1488,6 +1488,114 @@ const files: File[] = [
           {
             id: crypto.randomUUID(),
             type: "file",
+            label: "Another_Club-3.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574995/works/another-club/May-25-2024/Another_Club-3_yxp9fn.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-1.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574987/works/another-club/May-25-2024/Another_Club-1_hhndyr.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574988/works/another-club/May-25-2024/Another_Club_br6sxf.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-8.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574990/works/another-club/May-25-2024/Another_Club-8_i1o5sm.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-10.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574990/works/another-club/May-25-2024/Another_Club-10_hdi4b9.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-11.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574986/works/another-club/May-25-2024/Another_Club-11_ho9egm.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-4.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574985/works/another-club/May-25-2024/Another_Club-4_uqaxqx.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-2.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574986/works/another-club/May-25-2024/Another_Club-2_pdyptx.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-7.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574994/works/another-club/May-25-2024/Another_Club-7_vx39bu.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-9.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574989/works/another-club/May-25-2024/Another_Club-9_jr5zwj.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-5.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574992/works/another-club/May-25-2024/Another_Club-5_ajw6qy.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Another_Club-6.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716574991/works/another-club/May-25-2024/Another_Club-6_a9kk0u.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
             label: "AC Coasters.webp",
             isOpen: false,
             mediaType: "img",
@@ -1530,15 +1638,15 @@ const files: File[] = [
             mediaSrc:
               "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Mockups_lbhccj.webp",
           },
-          {
-            id: crypto.randomUUID(),
-            type: "file",
-            label: "AC Window Stickers.webp",
-            isOpen: false,
-            mediaType: "img",
-            mediaSrc:
-              "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp",
-          },
+          // {
+          //   id: crypto.randomUUID(),
+          //   type: "file",
+          //   label: "AC Window Stickers.webp",
+          //   isOpen: false,
+          //   mediaType: "img",
+          //   mediaSrc:
+          //     "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp",
+          // },
         ],
       },
       {
@@ -1559,11 +1667,11 @@ const files: File[] = [
           {
             id: crypto.randomUUID(),
             type: "file",
-            label: "GS Logo Animation.mp4",
+            label: "GS Logo Animation.gif",
             isOpen: false,
-            mediaType: "video",
+            mediaType: "img",
             mediaSrc:
-              "https://res.cloudinary.com/dlhbpswom/video/upload/v1715880740/works/game-sauce/GS_Logo_Animation_xfoor7.mp4",
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573445/works/game-sauce/GS_Logo_Animation_wg2fmo.gif",
           },
         ],
       },
@@ -1626,6 +1734,24 @@ const files: File[] = [
             mediaType: "img",
             mediaSrc:
               "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880727/works/grand-hotel/GH_Paperbag_lchdgv.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Grand_Hotel.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716575321/works/grand-hotel/Grand_Hotel_b8anbz.webp",
+          },
+          {
+            id: crypto.randomUUID(),
+            type: "file",
+            label: "Grand_Hotel-1.webp",
+            isOpen: false,
+            mediaType: "img",
+            mediaSrc:
+              "https://res.cloudinary.com/dlhbpswom/image/upload/v1716575321/works/grand-hotel/Grand_Hotel-1_p8myce.webp",
           },
         ],
       },
@@ -1731,14 +1857,6 @@ const files: File[] = [
         label: "Sawbwa Morning Blend",
         isOpen: false,
         data: [
-          // {
-          //   id: crypto.randomUUID(),
-          //   type: "file",
-          //   label: "Sawbwa.webp",
-          //   isOpen: false,
-          //   mediaType: "img",
-          //   mediaSrc: "/images/archives/works/sawbwa-morning-blend/Sawbwa.webp",
-          // },
           {
             id: crypto.randomUUID(),
             type: "file",
