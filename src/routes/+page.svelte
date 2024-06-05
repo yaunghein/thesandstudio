@@ -31,6 +31,7 @@
   import SlideExplorer from "$lib/components/mobile/SlideExplorer.svelte";
   import MetaData from "$lib/components/MetaData.svelte";
   import LoadingScreen from "$lib/components/LoadingScreen.svelte";
+  import MobileLoadingScreen from "$lib/components/mobile/LoadingScreen.svelte";
   import SChat from "$lib/components/schat/SChat.svelte";
 
   import "swiper/css/pagination";
@@ -408,6 +409,9 @@
 {/if}
 
 {#if isMobile}
+  {#if data.shouldShowLoadingScreen}
+    <MobileLoadingScreen />
+  {/if}
   <MobileAppShell>
     <Header />
     <div class="swiper relative pb-3">
