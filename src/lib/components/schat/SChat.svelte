@@ -13,6 +13,7 @@
   import SChatMessage from "./SChatMessage.svelte";
   import SChatStartMessage from "./SChatStartMessage.svelte";
   import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
+  import { CursorType } from "$lib/stores/cursor";
 
   $: shell = $OpenShells.find((shell) => shell.id === "schat");
   $: index = $OpenShells.findIndex((shell) => shell.id === "schat");
@@ -95,7 +96,14 @@
     setTimeout(() => input.focus(), 0); // to put this task in the queue, so that when this line runs, the input will not disable
   };
 
-  onMount(() => askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS }));
+  onMount(() => {
+    askAI({ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS });
+    CursorType.set("loading");
+  });
+
+  $: if (messages.length >= 2) {
+    CursorType.set("normal");
+  }
 </script>
 
 <div
@@ -300,7 +308,7 @@
               bind:this={input}
               disabled={isAsking}
               type="text"
-              class="appearance-none bg-transparent text-xl placeholder:text-xl w-full h-full outline-none disabled:cursor-not-allowed placeholder:text-white dark:placeholder:text-light-12"
+              class="appearance-none bg-transparent text-xl placeholder:text-xl w-full h-full outline-none placeholder:text-white dark:placeholder:text-light-25"
               placeholder={isAsking && messages.length < 2
                 ? "Initializing Schat..."
                 : ""}
