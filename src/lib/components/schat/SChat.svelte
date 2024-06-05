@@ -13,7 +13,6 @@
   import SChatMessage from "./SChatMessage.svelte";
   import SChatStartMessage from "./SChatStartMessage.svelte";
   import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
-  import { Messages } from "$lib/stores/schat";
 
   $: shell = $OpenShells.find((shell) => shell.id === "schat");
   $: index = $OpenShells.findIndex((shell) => shell.id === "schat");
