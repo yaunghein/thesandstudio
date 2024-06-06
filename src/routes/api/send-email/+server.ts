@@ -2,25 +2,26 @@ import { json } from "@sveltejs/kit";
 import { BREVO_API_KEY } from "$env/static/private";
 import type { RequestHandler } from "./$types";
 import SibApiV3Sdk from "@getbrevo/brevo";
+import getEmailTemplate from "$lib/server/emails/getEmailTemplate";
 
 export const POST: RequestHandler = async ({ request }) => {
-  const { subject, sender, to, htmlContent, attachments } =
-    await request.json();
+  const data = await request.json();
+  const { subject, sender, to, attachments } = data;
   let brevo = new SibApiV3Sdk.TransactionalEmailsApi();
 
   // @ts-ignore
   let brevoAuth = brevo.authentications["apiKey"];
   brevoAuth.apiKey = BREVO_API_KEY;
 
-  let email = new SibApiV3Sdk.SendSmtpEmail();
-  email.subject = subject;
-  email.sender = sender;
-  email.to = [to];
-  email.replyTo = sender;
-  email.htmlContent = htmlContent;
+  let emailObj = new SibApiV3Sdk.SendSmtpEmail();
+  emailObj.subject = subject;
+  emailObj.sender = sender;
+  emailObj.to = [to];
+  emailObj.replyTo = sender;
+  emailObj.htmlContent = getEmailTemplate(data);
 
-  if (attachments) email.attachment = attachments;
+  if (attachments) emailObj.attachment = attachments;
 
-  await brevo.sendTransacEmail(email);
+  await brevo.sendTransacEmail(emailObj);
   return json({ success: true });
 };

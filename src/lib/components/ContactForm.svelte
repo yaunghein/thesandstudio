@@ -15,6 +15,8 @@
     transformZodErrors,
   } from "$lib/utils/form";
   import type { FormInputs } from "$lib/utils/form";
+  import { PUBLIC_SAND_EMAIL } from "$env/static/public";
+  import formateDate from "$lib/utils/formatDate";
 
   const defaults = { ease: "power4.inOut", duration: 1 };
 
@@ -36,6 +38,7 @@
   let formInputs = { ...initialFormInputs };
   let formErrors: any;
   let formState: "idel" | "locked" | "sending" = "idel";
+  let hasServerError = false;
 
   const handleAttachmentChange = async (event: Event) => {
     const input = event.target as HTMLInputElement;
@@ -62,7 +65,7 @@
     const tl = gsap.timeline({
       defaults,
       onUpdate: () => {
-        if (tl.progress() >= 0.4 && formInputs?.name) {
+        if (tl.progress() >= 0.4 && formInputs?.name && !hasServerError) {
           formInputs = { ...initialFormInputs };
         }
       },
@@ -78,20 +81,25 @@
     formState = "sending";
 
     const { name, email, message, attachments } = formInputs;
+    const [date, time] = formateDate(new Date());
+    const generalData = { name, email, message, date, time };
+
     const respSand = await fetch("/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         subject: `Website Form Submission: ${name}`,
         sender: { name, email },
-        to: { name: "The SAND Studio", email: "yan@thesandstudio.com" }, // change to hi@
-        htmlContent: `<html><body><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
+        to: { name: "The SAND Studio", email: PUBLIC_SAND_EMAIL },
         attachments: attachments ? await filesToBase64(attachments) : null,
+        type: "sand",
+        ...generalData,
       }),
     });
     if (!respSand.ok) {
       const error = await respSand.json();
       console.log({ error: error.message });
+      hasServerError = true;
       formState = "idel";
       return;
     }
@@ -100,16 +108,20 @@
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        subject: `The SAND Studio Received Your Message.`,
-        sender: { name: "The SAND Studio", email: "yan@thesandstudio.com" }, // change to hi@
+        subject: `Hi ${
+          name.split(" ")[0]
+        }, the SAND Studio Received Your Message.`,
+        sender: { name: "The SAND Studio", email: PUBLIC_SAND_EMAIL },
         to: { name, email },
-        htmlContent: `<html><body><div>Hi, ${name},</div><div>We received your message.</div><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
         attachments: attachments ? await filesToBase64(attachments) : null,
+        type: "sender",
+        ...generalData,
       }),
     });
     if (!respSender.ok) {
       const error = await respSender.json();
       console.log({ error: error.message });
+      hasServerError = true;
       formState = "idel";
       return;
     }
@@ -153,7 +165,7 @@
               formErrors?.name
                 ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                 : "placeholder:text-black dark:placeholder:text-light-100",
-              "h-8 outline-none bg-transparent sand-transition",
+              "h-8 outline-none bg-transparent sand-transition text-2xl",
             )}
             on:input={() =>
               formErrors?.name ? (formErrors.name = undefined) : null}
@@ -173,7 +185,7 @@
               formErrors?.email
                 ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                 : "placeholder:text-black dark:placeholder:text-light-100",
-              "h-8 outline-none bg-transparent sand-transition",
+              "h-8 outline-none bg-transparent sand-transition text-2xl",
             )}
             on:input={() =>
               formErrors?.email ? (formErrors.email = undefined) : null}
@@ -191,7 +203,7 @@
               formErrors?.message
                 ? "placeholder:text-sand-red text-sand-red animate-vibrate-once"
                 : "placeholder:text-black dark:placeholder:text-light-100",
-              "h-full mt-5 outline-none resize-none bg-transparent",
+              "h-full mt-5 outline-none resize-none bg-transparent text-2xl",
             )}
             on:input={() =>
               formErrors?.message ? (formErrors.message = undefined) : null}
@@ -233,6 +245,14 @@
               on:change={handleAttachmentChange}
             />
           </div>
+
+          {#if hasServerError}
+            <p class="animate-vibrate-once text-base text-sand-red mt-4">
+              Server error! Your previous submission was not received.<br />
+              Please contact to
+              <a href="mailto:h1@thesandstudio.com">hi@thesandstudio.com</a>.
+            </p>
+          {/if}
         </div>
       </div>
     </div>

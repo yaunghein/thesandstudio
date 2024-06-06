@@ -1,0 +1,116 @@
+import mjml from "mjml";
+
+export default function (data: any) {
+  return mjml(`
+  <mjml>
+  <mj-head>
+    <mj-font
+      name="Inter"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500"
+    />
+    <mj-style inline="inline">
+      .container { background: url('https://i.ibb.co/2tGkk17/email-bg.png')
+      no-repeat top/cover, #000000;} .content { background:
+      url('https://i.ibb.co/MPCQqj5/email-tube-0-75.png') no-repeat top/contain;
+      }
+      .td a {
+        color: white;
+        text-decoration: none;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body css-class="container" background-color="#000000">
+    <mj-divider
+      border-width="32px"
+      border-color="transparent"
+      padding="17px 0px 40px 0px"
+    />
+    <mj-wrapper css-class="content">
+      <mj-section>
+        <mj-column
+          width="375px"
+          background-color="#1F1F1F"
+          padding="20px"
+          border-radius="8px"
+        >
+          <mj-table color="#ffffff" padding="0" font-family="Inter, sans-serif">
+            <tr>
+              <td style="font-size: 12px">${data.date}</td>
+              <td
+                style="
+                  text-align: right;
+                  color: #606060;
+                  white-space: nowrap;
+                  font-size: 12px;
+                "
+              >
+              ${data.time}
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="
+                  font-size: 24px;
+                  font-weight: 500;
+                  line-height: 1.25;
+                  display: block;
+                  margin-top: 16px;
+                "
+              >
+              ${data.type === "sand" ? "A Submission" : "Your Message"}
+                <br />Has Been Received!
+              </td>
+              <td style="text-align: right; padding-top: 48px">
+                <img
+                  alt="Sand Logo"
+                  src="https://i.ibb.co/TYjSQKQ/email-sand-shape.png"
+                  style="width: 24px; height: 24px"
+                />
+              </td>
+            </tr>
+          </mj-table>
+
+          <mj-divider
+            border-width="1px"
+            border-color="#000000"
+            padding="17px 0px 40px 0px"
+          />
+
+          <mj-table color="#ffffff" padding="0" font-family="Inter, sans-serif">
+            <tr>
+              <td style="font-size: 16px">${data.name}</td>
+            </tr>
+            <tr>
+              <td css-class="td" style="font-size: 16px">${data.email}</td>
+            </tr>
+            <tr>
+              <td style="font-size: 16px; margin-top: 24px; display: block">
+              ${data.message}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  alt="Sand Pneumatic Tube"
+                  src="https://i.ibb.co/kykcjRT/email-tube-label.png"
+                  style="width: 120px; display: block; margin: 120px auto 0px"
+                />
+              </td>
+            </tr>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <mj-text
+        color="#ffffff"
+        align="center"
+        font-size="24px"
+        font-family="Inter, sans-serif"
+        padding="0px 0px 16px 0px"
+      >
+        SAND
+      </mj-text>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+  `).html;
+}
