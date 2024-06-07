@@ -35,12 +35,15 @@
           that it takes a multitude of fields and diversity to achieve something
           truly groundbreaking. Our projects are collaborative explorations,
           valuing each unique voice and idea, igniting the potential for
-          extraordinary innovation. Join us at SAND, where your passion for
-          creativity and diversity finds its purpose. Here, we're not just
-          designing for today; we're pioneering the future through
-          interdisciplinary collaboration and collective ingenuity. We are going
-          where most have traveled less, because it takes a rich tapestry of
-          skills and perspectives to uncover what we have yet to even imagine.
+          extraordinary innovation.
+        </div>
+        <div class="relative text-2xl leading-[0.75] mb-4">
+          Join us at SAND, where your passion for creativity and diversity finds
+          its purpose. Here, we're not just designing for today; we're
+          pioneering the future through interdisciplinary collaboration and
+          collective ingenuity. We are going where most have traveled less,
+          because it takes a rich tapestry of skills and perspectives to uncover
+          what we have yet to even imagine.
         </div>
       </div>
     </div>
