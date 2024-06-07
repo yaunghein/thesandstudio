@@ -9,6 +9,7 @@
   import { browser } from "$app/environment";
   import Cursor from "$lib/components/Cursor.svelte";
   import Grains from "$lib/components/Grains.svelte";
+  import Analytics from "$lib/components/Analytics.svelte";
 
   export let data;
 
@@ -117,3 +118,5 @@
   <Cursor />
   <Grains />
 {/if}
+
+<Analytics />

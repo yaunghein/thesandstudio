@@ -12,6 +12,7 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.30.3",
+    "@types/gtag.js": "^0.0.20",
     "@types/mjml": "^4.7.4",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.28",
