@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
   import AppShell from "$lib/components/AppShell.svelte";
   import Work from "$lib/components/Work.svelte";

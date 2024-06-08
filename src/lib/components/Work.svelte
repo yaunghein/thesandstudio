@@ -49,6 +49,7 @@
 
   const playLottie = (node: HTMLDivElement, path: string) => {
     let isReversing = false;
+    let isClose = window.innerWidth > 639 ? true : false;
     const parent = node.parentNode;
 
     const animation = lottie.loadAnimation({
@@ -60,6 +61,7 @@
     });
 
     const handleLoop = () => {
+      if (isClose) return;
       if (!isReversing) {
         isReversing = true;
         animation.setDirection(-1);
@@ -71,8 +73,15 @@
     };
     animation.addEventListener("complete", handleLoop);
 
-    const handleMouseEnter = () => animation.play();
-    const handleMouseLeave = () => animation.goToAndStop(0, true);
+    const handleMouseEnter = () => {
+      isClose = false;
+      animation.play();
+    };
+    const handleMouseLeave = () => {
+      isClose = true;
+      animation.setDirection(-1);
+      animation.play();
+    };
     if (window.innerWidth > 639) {
       parent?.addEventListener("mouseenter", handleMouseEnter);
       parent?.addEventListener("mouseleave", handleMouseLeave);
