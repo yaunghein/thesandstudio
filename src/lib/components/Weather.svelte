@@ -38,7 +38,7 @@
       size: 100,
     },
     "partly-cloudy": {
-      conditions: ["Partly cloudy"],
+      conditions: ["Partly Cloudy"],
       image:
         "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881623/weather-icons/partly-cloudy_en5jdk.webp",
       // "https://res.cloudinary.com/dlhbpswom/image/upload/v1715881622/weather-icons/fog-mist_vspnpu.webp",
@@ -171,7 +171,9 @@
   $: icon =
     ICONS[
       Object.keys(ICONS).find((k) =>
-        ICONS[k].conditions.includes(weather?.current.condition.text),
+        ICONS[k].conditions
+          .map((c) => c.toLowerCase())
+          .includes(weather?.current.condition.text.toLowerCase()),
       ) as string
     ];
   let unit: "C" | "F" = "C";
