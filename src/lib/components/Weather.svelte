@@ -73,6 +73,7 @@
     },
     "all-rain": {
       conditions: [
+        "Patchy rain nearby",
         "Patchy rain possible",
         "Patchy light rain",
         "Light rain",
@@ -228,19 +229,24 @@
     <div class="relative flex gap-10">
       <div class="flex flex-col items-center justify-start gap-2">
         <div class="w-28 aspect-square overflow-hidden -mt-5 relative">
-          {#key icon}
-            <img
-              in:scale={{ delay: 300, duration: 300, start: 0.9 }}
-              out:scale={{ duration: 300, start: 0.9 }}
-              src={icon.image}
-              alt="Weather Icon"
-              class="{SIZES[
-                icon.size
-              ]} aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            />
-          {/key}
+          {#if icon}
+            {#key icon}
+              <img
+                in:scale={{ delay: 300, duration: 300, start: 0.9 }}
+                out:scale={{ duration: 300, start: 0.9 }}
+                src={icon.image}
+                alt="Weather Icon"
+                class="{SIZES[
+                  icon.size
+                ]} aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              />
+            {/key}
+          {/if}
         </div>
-        <div class="flex text-4xl leading-none gap-2 {MARGIN_TOPS[icon.size]}">
+        <div
+          class="flex text-4xl leading-none gap-2 {MARGIN_TOPS[icon?.size] ||
+            ''}"
+        >
           <div>
             {unit === "C" ? weather.current.temp_c : weather.current.temp_f}
           </div>
