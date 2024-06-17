@@ -41,6 +41,7 @@
     "simplebar": "^6.2.5",
     "svelte-carbonbadge": "^0.0.1",
     "svelte-pdf-simple": "^2.0.0",
+    "svelte-video-player": "^1.2.5",
     "swiper": "^11.0.6",
     "tailwind-merge": "^2.1.0",
     "zod": "^3.22.4"

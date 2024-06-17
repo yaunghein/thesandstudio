@@ -50,6 +50,9 @@ importers:
       svelte-pdf-simple:
         specifier: ^2.0.0
         version: 2.0.0
+      svelte-video-player:
+        specifier: ^1.2.5
+        version: 1.2.5
       swiper:
         specifier: ^11.0.6
         version: 11.0.6
@@ -1795,6 +1798,9 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  svelte-video-player@1.2.5:
+    resolution: {integrity: sha512-iImQY6qnEEE0fngq9aANKMKDD2knTBcsyTLKHc3hyZ/nj/ZExwBAJ7MbxlOnyLpSKzZA1KaSSaqKXeTRWZOOlw==}
 
   svelte@4.2.0:
     resolution: {integrity: sha512-kVsdPjDbLrv74SmLSUzAsBGquMs4MPgWGkGLpH+PjOYnFOziAvENVzgJmyOCV2gntxE32aNm8/sqNKD6LbIpeQ==}
@@ -3893,6 +3899,8 @@ snapshots:
       postcss: 8.4.28
       postcss-load-config: 4.0.2(postcss@8.4.28)
       typescript: 5.1.6
+
+  svelte-video-player@1.2.5: {}
 
   svelte@4.2.0:
     dependencies:

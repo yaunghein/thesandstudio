@@ -33,6 +33,7 @@
   import LoadingScreen from "$lib/components/LoadingScreen.svelte";
   import MobileLoadingScreen from "$lib/components/mobile/LoadingScreen.svelte";
   import SChat from "$lib/components/schat/SChat.svelte";
+  import LaunchSkit from "$lib/components/LaunchSkit.svelte";
 
   import "swiper/css/pagination";
 
@@ -54,6 +55,7 @@
 
     if (!data.shouldShowLoadingScreen) {
       gsap.set("#virtual-assistant", { zIndex: 56 });
+      addShell({ id: "launch-skit", zIndex: 65 });
     }
 
     // this means codes below within onMount are for mobile
@@ -84,6 +86,7 @@
   $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
   $: isChildOpen = $OpenShells.find((shell) => shell.id === "child");
   $: isSChatOpen = $OpenShells.find((shell) => shell.id === "schat");
+  $: isLaunchSkitOpen = $OpenShells.find((shell) => shell.id === "launch-skit");
 
   let spline: any;
   let isSplineLoaded = false;
@@ -380,6 +383,10 @@
             Virtual Assistant
           </div>
         </button>
+
+        {#if isLaunchSkitOpen}
+          <LaunchSkit />
+        {/if}
 
         {#if openMediaFiles.length > 0}
           {#each openMediaFiles as file, index (file.id)}

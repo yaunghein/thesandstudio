@@ -4,6 +4,7 @@
   import gsap from "gsap";
   import { twMerge as twm } from "tailwind-merge";
   import { SelectedBackground } from "$lib/stores/background";
+  import { addShell } from "$lib/stores/shell";
 
   export let show: boolean;
   let internalShow = show;
@@ -230,6 +231,7 @@
       );
     }, 1000);
     setTimeout(() => {
+      addShell({ id: "launch-skit", zIndex: 65 });
       document.querySelector(".loading_container")?.remove();
       gsap.set(".loading_logo-container", { pointerEvents: "all" });
       gsap.set("#footer-wrapper", { zIndex: 56 });
