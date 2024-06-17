@@ -57,7 +57,7 @@
       style="
         position: fixed;
         z-index: 999999999999;
-        transform: translate(-0.75rem,10%);
+        transform: translateY(10%);
         top: 50%;
         right: 0;
       "
@@ -81,7 +81,7 @@
       style="
       position: fixed;
       z-index: 999999999999;
-      transform: translate(-0.75rem,10%);
+      transform: translateY(10%);
       top: 50%;
       right: 0;
     "
