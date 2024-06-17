@@ -44,6 +44,12 @@
   </div>
 
   <div
+    class="absolute z-2 top-[1.6rem] left-1/2 -translate-x-1/2 text-xl font-sand-medium"
+  >
+    Launch Skit
+  </div>
+
+  <div
     class="relative rounded-3xl -m-[0.1875rem] border-2 border-white dark:border-light-12 overflow-hidden"
   >
     <div class="w-full aspect-[0.8/1]">
