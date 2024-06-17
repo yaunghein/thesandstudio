@@ -4,6 +4,7 @@
   import { twMerge as twm } from "tailwind-merge";
   import getDateAndTime from "$lib/utils/getDateAndTime";
   import { PUBLIC_WEATHER_API_KEY } from "$env/static/public";
+  import Icon from "../sand-scan/Icon.svelte";
   // import a from "./weather.json"; // delete this file
 
   const LOCATIONS: Record<string, string> = {
@@ -57,6 +58,7 @@
     },
     "all-rain": {
       conditions: [
+        "Patchy rain nearby",
         "Patchy rain possible",
         "Patchy light rain",
         "Light rain",
@@ -218,15 +220,17 @@
     <div class="relative flex justify-between gap-4 w-full">
       <div class="flex flex-col items-center justify-start gap-2">
         <div class="relative w-10 aspect-square">
-          {#key icon}
-            <img
-              in:scale={{ delay: 300, duration: 300, start: 0.9 }}
-              out:scale={{ duration: 300, start: 0.9 }}
-              src={icon.image}
-              alt="Weather Icon"
-              class=" aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            />
-          {/key}
+          {#if icon}
+            {#key icon}
+              <img
+                in:scale={{ delay: 300, duration: 300, start: 0.9 }}
+                out:scale={{ duration: 300, start: 0.9 }}
+                src={icon.image}
+                alt="Weather Icon"
+                class=" aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              />
+            {/key}
+          {/if}
         </div>
         <div class="flex text-2xl leading-none gap-1">
           <div>
