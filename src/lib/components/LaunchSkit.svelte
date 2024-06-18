@@ -3,7 +3,6 @@
   import { backIn, backOut } from "svelte/easing";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
-  import VideoPlayer from "svelte-video-player";
   import ButtonClose from "./ButtonClose.svelte";
   import { removeShell, type OpenShell, OpenShells } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
@@ -17,9 +16,15 @@
     node.style.left = `${50 + index * 5}%`;
   };
 
-  onMount(() => {
+  let VideoPlayer: any;
+
+  onMount(async () => {
+    VideoPlayer = (await import("svelte-video-player")).default;
     setTimeout(() => document.querySelector("video")?.click(), 2000);
-    setTimeout(() => document.querySelector("video")?.play(), 4000);
+    setTimeout(() => {
+      document.querySelector(".controls")?.classList.add("non-draggable");
+      document.querySelector("video")?.play();
+    }, 4000);
   });
 </script>
 
@@ -54,7 +59,8 @@
   >
     <div class="w-full aspect-[0.8/1]">
       {#if browser}
-        <VideoPlayer
+        <svelte:component
+          this={VideoPlayer}
           width="1600"
           height="2000"
           poster="/launch-skit-poster.png"
@@ -63,6 +69,15 @@
           timeDisplay={true}
           loop
         />
+        <!-- <VideoPlayer
+          width="1600"
+          height="2000"
+          poster="/launch-skit-poster.png"
+          source="/launch-skit.mp4"
+          color="black"
+          timeDisplay={true}
+          loop
+        /> -->
       {/if}
     </div>
   </div>
