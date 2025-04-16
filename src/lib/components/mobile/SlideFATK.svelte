@@ -62,7 +62,7 @@
               <div class="absolute left-1/2 -translate-x-1/2 bottom-4">
                 <a
                   target="_blank"
-                  href="https://archive.thesandstudio.com/for-all-thingkind"
+                  href="https://thesandstudio.webflow.io/for-all-thingkind"
                   class="w-[12.5rem] h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
                 >
                   <PixelBorder />

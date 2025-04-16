@@ -51,7 +51,7 @@
       <div class="absolute bottom-5 right-5 flex gap-5">
         <a
           target="_blank"
-          href="https://archive.thesandstudio.com/for-all-thingkind"
+          href="https://thesandstudio.webflow.io/for-all-thingkind"
           class="sand-transition flex items-center gap-10 text-black dark:text-white hover:text-white hover:dark:text-black text-xl rounded-full py-2 px-5 border-2 border-white hover:border-black dark:hover:border-white dark:border-light-12 bg-light-90 hover:bg-black dark:hover:bg-white bg-opacity-60 hover:bg-opacity-100 dark:hover:bg-opacity-100 dark:bg-opacity-60 dark:bg-black"
         >
           Visit

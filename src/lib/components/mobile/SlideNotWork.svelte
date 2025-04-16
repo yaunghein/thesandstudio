@@ -46,7 +46,7 @@
                 class="absolute bottom-6 right-6 left-6 flex items-center gap-6"
               >
                 <a
-                  href="https://archive.thesandstudio.com/typographic-challenge"
+                  href="https://thesandstudio.webflow.io/typographic-challenge"
                   target="_blank"
                   class="relative w-full h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
                 >
@@ -54,7 +54,7 @@
                   Brief
                 </a>
                 <a
-                  href="https://archive.thesandstudio.com/gallery"
+                  href="https://thesandstudio.webflow.io/gallery"
                   target="_blank"
                   class="relative w-full h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
                 >
