@@ -77,13 +77,6 @@
   };
 
   onMount(() => {
-    // you have to see in darkmode initially 😂
-    const rootClasses = document.documentElement.classList;
-    if (!rootClasses.contains("dark") && show) {
-      rootClasses.add("dark");
-      localStorage.setItem("sand-theme", "dark");
-    }
-
     let isReversing = false;
     const handleLogoShapeLottieLoop = () => {
       if (!show) return;
@@ -267,8 +260,6 @@
       logoShapeLottie.play();
     }
   };
-
-  let isLogoHovering = false;
 </script>
 
 <div class="group">
@@ -288,7 +279,7 @@
     </div>
 
     <div
-      class="loading_click-me w-[4rem] h-[5.88rem] absolute top-[0.5rem] -right-[4rem]"
+      class="loading_click-me w-[4rem] h-[5.88rem] absolute top-[0.5rem] -right-[4rem] invert dark:invert-0"
     >
       <div class="scale-[0.8] opacity-0">
         <svg
@@ -377,20 +368,22 @@
   <div
     class="loading_container fixed inset-0 w-full h-full z-[52] grid place-items-center"
   >
-    <div class="loading_bg absolute inset-0 w-full h-full bg-light-4" />
-
     <div
-      class="loading_hello pointer-events-none opacity-0 w-[72rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      class="loading_bg absolute inset-0 w-full h-full bg-light-95 dark:bg-light-4"
     />
 
     <div
-      class="loading_bar h-2 w-[22.5rem] rounded-full border border-white border-opacity-[0.15] bg-light-12 absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+      class="loading_hello pointer-events-none opacity-0 w-[72rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 invert dark:invert-0"
+    />
+
+    <div
+      class="loading_bar h-2 w-[22.5rem] rounded-full border border-black dark:border-white border-opacity-[0.15] bg-light-95 dark:bg-light-4 absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
     >
       <div
         class="absolute rounded-full -inset-[1px] h-2 w-[22.5rem] overflow-hidden"
       >
         <div
-          class="loading_progress absolute inset-0 right-auto h-2 w-0 bg-white"
+          class="loading_progress absolute inset-0 right-auto h-2 w-0 bg-black dark:bg-white"
         />
       </div>
     </div>

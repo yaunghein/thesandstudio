@@ -29,9 +29,7 @@
     <meta name="viewport" content="width=device-width" />
     <script src="%sveltekit.assets%/scripts/grain.js"></script>
     <script>
-      localStorage["sand-theme"] === "dark" ||
-      (!localStorage["sand-theme"] &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      localStorage["sand-theme"] === "dark"
         ? document.documentElement.classList.add("dark")
         : document.documentElement.classList.remove("dark");
     </script>
