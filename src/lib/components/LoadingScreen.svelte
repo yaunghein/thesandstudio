@@ -205,8 +205,17 @@
     gsap.set(".page-wrapper", { opacity: 0 });
     gsap.to(".loading_hello", { opacity: 0 });
     gsap.to(".loading_click-me", { opacity: 0, scale: 0.8 });
-    logoShapeLottie.setDirection(-1);
-    logoShapeLottie.play();
+
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      logoShapeLottie.setDirection(-1);
+      logoShapeLottie.play();
+    } else {
+      logoShapeLottie.goToAndStop(0, true);
+      logoShapeLottie.setDirection(1);
+      logoShapeLottie.play();
+    }
+
     setTimeout(() => {
       gsap.to(".loading_bg", { opacity: 0 });
       gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
