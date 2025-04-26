@@ -250,6 +250,8 @@
       el.click();
     }, 0);
   };
+
+  let isLogoHovering = false;
 </script>
 
 <MetaData
@@ -259,8 +261,12 @@
 />
 
 {#if !isMobile}
-  <AppShell show={data.shouldShowLoadingScreen}>
-    <LoadingScreen show={data.shouldShowLoadingScreen} />
+  <AppShell show={data.shouldShowLoadingScreen} {isLogoHovering}>
+    <LoadingScreen
+      show={data.shouldShowLoadingScreen}
+      on:logo-mouseenter={() => (isLogoHovering = true)}
+      on:logo-mouseleave={() => (isLogoHovering = false)}
+    />
     <div class="overflow-hidden h-[calc(100vh-6rem)]">
       <div class="page-wrapper">
         {#if $SelectedBackground?.name === "bg-scene"}

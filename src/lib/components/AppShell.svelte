@@ -9,6 +9,7 @@
   import gsap from "gsap";
 
   export let show: boolean = false;
+  export let isLogoHovering: boolean = false;
 
   let isMounted = false;
   onMount(() => {
@@ -98,6 +99,6 @@
     </div>
   </div>
   <div id="footer-wrapper" class="z-[50]">
-    <Footer />
+    <Footer {isLogoHovering} />
   </div>
 </div>

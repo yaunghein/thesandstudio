@@ -9,6 +9,8 @@
   import { openContactTab } from "$lib/stores/finder";
   import { addShell } from "$lib/stores/shell";
 
+  export let isLogoHovering: boolean = false;
+
   let isOpen = false;
 
   const playLottie = (node: HTMLDivElement) => {
@@ -54,7 +56,8 @@
           isOpen = !isOpen;
           CursorType.set("normal");
         }}
-        class="group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 transition-all"
+        class="{isLogoHovering &&
+          'translate-y-10'} group absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-4 hover:h-10 rounded-t-2xl grid place-items-center bg-light-90 dark:bg-black text-light dark:text-dark border-2 border-b-0 border-white dark:border-light-12 sand-transition"
       >
         <span class="sr-only">Open Footer</span>
         {#if !isOpen}
