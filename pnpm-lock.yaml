@@ -47,9 +47,6 @@ importers:
       svelte-pdf-simple:
         specifier: ^2.0.0
         version: 2.0.0
-      svelte-video-player:
-        specifier: ^1.2.5
-        version: 1.2.5
       swiper:
         specifier: ^11.0.6
         version: 11.0.6
@@ -2122,9 +2119,6 @@ packages:
 
   svelte-pdf-simple@2.0.0:
     resolution: {integrity: sha512-XiRyw2vWt2VGBx7vpyUcEJ6Ug1T2yboVXVnsiqBmB8ApDxysfi/ju0OfHvHO3Yd6GJiX7hlloOHwIZn8d9FEPQ==}
-
-  svelte-video-player@1.2.5:
-    resolution: {integrity: sha512-iImQY6qnEEE0fngq9aANKMKDD2knTBcsyTLKHc3hyZ/nj/ZExwBAJ7MbxlOnyLpSKzZA1KaSSaqKXeTRWZOOlw==}
 
   svelte@5.28.2:
     resolution: {integrity: sha512-FbWBxgWOpQfhKvoGJv/TFwzqb4EhJbwCD17dB0tEpQiw1XyUEKZJtgm4nA4xq3LLsMo7hu5UY/BOFmroAxKTMg==}
@@ -4655,8 +4649,6 @@ snapshots:
       pdfjs-dist: 2.13.216
     transitivePeerDependencies:
       - worker-loader
-
-  svelte-video-player@1.2.5: {}
 
   svelte@5.28.2:
     dependencies:

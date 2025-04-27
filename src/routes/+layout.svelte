@@ -115,7 +115,7 @@
   id="iris-container"
   style="clip-path: circle(150% at 50% 100%); display: block;"
 >
-  <!-- {@render children?.()} -->
+  {@render children?.()}
 </div>
 
 {#if !data.isMobile}

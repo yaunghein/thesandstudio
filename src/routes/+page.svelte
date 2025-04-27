@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from "svelte/legacy";
 
   import { browser } from "$app/environment";
   import gsap from "gsap";
@@ -40,7 +40,6 @@
   import "swiper/css/pagination";
 
   // let { supabase, session } = data;
-  
 
   interface Props {
     // $: ({ supabase, session } = data);
@@ -85,15 +84,19 @@
   //   await supabase.auth.signOut();
   // };
 
-  let isSandScanOpen = $derived($OpenShells.find((shell) => shell.id === "sand-scan"));
+  let isSandScanOpen = $derived(
+    $OpenShells.find((shell) => shell.id === "sand-scan"),
+  );
 
-  let isBackgroundsOpen = $derived($OpenShells.find(
-    (shell) => shell.id === "backgrounds",
-  ));
+  let isBackgroundsOpen = $derived(
+    $OpenShells.find((shell) => shell.id === "backgrounds"),
+  );
   let openMediaFiles = $derived($OpenShells.filter((shell) => !!shell.file));
   let isChildOpen = $derived($OpenShells.find((shell) => shell.id === "child"));
   let isSChatOpen = $derived($OpenShells.find((shell) => shell.id === "schat"));
-  let isLaunchSkitOpen = $derived($OpenShells.find((shell) => shell.id === "launch-skit"));
+  let isLaunchSkitOpen = $derived(
+    $OpenShells.find((shell) => shell.id === "launch-skit"),
+  );
 
   let spline: any = $state();
   let isSplineLoaded = $state(false);
@@ -274,12 +277,13 @@
 />
 
 {#if !isMobile}
-  <AppShell show={data.shouldShowLoadingScreen} {isLogoHovering}>
-    <LoadingScreen
+  <AppShell show={false} {isLogoHovering}>
+    <!-- <AppShell show={data.shouldShowLoadingScreen} {isLogoHovering}> -->
+    <!-- <LoadingScreen
       show={data.shouldShowLoadingScreen}
       on:logo-mouseenter={() => (isLogoHovering = true)}
       on:logo-mouseleave={() => (isLogoHovering = false)}
-    />
+    /> -->
     <div class="overflow-hidden h-[calc(100vh-6rem)]">
       <div class="page-wrapper">
         {#if $SelectedBackground?.name === "bg-scene"}
@@ -308,7 +312,7 @@
             <div
               use:sandTextLottie
               class="fade-up dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-></div>
+            ></div>
           </div>
 
           <div class="fade-up min-h-[10.8rem]">
