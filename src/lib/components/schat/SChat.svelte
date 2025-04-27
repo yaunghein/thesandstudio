@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run, preventDefault } from 'svelte/legacy';
+
   import { onMount } from "svelte";
   import { scale, fade } from "svelte/transition";
   import { backIn, backOut } from "svelte/easing";
@@ -14,8 +16,8 @@
   import SChatStartMessage from "./SChatStartMessage.svelte";
   import { PUBLIC_SCHAT_INSTRUCTIONS } from "$env/static/public";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "schat");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "schat");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "schat"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "schat"));
 
   const openPrivacyPolicy = () => {
     addShell({ id: "copyright", zIndex: 65 });
@@ -33,45 +35,47 @@
 
   type TRole = "system" | "user" | "assistant";
 
-  let content = "";
-  let messages: { role: TRole; content: string }[] = [];
-  let isAsking = false;
-  let isSchatPolicyOpen = false;
-  let input: HTMLInputElement;
+  let content = $state("");
+  let messages: { role: TRole; content: string }[] = $state([]);
+  let isAsking = $state(false);
+  let isSchatPolicyOpen = $state(false);
+  let input: HTMLInputElement = $state();
 
   onMount(() => {
     messages = [{ role: "system", content: PUBLIC_SCHAT_INSTRUCTIONS }];
     input.focus();
   });
 
-  $: if (messages.length > 2) {
-    gsap.registerPlugin(ScrollToPlugin);
-    setTimeout(() => {
-      const chatEl = document.getElementById("chat-container") as HTMLElement;
-      const chatElHeight = chatEl!.getBoundingClientRect().height;
-      const messageEls = document.querySelectorAll(".message-container");
-      const messageElHeight1 =
-        messageEls[messageEls.length - 1].getBoundingClientRect().height; // last message
-      const messageElHeight2 =
-        messageEls[messageEls.length - 2].getBoundingClientRect().height; // second last message
-      const messageElHeight = messageElHeight1 + messageElHeight2;
-      const isUserMessage = messages[messages.length - 1].role === "user";
+  run(() => {
+    if (messages.length > 2) {
+      gsap.registerPlugin(ScrollToPlugin);
+      setTimeout(() => {
+        const chatEl = document.getElementById("chat-container") as HTMLElement;
+        const chatElHeight = chatEl!.getBoundingClientRect().height;
+        const messageEls = document.querySelectorAll(".message-container");
+        const messageElHeight1 =
+          messageEls[messageEls.length - 1].getBoundingClientRect().height; // last message
+        const messageElHeight2 =
+          messageEls[messageEls.length - 2].getBoundingClientRect().height; // second last message
+        const messageElHeight = messageElHeight1 + messageElHeight2;
+        const isUserMessage = messages[messages.length - 1].role === "user";
 
-      let scroll: number = 0;
-      if (messageElHeight > chatElHeight && !isUserMessage) {
-        const offset = messageElHeight2 * 1.8; // messageElHeight2 will be user's message here
-        scroll = chatEl.scrollHeight - messageElHeight - offset;
-      } else {
-        scroll = chatEl.scrollHeight;
-      }
+        let scroll: number = 0;
+        if (messageElHeight > chatElHeight && !isUserMessage) {
+          const offset = messageElHeight2 * 1.8; // messageElHeight2 will be user's message here
+          scroll = chatEl.scrollHeight - messageElHeight - offset;
+        } else {
+          scroll = chatEl.scrollHeight;
+        }
 
-      gsap.to(chatEl, {
-        scrollTo: { y: scroll },
-        duration: 1.5,
-        ease: "expo.out",
-      });
-    }, 0);
-  }
+        gsap.to(chatEl, {
+          scrollTo: { y: scroll },
+          duration: 1.5,
+          ease: "expo.out",
+        });
+      }, 0);
+    }
+  });
 
   const askAI = async (message: any) => {
     messages = [...messages, message];
@@ -111,7 +115,7 @@
   class="fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45.5rem] h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
 
   <div
     class="absolute inset-0 bottom-auto h-[5.1rem] flex gap-10 -ml-[0.9rem] opacity-sand"
@@ -119,7 +123,7 @@
     {#each [...Array(100).keys()] as _}
       <div
         class="shrink-0 w-line bg-white dark:bg-light-12 h-full ml-[0.26rem]"
-      />
+></div>
     {/each}
   </div>
   <div
@@ -128,7 +132,7 @@
     {#each [...Array(100).keys()] as _}
       <div
         class="shrink-0 w-line bg-white dark:bg-light-12 h-full ml-[0.26rem]"
-      />
+></div>
     {/each}
   </div>
 
@@ -148,7 +152,7 @@
     <div class="absolute top-[1.05rem] right-4 flex gap-3">
       {#if isSchatPolicyOpen}
         <button
-          on:click={() => (isSchatPolicyOpen = false)}
+          onclick={() => (isSchatPolicyOpen = false)}
           class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
         >
           Back
@@ -231,7 +235,7 @@
                 against unauthorized access and breaches. For more information
                 on our data handling practices and security measures, please
                 refer to our
-                <button on:click={openPrivacyPolicy} class="underline">
+                <button onclick={openPrivacyPolicy} class="underline">
                   Privacy Policy
                 </button>.
               </p>
@@ -261,7 +265,7 @@
                 If you have any questions or concerns about our Privacy & AI
                 Disclosure or how your data is handled, please contact us at
                 <button
-                  on:click={() => {
+                  onclick={() => {
                     addShell({ id: "finder", zIndex: 65 });
                     openContactTab();
                   }}
@@ -270,7 +274,7 @@
                   hi@thesandstudio.com
                 </button>
                 or refer to our
-                <button on:click={openPrivacyPolicy} class="underline">
+                <button onclick={openPrivacyPolicy} class="underline">
                   Privacy Policy
                 </button>
                 for more details.
@@ -298,7 +302,7 @@
         </div>
         {#if !isSchatPolicyOpen}
           <form
-            on:submit|preventDefault={() => askAI({ role: "user", content })}
+            onsubmit={preventDefault(() => askAI({ role: "user", content }))}
             class="shrink-0 mt-auto mb-6 w-full rounded-full border-2 border-white dark:border-light-12 h-16 flex gap-2 items-center px-5"
           >
             <input
@@ -367,7 +371,7 @@
     <div class="shrink-0 mt-auto flex items-end justify-between">
       <div class="flex flex-col items-start gap-1 pl-[2.35rem] py-6">
         <button
-          on:click={() => {
+          onclick={() => {
             addShell({ id: "finder", zIndex: 65 });
             openContactTab();
           }}
@@ -376,7 +380,7 @@
           hi@thesandstudio.com
         </button>
         <button
-          on:click={() => (isSchatPolicyOpen = true)}
+          onclick={() => (isSchatPolicyOpen = true)}
           class="text-xl text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
         >
           Privacy & AI Disclosure

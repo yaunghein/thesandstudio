@@ -8,8 +8,12 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
-  export let show: boolean;
-  let internalShow = show;
+  interface Props {
+    show: boolean;
+  }
+
+  let { show }: Props = $props();
+  let internalShow = $state(show);
   let isPostLoadingFinished = show ? false : true;
 
   let logoShapeLottie: any;
@@ -274,9 +278,9 @@
 <div class="group">
   <button
     id="theme-switcher"
-    on:click={switchMode}
-    on:mouseenter={() => dispatch("logo-mouseenter")}
-    on:mouseleave={() => dispatch("logo-mouseleave")}
+    onclick={switchMode}
+    onmouseenter={() => dispatch("logo-mouseenter")}
+    onmouseleave={() => dispatch("logo-mouseleave")}
     class={twm(
       $SelectedBackground?.name === "bg-scene" && "opacity-0",
       show ? "w-[9.75rem] top-[45%] -translate-y-1/2" : "w-[13rem] top-[8rem]",
@@ -284,7 +288,7 @@
     )}
   >
     <div class="group-hover:scale-105 sand-transition">
-      <div class="loading_logo-shape" />
+      <div class="loading_logo-shape"></div>
     </div>
 
     <div
@@ -369,7 +373,7 @@
   {#if !internalShow}
     <div
       class="fixed inset-0 w-full h-full opacity-0 bg-light-4 sand-transition z-[53] group-hover:opacity-50 dark:group-hover:opacity-30 pointer-events-none"
-    />
+></div>
   {/if}
 </div>
 
@@ -379,11 +383,11 @@
   >
     <div
       class="loading_bg absolute inset-0 w-full h-full bg-light-95 dark:bg-light-4"
-    />
+></div>
 
     <div
       class="loading_hello pointer-events-none opacity-0 w-[72rem] aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 invert dark:invert-0"
-    />
+></div>
 
     <div
       class="loading_bar h-2 w-[22.5rem] rounded-full border border-black dark:border-white border-opacity-[0.15] bg-light-95 dark:bg-light-4 absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -393,7 +397,7 @@
       >
         <div
           class="loading_progress absolute inset-0 right-auto h-2 w-0 bg-black dark:bg-white"
-        />
+></div>
       </div>
     </div>
   </div>

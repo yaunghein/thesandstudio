@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import Navbar from "./Navbar.svelte";
@@ -8,10 +10,15 @@
   import { removeShell, OpenShells } from "$lib/stores/shell";
   import gsap from "gsap";
 
-  export let show: boolean = false;
-  export let isLogoHovering: boolean = false;
+  interface Props {
+    show?: boolean;
+    isLogoHovering?: boolean;
+    children?: import('svelte').Snippet;
+  }
 
-  let isMounted = false;
+  let { show = false, isLogoHovering = false, children }: Props = $props();
+
+  let isMounted = $state(false);
   onMount(() => {
     if (!show || $page.url.pathname !== "/") {
       gsap.set("#footer-wrapper", { zIndex: 56 });
@@ -21,14 +28,14 @@
     }, 1000);
   });
 
-  $: {
+  run(() => {
     if ($page) {
       removeShell("finder");
       removeShell("copyright");
     }
-  }
-  $: isFinderOpen = $OpenShells.find((shell) => shell.id === "finder");
-  $: isCopyrightOpen = $OpenShells.find((shell) => shell.id === "copyright");
+  });
+  let isFinderOpen = $derived($OpenShells.find((shell) => shell.id === "finder"));
+  let isCopyrightOpen = $derived($OpenShells.find((shell) => shell.id === "copyright"));
 </script>
 
 <div
@@ -43,7 +50,7 @@
         ? 'border-2'
         : 'border-0'} grow overflow-auto hide-scrollbar sand-transition"
     >
-      <slot />
+      {@render children?.()}
       {#if isFinderOpen}
         <Finder />
       {/if}

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import lottie from "lottie-web";
@@ -6,7 +8,11 @@
   import type { File } from "$lib/stores/finder";
   import { handleFileDoubleClick } from "$lib/stores/finder";
 
-  export let data: File;
+  interface Props {
+    data: File;
+  }
+
+  let { data }: Props = $props();
 
   const apps = ["Sand Scan", "For All Thingkind", "Works", "Not Works"];
 
@@ -40,7 +46,9 @@
 
   onMount(() => playLottie(data.icon as string));
 
-  $: if (data && browser) playLottie(data.icon as string);
+  run(() => {
+    if (data && browser) playLottie(data.icon as string);
+  });
 
   const paddings: Record<string, string> = {
     "Sand Scan": "p-10",
@@ -176,7 +184,7 @@
       </div>
       <button
         class="shrink-0 w-full h-20 text-xl font-sand-medium"
-        on:click={data.handleClick}
+        onclick={data.handleClick}
       >
         {data.label === "Sand Scan" ? "Launch" : "Visit"}
       </button>
@@ -185,7 +193,7 @@
     <div
       class="flex flex-col items-center justify-center h-full rounded-xl border-2 border-white dark:border-light-12 overflow-hidden"
     >
-      <button on:click={() => handleFileDoubleClick(data)}>
+      <button onclick={() => handleFileDoubleClick(data)}>
         {#if data.mediaType === "img"}
           <img
             src={data.mediaSrc}

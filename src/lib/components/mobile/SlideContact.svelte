@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { run, createBubbler, preventDefault, stopPropagation } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import ContactFormTubeLabel from "./../../svgs/ContactFormTubeLabel.svelte";
   import { browser } from "$app/environment";
   import { scale } from "svelte/transition";
@@ -16,33 +19,39 @@
   import type { FormInputs } from "$lib/utils/form";
   import PixelBorder from "./PixelBorder.svelte";
 
-  export let swiperIndex: number = 0;
+  interface Props {
+    swiperIndex?: number;
+  }
+
+  let { swiperIndex = 0 }: Props = $props();
 
   const defaults = { ease: "power4.inOut", duration: 1 };
 
-  let openTubeTl: any;
-  let wrapperWidth: string;
-  $: if (swiperIndex === 3 && browser) {
-    if (openTubeTl) {
-      openTubeTl.restart();
-    } else {
-      openTubeTl = gsap.timeline({
-        defaults,
-        onComplete() {
-          wrapperWidth = `${
-            document.querySelector("#paper-wrapper")?.getBoundingClientRect()
-              .width
-          }px`;
-        },
-      });
-      openTubeTl
-        .to("#tube", { y: "0%" })
-        .from("#paper-wrapper", { width: "7.3rem" }, "<50%")
-        .to("#paper-wrapper", { right: "-2.2rem" }, "<");
+  let openTubeTl: any = $state();
+  let wrapperWidth: string = $state();
+  run(() => {
+    if (swiperIndex === 3 && browser) {
+      if (openTubeTl) {
+        openTubeTl.restart();
+      } else {
+        openTubeTl = gsap.timeline({
+          defaults,
+          onComplete() {
+            wrapperWidth = `${
+              document.querySelector("#paper-wrapper")?.getBoundingClientRect()
+                .width
+            }px`;
+          },
+        });
+        openTubeTl
+          .to("#tube", { y: "0%" })
+          .from("#paper-wrapper", { width: "7.3rem" }, "<50%")
+          .to("#paper-wrapper", { right: "-2.2rem" }, "<");
+      }
+    } else if (browser && swiperIndex !== 3) {
+      openTubeTl?.reverse();
     }
-  } else if (browser && swiperIndex !== 3) {
-    openTubeTl?.reverse();
-  }
+  });
 
   const initialFormInputs: FormInputs = {
     name: "",
@@ -50,9 +59,9 @@
     message: "",
     attachments: null,
   };
-  let formInputs = { ...initialFormInputs };
-  let formErrors: any;
-  let formState: "idel" | "locked" | "sending" = "idel";
+  let formInputs = $state({ ...initialFormInputs });
+  let formErrors: any = $state();
+  let formState: "idel" | "locked" | "sending" = $state("idel");
 
   const handleAttachmentChange = async (event: Event) => {
     const input = event.target as HTMLInputElement;
@@ -146,7 +155,7 @@
 <div data-slide-name="contact" class="swiper-slide w-full h-full shrink-0 px-4">
   <div class="h-full w-full">
     <form
-      on:submit|preventDefault
+      onsubmit={preventDefault(bubble('submit'))}
       class="relative text-xl h-full w-full flex flex-col"
     >
       <PixelBorder />
@@ -181,7 +190,7 @@
                     : "placeholder:text-black dark:placeholder:text-light-100",
                   "h-8 text-xl outline-none bg-transparent sand-transition w-full",
                 )}
-                on:input={() =>
+                oninput={() =>
                   formErrors?.name ? (formErrors.name = undefined) : null}
               />
               <!-- {#if formErrors?.name}
@@ -201,7 +210,7 @@
                     : "placeholder:text-black dark:placeholder:text-light-100",
                   "h-8 text-xl outline-none bg-transparent sand-transition mt-1 w-full",
                 )}
-                on:input={() =>
+                oninput={() =>
                   formErrors?.email ? (formErrors.email = undefined) : null}
               />
               <!-- {#if formErrors?.email}
@@ -219,9 +228,9 @@
                     : "placeholder:text-black dark:placeholder:text-light-100",
                   "h-full w-full text-xl mt-5 leading-[0.7] outline-none resize-none bg-transparent",
                 )}
-                on:input={() =>
+                oninput={() =>
                   formErrors?.message ? (formErrors.message = undefined) : null}
-              />
+></textarea>
               <!-- {#if formErrors?.message}
                 <p class="animate-vibrate-once text-base text-sand-red mb-2">
                   {formErrors.message[0]}
@@ -246,9 +255,9 @@
 
                 {#if formInputs.attachments}
                   <button
-                    on:click={() => (formInputs.attachments = null)}
+                    onclick={() => (formInputs.attachments = null)}
                     class="absolute top-0 left-0 w-24 h-20 bg-transparent"
-                  />
+></button>
                 {/if}
 
                 <input
@@ -256,7 +265,7 @@
                   multiple
                   id="attachments"
                   class="hidden"
-                  on:change={handleAttachmentChange}
+                  onchange={handleAttachmentChange}
                 />
               </div>
             </div>
@@ -277,7 +286,7 @@
 
         <button
           disabled={formState === "sending"}
-          on:click={handleSubmit[formState]}
+          onclick={handleSubmit[formState]}
           id="submit-btn"
           class="relative w-[12.5rem] h-10 flex items-center justify-between rounded-full bg-white dark:bg-black text-black dark:text-white"
         >
@@ -285,7 +294,7 @@
           {#if formState === "locked"}
             <button
               transition:scale={{ start: 0.5 }}
-              on:click|stopPropagation={unlock}
+              onclick={stopPropagation(unlock)}
               class="absolute left-[0.6rem] flex h-6"
             >
               <Lock />

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import FinderColumns from './FinderColumns.svelte';
   import { goto } from "$app/navigation";
   import {
     FilePreview,
@@ -9,12 +10,16 @@
   import { twMerge as twm } from "tailwind-merge";
   import { addShell } from "$lib/stores/shell";
 
-  export let files: File[];
-  export let isRecursive: boolean = false; // to have right border while only one column is opening
+  interface Props {
+    files: File[];
+    isRecursive?: boolean; // to have right border while only one column is opening
+  }
+
+  let { files, isRecursive = false }: Props = $props();
 
   const MIN_FILE_COUNT = 20;
 
-  $: openFolder = files?.find((file: File) => file.isOpen);
+  let openFolder = $derived(files?.find((file: File) => file.isOpen));
 </script>
 
 {#if files}
@@ -34,7 +39,7 @@
               ? "bg-light-90 dark:bg-black"
               : "bg-light-80 dark:bg-light-7",
           )}
-        />
+></div>
       {/each}
     </div>
 
@@ -47,7 +52,7 @@
             file.isOpen && "bg-light-70 dark:bg-light-20",
           )}
           id={file.label}
-          on:dblclick={() => {
+          ondblclick={() => {
             switch (file.label) {
               case "Sand Scan":
                 addShell({ id: "sand-scan", zIndex: 65 });
@@ -65,7 +70,7 @@
                 handleFileDoubleClick(file);
             }
           }}
-          on:click={() => handleFileClick(file)}
+          onclick={() => handleFileClick(file)}
         >
           <div
             class={twm("marquee-content", file.isMarquee && "animate-marquee")}
@@ -107,5 +112,5 @@
 {/if}
 
 {#if openFolder}
-  <svelte:self files={openFolder.data} isRecursive={true} />
+  <FinderColumns files={openFolder.data} isRecursive={true} />
 {/if}

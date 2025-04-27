@@ -5,8 +5,8 @@
   import drag from "$lib/utils/drag";
   import ButtonClose from "$lib/components/ButtonClose.svelte";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "child");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "child");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "child"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "child"));
 
   const position = (node: HTMLDivElement) => {
     if (index < 0) return;

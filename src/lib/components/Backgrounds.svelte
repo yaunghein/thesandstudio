@@ -7,8 +7,8 @@
   import drag from "$lib/utils/drag";
   import ButtonClose from "./ButtonClose.svelte";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "backgrounds");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "backgrounds");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "backgrounds"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "backgrounds"));
 
   const position = (node: HTMLDivElement) => {
     if (index < 0) return;
@@ -25,11 +25,11 @@
   class="overflow-hidden fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65rem] h-[43.2rem] rounded-3xl text-light-100 border-2 border-white dark:border-light-12"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
     {#each [...Array(100).keys()] as _}
-      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
+      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full"></div>
     {/each}
   </div>
 
@@ -46,7 +46,7 @@
     >
       {#each $Backgrounds as bg}
         <button
-          on:click={() => {
+          onclick={() => {
             changeBackground(bg.name);
             sessionStorage.setItem("sand-background", bg.name); // to check if bg is in 3D state when navigate to home from other pages
           }}

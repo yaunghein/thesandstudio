@@ -30,7 +30,7 @@
       Welcome to our virtual assistant! Please note that this chat is recorded
       for quality assurance and service improvement purposes. By continuing, you
       consent to the recording and use of your interactions as outlined in our
-      <button on:click={() => dispatch("policyClick")} class="underline">
+      <button onclick={() => dispatch("policyClick")} class="underline">
         Privacy Policy
       </button>.
     </p>

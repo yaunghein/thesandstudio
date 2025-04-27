@@ -9,9 +9,13 @@
   import { openContactTab } from "$lib/stores/finder";
   import { addShell } from "$lib/stores/shell";
 
-  export let isLogoHovering: boolean = false;
+  interface Props {
+    isLogoHovering?: boolean;
+  }
 
-  let isOpen = false;
+  let { isLogoHovering = false }: Props = $props();
+
+  let isOpen = $state(false);
 
   const playLottie = (node: HTMLDivElement) => {
     lottie.loadAnimation({
@@ -40,7 +44,7 @@
   }}
   class="hidden sm:flex relative z-[20] text-light-10 dark:text-light-100 text-5xl font-sans"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
   <div
     class="absolute w-[32rem] h-16 -top-16 left-1/2 -translate-x-1/2 font-sand-medium text-xl sand-transition"
   >
@@ -52,7 +56,7 @@
 
     {#if !isOpen}
       <button
-        on:click={() => {
+        onclick={() => {
           isOpen = !isOpen;
           CursorType.set("normal");
         }}
@@ -108,7 +112,7 @@
 
       <div
         class="absolute left-[1.63rem] right-[1.63rem] h-[0.11rem] bottom-0 bg-white dark:bg-light-12"
-      />
+></div>
 
       <div
         class="w-[1.63rem] aspect-square absolute right-0 bottom-0 -scale-x-[1] text-white dark:text-light-12"
@@ -137,8 +141,8 @@
 
   <div
     role="region"
-    on:mouseenter={() => CursorType.set("normal")}
-    on:mouseleave={() => CursorType.set("footer-close")}
+    onmouseenter={() => CursorType.set("normal")}
+    onmouseleave={() => CursorType.set("footer-close")}
     class="{isOpen
       ? 'h-[28rem]'
       : 'h-[0rem]'} flex flex-col transition-all overflow-hidden"
@@ -147,31 +151,31 @@
       <a
         href="https://www.instagram.com/the.sandstudio/"
         target="_blank"
-        on:mouseenter={() => CursorType.set("normal")}>INSTAGRAM</a
+        onmouseenter={() => CursorType.set("normal")}>INSTAGRAM</a
       >
 
       <a
         href="https://www.facebook.com/thesandstudio.works"
         target="_blank"
-        on:mouseenter={() => CursorType.set("normal")}>FACEBOOK</a
+        onmouseenter={() => CursorType.set("normal")}>FACEBOOK</a
       >
 
       <a
         class="ml-auto"
         href="/"
-        on:mouseenter={() => CursorType.set("normal")}
+        onmouseenter={() => CursorType.set("normal")}
       >
         © {new Date().getFullYear()}
       </a>
     </div>
 
     <button
-      on:click={() => {
+      onclick={() => {
         addShell({ id: "finder", zIndex: 65 });
         openContactTab();
       }}
-      on:mouseenter={() => CursorType.set("contact")}
-      on:mouseleave={() => CursorType.set("normal")}
+      onmouseenter={() => CursorType.set("contact")}
+      onmouseleave={() => CursorType.set("normal")}
       class="text-[25rem] flex whitespace-nowrap overflow-hidden h-full"
     >
       <div class="flex items-center h-full shrink-0">
@@ -183,7 +187,7 @@
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
-            <div use:playLottie />
+            <div use:playLottie></div>
           </div>
         </div>
 
@@ -195,7 +199,7 @@
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
-            <div use:playLottie />
+            <div use:playLottie></div>
           </div>
         </div>
       </div></button

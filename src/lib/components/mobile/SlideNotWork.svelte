@@ -89,7 +89,7 @@
         </div>
         <div class="flex items-center justify-center mt-6 mb-20">
           <button
-            on:click={() => $MobileHomeSwiper?.slideTo(3)}
+            onclick={() => $MobileHomeSwiper?.slideTo(3)}
             class="relative w-[12.5rem] h-10 flex items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white p-[0.4rem] text-2xl"
           >
             <PixelBorder />

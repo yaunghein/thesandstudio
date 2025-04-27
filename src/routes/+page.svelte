@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { browser } from "$app/environment";
   import gsap from "gsap";
   import { onMount, onDestroy } from "svelte";
@@ -38,12 +40,17 @@
   import "swiper/css/pagination";
 
   // let { supabase, session } = data;
-  // $: ({ supabase, session } = data);
+  
 
-  export let data;
+  interface Props {
+    // $: ({ supabase, session } = data);
+    data: any;
+  }
+
+  let { data }: Props = $props();
   const { isMac, isMobile, shouldShowLoadingScreen } = data;
 
-  let swiperIndex = 0;
+  let swiperIndex = $state(0);
 
   onMount(() => {
     if (!browser) return;
@@ -78,19 +85,19 @@
   //   await supabase.auth.signOut();
   // };
 
-  $: isSandScanOpen = $OpenShells.find((shell) => shell.id === "sand-scan");
+  let isSandScanOpen = $derived($OpenShells.find((shell) => shell.id === "sand-scan"));
 
-  $: isBackgroundsOpen = $OpenShells.find(
+  let isBackgroundsOpen = $derived($OpenShells.find(
     (shell) => shell.id === "backgrounds",
-  );
-  $: openMediaFiles = $OpenShells.filter((shell) => !!shell.file);
-  $: isChildOpen = $OpenShells.find((shell) => shell.id === "child");
-  $: isSChatOpen = $OpenShells.find((shell) => shell.id === "schat");
-  $: isLaunchSkitOpen = $OpenShells.find((shell) => shell.id === "launch-skit");
+  ));
+  let openMediaFiles = $derived($OpenShells.filter((shell) => !!shell.file));
+  let isChildOpen = $derived($OpenShells.find((shell) => shell.id === "child"));
+  let isSChatOpen = $derived($OpenShells.find((shell) => shell.id === "schat"));
+  let isLaunchSkitOpen = $derived($OpenShells.find((shell) => shell.id === "launch-skit"));
 
-  let spline: any;
-  let isSplineLoaded = false;
-  let isSplineThemeChangeComplete = false;
+  let spline: any = $state();
+  let isSplineLoaded = $state(false);
+  let isSplineThemeChangeComplete = $state(false);
 
   const clickWebThemeSwitcher = (e: any) => {
     if (e.target.name === "Logo") {
@@ -150,30 +157,32 @@
     window.removeEventListener("mousemove", handleMoveEyes);
   });
 
-  $: if ($SelectedBackground) {
-    if (browser) {
-      const hasSpline = !!spline;
-      const is3DBg = $SelectedBackground.name === "bg-scene";
-      const isLightMode = localStorage.getItem("sand-theme") === "light";
+  run(() => {
+    if ($SelectedBackground) {
+      if (browser) {
+        const hasSpline = !!spline;
+        const is3DBg = $SelectedBackground.name === "bg-scene";
+        const isLightMode = localStorage.getItem("sand-theme") === "light";
 
-      if (!is3DBg) {
-        spline = null;
-        isSplineLoaded = false;
-        isSplineThemeChangeComplete = false;
-      }
+        if (!is3DBg) {
+          spline = null;
+          isSplineLoaded = false;
+          isSplineThemeChangeComplete = false;
+        }
 
-      if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
-        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
-      }
+        if (hasSpline && is3DBg && !isLightMode && isSplineLoaded) {
+          setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+        }
 
-      if (hasSpline && is3DBg && isLightMode && isSplineLoaded) {
-        spline.removeEventListener("mouseDown", clickWebThemeSwitcher);
-        spline.emitEvent("mouseDown", "Logo");
-        spline.addEventListener("mouseDown", clickWebThemeSwitcher);
-        setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+        if (hasSpline && is3DBg && isLightMode && isSplineLoaded) {
+          spline.removeEventListener("mouseDown", clickWebThemeSwitcher);
+          spline.emitEvent("mouseDown", "Logo");
+          spline.addEventListener("mouseDown", clickWebThemeSwitcher);
+          setTimeout(() => (isSplineThemeChangeComplete = true), 0);
+        }
       }
     }
-  }
+  });
 
   const sandTextLottie = (node: HTMLDivElement) => {
     const player = lottie.loadAnimation({
@@ -203,15 +212,19 @@
     };
   };
 
-  let loadedLegacyLotties: { player: any; startFrame: number }[] = [];
-  $: if ($SelectedBackground.name !== "bg-legacy") {
-    loadedLegacyLotties = [];
-  }
-  $: if (loadedLegacyLotties.length === 3) {
-    for (const lottie of loadedLegacyLotties) {
-      lottie.player.goToAndPlay(lottie.startFrame, true);
+  let loadedLegacyLotties: { player: any; startFrame: number }[] = $state([]);
+  run(() => {
+    if ($SelectedBackground.name !== "bg-legacy") {
+      loadedLegacyLotties = [];
     }
-  }
+  });
+  run(() => {
+    if (loadedLegacyLotties.length === 3) {
+      for (const lottie of loadedLegacyLotties) {
+        lottie.player.goToAndPlay(lottie.startFrame, true);
+      }
+    }
+  });
   const legacyLottie = (node: HTMLDivElement, startFrame: number) => {
     const player = lottie.loadAnimation({
       container: node,
@@ -251,7 +264,7 @@
     }, 0);
   };
 
-  let isLogoHovering = false;
+  let isLogoHovering = $state(false);
 </script>
 
 <MetaData
@@ -295,7 +308,7 @@
             <div
               use:sandTextLottie
               class="fade-up dark:invert max-w-[32rem] h-[16rem] scale-[1.026]"
-            />
+></div>
           </div>
 
           <div class="fade-up min-h-[10.8rem]">
@@ -304,19 +317,19 @@
 
           <div class="mt-12 flex flex-col items-start gap-2">
             <button
-              on:click={openPrivacyPolicy}
+              onclick={openPrivacyPolicy}
               class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
             >
               Privacy Policy
             </button>
             <button
-              on:click={openTermsAndConditions}
+              onclick={openTermsAndConditions}
               class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
             >
               Terms and Conditions
             </button>
             <button
-              on:click={openCookiesPolicy}
+              onclick={openCookiesPolicy}
               class="fade-up text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100 leading-none sand-transition"
             >
               Cookies Policy
@@ -360,7 +373,7 @@
           <SChat />
         {/if}
         <button
-          on:click={() => addShell({ id: "schat", zIndex: 65 })}
+          onclick={() => addShell({ id: "schat", zIndex: 65 })}
           id="virtual-assistant"
           class={twm(
             "ade-up group fixed top-[8rem] left-1/2 translate-x-[7rem] flex items-center gap-3",
@@ -410,9 +423,9 @@
                   : "opacity-0",
               )}
             >
-              <div use:legacyLottie={0} class="h-[28rem]" />
-              <div use:legacyLottie={120} class="h-[28rem]" />
-              <div use:legacyLottie={240} class="h-[28rem]" />
+              <div use:legacyLottie={0} class="h-[28rem]"></div>
+              <div use:legacyLottie={120} class="h-[28rem]"></div>
+              <div use:legacyLottie={240} class="h-[28rem]"></div>
             </div>
           {/if}
         </div>

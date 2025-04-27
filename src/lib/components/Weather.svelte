@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { scale } from "svelte/transition";
   import { browser } from "$app/environment";
   import { twMerge as twm } from "tailwind-merge";
@@ -167,17 +169,17 @@
     },
   };
 
-  let weather: any;
-  $: icon =
-    ICONS[
+  let weather: any = $state();
+  let icon =
+    $derived(ICONS[
       Object.keys(ICONS).find((k) =>
         ICONS[k].conditions
           .map((c) => c.toLowerCase())
           .includes(weather?.current.condition.text.toLowerCase()),
       ) as string
-    ];
-  let unit: "C" | "F" = "C";
-  let selectedLocation = "Bangkok";
+    ]);
+  let unit: "C" | "F" = $state("C");
+  let selectedLocation = $state("Bangkok");
 
   const fetchWeather = async (coordinate: string) => {
     try {
@@ -190,27 +192,29 @@
     }
   };
 
-  $: (async () => {
-    if (!browser) return;
-    let coordinate = "";
-    if (selectedLocation === "LOCAL") {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          coordinate = `${latitude},${longitude}`;
-          return await fetchWeather(coordinate);
-        });
+  run(() => {
+    (async () => {
+      if (!browser) return;
+      let coordinate = "";
+      if (selectedLocation === "LOCAL") {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            coordinate = `${latitude},${longitude}`;
+            return await fetchWeather(coordinate);
+          });
+        } else {
+          console.log(
+            "Geolocation is not supported by this browser or you don't give us the permission.",
+          );
+        }
       } else {
-        console.log(
-          "Geolocation is not supported by this browser or you don't give us the permission.",
-        );
+        coordinate = LOCATIONS[selectedLocation];
+        await fetchWeather(coordinate);
       }
-    } else {
-      coordinate = LOCATIONS[selectedLocation];
-      await fetchWeather(coordinate);
-    }
-  })();
+    })();
+  });
 
   const time = (node: HTMLElement) => {
     const id = setInterval(() => {
@@ -254,7 +258,7 @@
           </div>
           <div class="flex items-center gap-2">
             <button
-              on:click={() => (unit = "C")}
+              onclick={() => (unit = "C")}
               class={twm(
                 unit === "C"
                   ? "text-black dark:text-white"
@@ -266,7 +270,7 @@
             </button>
             <div class="w-[0.25rem] h-8 shrink-0 bg-light-80 -mt-1"></div>
             <button
-              on:click={() => (unit = "F")}
+              onclick={() => (unit = "F")}
               class={twm(
                 unit === "F"
                   ? "text-black dark:text-white"
@@ -309,7 +313,7 @@
       <div class="flex flex-col gap-2">
         {#each Object.keys(LOCATIONS) as location}
           <button
-            on:click={() => (selectedLocation = location)}
+            onclick={() => (selectedLocation = location)}
             class="flex items-center gap-2 leading-none"
           >
             <div
@@ -317,7 +321,7 @@
                 selectedLocation !== location && "opacity-0",
                 "shrink-0 w-[6px] aspect-square rounded-full bg-light-10 dark:bg-light-100 sand-transition",
               )}
-            />
+></div>
             <div
               class={twm(
                 "text-[1.375rem] sand-transition",

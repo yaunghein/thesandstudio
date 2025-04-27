@@ -61,8 +61,8 @@
   </div>
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-[200%] h-80 bg-starwar-gradient-light dark:bg-starwar-gradient-dark pointer-events-none"
-  />
+></div>
   <div
     class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-40 bg-starwar-gradient-light dark:bg-starwar-gradient-dark pointer-events-none rotate-180"
-  />
+></div>
 </div>

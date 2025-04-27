@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { twMerge as twm } from "tailwind-merge";
   import AppShell from "$lib/components/AppShell.svelte";
   import Work from "$lib/components/Work.svelte";
@@ -263,8 +265,8 @@
     },
   ];
 
-  let hoveredWork: TWork | null;
-  let hoveredType: string = "Projects";
+  let hoveredWork: TWork | null = $state();
+  let hoveredType: string = $state("Projects");
 
   const initialDisplayLabels = [
     { label: "Visual Identity", isActive: false },
@@ -279,9 +281,9 @@
     { label: "Consultation and Strategy", isActive: false },
     { label: "App Design and Development", isActive: false },
   ];
-  let displayLabels = deepClone(initialDisplayLabels);
+  let displayLabels = $state(deepClone(initialDisplayLabels));
 
-  $: {
+  run(() => {
     if (!hoveredWork) {
       displayLabels = deepClone(initialDisplayLabels);
     } else {
@@ -293,7 +295,7 @@
       }
       displayLabels = newDisplayLables;
     }
-  }
+  });
 </script>
 
 <MetaData
@@ -337,12 +339,12 @@
         role="region"
         class="fade-up h-32 sticky z-20 top-[12.5rem] flex items-center border-b-2 border-white dark:border-light-12 sand-transition"
       >
-        <div class="transparent-layer" />
+        <div class="transparent-layer"></div>
         <div
           class="absolute inset-0 flex gap-10 -ml-[0.125rem] opacity-sand overflow-hidden"
         >
           {#each [...Array(100).keys()] as _}
-            <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
+            <div class="shrink-0 w-line h-full bg-white dark:bg-light-12"></div>
           {/each}
         </div>
         <div class="relative grid grid-cols-2 items-center w-full h-full">
@@ -367,8 +369,8 @@
       </div>
       <div
         role="region"
-        on:mouseenter={() => (hoveredType = workGroup.type)}
-        on:mouseleave={() => (hoveredWork = null)}
+        onmouseenter={() => (hoveredType = workGroup.type)}
+        onmouseleave={() => (hoveredWork = null)}
         class="relative grid grid-cols-2 border-b-2 border-white dark:border-light-12"
       >
         {#each workGroup.data as work}

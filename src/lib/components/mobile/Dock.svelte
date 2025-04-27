@@ -34,19 +34,19 @@
 >
   <PixelBorder />
   <button
-    on:click={() => goToSlideByName("home")}
+    onclick={() => goToSlideByName("home")}
     class="relative w-11 aspect-square flex items-center justify-center dark:invert sand-transition"
   >
     <Home />
   </button>
   <button
-    on:click={switchMode}
+    onclick={switchMode}
     class="relative w-11 aspect-square flex items-center justify-center"
   >
     <AChonLay />
   </button>
   <button
-    on:click={() => goToSlideByName("menu")}
+    onclick={() => goToSlideByName("menu")}
     class="relative w-11 aspect-square flex items-center justify-center"
   >
     <Burger />

@@ -163,7 +163,7 @@
       transition:scale={options}
       class="absolute -translate-x-1/2 -translate-y-1/2 text-6xl rounded-full px-11 py-5 border-2 text-black dark:text-light-100 border-white dark:border-light-12 overflow-hidden"
     >
-      <div class="transparent-layer rounded-full" />
+      <div class="transparent-layer rounded-full"></div>
       <span class="relative">hi@thesandstudio.com</span>
     </div>
   {/if}
@@ -197,7 +197,7 @@
     >
       <div
         class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-25"
-      />
+></div>
       <div class="relative w-[7.9rem] h-[1.49rem]">
         <svg
           width="100%"
@@ -237,7 +237,7 @@
     >
       <div
         class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-80"
-      />
+></div>
       <span class="relative whitespace-nowrap">{pillLabels[$CursorType]}</span>
     </div>
   {/if}

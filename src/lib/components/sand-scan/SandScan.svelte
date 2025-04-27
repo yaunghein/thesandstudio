@@ -10,8 +10,8 @@
   import UsageGuide from "./UsageGuide.svelte";
   import ButtonClose from "../ButtonClose.svelte";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "sand-scan");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "sand-scan");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "sand-scan"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "sand-scan"));
 
   const position = (node: HTMLDivElement) => {
     if (index < 0) return;
@@ -19,7 +19,7 @@
     node.style.left = `${50 + index * 5}%`;
   };
 
-  let isUsageGuideOpen = false;
+  let isUsageGuideOpen = $state(false);
 
   onMount(() => {
     const app = document.querySelector("#sand-scan-app");
@@ -83,7 +83,7 @@
   class="fixed select-none z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
     {#each [...Array(100).keys()] as _}
@@ -92,7 +92,7 @@
           "shrink-0 w-line bg-white dark:bg-light-12",
           isUsageGuideOpen ? "h-20" : "h-full",
         )}
-      />
+></div>
     {/each}
   </div>
 
@@ -112,21 +112,21 @@
 
       <div class="absolute top-[0.92rem] right-4 flex gap-3">
         <button
-          on:click={downloadZip}
+          onclick={downloadZip}
           class="shrink-0 w-auto px-6 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
         >
           Download Try.zip
         </button>
         {#if isUsageGuideOpen}
           <button
-            on:click={() => (isUsageGuideOpen = false)}
+            onclick={() => (isUsageGuideOpen = false)}
             class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
           >
             Back
           </button>
         {:else}
           <button
-            on:click={() => (isUsageGuideOpen = true)}
+            onclick={() => (isUsageGuideOpen = true)}
             class="shrink-0 w-40 h-12 rounded-2xl bg-sand-yellow grid place-items-center text-xl text-black border-2 border-white dark:border-light-12"
           >
             Usage Guide

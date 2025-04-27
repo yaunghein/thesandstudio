@@ -191,7 +191,7 @@
     },
   ];
 
-  let currentWork: TWork = WORKS_GROUPS[0].data[0];
+  let currentWork: TWork = $state(WORKS_GROUPS[0].data[0]);
 </script>
 
 <div

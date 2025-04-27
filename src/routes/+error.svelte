@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { stopPropagation } from 'svelte/legacy';
+
+  import { page } from "$app/state";
   import gsap from "gsap";
   import lottie from "lottie-web";
   import AppShell from "$lib/components/AppShell.svelte";
@@ -96,7 +98,7 @@
 
 <AppShell>
   <div class="grid place-items-center h-full bg-white dark:bg-black">
-    {#if $page.status === 404}
+    {#if page.status === 404}
       <div class="text-center flex flex-col gap-2 sm:gap-7">
         <div class="relative">
           <div class="flex items-center gap-20 sm:gap-[15rem]">
@@ -113,18 +115,18 @@
           </div>
           <div
             class="w-[60rem] aspect-square bg-404-gradient-light dark:bg-404-gradient-dark absolute -left-[35rem] top-[8rem]"
-          />
+></div>
           <div
             class="w-[60rem] aspect-square bg-404-gradient-light dark:bg-404-gradient-dark absolute -right-[35rem] top-[8rem]"
-          />
+></div>
           <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           >
             <button
-              on:click|stopPropagation={switchMode}
+              onclick={stopPropagation(switchMode)}
               class="relative main-logo w-[8rem] sm:w-[25rem] aspect-square drop-shadow-404-dark dark:drop-shadow-404-light invert dark:invert-0 -translate-y-2"
             >
-              <div class="logo-shape" />
+              <div class="logo-shape"></div>
 
               <div
                 class="absolute w-10 sm:w-28 aspect-auto top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 opacity-30 -mt-[0.5rem] sm:-mt-[1.5rem]"
@@ -175,8 +177,8 @@
       </div>
     {:else}
       <div class="text-center">
-        <div>{$page.status}</div>
-        <div>{$page.error?.message}</div>
+        <div>{page.status}</div>
+        <div>{page.error?.message}</div>
       </div>
     {/if}
   </div>

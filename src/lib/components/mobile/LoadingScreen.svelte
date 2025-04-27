@@ -46,7 +46,7 @@
     <div
       class="mobile-loading_bar w-[90%] max-w-[8.5rem] h-[0.19rem] bg-light-90 dark:bg-light-12"
     >
-      <div class="mobile-loading_progress bg-black dark:bg-white h-full w-0" />
+      <div class="mobile-loading_progress bg-black dark:bg-white h-full w-0"></div>
     </div>
   </div>
   <div class="h-1/3 flex flex-col items-center justify-center">

@@ -10,7 +10,7 @@
   import playLottie from "$lib/utils/playLottie";
   import gsap from "gsap";
 
-  let isOpen = false;
+  let isOpen = $state(false);
 
   const openTermsAndConditions = () => {
     addShell({ id: "copyright", zIndex: 65 });
@@ -43,7 +43,7 @@
   });
 </script>
 
-<button on:click={() => (isOpen = !isOpen)} class="grid place-items-end">
+<button onclick={() => (isOpen = !isOpen)} class="grid place-items-end">
   <img
     class="w-11 aspect-square"
     src="https://res.cloudinary.com/dlhbpswom/image/upload/v1715955911/general/hamburger_ibrafo.webp"
@@ -58,11 +58,11 @@
     out:scale={{ start: 0.9, duration: 200, easing: backIn }}
     class="p-6 pt-4 fixed top-[8.125rem] right-16 border-2 border-white dark:border-light-12 rounded-3xl overflow-hidden"
   >
-    <div class="transparent-layer" />
+    <div class="transparent-layer"></div>
 
     <div class="absolute inset-0 flex gap-10 -ml-[0.5rem] opacity-sand">
       {#each [...Array(100).keys()] as _}
-        <div class="shrink-0 w-line h-full bg-white dark:bg-light-12" />
+        <div class="shrink-0 w-line h-full bg-white dark:bg-light-12"></div>
       {/each}
     </div>
 
@@ -75,12 +75,12 @@
         <!-- ########## Sand Desktop ########## -->
         <a
           href="/"
-          on:click={() => (isOpen = false)}
+          onclick={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
-          />
+></div>
 
           <div
             class="w-10 absolute invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-10 left-1/2 -translate-x-1/2 sand-transition"
@@ -99,38 +99,38 @@
         <!-- ########## For All Thingkind ########## -->
         <a
           href="/for-all-thingkind"
-          on:click={() => (isOpen = false)}
+          onclick={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
-          />
+></div>
 
           <div
             class="w-32 absolute scale-[1.4] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] sand-transition"
           >
             <div
               use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763241/lotties/fatk_tdug6t.json"}
-            />
+></div>
           </div>
         </a>
 
         <!-- ########## Works ########## -->
         <a
           href="/works"
-          on:click={() => (isOpen = false)}
+          onclick={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
-          />
+></div>
 
           <div
             class="w-32 absolute scale-[1.4] group-hover:scale-[2.3] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[40%] group-hover:-translate-y-[90%] group-hover:rotate-[75deg] sand-transition"
           >
             <div
               use:playLottie={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715763270/lotties/works_tyaamm.json"}
-            />
+></div>
           </div>
           <div
             class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -142,12 +142,12 @@
         <!-- ########## Not Works ########## -->
         <a
           href="/not-works"
-          on:click={() => (isOpen = false)}
+          onclick={() => (isOpen = false)}
           class="overflow-hidden relative group text-light-100 border-2 border-white hover:border-black dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-48 aspect-square sand-transition"
         >
           <div
             class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-white sand-transition"
-          />
+></div>
 
           <div
             class="w-32 absolute scale-[1] group-hover:scale-[1.6] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-[50%] group-hover:-translate-x-[0%] group-hover:-translate-y-[90%] rotate-[180deg] sand-transition"
@@ -172,7 +172,7 @@
         <div class="flex flex-col gap-2">
           <button
             class="leading-none text-left hover:text-black dark:hover:text-white sand-transition"
-            on:click={() => {
+            onclick={() => {
               addShell({ id: "finder", zIndex: 65 });
               openContactTab();
             }}
@@ -201,19 +201,19 @@
         <div class="flex flex-col items-start gap-2">
           <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            on:click={openPrivacyPolicy}
+            onclick={openPrivacyPolicy}
           >
             Privacy Policy
           </button>
           <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            on:click={openTermsAndConditions}
+            onclick={openTermsAndConditions}
           >
             Terms and Conditions
           </button>
           <button
             class="leading-none hover:text-black dark:hover:text-white sand-transition"
-            on:click={openCookiesPolicy}
+            onclick={openCookiesPolicy}
           >
             Cookie policy
           </button>

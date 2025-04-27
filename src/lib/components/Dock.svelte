@@ -96,23 +96,23 @@
 >
   <div
     class="absolute rounded-[1.3rem] inset-0 w-full h-full bg-light-90 dark:bg-black opacity-sand"
-  />
+></div>
   <!-- ########## Child ########## -->
   <button
-    on:click={() => addShell({ id: "child", zIndex: 65 })}
+    onclick={() => addShell({ id: "child", zIndex: 65 })}
     class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-sand-blue dark:border-light-12 dark:hover:border-sand-blue grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Child</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-sand-blue opacity-sand group-hover:opacity-100 sand-transition"
-    />
+></div>
 
     <div
       class="w-32 absolute scale-1 group-hover:scale-[1.6] invert dark:invert-0 group-hover:invert-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[75%] sand-transition"
     >
       <div
         use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936871/lotties/child_un9s0j.json"}
-      />
+></div>
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -123,20 +123,20 @@
 
   <!-- ########## Explorer ########## -->
   <button
-    on:click={() => addShell({ id: "finder", zIndex: 65 })}
+    onclick={() => addShell({ id: "finder", zIndex: 65 })}
     class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Explorer 2000</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
-    />
+></div>
 
     <div
       class="w-32 absolute scale-[1.2] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[92%] sand-transition"
     >
       <div
         use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936923/lotties/explorer-2000_wpzh6k.json"}
-      />
+></div>
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:-translate-y-[6%] sand-transition"
@@ -149,20 +149,20 @@
 
   <!-- ########## Background ########## -->
   <button
-    on:click={() => addShell({ id: "backgrounds", zIndex: 65 })}
+    onclick={() => addShell({ id: "backgrounds", zIndex: 65 })}
     class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white grid place-items-center p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Backgrounds</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
-    />
+></div>
 
     <div
       class="w-32 absolute scale-[1.4] group-hover:scale-[1.8] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-[50%] left-1/2 -translate-x-1/2 -translate-y-[50%] group-hover:-translate-y-[73%] sand-transition"
     >
       <div
         use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936952/lotties/backgrounds_avq1k3.json"}
-      />
+></div>
     </div>
     <div
       class="w-20 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-4 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"
@@ -177,20 +177,20 @@
 
   <!-- ########## Contact ########## -->
   <button
-    on:click={openInquiryForm}
+    onclick={openInquiryForm}
     class="fade-up overflow-hidden relative group text-light-100 border-2 border-white hover:border-light-10 dark:border-light-12 dark:hover:border-white p-2 rounded-3xl select-none w-40 aspect-square sand-transition"
   >
     <span class="sr-only">Contact</span>
     <div
       class="absolute inset-0 bg-light-90 dark:bg-black group-hover:bg-black dark:group-hover:bg-light-100 opacity-sand group-hover:opacity-100 sand-transition"
-    />
+></div>
 
     <div
       class="w-32 absolute origin-top-left scale-[1.1] group-hover:scale-[1.5] invert dark:invert-0 dark:group-hover:invert group-hover:invert-0 top-0 left-0 sand-transition"
     >
       <div
         use:playLottieOnHover={"https://res.cloudinary.com/dlhbpswom/raw/upload/v1715936957/lotties/contact_ja4oy7.json"}
-      />
+></div>
     </div>
     <div
       class="w-44 text-2xl text-left group-hover:leading-[1] origin-right font-sand-medium absolute left-1/2 -translate-x-1/2 bottom-3 translate-y-[100%] text-light-100 dark:group-hover:text-light-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-[0%] sand-transition"

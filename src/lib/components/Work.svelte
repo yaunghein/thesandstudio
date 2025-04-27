@@ -10,7 +10,11 @@
   import lottie from "lottie-web";
   import { changeCursorType } from "$lib/stores/cursor";
 
-  export let work: Work;
+  interface Props {
+    work: Work;
+  }
+
+  let { work }: Props = $props();
 
   const getRandomNumber = () => {
     const numbers = [10, 13, 15];
@@ -120,8 +124,8 @@
   use:direction
   use:swiper
   use:changeCursorType={{ inType: "work-slider", outType: "normal" }}
-  on:mouseenter={() => dispatch("hoverIn", work)}
-  on:mousemove={handleMouseMove}
+  onmouseenter={() => dispatch("hoverIn", work)}
+  onmousemove={handleMouseMove}
   class="fade-up group w-full h-[115vw] sm:h-auto sm:aspect-[1.6/1] relative overflow-hidden"
 >
   <div
@@ -135,7 +139,7 @@
           <div
             use:playLottie={image}
             class="w-2/3 mx-auto h-full object-cover invert dark:invert-0"
-          />
+></div>
         </div>
       {:else}
         <div class="swiper-slide w-full h-full overflow-hidden shrink-0">

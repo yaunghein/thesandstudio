@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import "../app.css";
   import "simplebar";
   import { page } from "$app/stores";
@@ -11,7 +13,7 @@
   import Grains from "$lib/components/Grains.svelte";
   import Analytics from "$lib/components/Analytics.svelte";
 
-  export let data;
+  let { data, children } = $props();
 
   // let { supabase, session } = data;
   // $: ({ supabase, session } = data);
@@ -29,9 +31,9 @@
   // });
 
   const duration = 1;
-  let clickPos = { x: 0, y: 0 };
-  $: clipPathIn = `circle(0% at ${clickPos.x}px ${clickPos.y}px)`;
-  $: clipPathOut = `circle(150% at ${clickPos.x}px ${clickPos.y}px)`;
+  let clickPos = $state({ x: 0, y: 0 });
+  let clipPathIn = $derived(`circle(0% at ${clickPos.x}px ${clickPos.y}px)`);
+  let clipPathOut = $derived(`circle(150% at ${clickPos.x}px ${clickPos.y}px)`);
 
   const handleClick = (e: MouseEvent) => {
     clickPos = { x: e.clientX, y: e.clientY };
@@ -85,33 +87,35 @@
     });
   });
 
-  $: if ($page && browser) {
-    gsap.set(".page-wrapper", { opacity: 0 });
-    setTimeout(() => {
-      gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
-      gsap.fromTo(
-        ".fade-up",
-        {
-          y: "2rem",
-          opacity: 0,
-        },
-        {
-          y: "0rem",
-          opacity: 1,
-          stagger: 0.08,
-          ease: "power4.out",
-          duration: 2,
-        },
-      );
-    }, duration * 1000);
-  }
+  run(() => {
+    if ($page && browser) {
+      gsap.set(".page-wrapper", { opacity: 0 });
+      setTimeout(() => {
+        gsap.to(".page-wrapper", { opacity: 1, delay: 0.2 });
+        gsap.fromTo(
+          ".fade-up",
+          {
+            y: "2rem",
+            opacity: 0,
+          },
+          {
+            y: "0rem",
+            opacity: 1,
+            stagger: 0.08,
+            ease: "power4.out",
+            duration: 2,
+          },
+        );
+      }, duration * 1000);
+    }
+  });
 </script>
 
 <div
   id="iris-container"
   style="clip-path: circle(150% at 50% 100%); display: block;"
 >
-  <slot />
+  <!-- {@render children?.()} -->
 </div>
 
 {#if !data.isMobile}

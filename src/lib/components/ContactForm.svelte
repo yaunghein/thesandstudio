@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { createBubbler, preventDefault, stopPropagation } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
   import gsap from "gsap";
@@ -35,10 +38,10 @@
     message: "",
     attachments: null,
   };
-  let formInputs = { ...initialFormInputs };
-  let formErrors: any;
-  let formState: "idel" | "locked" | "sending" = "idel";
-  let hasServerError = false;
+  let formInputs = $state({ ...initialFormInputs });
+  let formErrors: any = $state();
+  let formState: "idel" | "locked" | "sending" = $state("idel");
+  let hasServerError = $state(false);
 
   const handleAttachmentChange = async (event: Event) => {
     const input = event.target as HTMLInputElement;
@@ -135,7 +138,7 @@
   };
 </script>
 
-<form on:submit|preventDefault class="relative text-xl h-full flex flex-col">
+<form onsubmit={preventDefault(bubble('submit'))} class="relative text-xl h-full flex flex-col">
   <div class="relative z-10 w-full flex ml-[0.1rem] -mt-[0.1rem]">
     <ContactFormTopShape />
   </div>
@@ -167,7 +170,7 @@
                 : "placeholder:text-black dark:placeholder:text-light-100",
               "h-8 outline-none bg-transparent sand-transition text-2xl",
             )}
-            on:input={() =>
+            oninput={() =>
               formErrors?.name ? (formErrors.name = undefined) : null}
           />
           <!-- {#if formErrors?.name}
@@ -187,7 +190,7 @@
                 : "placeholder:text-black dark:placeholder:text-light-100",
               "h-8 outline-none bg-transparent sand-transition text-2xl",
             )}
-            on:input={() =>
+            oninput={() =>
               formErrors?.email ? (formErrors.email = undefined) : null}
           />
           <!-- {#if formErrors?.email}
@@ -205,9 +208,9 @@
                 : "placeholder:text-black dark:placeholder:text-light-100",
               "h-full mt-5 outline-none resize-none bg-transparent text-2xl",
             )}
-            on:input={() =>
+            oninput={() =>
               formErrors?.message ? (formErrors.message = undefined) : null}
-          />
+></textarea>
           <!-- {#if formErrors?.message}
             <p class="animate-vibrate-once text-base text-sand-red mb-2">
               {formErrors.message[0]}
@@ -232,9 +235,9 @@
                   inType: "remove-files",
                   outType: "normal",
                 }}
-                on:click={() => (formInputs.attachments = null)}
+                onclick={() => (formInputs.attachments = null)}
                 class="absolute top-0 left-0 w-24 h-20 bg-transparent"
-              />
+></button>
             {/if}
 
             <input
@@ -242,7 +245,7 @@
               multiple
               id="attachments"
               class="hidden"
-              on:change={handleAttachmentChange}
+              onchange={handleAttachmentChange}
             />
           </div>
 
@@ -264,14 +267,14 @@
 
   <button
     disabled={formState === "sending"}
-    on:click={handleSubmit[formState]}
+    onclick={handleSubmit[formState]}
     id="submit-btn"
     class="relative w-[89%] mx-auto h-14 flex items-center justify-between rounded-full border-2 border-white dark:border-light-12 bg-light-90 dark:bg-black text-black dark:text-light-100 p-3 mb-4 mt-3"
   >
     {#if formState === "locked"}
       <button
         transition:scale={{ start: 0.5 }}
-        on:click|stopPropagation={unlock}
+        onclick={stopPropagation(unlock)}
         class="absolute left-[0.36rem] flex w-10 aspect-square"
       >
         <IconLock />

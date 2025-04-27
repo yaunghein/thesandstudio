@@ -8,7 +8,7 @@
     <div
       class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
     >
-      <div class="transparent-layer" />
+      <div class="transparent-layer"></div>
       <span class="block relative text-3xl">2022</span>
     </div>
   </div>
@@ -25,17 +25,17 @@
     <div
       class="group rounded-full absolute bottom-4 left-4 right-4 border-2 border-white dark:border-light-12 flex items-center overflow-hidden"
     >
-      <div class="transparent-layer rounded-full" />
+      <div class="transparent-layer rounded-full"></div>
       <div
         id="bg"
         class="absolute rounded-full bg-black dark:bg-white top-0 bottom-0 left-0 w-1/2 opacity-0 group-hover:opacity-100 sand-transition"
-      />
+></div>
 
       <a
         target="_blank"
         href="https://thesandstudio.webflow.io/typographic-challenge"
         class="relative w-1/2 rounded-full px-8 py-5 text-white dark:text-light-12 flex items-center justify-between text-[2.5rem]"
-        on:mouseenter={() => gsap.to("#bg", { x: "0%", ease: "power4" })}
+        onmouseenter={() => gsap.to("#bg", { x: "0%", ease: "power4" })}
       >
         <span class="leading-none">Brief</span>
         <div class="w-7 aspect-square flex items-center">
@@ -61,7 +61,7 @@
         target="_blank"
         href="https://thesandstudio.webflow.io/gallery"
         class="relative w-1/2 rounded-full px-8 py-5 text-white dark:text-light-12 flex items-center justify-between text-[2.5rem]"
-        on:mouseenter={() => gsap.to("#bg", { x: "100%", ease: "power4" })}
+        onmouseenter={() => gsap.to("#bg", { x: "100%", ease: "power4" })}
       >
         <span class="leading-none">Gallery</span>
         <div class="w-7 aspect-square flex items-center">

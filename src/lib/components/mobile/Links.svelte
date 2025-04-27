@@ -16,7 +16,7 @@
   };
 </script>
 
-<button on:click={() => goToSlideByName("works")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("works")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <PixelBorder />
     <img
@@ -32,7 +32,7 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("fatk")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("fatk")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <PixelBorder />
     <div class="relative w-[85%] flex items-center justify-center">
@@ -46,7 +46,7 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("not-works")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("not-works")} class="p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
@@ -64,7 +64,7 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("about")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("about")} class="p-[0.125rem] pb-0">
   <div
     class="w-full flex items-center justify-center aspect-square relative p-4"
   >
@@ -82,7 +82,7 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("contact")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("contact")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <PixelBorder />
     <div class="relative w-[80%] h-[3rem] flex items-center justify-center">
@@ -96,7 +96,7 @@
   </div>
 </button>
 
-<button on:click={() => goToSlideByName("explorer")} class="p-[0.125rem] pb-0">
+<button onclick={() => goToSlideByName("explorer")} class="p-[0.125rem] pb-0">
   <div class="w-full flex items-center justify-center aspect-square relative">
     <PixelBorder />
     <div class="relative w-[75%] flex items-center justify-center">

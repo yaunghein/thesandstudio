@@ -1,11 +1,16 @@
 <script lang="ts">
+  import ExplorerRow from './ExplorerRow.svelte';
   import type { File } from "$lib/stores/finder";
   import { twMerge as twm } from "tailwind-merge";
   import PixelBorder from "./PixelBorder.svelte";
   import { handleFileClickMobile } from "$lib/stores/explorer";
 
-  export let files: File[];
-  export let isRecursive: boolean = false;
+  interface Props {
+    files: File[];
+    isRecursive?: boolean;
+  }
+
+  let { files, isRecursive = false }: Props = $props();
 
   const getFiles = (file: any) =>
     file.data?.filter((i: any) => i.type === "file");
@@ -24,7 +29,7 @@
             file.isOpen && "bg-black dark:bg-white text-white dark:text-black",
           )}
           id={file.label}
-          on:click={() => handleFileClickMobile(file)}
+          onclick={() => handleFileClickMobile(file)}
         >
           <div class={twm(isRecursive && "opacity-75")}>
             <PixelBorder />
@@ -108,7 +113,7 @@
           {@const folders = getFolders(file)}
           {#if folders.length > 0}
             <div class="-mt-1 mb-4">
-              <svelte:self files={folders} isRecursive={true} />
+              <ExplorerRow files={folders} isRecursive={true} />
             </div>
           {/if}
         {/if}

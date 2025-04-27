@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import LogoShape from "$lib/svgs/LogoShape.svelte";
   import Menu from "./Menu.svelte";
   import { twMerge as twm } from "tailwind-merge";
@@ -36,10 +36,10 @@
     </div>
 
     <a href="/" class="grid place-items-center text-2xl">
-      {PAGE_NAMES_MAP[$page.url.pathname] || ""}
+      {PAGE_NAMES_MAP[page.url.pathname] || ""}
     </a>
 
-    {#if $page.url.pathname !== "/"}
+    {#if page.url.pathname !== "/"}
       <Menu />
     {/if}
   </div>

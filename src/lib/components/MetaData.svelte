@@ -1,7 +1,11 @@
 <script lang="ts">
-  export let pageTitle: string = "";
-  export let title: string = "";
-  export let description: string = "";
+  interface Props {
+    pageTitle?: string;
+    title?: string;
+    description?: string;
+  }
+
+  let { pageTitle = "", title = "", description = "" }: Props = $props();
   const keywords =
     "The Sand Studio, Visual Identity, Motion Graphics, Animation, Packaging Design, Web Design, Web Development, Webflow Development, Web Maintenance, Web Support, E-commerce Solutions, Architectural Design, Interior Design, 3D Modeling, 3D Visualization, Branding Services, Creative Studio, Design Studio, Digital Solutions, Graphic Design, Motion Design, UI/UX Design, Logo Design, Brand Identity, Interactive Design, Website Redesign, Online Store Development, Architectural Visualization, Interior Visualization, Custom Packaging, Digital Animation, Multimedia Solutions, Visual Communication, Creative Agency";
 </script>

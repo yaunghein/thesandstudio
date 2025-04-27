@@ -7,8 +7,8 @@
   import { removeShell, type OpenShell, OpenShells } from "$lib/stores/shell";
   import drag from "$lib/utils/drag";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "launch-skit");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "launch-skit");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "launch-skit"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "launch-skit"));
 
   const position = (node: HTMLDivElement) => {
     if (index < 0) return;
@@ -16,7 +16,7 @@
     node.style.left = `${50 + index * 5}%`;
   };
 
-  let VideoPlayer: any;
+  let VideoPlayer: any = $state();
 
   onMount(async () => {
     VideoPlayer = (await import("svelte-video-player")).default;
@@ -36,11 +36,11 @@
   class="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[41.5rem] rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
     {#each [...Array(20).keys()] as _}
-      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
+      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full"></div>
     {/each}
   </div>
 
@@ -59,8 +59,7 @@
   >
     <div class="w-full aspect-[0.8/1]">
       {#if browser}
-        <svelte:component
-          this={VideoPlayer}
+        <VideoPlayer
           width="1600"
           height="2000"
           poster="/launch-skit-poster.png"

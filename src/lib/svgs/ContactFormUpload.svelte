@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let hasAttachments = false;
+  interface Props {
+    hasAttachments?: boolean;
+  }
+
+  let { hasAttachments = false }: Props = $props();
 </script>
 
 <svg

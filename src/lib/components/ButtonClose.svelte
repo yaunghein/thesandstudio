@@ -4,12 +4,12 @@
 </script>
 
 <button
-  on:click={() => dispatch("close")}
+  onclick={() => dispatch("close")}
   class="non-draggable group relative shrink-0 inline w-5 h-5"
 >
   <div
     class="absolute inset-0 z-10 w-6 h-6 rounded-full bg-sand-red group-hover:scale-0 sand-transition"
-  />
+></div>
 
   <div
     class="text-sand-red absolute inset-0 w-6 h-6 bg-opacity-30 flex items-center justify-center group-hover:scale-150 group-hover:rotate-90 sand-transition"

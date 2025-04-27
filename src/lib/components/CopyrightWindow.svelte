@@ -6,8 +6,8 @@
   import drag from "$lib/utils/drag";
   import { openContactTab } from "$lib/stores/finder";
 
-  $: shell = $OpenShells.find((shell) => shell.id === "copyright");
-  $: index = $OpenShells.findIndex((shell) => shell.id === "copyright");
+  let shell = $derived($OpenShells.find((shell) => shell.id === "copyright"));
+  let index = $derived($OpenShells.findIndex((shell) => shell.id === "copyright"));
 
   const position = (node: HTMLDivElement) => {
     if (index < 0) return;
@@ -21,7 +21,7 @@
     COOKIES_POLICY: "Cookies Policy",
   };
 
-  let activeTab = tabsMap.PRIVACY_POLICY;
+  let activeTab = $state(tabsMap.PRIVACY_POLICY);
 </script>
 
 <div
@@ -32,11 +32,11 @@
   class="fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-shell-desktop h-shell-desktop rounded-3xl text-light-10 dark:text-light-100 border-2 border-white dark:border-light-12 overflow-hidden"
   style="z-index: {shell?.zIndex}"
 >
-  <div class="transparent-layer" />
+  <div class="transparent-layer"></div>
 
   <div class="absolute inset-0 flex gap-10 -ml-[0.4rem] opacity-sand">
     {#each [...Array(100).keys()] as _}
-      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full" />
+      <div class="shrink-0 w-line bg-white dark:bg-light-12 h-full"></div>
     {/each}
   </div>
 
@@ -54,14 +54,14 @@
           <button
             id={value.split(" ").join("-")}
             class="flex items-center gap-4 py-1"
-            on:click={() => (activeTab = value)}
+            onclick={() => (activeTab = value)}
           >
             <div
               class="shrink-0 w-[1.65rem] h-[1.25rem] rounded border-[0.125rem] {value ===
               activeTab
                 ? 'bg-light-10 dark:bg-light-100 border-light-10 dark:border-light-100'
                 : 'bg-transparent border-light-70 dark:border-light-12'}"
-            />
+></div>
             <div class="text-2xl">{value}</div>
           </button>
         {/each}
@@ -222,7 +222,7 @@
                 <ul class="list-disc pl-[1.85rem] flex flex-col gap-4">
                   <li>
                     Email: <button
-                      on:click={() => {
+                      onclick={() => {
                         addShell({ id: "finder", zIndex: 65 });
                         openContactTab();
                       }}

@@ -13,7 +13,7 @@
         <div
           class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
         >
-          <div class="transparent-layer" />
+          <div class="transparent-layer"></div>
           <span class="block relative text-3xl">
             Tote Bag & Trinket Bowl 2022
           </span>
@@ -38,7 +38,7 @@
           <div
             class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem]"
           >
-            <div use:playLottie={"/fatk-bag.json"} />
+            <div use:playLottie={"/fatk-bag.json"}></div>
           </div>
         {/if}
         <!-- <img
@@ -76,7 +76,7 @@
     </div>
 
     <button
-      on:click={() => {
+      onclick={() => {
         addShell({ id: "finder", zIndex: 65 });
         openContactTab();
       }}
@@ -87,7 +87,7 @@
         <div
           class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
         >
-          <div class="transparent-layer" />
+          <div class="transparent-layer"></div>
           <span class="block relative text-3xl text-left">2024</span>
         </div>
       </div>
@@ -110,7 +110,7 @@
         <div
           class="relative px-3 py-5 border-2 border-white dark:border-light-12 -mx-[0.1rem]"
         >
-          <div class="transparent-layer" />
+          <div class="transparent-layer"></div>
           <span class="block relative text-3xl text-left">-</span>
           <!-- <span class="block relative text-3xl">SAND Rug 2022</span> -->
         </div>

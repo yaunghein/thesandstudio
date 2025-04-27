@@ -1,10 +1,16 @@
 <script lang="ts">
+  import { stopPropagation } from 'svelte/legacy';
+
   import { onMount } from "svelte";
   import gsap from "gsap";
   import lottie from "lottie-web";
   import { SelectedBackground } from "$lib/stores/background";
 
-  export let allowY: number = 10;
+  interface Props {
+    allowY?: number;
+  }
+
+  let { allowY = 10 }: Props = $props();
 
   let logoShapeLottie: any;
 
@@ -110,7 +116,7 @@
 
 <button
   id="theme-switcher"
-  on:click|stopPropagation={switchMode}
+  onclick={stopPropagation(switchMode)}
   class="relative main-logo w-full h-full"
 >
   <span class="sr-only">Change Theme</span>
@@ -118,7 +124,7 @@
     class="absolute z-10 bg-red-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[50%] aspect-square"
   ></div> -->
 
-  <div class="logo-shape" />
+  <div class="logo-shape"></div>
 
   <div class="logo-mouth absolute inset-0 w-full h-full">
     <div

@@ -25,7 +25,7 @@
         </p>
         <button
           class="text-3xl border-2 border-light-100 py-4 px-24"
-          on:click={() => window.history.back()}
+          onclick={() => window.history.back()}
         >
           Back
         </button>
