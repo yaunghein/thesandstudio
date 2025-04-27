@@ -22,7 +22,7 @@ export const POST: RequestHandler = async ({ request }) => {
       content: data.choices?.[0].message.content,
     });
   } catch (err: any) {
-    throw error(500, err);
+    error(500, err);
   }
 };
 

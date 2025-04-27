@@ -10,8 +10,9 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^2.1.0",
-    "@sveltejs/kit": "^1.30.3",
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@types/gtag.js": "^0.0.20",
     "@types/mjml": "^4.7.4",
     "@types/node-telegram-bot-api": "^0.64.7",
@@ -24,15 +25,13 @@
     "tailwindcss": "^3.3.3",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6",
-    "vite": "^4.4.9"
+    "vite": "^5.0.0"
   },
   "type": "module",
   "dependencies": {
     "@getbrevo/brevo": "2.0.0-beta.4",
     "@lottiefiles/svelte-lottie-player": "^0.3.0",
     "@splinetool/runtime": "^1.0.34",
-    "@supabase/auth-helpers-sveltekit": "^0.10.3",
-    "@supabase/supabase-js": "^2.38.1",
     "gsap": "^3.12.2",
     "jszip": "^3.10.1",
     "lottie-web": "^5.12.2",
@@ -50,5 +49,10 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "exports": {
+    ".": {
+      "svelte": "./dist/index.js"
+    }
   }
 }
