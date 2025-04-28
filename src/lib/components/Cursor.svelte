@@ -1,100 +1,94 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { scale } from "svelte/transition";
-  import { backOut } from "svelte/easing";
-  import { twMerge as twm } from "tailwind-merge";
-  import gsap from "gsap";
-  import { CursorType } from "$lib/stores/cursor";
+	import { onMount } from 'svelte'
+	import { scale } from 'svelte/transition'
+	import { backOut } from 'svelte/easing'
+	import { twMerge as twm } from 'tailwind-merge'
+	import gsap from 'gsap'
+	import { CursorType } from '$lib/stores/cursor'
 
-  const pos = { x: 0, y: 0 };
-  const options = { start: 0.5, duration: 500, easing: backOut };
-  const pillCursors = [
-    "upload-files",
-    "remove-files",
-    "bg-scene",
-    "bg-default",
-    "bg-legacy",
-  ];
-  const pillLabels: Record<string, string> = {
-    "upload-files": "Upload Files",
-    "remove-files": "Remove",
-    "bg-scene": "Scene",
-    "bg-default": "Default",
-    "bg-legacy": "Legacy",
-  };
+	const pos = { x: 0, y: 0 }
+	const options = { start: 0.5, duration: 500, easing: backOut }
+	const pillCursors = ['upload-files', 'remove-files', 'bg-scene', 'bg-default', 'bg-legacy']
+	const pillLabels: Record<string, string> = {
+		'upload-files': 'Upload Files',
+		'remove-files': 'Remove',
+		'bg-scene': 'Scene',
+		'bg-default': 'Default',
+		'bg-legacy': 'Legacy'
+	}
 
-  let isTargetClickable = false;
+	let isTargetClickable = false
 
-  onMount(() => {
-    const isTouchDevice = "ontouchstart" in window;
-    const easing = { duration: 0.7, ease: "power4" };
-    const createCursorFollower = () => {
-      const handleMouseMove = (e: MouseEvent) => {
-        const cursor = document.querySelector("#cursor");
-        const cursorRect = cursor?.getBoundingClientRect();
-        const { target, x, y } = e;
-        pos.x = x;
-        pos.y = y;
-        isTargetClickable =
-          !!(target as HTMLElement)?.closest("a") ||
-          !!(target as HTMLElement)?.closest("button") ||
-          !!(target as HTMLElement)?.closest("input") ||
-          !!(target as HTMLElement)?.closest("textarea") ||
-          !!(target as HTMLElement)?.closest("label");
+	onMount(() => {
+		const isTouchDevice = 'ontouchstart' in window
+		const easing = { duration: 0.7, ease: 'power4' }
+		const createCursorFollower = () => {
+			const handleMouseMove = (e: MouseEvent) => {
+				const cursor = document.querySelector('#cursor')
+				const cursorRect = cursor?.getBoundingClientRect()
+				const { target, x, y } = e
+				pos.x = x
+				pos.y = y
+				isTargetClickable =
+					!!(target as HTMLElement)?.closest('a') ||
+					!!(target as HTMLElement)?.closest('button') ||
+					!!(target as HTMLElement)?.closest('input') ||
+					!!(target as HTMLElement)?.closest('textarea') ||
+					!!(target as HTMLElement)?.closest('label')
 
-        gsap.set("#cursor", {
-          x: x - cursorRect!.width / 2,
-          y: y - cursorRect!.height / 2,
-          opacity: 1,
-          // ...easing,
-        });
-      };
-      window.addEventListener("mousemove", handleMouseMove);
+				gsap.set('#cursor', {
+					x: x - cursorRect!.width / 2,
+					y: y - cursorRect!.height / 2,
+					opacity: 1
+					// ...easing,
+				})
+			}
+			window.addEventListener('mousemove', handleMouseMove)
 
-      const handleMouseLeave = () => {
-        gsap.to("#cursor", {
-          opacity: 0,
-          ...easing,
-        });
-      };
-      document.addEventListener("mouseleave", handleMouseLeave);
-    };
+			const handleMouseLeave = () => {
+				gsap.to('#cursor', {
+					opacity: 0,
+					...easing
+				})
+			}
+			document.addEventListener('mouseleave', handleMouseLeave)
+		}
 
-    if (!isTouchDevice) {
-      createCursorFollower();
-    }
-  });
+		if (!isTouchDevice) {
+			createCursorFollower()
+		}
+	})
 
-  const rainbow = (node: SVGElement) => {
-    const tl = gsap.timeline({
-      repeat: -1,
-      yoyo: true,
-      defaults: { ease: "linear", duration: 0.3 },
-    });
-    gsap.set(node, { color: "#e81416" });
-    tl.to(node, { color: "#ffa500" })
-      .to(node, { color: "#faeb36" })
-      .to(node, { color: "#79c314" })
-      .to(node, { color: "#487de7" })
-      .to(node, { color: "#4b369d" })
-      .to(node, { color: "#70369d" });
-  };
+	const rainbow = (node: SVGElement) => {
+		const tl = gsap.timeline({
+			repeat: -1,
+			yoyo: true,
+			defaults: { ease: 'linear', duration: 0.3 }
+		})
+		gsap.set(node, { color: '#e81416' })
+		tl.to(node, { color: '#ffa500' })
+			.to(node, { color: '#faeb36' })
+			.to(node, { color: '#79c314' })
+			.to(node, { color: '#487de7' })
+			.to(node, { color: '#4b369d' })
+			.to(node, { color: '#70369d' })
+	}
 </script>
 
 <div
-  id="cursor"
-  class={twm(
-    "pointer-events-none select-none fixed top-0 z-[100000000]",
-    !pillCursors.includes($CursorType) &&
-      $CursorType !== "contact" &&
-      $CursorType !== "work-slider" &&
-      $CursorType !== "loading"
-      ? "mix-blend-difference"
-      : "mix-blend-normal",
-  )}
+	id="cursor"
+	class={twm(
+		'pointer-events-none fixed top-0 z-[100000000] select-none',
+		!pillCursors.includes($CursorType) &&
+			$CursorType !== 'contact' &&
+			$CursorType !== 'work-slider' &&
+			$CursorType !== 'loading'
+			? 'mix-blend-difference'
+			: 'mix-blend-normal'
+	)}
 >
-  {#if $CursorType === "normal"}
-    <!-- <div
+	{#if $CursorType === 'normal'}
+		<!-- <div
       transition:scale={options}
       class="dark:invert w-10 aspect-square absolute"
     >
@@ -114,131 +108,127 @@
         />
       </svg>
     </div> -->
-  {/if}
+	{/if}
 
-  {#if $CursorType === "a-chon-lyy"}
-    <div
-      transition:scale={options}
-      class="w-20 aspect-square absolute -translate-x-1/2 -translate-y-1/2"
-    >
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 70 70"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M35 0C37.0511 0 39.2526 16.2665 39.9682 16.4582C40.6837 16.6498 50.7235 3.66362 52.5 4.68903C54.2765 5.7147 48.0498 20.9025 48.5736 21.4264C49.0975 21.9502 64.2853 15.7235 65.311 17.5C66.3366 19.2765 53.3502 29.316 53.5418 30.0318C53.7335 30.7474 70 32.9489 70 35C70 37.0511 53.7335 39.2526 53.5418 39.9682C53.3502 40.6837 66.3364 50.7235 65.311 52.5C64.2853 54.2765 49.0975 48.0498 48.5736 48.5736C48.0498 49.0975 54.2765 64.2853 52.5 65.311C50.7235 66.3366 40.684 53.3502 39.9682 53.5418C39.2526 53.7335 37.0511 70 35 70C32.9489 70 30.7474 53.7335 30.0318 53.5418C29.3163 53.3502 19.2765 66.3364 17.5 65.311C15.7235 64.2853 21.9502 49.0975 21.4264 48.5736C20.9025 48.0498 5.7147 54.2765 4.68903 52.5C3.66335 50.7235 16.6498 40.684 16.4582 39.9682C16.2665 39.2526 0 37.0511 0 35C0 32.9489 16.2665 30.7474 16.4582 30.0318C16.6498 29.3163 3.66362 19.2765 4.68903 17.5C5.7147 15.7235 20.9025 21.9502 21.4264 21.4264C21.9502 20.9025 15.7235 5.7147 17.5 4.68903C19.2765 3.66335 29.316 16.6498 30.0318 16.4582C30.7474 16.2665 32.9489 0 35 0Z"
-          fill="white"
-        />
-      </svg>
-    </div>
-  {/if}
+	{#if $CursorType === 'a-chon-lyy'}
+		<div
+			transition:scale={options}
+			class="absolute aspect-square w-20 -translate-x-1/2 -translate-y-1/2"
+		>
+			<svg
+				width="100%"
+				height="100%"
+				viewBox="0 0 70 70"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M35 0C37.0511 0 39.2526 16.2665 39.9682 16.4582C40.6837 16.6498 50.7235 3.66362 52.5 4.68903C54.2765 5.7147 48.0498 20.9025 48.5736 21.4264C49.0975 21.9502 64.2853 15.7235 65.311 17.5C66.3366 19.2765 53.3502 29.316 53.5418 30.0318C53.7335 30.7474 70 32.9489 70 35C70 37.0511 53.7335 39.2526 53.5418 39.9682C53.3502 40.6837 66.3364 50.7235 65.311 52.5C64.2853 54.2765 49.0975 48.0498 48.5736 48.5736C48.0498 49.0975 54.2765 64.2853 52.5 65.311C50.7235 66.3366 40.684 53.3502 39.9682 53.5418C39.2526 53.7335 37.0511 70 35 70C32.9489 70 30.7474 53.7335 30.0318 53.5418C29.3163 53.3502 19.2765 66.3364 17.5 65.311C15.7235 64.2853 21.9502 49.0975 21.4264 48.5736C20.9025 48.0498 5.7147 54.2765 4.68903 52.5C3.66335 50.7235 16.6498 40.684 16.4582 39.9682C16.2665 39.2526 0 37.0511 0 35C0 32.9489 16.2665 30.7474 16.4582 30.0318C16.6498 29.3163 3.66362 19.2765 4.68903 17.5C5.7147 15.7235 20.9025 21.9502 21.4264 21.4264C21.9502 20.9025 15.7235 5.7147 17.5 4.68903C19.2765 3.66335 29.316 16.6498 30.0318 16.4582C30.7474 16.2665 32.9489 0 35 0Z"
+					fill="white"
+				/>
+			</svg>
+		</div>
+	{/if}
 
-  {#if $CursorType === "loading"}
-    <div
-      transition:scale={options}
-      class="w-10 aspect-square absolute -translate-x-1/2 -translate-y-1/2"
-    >
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 70 70"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="animate-spin"
-        use:rainbow
-      >
-        <path
-          d="M35 0C37.0511 0 39.2526 16.2665 39.9682 16.4582C40.6837 16.6498 50.7235 3.66362 52.5 4.68903C54.2765 5.7147 48.0498 20.9025 48.5736 21.4264C49.0975 21.9502 64.2853 15.7235 65.311 17.5C66.3366 19.2765 53.3502 29.316 53.5418 30.0318C53.7335 30.7474 70 32.9489 70 35C70 37.0511 53.7335 39.2526 53.5418 39.9682C53.3502 40.6837 66.3364 50.7235 65.311 52.5C64.2853 54.2765 49.0975 48.0498 48.5736 48.5736C48.0498 49.0975 54.2765 64.2853 52.5 65.311C50.7235 66.3366 40.684 53.3502 39.9682 53.5418C39.2526 53.7335 37.0511 70 35 70C32.9489 70 30.7474 53.7335 30.0318 53.5418C29.3163 53.3502 19.2765 66.3364 17.5 65.311C15.7235 64.2853 21.9502 49.0975 21.4264 48.5736C20.9025 48.0498 5.7147 54.2765 4.68903 52.5C3.66335 50.7235 16.6498 40.684 16.4582 39.9682C16.2665 39.2526 0 37.0511 0 35C0 32.9489 16.2665 30.7474 16.4582 30.0318C16.6498 29.3163 3.66362 19.2765 4.68903 17.5C5.7147 15.7235 20.9025 21.9502 21.4264 21.4264C21.9502 20.9025 15.7235 5.7147 17.5 4.68903C19.2765 3.66335 29.316 16.6498 30.0318 16.4582C30.7474 16.2665 32.9489 0 35 0Z"
-          class="fill-current"
-        />
-      </svg>
-    </div>
-  {/if}
+	{#if $CursorType === 'loading'}
+		<div
+			transition:scale={options}
+			class="absolute aspect-square w-10 -translate-x-1/2 -translate-y-1/2"
+		>
+			<svg
+				width="100%"
+				height="100%"
+				viewBox="0 0 70 70"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				class="animate-spin"
+				use:rainbow
+			>
+				<path
+					d="M35 0C37.0511 0 39.2526 16.2665 39.9682 16.4582C40.6837 16.6498 50.7235 3.66362 52.5 4.68903C54.2765 5.7147 48.0498 20.9025 48.5736 21.4264C49.0975 21.9502 64.2853 15.7235 65.311 17.5C66.3366 19.2765 53.3502 29.316 53.5418 30.0318C53.7335 30.7474 70 32.9489 70 35C70 37.0511 53.7335 39.2526 53.5418 39.9682C53.3502 40.6837 66.3364 50.7235 65.311 52.5C64.2853 54.2765 49.0975 48.0498 48.5736 48.5736C48.0498 49.0975 54.2765 64.2853 52.5 65.311C50.7235 66.3366 40.684 53.3502 39.9682 53.5418C39.2526 53.7335 37.0511 70 35 70C32.9489 70 30.7474 53.7335 30.0318 53.5418C29.3163 53.3502 19.2765 66.3364 17.5 65.311C15.7235 64.2853 21.9502 49.0975 21.4264 48.5736C20.9025 48.0498 5.7147 54.2765 4.68903 52.5C3.66335 50.7235 16.6498 40.684 16.4582 39.9682C16.2665 39.2526 0 37.0511 0 35C0 32.9489 16.2665 30.7474 16.4582 30.0318C16.6498 29.3163 3.66362 19.2765 4.68903 17.5C5.7147 15.7235 20.9025 21.9502 21.4264 21.4264C21.9502 20.9025 15.7235 5.7147 17.5 4.68903C19.2765 3.66335 29.316 16.6498 30.0318 16.4582C30.7474 16.2665 32.9489 0 35 0Z"
+					class="fill-current"
+				/>
+			</svg>
+		</div>
+	{/if}
 
-  {#if $CursorType === "contact"}
-    <div
-      transition:scale={options}
-      class="absolute -translate-x-1/2 -translate-y-1/2 text-6xl rounded-full px-11 py-5 border-2 text-black dark:text-light-100 border-white dark:border-light-12 overflow-hidden"
-    >
-      <div class="transparent-layer rounded-full"></div>
-      <span class="relative">hi@thesandstudio.com</span>
-    </div>
-  {/if}
+	{#if $CursorType === 'contact'}
+		<div
+			transition:scale={options}
+			class="absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-2 border-white px-11 py-5 text-6xl text-black dark:border-light-12 dark:text-light-100"
+		>
+			<div class="transparent-layer rounded-full"></div>
+			<span class="relative">hi@thesandstudio.com</span>
+		</div>
+	{/if}
 
-  {#if $CursorType === "footer-close"}
-    <div
-      class="absolute -translate-x-1/2 -translate-y-1/2 p-4 w-14 aspect-square rounded-full bg-white dark:bg- text-black overflow-hidden"
-    >
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 256 256"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M240 240L16 16M240 16L16 240"
-          stroke="currentColor"
-          stroke-width="32"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-  {/if}
+	{#if $CursorType === 'footer-close'}
+		<div
+			class="dark:bg- absolute aspect-square w-14 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-white p-4 text-black"
+		>
+			<svg
+				width="100%"
+				height="100%"
+				viewBox="0 0 256 256"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M240 240L16 16M240 16L16 240"
+					stroke="currentColor"
+					stroke-width="32"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</div>
+	{/if}
 
-  {#if $CursorType === "work-slider"}
-    <div
-      transition:scale={options}
-      class="absolute -translate-x-[51%] -translate-y-[65%] text-xl text-white dark:text-black"
-    >
-      <div
-        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-25"
-></div>
-      <div class="relative w-[7.9rem] h-[1.49rem]">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 127 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="63.9487" cy="11.8971" r="4.46154" fill="currentColor" />
-          <path
-            d="M119.505 11.3671C119.798 11.66 119.798 12.1349 119.505 12.4278L114.732 17.2008C114.439 17.4937 113.964 17.4937 113.671 17.2008C113.378 16.9079 113.378 16.433 113.671 16.1401L117.914 11.8975L113.671 7.65482C113.378 7.36193 113.378 6.88705 113.671 6.59416C113.964 6.30127 114.439 6.30127 114.732 6.59416L119.505 11.3671ZM63.9487 11.1475H118.974V12.6475H63.9487V11.1475Z"
-            fill="currentColor"
-          />
-          <path
-            d="M8.39276 12.4278C8.09986 12.1349 8.09986 11.66 8.39276 11.3671L13.1657 6.59416C13.4586 6.30126 13.9335 6.30126 14.2264 6.59416C14.5193 6.88705 14.5193 7.36192 14.2264 7.65482L9.98375 11.8975L14.2264 16.1401C14.5193 16.433 14.5193 16.9079 14.2264 17.2008C13.9335 17.4937 13.4586 17.4937 13.1657 17.2008L8.39276 12.4278ZM63.9487 12.6475L8.92309 12.6475L8.92309 11.1475L63.9487 11.1475L63.9487 12.6475Z"
-            fill="currentColor"
-          />
-          <rect
-            x="0.75"
-            y="0.75"
-            width="124.91"
-            height="22.2949"
-            rx="11.1474"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
-    </div>
-  {/if}
+	{#if $CursorType === 'work-slider'}
+		<div
+			transition:scale={options}
+			class="absolute -translate-x-[51%] -translate-y-[65%] text-xl text-white dark:text-black"
+		>
+			<div class="absolute inset-0 rounded-full bg-black opacity-25 dark:bg-white"></div>
+			<div class="relative h-[1.49rem] w-[7.9rem]">
+				<svg
+					width="100%"
+					height="100%"
+					viewBox="0 0 127 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<circle cx="63.9487" cy="11.8971" r="4.46154" fill="currentColor" />
+					<path
+						d="M119.505 11.3671C119.798 11.66 119.798 12.1349 119.505 12.4278L114.732 17.2008C114.439 17.4937 113.964 17.4937 113.671 17.2008C113.378 16.9079 113.378 16.433 113.671 16.1401L117.914 11.8975L113.671 7.65482C113.378 7.36193 113.378 6.88705 113.671 6.59416C113.964 6.30127 114.439 6.30127 114.732 6.59416L119.505 11.3671ZM63.9487 11.1475H118.974V12.6475H63.9487V11.1475Z"
+						fill="currentColor"
+					/>
+					<path
+						d="M8.39276 12.4278C8.09986 12.1349 8.09986 11.66 8.39276 11.3671L13.1657 6.59416C13.4586 6.30126 13.9335 6.30126 14.2264 6.59416C14.5193 6.88705 14.5193 7.36192 14.2264 7.65482L9.98375 11.8975L14.2264 16.1401C14.5193 16.433 14.5193 16.9079 14.2264 17.2008C13.9335 17.4937 13.4586 17.4937 13.1657 17.2008L8.39276 12.4278ZM63.9487 12.6475L8.92309 12.6475L8.92309 11.1475L63.9487 11.1475L63.9487 12.6475Z"
+						fill="currentColor"
+					/>
+					<rect
+						x="0.75"
+						y="0.75"
+						width="124.91"
+						height="22.2949"
+						rx="11.1474"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</div>
+		</div>
+	{/if}
 
-  {#if pillCursors.includes($CursorType)}
-    <div
-      transition:scale={options}
-      class="absolute -translate-x-1/2 -translate-y-1/2 text-xl rounded-full px-5 py-2 text-white dark:text-black border-2 border-light-12 dark:border-white overflow-hidden"
-    >
-      <div
-        class="absolute inset-0 bg-black dark:bg-white rounded-full opacity-80"
-></div>
-      <span class="relative whitespace-nowrap">{pillLabels[$CursorType]}</span>
-    </div>
-  {/if}
+	{#if pillCursors.includes($CursorType)}
+		<div
+			transition:scale={options}
+			class="absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-2 border-light-12 px-5 py-2 text-xl text-white dark:border-white dark:text-black"
+		>
+			<div class="absolute inset-0 rounded-full bg-black opacity-80 dark:bg-white"></div>
+			<span class="relative whitespace-nowrap">{pillLabels[$CursorType]}</span>
+		</div>
+	{/if}
 </div>

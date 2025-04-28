@@ -3,45 +3,45 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "NeueHaasDisplay";
-  src: url("/fonts/NeueHaasDisplayRoman.ttf");
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'NeueHaasDisplay';
+	src: url('/fonts/NeueHaasDisplayRoman.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "NeueHaasDisplay-Medium";
-  src: url("/fonts/NeueHaasDisplayMedium.ttf");
-  font-weight: medium;
-  font-style: normal;
+	font-family: 'NeueHaasDisplay-Medium';
+	src: url('/fonts/NeueHaasDisplayMedium.ttf');
+	font-weight: medium;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "NeueHaasDisplay-Bold";
-  src: url("/fonts/NeueHaasDisplayBold.ttf");
-  font-weight: bold;
-  font-style: normal;
+	font-family: 'NeueHaasDisplay-Bold';
+	src: url('/fonts/NeueHaasDisplayBold.ttf');
+	font-weight: bold;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "NeueHaasDisplay-Black";
-  src: url("/fonts/NeueHaasDisplayBlack.ttf");
-  font-weight: black;
-  font-style: normal;
+	font-family: 'NeueHaasDisplay-Black';
+	src: url('/fonts/NeueHaasDisplayBlack.ttf');
+	font-weight: black;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "NeueBit";
-  src: url("/fonts/PPNeueBitRegular.ttf");
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'NeueBit';
+	src: url('/fonts/PPNeueBitRegular.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "NeueBit-Bold";
-  src: url("/fonts/PPNeueBitBold.ttf");
-  font-weight: bold;
-  font-style: normal;
+	font-family: 'NeueBit-Bold';
+	src: url('/fonts/PPNeueBitBold.ttf');
+	font-weight: bold;
+	font-style: normal;
 }
 
 *,
@@ -49,76 +49,76 @@
 *::after,
 a,
 button {
-  /* cursor: none !important; */
-  /* cursor: url("https://t4.ftcdn.net/jpg/02/52/93/81/360_F_252938192_JQQL8VoqyQVwVB98oRnZl83epseTVaHe.jpg") !important; */
-  /* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
+	/* cursor: none !important; */
+	/* cursor: url("https://t4.ftcdn.net/jpg/02/52/93/81/360_F_252938192_JQQL8VoqyQVwVB98oRnZl83epseTVaHe.jpg") !important; */
+	/* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
     auto; */
 }
 
 html {
-  font-size: 0.62vw;
+	font-size: 0.62vw;
 }
 
 @media screen and (max-width: 639px) {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 }
 
 body {
-  overscroll-behavior: none;
-  /* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
+	overscroll-behavior: none;
+	/* cursor: url(https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple.png),
     auto; */
-  height: 100%;
+	height: 100%;
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow: scroll;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
-input[type="number"] {
-  appearance: none;
-  -moz-appearance: textfield;
+input[type='number'] {
+	appearance: none;
+	-moz-appearance: textfield;
 }
 
 .sand-transition {
-  @apply transition duration-300 ease-out;
+	@apply transition duration-300 ease-out;
 }
 
 .transparent-layer {
-  @apply absolute inset-0 w-full h-full bg-light-90 dark:bg-black opacity-50;
+	@apply absolute inset-0 h-full w-full bg-light-90 opacity-50 dark:bg-black;
 }
 
 .range::-webkit-slider-runnable-track {
-  @apply bg-black dark:bg-light-100 h-[0.125rem] rounded-none;
+	@apply h-[0.125rem] rounded-none bg-black dark:bg-light-100;
 }
 .range::-moz-range-track {
-  @apply bg-black dark:bg-light-100 h-[0.125rem] rounded-none;
+	@apply h-[0.125rem] rounded-none bg-black dark:bg-light-100;
 }
 .range::-webkit-slider-thumb {
-  @apply appearance-none -mt-[0.32rem] bg-black dark:bg-light-100 w-3 aspect-square rounded-full;
+	@apply -mt-[0.32rem] aspect-square w-3 appearance-none rounded-full bg-black dark:bg-light-100;
 }
 .range::-moz-slider-thumb {
-  @apply appearance-none -mt-[0.32rem] bg-black dark:bg-light-100 w-3 aspect-square rounded-full;
+	@apply -mt-[0.32rem] aspect-square w-3 appearance-none rounded-full bg-black dark:bg-light-100;
 }
 
 .marquee-content {
-  display: flex;
+	display: flex;
 }
 
 .marquee-content span {
-  margin-right: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 /* input, */
@@ -126,9 +126,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  transition: background-color 9999s ease-in-out 0s;
-  -webkit-text-fill-color: #000 !important;
-  font-size: inherit;
+	transition: background-color 9999s ease-in-out 0s;
+	-webkit-text-fill-color: #000 !important;
+	font-size: inherit;
 }
 
 /* .dark input, */
@@ -136,78 +136,78 @@ input:-webkit-autofill:active {
 .dark input:-webkit-autofill:hover,
 .dark input:-webkit-autofill:focus,
 .dark input:-webkit-autofill:active {
-  transition: background-color 9999s ease-in-out 0s;
-  -webkit-text-fill-color: #fff !important;
-  font-size: inherit;
+	transition: background-color 9999s ease-in-out 0s;
+	-webkit-text-fill-color: #fff !important;
+	font-size: inherit;
 }
 
 .swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 0 !important;
-  background: #fff !important;
-  transition: all 0.2s ease-out;
-  border: 1.5px solid #000;
+	width: 12px !important;
+	height: 12px !important;
+	border-radius: 0 !important;
+	background: #fff !important;
+	transition: all 0.2s ease-out;
+	border: 1.5px solid #000;
 }
 .swiper-pagination-bullet-active {
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 0 !important;
-  background: #000 !important;
+	width: 12px !important;
+	height: 12px !important;
+	border-radius: 0 !important;
+	background: #000 !important;
 }
 .dark .swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 0 !important;
-  background: #000 !important;
-  border: 1.5px solid #fff;
+	width: 12px !important;
+	height: 12px !important;
+	border-radius: 0 !important;
+	background: #000 !important;
+	border: 1.5px solid #fff;
 }
 .dark .swiper-pagination-bullet-active {
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 0 !important;
-  background: #fff !important;
+	width: 12px !important;
+	height: 12px !important;
+	border-radius: 0 !important;
+	background: #fff !important;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  select,
-  textarea,
-  input {
-    font-size: 16px;
-  }
+	select,
+	textarea,
+	input {
+		font-size: 16px;
+	}
 }
 
 .starwar-text {
-  -webkit-transform-origin: 50% 100%;
-  -moz-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  -o-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transform: perspective(300px) rotateX(42deg);
-  -moz-transform: perspective(300px) rotateX(42deg);
-  -ms-transform: perspective(300px) rotateX(42deg);
-  -o-transform: perspective(300px) rotateX(42deg);
-  transform: perspective(300px) rotateX(42deg);
+	-webkit-transform-origin: 50% 100%;
+	-moz-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	-o-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transform: perspective(300px) rotateX(42deg);
+	-moz-transform: perspective(300px) rotateX(42deg);
+	-ms-transform: perspective(300px) rotateX(42deg);
+	-o-transform: perspective(300px) rotateX(42deg);
+	transform: perspective(300px) rotateX(42deg);
 }
 
 /**
     * Reinstate scrolling for non-JS clients
     */
 .simplebar-content-wrapper {
-  scrollbar-width: auto;
-  -ms-overflow-style: auto;
+	scrollbar-width: auto;
+	-ms-overflow-style: auto;
 }
 
 .simplebar-content-wrapper::-webkit-scrollbar,
 .simplebar-hide-scrollbar::-webkit-scrollbar {
-  display: initial;
-  width: initial;
-  height: initial;
+	display: initial;
+	width: initial;
+	height: initial;
 }
 
 .simplebar-scrollbar::before {
-  opacity: 0 !important;
+	opacity: 0 !important;
 }
 .simplebar-horizontal {
-  opacity: 0 !important;
+	opacity: 0 !important;
 }

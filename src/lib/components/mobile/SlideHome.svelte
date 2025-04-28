@@ -1,63 +1,50 @@
 <script>
-  import Sand from "$lib/svgs/mobile/Sand.svelte";
-  import PixelBorder from "./PixelBorder.svelte";
-  import Weather from "./Weather.svelte";
+	import Sand from '$lib/svgs/mobile/Sand.svelte'
+	import PixelBorder from './PixelBorder.svelte'
+	import Weather from './Weather.svelte'
 </script>
 
-<div
-  data-slide-name="home"
-  class="swiper-slide w-full h-full overflow-scroll shrink-0 px-4"
->
-  <div class="h-full bg-white dark:bg-black w-full">
-    <div class="h-full relative">
-      <PixelBorder />
-      <div class="p-4 h-full relative overflow-scroll hide-scrollbar">
-        <div class="flex flex-col items-start">
-          <div class="relative text-2xl leading-[0.75]">
-            Yeah... We do shit. Come make amazing shits with us. Any type of
-            shit but probably email first. Join us in harnessing a diverse
-            spectrum of minds and voices to catalyze unprecedented shits. Let
-            thy shit hit thy fan.
-          </div>
-          <div class="relative my-5 w-5/6">
-            <Sand />
-          </div>
+<div data-slide-name="home" class="swiper-slide h-full w-full shrink-0 overflow-scroll px-4">
+	<div class="h-full w-full bg-white dark:bg-black">
+		<div class="relative h-full">
+			<PixelBorder />
+			<div class="hide-scrollbar relative h-full overflow-scroll p-4">
+				<div class="flex flex-col items-start">
+					<div class="relative text-2xl leading-[0.75]">
+						Yeah... We do shit. Come make amazing shits with us. Any type of shit but probably email
+						first. Join us in harnessing a diverse spectrum of minds and voices to catalyze
+						unprecedented shits. Let thy shit hit thy fan.
+					</div>
+					<div class="relative my-5 w-5/6">
+						<Sand />
+					</div>
 
-          <Weather />
+					<Weather />
 
-          <div class="relative flex flex-col mb-5">
-            <a
-              href="/mobile-policy?page=privacy"
-              class="leading-[0.9] text-xl text-left"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="/mobile-policy?page=terms"
-              class="leading-[0.9] text-xl text-left"
-            >
-              Terms and Conditions
-            </a>
-            <a
-              href="/mobile-policy?page=cookie"
-              class="leading-[0.9] text-xl text-left"
-            >
-              Cookie Policy
-            </a>
-            <span class="leading-[0.9] text-xl mt-5">
-              Made by The Sand Studio {new Date().getFullYear()}
-            </span>
-          </div>
+					<div class="relative mb-5 flex flex-col">
+						<a href="/mobile-policy?page=privacy" class="text-left text-xl leading-[0.9]">
+							Privacy Policy
+						</a>
+						<a href="/mobile-policy?page=terms" class="text-left text-xl leading-[0.9]">
+							Terms and Conditions
+						</a>
+						<a href="/mobile-policy?page=cookie" class="text-left text-xl leading-[0.9]">
+							Cookie Policy
+						</a>
+						<span class="mt-5 text-xl leading-[0.9]">
+							Made by The Sand Studio {new Date().getFullYear()}
+						</span>
+					</div>
 
-          <a
-            href="https://greenpixie.com/sites/www-thesandstudio-com"
-            target="_black"
-            class="relative scale-[0.7] font-sand-mobile-bold origin-top-left text-sand-green border-2 border-sand-green block rounded-full px-4 py-1 text-left"
-          >
-            Calculate CO2 Emission
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+					<a
+						href="https://greenpixie.com/sites/www-thesandstudio-com"
+						target="_black"
+						class="relative block origin-top-left scale-[0.7] rounded-full border-2 border-sand-green px-4 py-1 text-left font-sand-mobile-bold text-sand-green"
+					>
+						Calculate CO2 Emission
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

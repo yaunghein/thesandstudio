@@ -1,16 +1,16 @@
-import { json } from "@sveltejs/kit";
-import type { RequestHandler } from "./$types";
+import { json } from '@sveltejs/kit'
+import type { RequestHandler } from './$types'
 
 export const POST: RequestHandler = async ({ request, cookies }) => {
-  const { key, value, age } = await request.json();
+	const { key, value, age } = await request.json()
 
-  cookies.set(key, value, {
-    path: "/",
-    httpOnly: true,
-    maxAge: age,
-    secure: true,
-    sameSite: "strict",
-  });
+	cookies.set(key, value, {
+		path: '/',
+		httpOnly: true,
+		maxAge: age,
+		secure: true,
+		sameSite: 'strict'
+	})
 
-  return json({ success: true });
-};
+	return json({ success: true })
+}

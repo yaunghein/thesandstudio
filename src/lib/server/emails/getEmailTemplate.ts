@@ -1,7 +1,7 @@
-import mjml from "mjml";
+import mjml from 'mjml'
 
 export default function (data: any) {
-  return mjml(`
+	return mjml(`
   <mjml>
   <mj-head>
     <mj-font
@@ -57,7 +57,7 @@ export default function (data: any) {
                   margin-top: 16px;
                 "
               >
-              ${data.type === "sand" ? "A Submission" : "Your Message"}
+              ${data.type === 'sand' ? 'A Submission' : 'Your Message'}
                 <br />Has Been Received!
               </td>
               <td style="text-align: right; padding-top: 48px">
@@ -112,5 +112,5 @@ export default function (data: any) {
     </mj-wrapper>
   </mj-body>
 </mjml>
-  `).html;
+  `).html
 }

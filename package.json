@@ -1,57 +1,54 @@
 {
-  "name": "sand-website",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.0.0",
-    "@sveltejs/kit": "^2.5.27",
-    "@sveltejs/vite-plugin-svelte": "^4.0.0",
-    "@types/gtag.js": "^0.0.20",
-    "@types/mjml": "^4.7.4",
-    "@types/node-telegram-bot-api": "^0.64.7",
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.28",
-    "prettier": "^3.1.0",
-    "prettier-plugin-svelte": "^3.2.6",
-    "svelte": "^5.0.0",
-    "svelte-check": "^4.0.0",
-    "tailwindcss": "^3.3.3",
-    "tslib": "^2.6.1",
-    "typescript": "^5.5.0",
-    "vite": "^5.4.4"
-  },
-  "type": "module",
-  "dependencies": {
-    "@getbrevo/brevo": "2.0.0-beta.4",
-    "@lottiefiles/svelte-lottie-player": "^0.3.0",
-    "@splinetool/runtime": "^1.0.34",
-    "gsap": "^3.12.2",
-    "jszip": "^3.10.1",
-    "lottie-web": "^5.12.2",
-    "marked": "^12.0.2",
-    "mjml": "^4.15.3",
-    "node-telegram-bot-api": "^0.66.0",
-    "openai": "^4.47.3",
-    "simplebar": "^6.2.5",
-    "svelte-carbonbadge": "^0.0.1",
-    "svelte-pdf-simple": "^2.0.0",
-    "swiper": "^11.0.6",
-    "tailwind-merge": "^2.1.0",
-    "zod": "^3.22.4"
-  },
-  "engines": {
-    "node": "18.x"
-  },
-  "exports": {
-    ".": {
-      "svelte": "./dist/index.js"
-    }
-  }
+	"name": "sand-website",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.5.27",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/gtag.js": "^0.0.20",
+		"@types/mjml": "^4.7.4",
+		"@types/node-telegram-bot-api": "^0.64.7",
+		"autoprefixer": "^10.4.15",
+		"postcss": "^8.4.28",
+		"prettier": "^3.1.0",
+		"prettier-plugin-svelte": "^3.2.6",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"svelte": "^5.0.0",
+		"svelte-check": "^4.0.0",
+		"tailwindcss": "^3.3.3",
+		"tslib": "^2.6.1",
+		"typescript": "^5.5.0",
+		"vite": "^5.4.4"
+	},
+	"type": "module",
+	"dependencies": {
+		"@getbrevo/brevo": "2.0.0-beta.4",
+		"@lottiefiles/svelte-lottie-player": "^0.3.0",
+		"@splinetool/runtime": "^1.0.34",
+		"gsap": "^3.12.2",
+		"jszip": "^3.10.1",
+		"lottie-web": "^5.12.2",
+		"marked": "^12.0.2",
+		"mjml": "^4.15.3",
+		"node-telegram-bot-api": "^0.66.0",
+		"openai": "^4.47.3",
+		"simplebar": "^6.2.5",
+		"svelte-carbonbadge": "^0.0.1",
+		"svelte-pdf-simple": "^2.0.0",
+		"swiper": "^11.0.6",
+		"tailwind-merge": "^2.1.0",
+		"zod": "^3.22.4"
+	},
+	"engines": {
+		"node": "18.x"
+	}
 }
