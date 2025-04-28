@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from "svelte/legacy";
 
   import { onMount } from "svelte";
   import { page } from "$app/stores";
@@ -13,7 +13,7 @@
   interface Props {
     show?: boolean;
     isLogoHovering?: boolean;
-    children?: import('svelte').Snippet;
+    children?: import("svelte").Snippet;
   }
 
   let { show = false, isLogoHovering = false, children }: Props = $props();
@@ -34,8 +34,12 @@
       removeShell("copyright");
     }
   });
-  let isFinderOpen = $derived($OpenShells.find((shell) => shell.id === "finder"));
-  let isCopyrightOpen = $derived($OpenShells.find((shell) => shell.id === "copyright"));
+  let isFinderOpen = $derived(
+    $OpenShells.find((shell) => shell.id === "finder"),
+  );
+  let isCopyrightOpen = $derived(
+    $OpenShells.find((shell) => shell.id === "copyright"),
+  );
 </script>
 
 <div

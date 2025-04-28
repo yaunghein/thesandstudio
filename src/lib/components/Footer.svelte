@@ -112,7 +112,7 @@
 
       <div
         class="absolute left-[1.63rem] right-[1.63rem] h-[0.11rem] bottom-0 bg-white dark:bg-light-12"
-></div>
+      ></div>
 
       <div
         class="w-[1.63rem] aspect-square absolute right-0 bottom-0 -scale-x-[1] text-white dark:text-light-12"
@@ -160,11 +160,7 @@
         onmouseenter={() => CursorType.set("normal")}>FACEBOOK</a
       >
 
-      <a
-        class="ml-auto"
-        href="/"
-        onmouseenter={() => CursorType.set("normal")}
-      >
+      <a class="ml-auto" href="/" onmouseenter={() => CursorType.set("normal")}>
         © {new Date().getFullYear()}
       </a>
     </div>
@@ -183,7 +179,7 @@
           <div
             class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
           >
-            <Logo />
+            <!-- <Logo /> -->
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
@@ -195,7 +191,7 @@
           <div
             class="w-[20.75rem] aspect-square shrink-0 ml-10 mr-5 pointer-events-none"
           >
-            <Logo />
+            <!-- <Logo /> -->
           </div>
 
           <div class="dark:invert flex items-center h-full shrink-0">
