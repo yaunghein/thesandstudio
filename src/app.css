@@ -93,7 +93,7 @@ input[type='number'] {
 }
 
 .sand-transition {
-	@apply transition duration-300 ease-out;
+	@apply transition-all duration-300 ease-out;
 }
 
 .transparent-layer {
