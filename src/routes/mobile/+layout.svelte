@@ -36,7 +36,7 @@
 		</div>
 	</nav>
 
-	<div class="h-[100dvh] overflow-x-hidden overflow-y-scroll">
+	<div class="h-[100dvh] min-w-[calc(100dvw-3.31rem)] overflow-x-hidden overflow-y-scroll">
 		{@render children()}
 	</div>
 </div>

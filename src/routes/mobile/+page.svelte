@@ -4,7 +4,7 @@
 
 <section class="flex h-full flex-col p-3 pt-6">
 	<h1 class="font-sand-mobile-bold text-[43vw] leading-[0.55] text-light-4">SAND</h1>
-	<div class="relative mt-1 w-[18.5rem] text-[1.45rem]">
+	<div class="relative mt-1 text-[1.45rem]">
 		Yeah... We do shit. Come make amazing shits with us. Any type of shit but probably email first.
 		Join us in harnessing a diverse spectrum of minds and voices to catalyze unprecedented shits.
 		Let thy shit hit thy fan.
@@ -21,7 +21,7 @@
 	<a href="/" class="font-sand-mobile-bold text-lg leading-[0.65]">Cookie Policy</a>
 </section>
 
-<section class="relative aspect-[4/3] w-full min-w-[21rem]">
+<section class="relative aspect-[4/3] w-full">
 	<img src="/mobile/gifs/sand-dune-loop.gif" alt="Sand Dune" class="h-full w-full" />
 	<div
 		class="absolute bottom-3 left-3 bg-light-100 px-[2px] font-sand-mobile-bold text-base text-light-4"

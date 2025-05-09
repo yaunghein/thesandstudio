@@ -215,7 +215,7 @@
 </script>
 
 {#if weather}
-	<div class="relative w-full overflow-hidden border-[2px] border-light-4">
+	<div class="relative w-full border-[2px] border-light-4">
 		<NewPixelBorder />
 		<div class="relative flex w-full flex-col justify-between">
 			<div class="relative flex w-full justify-center gap-7 p-3">
