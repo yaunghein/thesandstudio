@@ -65,7 +65,7 @@
 	}
 </script>
 
-<div role="region" class="">
+<a class="sm:pointer-events-none" href={`/mobile/works/${work.slug}`}>
 	<div class="relative aspect-[1/0.6] w-full border-2 border-light-4">
 		<NewPixelBorder />
 		<div class="absolute inset-0 flex h-full w-full bg-light-90 dark:bg-light-20">
@@ -122,4 +122,4 @@
 			{/each}
 		</div>
 	{/if} -->
-</div>
+</a>

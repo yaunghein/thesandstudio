@@ -5,12 +5,13 @@
 	import type { Work as TWork, WorkGroup } from '$lib/types'
 	import Work from '$lib/components/mobile/Work.svelte'
 
-	export const WORKS_GROUPS: WorkGroup[] = [
+	const WORKS_GROUPS: WorkGroup[] = [
 		{
 			type: 'Projects',
 			data: [
 				{
 					name: 'Sawbwa Morning Blend.',
+					slug: 'sawbwa-morning-blend',
 					images: [
 						// "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880728/works/sawbwa-morning-blend/SB_Farmer_yrwamk.gif",
 						// "https://res.cloudinary.com/dlhbpswom/image/upload/v1715880730/works/sawbwa-morning-blend/SB_Plant_1_ovykzn.gif",
@@ -32,6 +33,7 @@
 				},
 				{
 					name: 'ENVISEAM',
+					slug: 'enviseam',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/raw/upload/v1717478894/lotties/enviseam_n3orkw.json'
 						// "https://res.cloudinary.com/dlhbpswom/image/upload/v1716573917/works/enviseam/Enviseam-New_1_yn6wik.webp",
@@ -56,6 +58,7 @@
 			data: [
 				{
 					name: 'The Elephant Cafe',
+					slug: 'the-elephant-cafe',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1716574517/works/elephant-cafe/May-25-2024/The_Elephant_Cafe_vk4yuc.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1716574521/works/elephant-cafe/May-25-2024/The_Elephant_Cafe-9_w7lfrg.webp',
@@ -79,6 +82,7 @@
 				},
 				{
 					name: 'The Other Cakes',
+					slug: 'the-other-cakes',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880743/works/the-other-cakes/The_Other_Cakes_hkah3d.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880744/works/the-other-cakes/TOC_Logos_beropf.webp',
@@ -98,6 +102,7 @@
 				// PFM CBD
 				{
 					name: 'Another Club',
+					slug: 'another-club',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Logo_2_p4zxbj.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/another-club/AC_Window_Stickers_e4u8s6.webp',
@@ -131,6 +136,7 @@
 				},
 				{
 					name: 'Grand Hotel',
+					slug: 'grand-hotel',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/grand-hotel/Grand_Hotel_q5bid6.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/grand-hotel/GH_Logos_mmcfmz.webp',
@@ -153,6 +159,7 @@
 				},
 				{
 					name: 'YG',
+					slug: 'yangon-galacticos',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880735/works/yangon-galacticos/YG_eftdop.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880734/works/yangon-galacticos/YG_Apparels_2_qqdvqy.webp',
@@ -175,6 +182,7 @@
 				},
 				{
 					name: 'Game Sauce',
+					slug: 'game-sauce',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880738/works/game-sauce/GS_Logo_wqq4dc.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1716573445/works/game-sauce/GS_Logo_Animation_wg2fmo.gif'
@@ -185,6 +193,7 @@
 				},
 				{
 					name: 'RIO',
+					slug: 'rio',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880725/works/rio/RIO_Logo_p3cjds.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880734/works/rio/Rio_bzfli5.webp',
@@ -198,6 +207,7 @@
 				},
 				{
 					name: 'Burmese Hype',
+					slug: 'burmese-hype',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880741/works/burmese-hype/Burmese_Hype_1_yhqfer.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880742/works/burmese-hype/Burmese_Hype_jbkoof.webp',
@@ -212,6 +222,7 @@
 				},
 				{
 					name: '_ALLWeNeed.',
+					slug: 'all-we-need',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880726/works/all-we-need/AWN_Logo_on_White_ebysv5.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880727/works/all-we-need/AWN_Tape_1_fk2jho.webp',
@@ -228,6 +239,7 @@
 				},
 				{
 					name: 'HOG',
+					slug: 'hog',
 					images: [
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880736/works/hog/HOG_Logo_elngx6.webp',
 						'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880736/works/hog/HOG_Mascot_ri5p0c.webp'
@@ -245,7 +257,7 @@
 		}
 	]
 
-	let currentWork: TWork = $state(WORKS_GROUPS[0].data[0])
+	// let currentWork: TWork = $state(WORKS_GROUPS[0].data[0])
 </script>
 
 <section class="p-4">

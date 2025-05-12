@@ -7,6 +7,7 @@ export type AppIcon = {
 
 export type Work = {
 	name: string
+	slug?: string
 	images: string[]
 	categories: string[]
 	meta: string[]
