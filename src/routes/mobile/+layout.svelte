@@ -2,6 +2,7 @@
 	import { afterNavigate } from '$app/navigation'
 	import { onMount } from 'svelte'
 	import NewPixelBorder from '$lib/components/mobile/NewPixelBorder.svelte'
+	import { slide } from 'svelte/transition'
 
 	let { children } = $props()
 
@@ -12,40 +13,92 @@
 			const mobilePage = document.querySelector('.mobile-page')
 			if (mobilePage) {
 				mobilePage.scrollTo({ top: 0 })
+				isOpen = false
 			}
 		})
 	})
+
+	const navLinks = [
+		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Home', href: '/mobile' },
+		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Works', href: '/mobile/works' },
+		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Not Works', href: '/mobile/not-works' },
+		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Contact', href: '/mobile/contact' },
+		{
+			icon: '/mobile/weather-icons/Blizzard.png',
+			label: 'For All Thingskind',
+			href: '/mobile/for-all-thingskind'
+		},
+		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Explorer', href: '/mobile/explorer' }
+	]
 </script>
 
 <div class="flex overflow-hidden bg-light-100 font-sand-mobile-regular text-sm leading-[1]">
-	<nav
+	<div
+		onclick={() => (isOpen = !isOpen)}
+		onkeydown={() => {}}
+		role="button"
+		tabindex="0"
+		aria-expanded={isOpen}
 		class="sand-transition relative z-10 h-[100dvh] shrink-0 border-r-2 border-light-4 {isOpen
-			? 'w-32'
+			? 'w-36'
 			: 'w-[3.31rem]'}"
 	>
 		<div class="absolute inset-0 left-0 flex flex-col gap-[2px] overflow-hidden">
 			{#each { length: 275 }, i}
 				<div class="flex gap-[2px] {i % 2 === 0 ? 'pl-[2px]' : ''}">
-					{#each { length: 35 }, j}
+					{#each { length: 40 }, j}
 						<div class="aspect-square w-[2px] shrink-0 bg-light-4"></div>
 					{/each}
 				</div>
 			{/each}
 		</div>
-		<div class="relative flex h-full flex-col gap-6 px-3 py-6">
-			{#each { length: 6 }}
-				<button
-					onclick={() => (isOpen = !isOpen)}
-					class="relative aspect-square w-6 border-[2px] border-light-4 bg-light-100"
-				>
-					<NewPixelBorder />
-				</button>
+		<nav class="relative flex h-full flex-col gap-6 px-3 py-6 {!isOpen && 'pointer-events-none'}">
+			{#each navLinks as link}
+				<a href={link.href} class="flex items-center gap-2">
+					<div class="relative aspect-square w-6 shrink-0 border-[2px] border-light-4 bg-light-100">
+						<NewPixelBorder />
+						<div
+							class="absolute left-1/2 top-1/2 aspect-square w-5 -translate-x-1/2 -translate-y-1/2"
+						>
+							<img src={link.icon} alt="" class="h-full w-full object-cover" />
+						</div>
+					</div>
+					{#if isOpen}
+						<div
+							transition:slide={{ axis: 'x' }}
+							class="bg-light-100 px-[2px] font-sand-mobile-bold text-base text-light-4"
+						>
+							<span class="block translate-y-[0.05rem] whitespace-nowrap leading-none">
+								{link.label}
+							</span>
+						</div>
+					{/if}
+				</a>
 			{/each}
-			<div class="relative mt-auto aspect-square w-6 border-[2px] border-light-4 bg-light-100">
-				<NewPixelBorder />
-			</div>
-		</div>
-	</nav>
+			<button class="mt-auto flex items-center gap-2">
+				<div class="relative aspect-square w-6 shrink-0 border-[2px] border-light-4 bg-light-100">
+					<NewPixelBorder />
+					<div
+						class="absolute left-1/2 top-1/2 aspect-square w-5 -translate-x-1/2 -translate-y-1/2"
+					>
+						<img
+							src="/mobile/weather-icons/Blizzard.png"
+							alt=""
+							class="h-full w-full object-cover"
+						/>
+					</div>
+				</div>
+				{#if isOpen}
+					<div
+						transition:slide={{ axis: 'x' }}
+						class="bg-light-100 px-[2px] font-sand-mobile-bold text-base text-light-4"
+					>
+						<span class="block translate-y-[0.05rem] whitespace-nowrap leading-none"> Light </span>
+					</div>
+				{/if}
+			</button>
+		</nav>
+	</div>
 
 	<div
 		class="mobile-page h-[100dvh] min-w-[calc(100dvw-3.31rem)] overflow-x-hidden overflow-y-scroll"
