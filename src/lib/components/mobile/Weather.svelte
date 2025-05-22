@@ -62,7 +62,8 @@
 				'Moderate or heavy rain shower',
 				'Torrential rain shower',
 				'Patchy light drizzle',
-				'Light drizzle'
+				'Light drizzle',
+				'Thundery outbreaks in nearby'
 			],
 			image: '/mobile/weather-icons/All Rain.png',
 			size: 100
@@ -202,11 +203,11 @@
 </script>
 
 {#if weather}
-	<div class="relative w-full border-[2px] border-light-4">
+	<div class="relative w-full border-[2px] border-light-4 dark:border-light-25">
 		<NewPixelBorder />
 		<div class="relative flex w-full flex-col justify-between">
 			<div class="relative flex w-full justify-center gap-7 p-3 pl-0">
-				<div class="flex flex-col items-center justify-center gap-2">
+				<div class="flex shrink-0 flex-col items-center justify-center gap-2">
 					<div class="relative aspect-square w-24">
 						{#if icon}
 							{#key icon}
@@ -215,7 +216,7 @@
 									out:scale={{ duration: 300, start: 0.9 }}
 									src={icon.image}
 									alt="Weather Icon"
-									class="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2"
+									class="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2 dark:invert"
 								/>
 							{/key}
 						{/if}
@@ -254,7 +255,9 @@
 					<div class="text-2xl">
 						<div class="flex gap-2">
 							<span class="whitespace-nowrap text-base leading-none" use:day></span>
-							<span class="whitespace-nowrap text-base leading-none">
+							<span
+								class="max-w-[5rem] overflow-hidden text-ellipsis whitespace-nowrap text-base leading-none"
+							>
 								{weather.current.condition.text}
 							</span>
 							<!-- <span class="whitespace-nowrap text-base leading-none">Partly Cloudy</span> -->
@@ -290,7 +293,7 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-3 gap-3 border-t-[2px] border-light-4 p-3">
+			<div class="grid grid-cols-3 gap-3 border-t-[2px] border-light-4 p-3 dark:border-light-25">
 				{#each Object.keys(LOCATIONS) as location}
 					<button
 						onclick={() => (selectedLocation = location)}
@@ -298,8 +301,8 @@
 					>
 						<div
 							class={twm(
-								'relative h-5 w-5 shrink-0 border-[2px] border-light-4 dark:invert',
-								selectedLocation === location ? 'bg-light-4' : 'bg-transparent'
+								'relative h-5 w-5 shrink-0 border-[2px] border-light-4 dark:border-light-25',
+								selectedLocation === location ? 'bg-light-4 dark:bg-light-100' : 'bg-transparent'
 							)}
 						>
 							<NewPixelBorder />

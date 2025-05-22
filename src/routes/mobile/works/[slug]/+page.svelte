@@ -59,10 +59,14 @@
 		<h1 class="font-sand-mobile-bold text-5xl leading-[0.75]">{data.work.name}</h1>
 		<p class="mb-4 mt-2 text-[1.45rem]">{data.work.meta.join(' ')}</p>
 		<div class="relative -mx-4 py-3">
-			<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4"></div>
-			<div class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4"></div>
-			<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4"></div>
-			<div class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4"></div>
+			<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+			<div
+				class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4 dark:bg-light-25"
+			></div>
+			<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+			<div
+				class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"
+			></div>
 			<div class="flex animate-marquee items-center gap-4">
 				{#each { length: 50 }}
 					<div
@@ -77,7 +81,9 @@
 
 	<section class="">
 		{#each data.work.images as image}
-			<div class="relative aspect-[1/0.6] w-full border-b-[2px] border-light-4">
+			<div
+				class="relative aspect-[1/0.6] w-full border-b-[2px] border-light-4 dark:border-light-25"
+			>
 				<!-- this json check is only for enviseam at the moment -->
 				{#if image.endsWith('.json')}
 					<div

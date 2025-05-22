@@ -74,9 +74,9 @@
 		class="relative flex h-full w-full flex-col text-xl"
 	>
 		<div
-			class="flex w-full flex-col items-start gap-3 text-xl text-light-4 dark:bg-black dark:text-light-100 sm:dark:bg-light-7"
+			class="flex w-full flex-col items-start gap-3 text-xl text-light-4 dark:text-light-100 sm:dark:bg-light-7"
 		>
-			<div class="relative w-full border-[2px] border-light-4">
+			<div class="relative w-full border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 				<input
 					autocomplete="off"
@@ -93,7 +93,7 @@
 					oninput={() => (formErrors?.name ? (formErrors.name = undefined) : null)}
 				/>
 			</div>
-			<div class="relative w-full border-[2px] border-light-4">
+			<div class="relative w-full border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 				<input
 					autocomplete="off"
@@ -110,7 +110,7 @@
 					oninput={() => (formErrors?.email ? (formErrors.email = undefined) : null)}
 				/>
 			</div>
-			<div class="relative w-full border-[2px] border-light-4">
+			<div class="relative w-full border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 				<textarea
 					name="message"
@@ -130,7 +130,7 @@
 				<label for="attachments" class="relative flex items-center justify-start gap-3">
 					<div
 						class={twm(
-							'sand-transition relative flex aspect-square w-12 shrink-0 items-center border-[2px] border-light-4',
+							'sand-transition relative flex aspect-square w-12 shrink-0 items-center border-[2px] border-light-4 dark:border-light-25',
 							formInputs?.attachments && 'bg-light-4'
 						)}
 					>
@@ -162,7 +162,7 @@
 			<button
 				onclick={submit}
 				id="submit-btn"
-				class="relative inline-block border-[2px] border-light-4 px-12 py-[0.58rem] font-sand-mobile-bold text-[1.45rem] leading-[0.65]"
+				class="relative inline-block border-[2px] border-light-4 px-12 py-[0.58rem] font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 			>
 				<NewPixelBorder />
 				<div class="pt-[1px]">Send</div>
@@ -172,16 +172,22 @@
 </section>
 
 <section class="relative aspect-[4/3] w-full">
-	<img src="/mobile/gifs/sand-dune-loop.gif" alt="Sand Dune" class="h-full w-full" />
+	<img
+		src="/mobile/gifs/sand-dune-loop.gif"
+		alt="Sand Dune"
+		class="h-full w-full dark:opacity-25 dark:invert"
+	/>
 	<div class="absolute left-4 top-4">
-		<div class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4">
+		<div
+			class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4 dark:bg-light-4 dark:text-light-100"
+		>
 			<span class="block max-w-[5.8rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
 				Make Shit with Us
 			</span>
 		</div>
 		<a
 			href="/"
-			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65]"
+			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Let's Go
 			<NewPixelBorder />
@@ -194,19 +200,19 @@
 
 	<div class="mt-6 flex gap-6">
 		<div class="flex flex-col items-center gap-2">
-			<div class="relative aspect-square w-12 border-[2px] border-light-4">
+			<div class="relative aspect-square w-12 border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 			</div>
 			<div class="text-center text-lg leading-[0.65]">Email</div>
 		</div>
 		<div class="flex flex-col items-center gap-2">
-			<div class="relative aspect-square w-12 border-[2px] border-light-4">
+			<div class="relative aspect-square w-12 border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 			</div>
 			<div class="text-center text-lg leading-[0.65]">IG</div>
 		</div>
 		<div class="flex flex-col items-center gap-2">
-			<div class="relative aspect-square w-12 border-[2px] border-light-4">
+			<div class="relative aspect-square w-12 border-[2px] border-light-4 dark:border-light-25">
 				<NewPixelBorder />
 			</div>
 			<div class="text-center text-lg leading-[0.65]">FB</div>

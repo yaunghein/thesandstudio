@@ -277,10 +277,14 @@
 	<div class="">
 		{#each WORKS_GROUPS as workGroup}
 			<div class="relative py-3">
-				<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4"></div>
-				<div class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4"></div>
-				<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4"></div>
-				<div class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4"></div>
+				<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+				<div
+					class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4 dark:bg-light-25"
+				></div>
+				<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+				<div
+					class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"
+				></div>
 				<div class="flex animate-marquee items-center gap-4">
 					{#each { length: 50 }}
 						<div
@@ -301,16 +305,22 @@
 </section>
 
 <section class="relative aspect-[4/3] w-full">
-	<img src="/mobile/gifs/sand-dune-loop.gif" alt="Sand Dune" class="h-full w-full" />
+	<img
+		src="/mobile/gifs/sand-dune-loop.gif"
+		alt="Sand Dune"
+		class="h-full w-full dark:opacity-25 dark:invert"
+	/>
 	<div class="absolute left-4 top-4">
-		<div class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4">
+		<div
+			class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4 dark:bg-light-4 dark:text-light-100"
+		>
 			<span class="block max-w-[5.8rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
 				Make Shit with Us
 			</span>
 		</div>
 		<a
 			href="/"
-			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65]"
+			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Let's Go
 			<NewPixelBorder />

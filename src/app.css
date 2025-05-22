@@ -57,6 +57,7 @@ button {
 
 html {
 	font-size: 0.62vw;
+	-webkit-tap-highlight-color: transparent;
 }
 
 @media screen and (max-width: 639px) {

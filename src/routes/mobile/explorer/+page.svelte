@@ -63,10 +63,14 @@
 	</h1>
 
 	<div class="relative mt-2 py-3">
-		<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4"></div>
-		<div class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4"></div>
-		<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4"></div>
-		<div class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4"></div>
+		<div class="absolute inset-0 bottom-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+		<div
+			class="absolute inset-0 bottom-auto top-[3px] h-[1px] w-full bg-light-4 dark:bg-light-25"
+		></div>
+		<div class="absolute inset-0 top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"></div>
+		<div
+			class="absolute inset-0 bottom-[3px] top-auto h-[1px] w-full bg-light-4 dark:bg-light-25"
+		></div>
 		<div
 			class="breadcrumb hide-scrollbar flex h-5 items-center gap-1 overflow-y-hidden overflow-x-scroll whitespace-pre px-4 pt-[0.185rem] font-sand-mobile-bold text-[1.45rem] uppercase leading-[0.45]"
 		>
@@ -93,7 +97,7 @@
 				<img
 					alt={file.label}
 					src={file.mediaSrc}
-					class="col-span-2 border-b-[2px] border-light-4 last-of-type:border-b-0"
+					class="col-span-2 border-b-[2px] border-light-4 last-of-type:border-b-0 dark:border-light-25"
 				/>
 			{:else if file.mediaType === 'video'}
 				<div class="col-span-2 w-full bg-black">
@@ -122,8 +126,9 @@
 		viewBox="0 0 108 112"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
+		class="dark:invert"
 	>
-		<rect x="2" y="6" width="104" height="104" fill="white" />
+		<rect x="2" y="6" width="104" height="104" fill="transparent" />
 		<rect
 			x="108"
 			y="110"
