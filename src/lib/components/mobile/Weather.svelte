@@ -25,32 +25,27 @@
 		},
 		'partly-cloudy': {
 			conditions: ['Partly cloudy'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881780/weather-icons-mobile/partly-cloudy_qvycz6.webp',
+			image: '/mobile/weather-icons/Partly Cloudy.png',
 			size: 100
 		},
 		cloudy: {
 			conditions: ['Cloudy'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881778/weather-icons-mobile/cloudy_y6zbdz.webp',
+			image: '/mobile/weather-icons/Cloudy.png',
 			size: 100
 		},
 		overcast: {
 			conditions: ['Overcast'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881779/weather-icons-mobile/overcast_rpzuua.webp',
+			image: '/mobile/weather-icons/Partly Cloudy.png',
 			size: 125
 		},
 		'fog-mist': {
 			conditions: ['Mist', 'Fog'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881778/weather-icons-mobile/fog-mist_hqx5gg.webp',
+			image: '/mobile/weather-icons/Fog Mist.png',
 			size: 125
 		},
 		'freezing-fog': {
 			conditions: ['Freezing fog'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881779/weather-icons-mobile/freezing-fog_y1j5mc.webp',
+			image: '/mobile/weather-icons/Freezing Fog.png',
 			size: 150
 		},
 		'all-rain': {
@@ -69,8 +64,7 @@
 				'Patchy light drizzle',
 				'Light drizzle'
 			],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/all-rain_yebx51.webp',
+			image: '/mobile/weather-icons/All Rain.png',
 			size: 100
 		},
 		'all-freezing-rain': {
@@ -81,8 +75,7 @@
 				'Freezing drizzle',
 				'Heavy freezing drizzle'
 			],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881776/weather-icons-mobile/all-freezing-rain_hb54qn.webp',
+			image: '/mobile/weather-icons/Freezing Rain.png',
 			size: 150
 		},
 		'all-snow': {
@@ -96,26 +89,22 @@
 				'Heavy snow',
 				'Light snow showers'
 			],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/all-snow_kvdqox.webp',
+			image: '/mobile/weather-icons/Snow.png',
 			size: 100
 		},
 		thunder: {
 			conditions: ['Thundery outbreaks possible'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881782/weather-icons-mobile/thunder_mlheyx.webp',
+			image: '/mobile/weather-icons/Thunder.png',
 			size: 100
 		},
 		'snow-thunder': {
 			conditions: ['Patchy light snow with thunder', 'Moderate or heavy snow with thunder'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881624/weather-icons/snow-thunder_dgwoyz.webp',
+			image: '/mobile/weather-icons/Snow Thunder.png',
 			size: 100
 		},
 		'rain-thunder': {
 			conditions: ['Patchy light rain with thunder', 'Moderate or heavy rain with thunder'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881781/weather-icons-mobile/rain-thunder_vk5vca.webp',
+			image: '/mobile/weather-icons/Rain Thunder.png',
 			size: 100
 		},
 		'all-sleet-blizzard-pellets': {
@@ -131,14 +120,12 @@
 				'Light showers of ice pellets',
 				'Moderate or heavy showers of ice pellets'
 			],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881776/weather-icons-mobile/all-sleet-blizzard-pellets_grs5la.webp',
+			image: '/mobile/weather-icons/Blizzard.png',
 			size: 100
 		},
 		'blowing-snow': {
 			conditions: ['Blowing snow'],
-			image:
-				'https://res.cloudinary.com/dlhbpswom/image/upload/v1715881777/weather-icons-mobile/blowing-snow_dep7kx.webp',
+			image: '/mobile/weather-icons/Blowing Snow.png',
 			size: 100
 		}
 	}
@@ -218,7 +205,7 @@
 	<div class="relative w-full border-[2px] border-light-4">
 		<NewPixelBorder />
 		<div class="relative flex w-full flex-col justify-between">
-			<div class="relative flex w-full justify-center gap-7 p-3">
+			<div class="relative flex w-full justify-center gap-7 p-3 pl-0">
 				<div class="flex flex-col items-center justify-center gap-2">
 					<div class="relative aspect-square w-24">
 						{#if icon}
@@ -267,9 +254,9 @@
 					<div class="text-2xl">
 						<div class="flex gap-2">
 							<span class="whitespace-nowrap text-base leading-none" use:day></span>
-							<span class="whitespace-nowrap text-base leading-none"
-								>{weather.current.condition.text}</span
-							>
+							<span class="whitespace-nowrap text-base leading-none">
+								{weather.current.condition.text}
+							</span>
 							<!-- <span class="whitespace-nowrap text-base leading-none">Partly Cloudy</span> -->
 						</div>
 						<div class="mt-1 whitespace-nowrap leading-none">
