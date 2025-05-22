@@ -1,9 +1,20 @@
 <script>
+	import { afterNavigate } from '$app/navigation'
+	import { onMount } from 'svelte'
 	import NewPixelBorder from '$lib/components/mobile/NewPixelBorder.svelte'
 
 	let { children } = $props()
 
 	let isOpen = $state(false)
+
+	onMount(() => {
+		afterNavigate(() => {
+			const mobilePage = document.querySelector('.mobile-page')
+			if (mobilePage) {
+				mobilePage.scrollTo({ top: 0 })
+			}
+		})
+	})
 </script>
 
 <div class="flex overflow-hidden bg-light-100 font-sand-mobile-regular text-sm leading-[1]">
@@ -36,7 +47,9 @@
 		</div>
 	</nav>
 
-	<div class="h-[100dvh] min-w-[calc(100dvw-3.31rem)] overflow-x-hidden overflow-y-scroll">
+	<div
+		class="mobile-page h-[100dvh] min-w-[calc(100dvw-3.31rem)] overflow-x-hidden overflow-y-scroll"
+	>
 		{@render children()}
 	</div>
 </div>

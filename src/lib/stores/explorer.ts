@@ -34,77 +34,6 @@ const files: File[] = [
 				data: [
 					{
 						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'Brief.webp',
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc:
-							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715882609/challenges/direction-of-mind/BRIEF_zh8mps.webp',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'Challenge Material.webp',
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc:
-							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715883046/challenges/direction-of-mind/CHALLENGE_MATERIAL_skjd9o.webp',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'Cover.webp',
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc:
-							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715882611/challenges/direction-of-mind/COVER_io812u.webp',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'René Descartes Philosophical Essays and Correspondence.webp',
-						isMarquee: true,
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc:
-							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/rene-descartes-philosophical-essays-and-correspondence_aioyzn.webp',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'Teaser.gif',
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc: '/Teaser.gif',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label: 'Title.gif',
-						isOpen: false,
-						mediaType: 'img',
-						mediaSrc: '/Title.gif',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
-						type: 'file',
-						label:
-							'CHALLENGE MATERIAL René Descartes PhilosophicalEssays and Correspondence-Page-2-to-28.pdf',
-						isMarquee: true,
-						isOpen: false,
-						mediaType: 'pdf',
-						mediaSrc:
-							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880762/challenges/direction-of-mind/CHALLENGE-MATERIAL-Ren%C3%A9-Descartes-PhilosophicalEssays-and-Correspondence-Page-2-to-28_lvxa4g.pdf',
-						description: 'This is description.'
-					},
-					{
-						id: crypto.randomUUID(),
 						type: 'folder',
 						label: 'Submissions',
 						isOpen: false,
@@ -977,6 +906,77 @@ const files: File[] = [
 								]
 							}
 						]
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'Brief.webp',
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc:
+							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715882609/challenges/direction-of-mind/BRIEF_zh8mps.webp',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'Challenge Material.webp',
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc:
+							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715883046/challenges/direction-of-mind/CHALLENGE_MATERIAL_skjd9o.webp',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'Cover.webp',
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc:
+							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715882611/challenges/direction-of-mind/COVER_io812u.webp',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'René Descartes Philosophical Essays and Correspondence.webp',
+						isMarquee: true,
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc:
+							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880765/challenges/direction-of-mind/rene-descartes-philosophical-essays-and-correspondence_aioyzn.webp',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'Teaser.gif',
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc: '/Teaser.gif',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label: 'Title.gif',
+						isOpen: false,
+						mediaType: 'img',
+						mediaSrc: '/Title.gif',
+						description: 'This is description.'
+					},
+					{
+						id: crypto.randomUUID(),
+						type: 'file',
+						label:
+							'CHALLENGE MATERIAL René Descartes PhilosophicalEssays and Correspondence-Page-2-to-28.pdf',
+						isMarquee: true,
+						isOpen: false,
+						mediaType: 'pdf',
+						mediaSrc:
+							'https://res.cloudinary.com/dlhbpswom/image/upload/v1715880762/challenges/direction-of-mind/CHALLENGE-MATERIAL-Ren%C3%A9-Descartes-PhilosophicalEssays-and-Correspondence-Page-2-to-28_lvxa4g.pdf',
+						description: 'This is description.'
 					}
 				]
 			}

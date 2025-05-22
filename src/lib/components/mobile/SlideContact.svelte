@@ -24,7 +24,7 @@
 	const defaults = { ease: 'power4.inOut', duration: 1 }
 
 	let openTubeTl: any = $state()
-	let wrapperWidth: string = $state()
+	let wrapperWidth: string = $state('')
 	run(() => {
 		if (swiperIndex === 3 && browser) {
 			if (openTubeTl) {
