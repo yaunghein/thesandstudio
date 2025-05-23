@@ -19,16 +19,17 @@
 	})
 
 	const navLinks = [
-		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Home', href: '/mobile' },
+		{ icon: '/mobile/nav-icons/Home.png', label: 'Home', href: '/mobile' },
 		{ icon: '/mobile/nav-icons/Works.gif', label: 'Works', href: '/mobile/works' },
 		{ icon: '/mobile/nav-icons/Not Works.gif', label: 'Not Works', href: '/mobile/not-works' },
 		{ icon: '/mobile/nav-icons/Contact.gif', label: 'Contact', href: '/mobile/contact' },
 		{
-			icon: '/mobile/weather-icons/Blizzard.png',
+			icon: '/mobile/nav-icons/FATK.gif',
 			label: 'For All Thingskind',
 			href: '/mobile/for-all-thingskind'
 		},
-		{ icon: '/mobile/nav-icons/Explorer.png', label: 'Explorer', href: '/mobile/explorer' }
+		{ icon: '/mobile/nav-icons/Explorer.png', label: 'Explorer', href: '/mobile/explorer' },
+		{ icon: '/mobile/nav-icons/About.png', label: 'About', href: '/mobile/about' }
 	]
 
 	const toggleMode = () => {
