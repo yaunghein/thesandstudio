@@ -20,15 +20,15 @@
 
 	const navLinks = [
 		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Home', href: '/mobile' },
-		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Works', href: '/mobile/works' },
-		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Not Works', href: '/mobile/not-works' },
-		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Contact', href: '/mobile/contact' },
+		{ icon: '/mobile/nav-icons/Works.gif', label: 'Works', href: '/mobile/works' },
+		{ icon: '/mobile/nav-icons/Not Works.gif', label: 'Not Works', href: '/mobile/not-works' },
+		{ icon: '/mobile/nav-icons/Contact.gif', label: 'Contact', href: '/mobile/contact' },
 		{
 			icon: '/mobile/weather-icons/Blizzard.png',
 			label: 'For All Thingskind',
 			href: '/mobile/for-all-thingskind'
 		},
-		{ icon: '/mobile/weather-icons/Blizzard.png', label: 'Explorer', href: '/mobile/explorer' }
+		{ icon: '/mobile/nav-icons/Explorer.png', label: 'Explorer', href: '/mobile/explorer' }
 	]
 
 	const toggleMode = () => {
@@ -106,7 +106,7 @@
 						class="absolute left-1/2 top-1/2 aspect-square w-5 -translate-x-1/2 -translate-y-1/2"
 					>
 						<img
-							src="/mobile/weather-icons/Blizzard.png"
+							src="/mobile/nav-icons/Light.svg"
 							alt=""
 							class="h-full w-full object-cover dark:invert"
 						/>

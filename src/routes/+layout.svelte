@@ -55,7 +55,7 @@
 	}
 
 	onNavigate(async (navigation) => {
-		if (!document.startViewTransition) return
+		if (!document.startViewTransition || data.isMobile || window.innerWidth < 768) return
 		/**
 		 * adding timeline inside a setTimeout is kind of bad
 		 * but if i don't do this, by the time the timeline plays, clipPath In/Out variables(svelte states) are not ready
