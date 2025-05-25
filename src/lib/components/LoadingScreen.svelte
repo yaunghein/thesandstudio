@@ -225,7 +225,7 @@
 			)
 		}, 1000)
 		setTimeout(() => {
-			addShell({ id: 'launch-skit', zIndex: 65 })
+			// addShell({ id: 'launch-skit', zIndex: 65 })
 			document.querySelector('.loading_container')?.remove()
 			gsap.set('.loading_logo-container', { pointerEvents: 'all' })
 			gsap.set('#footer-wrapper', { zIndex: 56 })

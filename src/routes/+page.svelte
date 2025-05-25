@@ -61,7 +61,7 @@
 
 		if (!data.shouldShowLoadingScreen) {
 			gsap.set('#virtual-assistant', { zIndex: 56 })
-			addShell({ id: 'launch-skit', zIndex: 65 })
+			// addShell({ id: 'launch-skit', zIndex: 65 })
 		}
 
 		// this means codes below within onMount are for mobile

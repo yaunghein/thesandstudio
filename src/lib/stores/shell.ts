@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store'
+import { get, writable } from 'svelte/store'
 import type { Writable } from 'svelte/store'
 
 import type { File } from './finder'
@@ -18,11 +18,12 @@ export const OpenShells: Writable<OpenShells> = writable([])
 
 export const addShell = (shell: OpenShell) => {
 	OpenShells.update((shells) => {
-		const prevShells = shells.map((shell, index) => ({
-			...shell,
+		const filteredShells = shells.filter((s) => s.id !== shell.id)
+		const updatedShells = filteredShells.map((s, index) => ({
+			...s,
 			zIndex: 10 * (index + 1)
 		}))
-		return [...prevShells, shell]
+		return [...updatedShells, shell]
 	})
 }
 
