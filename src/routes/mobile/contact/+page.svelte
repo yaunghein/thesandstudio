@@ -173,7 +173,7 @@
 
 <section class="relative aspect-[4/3] w-full">
 	<img
-		src="/mobile/gifs/sand-dune-loop.gif"
+		src="/mobile/gifs/contact.gif"
 		alt="Sand Dune"
 		class="h-full w-full dark:opacity-25 dark:invert"
 	/>
