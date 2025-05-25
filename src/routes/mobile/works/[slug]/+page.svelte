@@ -100,7 +100,7 @@
 	<section class="mt-auto">
 		<a
 			href="/mobile/works/{data.next.slug}"
-			class="-mt-[2px] inline-block w-full border-t-[2px] border-light-4 p-4"
+			class="-mt-[2px] inline-block w-full border-t-[2px] border-light-4 p-4 dark:border-light-25"
 		>
 			<p class="mb-2 font-sand-mobile-bold text-[1.45rem]">Next Project</p>
 			<h1 class="font-sand-mobile-bold text-5xl leading-[0.75]">{data.next.name}</h1>
