@@ -1,6 +1,15 @@
 <script lang="ts">
 	import Weather from '$lib/components/mobile/Weather.svelte'
+	import MobileLoadingScreen from '$lib/components/mobile/LoadingScreen.svelte'
+
+	let { data } = $props()
+	const { shouldShowLoadingScreen } = data
+	console.log(shouldShowLoadingScreen)
 </script>
+
+{#if shouldShowLoadingScreen}
+	<MobileLoadingScreen />
+{/if}
 
 <section class="flex h-full flex-col p-3 pt-6">
 	<h1 class="font-sand-mobile-bold text-[43vw] leading-[0.55]">SAND</h1>

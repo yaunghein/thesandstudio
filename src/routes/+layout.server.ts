@@ -17,7 +17,7 @@ export const load = async (event) => {
 	}
 
 	const checkLoadingScreen = () => {
-		if (event.url.pathname === '/') {
+		if (event.url.pathname === '/' || event.url.pathname === '/mobile/') {
 			const showedLoadingScreen = event.cookies.get('sand-showed-loading-screen')
 			return showedLoadingScreen === 'yes' ? false : true
 		}
