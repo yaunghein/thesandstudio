@@ -163,7 +163,8 @@
 		;(async () => {
 			if (!browser) return
 			let coordinate = ''
-			if (selectedLocation === 'LOCAL') {
+			console.log(selectedLocation)
+			if (selectedLocation === 'Local') {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(async (position) => {
 						const latitude = position.coords.latitude
@@ -210,15 +211,15 @@
 				<div class="flex shrink-0 flex-col items-center justify-center gap-2">
 					<div class="relative aspect-square w-24">
 						{#if icon}
-							{#key icon}
-								<img
-									in:scale={{ delay: 300, duration: 300, start: 0.9 }}
-									out:scale={{ duration: 300, start: 0.9 }}
-									src={icon.image}
-									alt="Weather Icon"
-									class="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2 dark:invert"
-								/>
-							{/key}
+							<!-- {#key icon} -->
+							<img
+								in:scale={{ delay: 300, duration: 300, start: 0.9 }}
+								out:scale={{ duration: 300, start: 0.9 }}
+								src={icon.image}
+								alt="Weather Icon"
+								class="absolute left-1/2 top-1/2 aspect-square -translate-x-1/2 -translate-y-1/2 dark:invert"
+							/>
+							<!-- {/key} -->
 						{/if}
 					</div>
 					<div class="flex gap-1 font-sand-mobile-bold text-base leading-none">
@@ -297,21 +298,381 @@
 				{#each Object.keys(LOCATIONS) as location}
 					<button
 						onclick={() => (selectedLocation = location)}
-						class="flex items-center gap-2 leading-none"
+						class="flex items-center leading-none"
 					>
-						<div
+						<!-- <div
 							class={twm(
 								'relative h-5 w-5 shrink-0 border-[2px] border-light-4 dark:border-light-25',
 								selectedLocation === location ? 'bg-light-4 dark:bg-light-100' : 'bg-transparent'
 							)}
 						>
 							<NewPixelBorder />
-						</div>
+						</div> -->
+						{#if selectedLocation === location}
+							<div class="relative aspect-square w-6">
+								<svg
+									width="100%"
+									height="100%"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<rect x="4" y="13.0001" width="1" height="5" fill="black" />
+									<rect x="19" y="13.0001" width="1" height="5" fill="black" />
+									<rect x="4" y="6.00006" width="1" height="5" fill="black" />
+									<rect x="19" y="6.00006" width="1" height="5" fill="black" />
+									<rect x="3" y="11.0001" width="1" height="2" fill="black" />
+									<rect x="20" y="11.0001" width="1" height="2" fill="black" />
+									<rect
+										x="11"
+										y="4.00006"
+										width="1"
+										height="5"
+										transform="rotate(90 11 4.00006)"
+										fill="black"
+									/>
+									<rect
+										x="11"
+										y="19.0001"
+										width="1"
+										height="5"
+										transform="rotate(90 11 19.0001)"
+										fill="black"
+									/>
+									<rect
+										x="13"
+										y="3.00006"
+										width="1"
+										height="2"
+										transform="rotate(90 13 3.00006)"
+										fill="black"
+									/>
+									<rect
+										x="13"
+										y="20.0001"
+										width="1"
+										height="2"
+										transform="rotate(90 13 20.0001)"
+										fill="black"
+									/>
+									<rect
+										x="18"
+										y="4.00006"
+										width="1"
+										height="5"
+										transform="rotate(90 18 4.00006)"
+										fill="black"
+									/>
+									<rect
+										x="18"
+										y="19.0001"
+										width="1"
+										height="5"
+										transform="rotate(90 18 19.0001)"
+										fill="black"
+									/>
+									<rect x="5" y="5.00006" width="1" height="1" fill="black" />
+									<rect x="5" y="18.0001" width="1" height="1" fill="black" />
+									<rect
+										x="19"
+										y="5.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 19 5.00006)"
+										fill="black"
+									/>
+									<rect
+										x="19"
+										y="18.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 19 18.0001)"
+										fill="black"
+									/>
+									<rect
+										x="14"
+										y="16.0001"
+										width="1"
+										height="4"
+										transform="rotate(90 14 16.0001)"
+										fill="black"
+									/>
+									<rect
+										x="14"
+										y="7.00006"
+										width="1"
+										height="4"
+										transform="rotate(90 14 7.00006)"
+										fill="black"
+									/>
+									<rect
+										x="15"
+										y="8.00006"
+										width="1"
+										height="3"
+										transform="rotate(90 15 8.00006)"
+										fill="black"
+									/>
+									<rect
+										x="15"
+										y="15.0001"
+										width="1"
+										height="3"
+										transform="rotate(90 15 15.0001)"
+										fill="black"
+									/>
+									<rect
+										x="16"
+										y="9.00006"
+										width="3"
+										height="1"
+										transform="rotate(90 16 9.00006)"
+										fill="black"
+									/>
+									<rect
+										x="16"
+										y="12.0001"
+										width="3"
+										height="1"
+										transform="rotate(90 16 12.0001)"
+										fill="black"
+									/>
+									<rect
+										x="12"
+										y="8.00006"
+										width="1"
+										height="3"
+										transform="rotate(90 12 8.00006)"
+										fill="black"
+									/>
+									<rect
+										x="12"
+										y="15.0001"
+										width="1"
+										height="3"
+										transform="rotate(90 12 15.0001)"
+										fill="black"
+									/>
+									<rect
+										x="9"
+										y="9.00006"
+										width="3"
+										height="1"
+										transform="rotate(90 9 9.00006)"
+										fill="black"
+									/>
+									<rect
+										x="9"
+										y="12.0001"
+										width="3"
+										height="1"
+										transform="rotate(90 9 12.0001)"
+										fill="black"
+									/>
+									<rect
+										x="8"
+										y="10.0001"
+										width="4"
+										height="1"
+										transform="rotate(90 8 10.0001)"
+										fill="black"
+									/>
+									<rect
+										x="17"
+										y="10.0001"
+										width="4"
+										height="1"
+										transform="rotate(90 17 10.0001)"
+										fill="black"
+									/>
+									<rect x="9" y="9.00006" width="6" height="6" fill="black" />
+								</svg>
+							</div>
+						{:else}
+							<div class="relative aspect-square w-6">
+								<svg
+									width="100%"
+									height="100%"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<rect x="4" y="13.0001" width="1" height="5" fill="black" />
+									<rect x="19" y="13.0001" width="1" height="5" fill="black" />
+									<rect x="4" y="6.00006" width="1" height="5" fill="black" />
+									<rect x="19" y="6.00006" width="1" height="5" fill="black" />
+									<rect x="3" y="11.0001" width="1" height="2" fill="black" />
+									<rect x="20" y="11.0001" width="1" height="2" fill="black" />
+									<rect
+										x="11"
+										y="4.00006"
+										width="1"
+										height="5"
+										transform="rotate(90 11 4.00006)"
+										fill="black"
+									/>
+									<rect
+										x="11"
+										y="19.0001"
+										width="1"
+										height="5"
+										transform="rotate(90 11 19.0001)"
+										fill="black"
+									/>
+									<rect
+										x="13"
+										y="3.00006"
+										width="1"
+										height="2"
+										transform="rotate(90 13 3.00006)"
+										fill="black"
+									/>
+									<rect
+										x="13"
+										y="20.0001"
+										width="1"
+										height="2"
+										transform="rotate(90 13 20.0001)"
+										fill="black"
+									/>
+									<rect
+										x="18"
+										y="4.00006"
+										width="1"
+										height="5"
+										transform="rotate(90 18 4.00006)"
+										fill="black"
+									/>
+									<rect
+										x="18"
+										y="19.0001"
+										width="1"
+										height="5"
+										transform="rotate(90 18 19.0001)"
+										fill="black"
+									/>
+									<rect x="5" y="5.00006" width="1" height="1" fill="black" />
+									<rect x="5" y="18.0001" width="1" height="1" fill="black" />
+									<rect
+										x="19"
+										y="5.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 19 5.00006)"
+										fill="black"
+									/>
+									<rect
+										x="19"
+										y="18.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 19 18.0001)"
+										fill="black"
+									/>
+									<rect
+										x="14"
+										y="16.0001"
+										width="1"
+										height="4"
+										transform="rotate(90 14 16.0001)"
+										fill="black"
+									/>
+									<rect
+										x="14"
+										y="7.00006"
+										width="1"
+										height="4"
+										transform="rotate(90 14 7.00006)"
+										fill="black"
+									/>
+									<rect
+										x="15"
+										y="8.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 15 8.00006)"
+										fill="black"
+									/>
+									<rect
+										x="15"
+										y="15.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 15 15.0001)"
+										fill="black"
+									/>
+									<rect
+										x="16"
+										y="9.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 16 9.00006)"
+										fill="black"
+									/>
+									<rect
+										x="16"
+										y="14.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 16 14.0001)"
+										fill="black"
+									/>
+									<rect
+										x="10"
+										y="8.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 10 8.00006)"
+										fill="black"
+									/>
+									<rect
+										x="10"
+										y="15.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 10 15.0001)"
+										fill="black"
+									/>
+									<rect
+										x="9"
+										y="9.00006"
+										width="1"
+										height="1"
+										transform="rotate(90 9 9.00006)"
+										fill="black"
+									/>
+									<rect
+										x="9"
+										y="14.0001"
+										width="1"
+										height="1"
+										transform="rotate(90 9 14.0001)"
+										fill="black"
+									/>
+									<rect
+										x="8"
+										y="10.0001"
+										width="4"
+										height="1"
+										transform="rotate(90 8 10.0001)"
+										fill="black"
+									/>
+									<rect
+										x="17"
+										y="10.0001"
+										width="4"
+										height="1"
+										transform="rotate(90 17 10.0001)"
+										fill="black"
+									/>
+								</svg>
+							</div>
+						{/if}
 						<div
 							class={twm(
 								'sand-transition whitespace-nowrap text-base leading-none',
 								selectedLocation === location
-									? 'text-black dark:text-white'
+									? 'font-sand-mobile-bold text-black dark:text-white'
 									: 'text-light-80 hover:text-black dark:text-light-25 dark:hover:text-light-100'
 							)}
 						>
