@@ -5,6 +5,8 @@
 	import { preventDefault, createBubbler } from 'svelte/legacy'
 	const bubble = createBubbler()
 	import { twMerge as twm } from 'tailwind-merge'
+	import formateDate from '$lib/utils/formatDate'
+	import { PUBLIC_SAND_EMAIL } from '$env/static/public'
 
 	const initialFormInputs: FormInputs = {
 		name: '',
@@ -15,38 +17,37 @@
 	let formInputs = $state({ ...initialFormInputs })
 	let formErrors: any = $state()
 	let formState: 'idel' | 'locked' | 'sending' = $state('idel')
+	let hasServerError = $state(false)
 
 	const handleAttachmentChange = async (event: Event) => {
 		const input = event.target as HTMLInputElement
 		console.log('handleAttachmentChange', input.files)
 		if (!input.files) return
-		formInputs.attachments = input.files
-
-		input.value = ''
+		formInputs = { ...formInputs, attachments: input.files }
 	}
 
 	const submit = async () => {
-		const validatedInputs: any = formSchema.safeParse(formInputs)
-		if (!validatedInputs.success) {
-			formErrors = transformZodErrors(validatedInputs.error)
-			return
-		}
-
+		formState = 'sending'
 		const { name, email, message, attachments } = formInputs
+		const [date, time] = formateDate(new Date())
+		const generalData = { name, email, message, date, time }
+
 		const respSand = await fetch('/api/send-email', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				subject: `Website Form Submission: ${name}`,
 				sender: { name, email },
-				to: { name: 'The SAND Studio', email: 'yan@thesandstudio.com' }, // change to hi@
-				htmlContent: `<html><body><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
-				attachments: attachments ? await filesToBase64(attachments) : null
+				to: { name: 'The SAND Studio', email: PUBLIC_SAND_EMAIL },
+				attachments: attachments ? await filesToBase64(attachments) : null,
+				type: 'sand',
+				...generalData
 			})
 		})
 		if (!respSand.ok) {
 			const error = await respSand.json()
 			console.log({ error: error.message })
+			hasServerError = true
 			formState = 'idel'
 			return
 		}
@@ -55,18 +56,23 @@
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				subject: `The SAND Studio Received Your Message.`,
-				sender: { name: 'The SAND Studio', email: 'yan@thesandstudio.com' }, // change to hi@
+				subject: `Hi ${name.split(' ')[0]}, the SAND Studio Received Your Message.`,
+				sender: { name: 'The SAND Studio', email: PUBLIC_SAND_EMAIL },
 				to: { name, email },
-				htmlContent: `<html><body><div>Hi, ${name},</div><div>We received your message.</div><div>${name}</div><div>${email}</div><div>${message}</div></body></html>`,
-				attachments: attachments ? await filesToBase64(attachments) : null
+				attachments: attachments ? await filesToBase64(attachments) : null,
+				type: 'sender',
+				...generalData
 			})
 		})
 		if (!respSender.ok) {
 			const error = await respSender.json()
 			console.log({ error: error.message })
+			hasServerError = true
+			formState = 'idel'
 			return
 		}
+
+		formState = 'idel'
 	}
 </script>
 
@@ -183,7 +189,14 @@
 				{#if formInputs.attachments}
 					<button
 						aria-label="remove attachment"
-						onclick={() => (formInputs.attachments = null)}
+						onclick={() => {
+							formInputs.attachments = null
+							// clear input value
+							const zzz = document.getElementById('attachments') as HTMLInputElement
+							if (zzz) {
+								zzz.value = ''
+							}
+						}}
 						class="absolute left-0 top-0 h-20 w-24 bg-transparent"
 					></button>
 				{/if}
@@ -203,7 +216,9 @@
 				class="relative inline-block border-[2px] border-light-4 px-12 py-[0.58rem] font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 			>
 				<NewPixelBorder />
-				<div class="pt-[1px]">Send</div>
+				<div class="pt-[1px]">
+					{formState === 'sending' ? 'Sending...' : 'Send'}
+				</div>
 			</button>
 		</div>
 	</form>

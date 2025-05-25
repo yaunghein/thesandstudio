@@ -218,7 +218,14 @@
 									inType: 'remove-files',
 									outType: 'normal'
 								}}
-								onclick={() => (formInputs.attachments = null)}
+								onclick={() => {
+									formInputs.attachments = null
+									// clear input value
+									const zzz = document.getElementById('attachments') as HTMLInputElement
+									if (zzz) {
+										zzz.value = ''
+									}
+								}}
 								class="absolute left-0 top-0 h-20 w-24 bg-transparent"
 							></button>
 						{/if}
