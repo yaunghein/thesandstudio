@@ -163,7 +163,6 @@
 		;(async () => {
 			if (!browser) return
 			let coordinate = ''
-			console.log(selectedLocation)
 			if (selectedLocation === 'Local') {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(async (position) => {
@@ -309,7 +308,7 @@
 							<NewPixelBorder />
 						</div> -->
 						{#if selectedLocation === location}
-							<div class="relative aspect-square w-6">
+							<div class="relative aspect-square w-6 dark:invert">
 								<svg
 									width="100%"
 									height="100%"
@@ -489,7 +488,7 @@
 								</svg>
 							</div>
 						{:else}
-							<div class="relative aspect-square w-6">
+							<div class="relative aspect-square w-6 dark:invert">
 								<svg
 									width="100%"
 									height="100%"

@@ -1,5 +1,7 @@
 export const trailingSlash = 'always'
 
+import { redirect } from '@sveltejs/kit'
+
 export const load = async (event) => {
 	// const { getSession } = event.locals;
 
@@ -9,6 +11,10 @@ export const load = async (event) => {
 
 	const mobileRegex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 	const isMobile = mobileRegex.test(userAgent)
+
+	if (isMobile && !event.url.pathname.startsWith('/mobile')) {
+		throw redirect(302, `/mobile${event.url.pathname}`)
+	}
 
 	const checkLoadingScreen = () => {
 		if (event.url.pathname === '/') {
