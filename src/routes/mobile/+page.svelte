@@ -16,9 +16,15 @@
 </section>
 
 <section class="my-8 grid gap-4 px-3">
-	<a href="/" class="font-sand-mobile-bold text-lg leading-[0.65]">Privacy Policy</a>
-	<a href="/" class="font-sand-mobile-bold text-lg leading-[0.65]">Terms and Conditions</a>
-	<a href="/" class="font-sand-mobile-bold text-lg leading-[0.65]">Cookie Policy</a>
+	<a href="/mobile/privacy-policy" class="font-sand-mobile-bold text-lg leading-[0.65]">
+		Privacy Policy
+	</a>
+	<a href="/mobile/terms-and-conditions" class="font-sand-mobile-bold text-lg leading-[0.65]">
+		Terms and Conditions
+	</a>
+	<a href="/mobile/cookie-policy" class="font-sand-mobile-bold text-lg leading-[0.65]">
+		Cookie Policy
+	</a>
 </section>
 
 <section class="relative aspect-[4/3] w-full dark:invert">
