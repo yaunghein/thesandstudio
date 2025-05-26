@@ -36,13 +36,13 @@
 						</span>
 					</div>
 
-					<a
+					<!-- <a
 						href="https://greenpixie.com/sites/www-thesandstudio-com"
 						target="_black"
 						class="relative block origin-top-left scale-[0.7] rounded-full border-2 border-sand-green px-4 py-1 text-left font-sand-mobile-bold text-sand-green"
 					>
 						Calculate CO2 Emission
-					</a>
+					</a> -->
 				</div>
 			</div>
 		</div>
