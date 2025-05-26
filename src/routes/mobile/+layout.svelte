@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte'
 	import NewPixelBorder from '$lib/components/mobile/NewPixelBorder.svelte'
 	import { slide } from 'svelte/transition'
+	import clickOutside from '$lib/utils/clickOutside'
 
 	let { children } = $props()
 
@@ -57,6 +58,7 @@
 	<div
 		onclick={() => (isOpen = !isOpen)}
 		onkeydown={() => {}}
+		use:clickOutside={{ callback: () => (isOpen = false) }}
 		role="button"
 		tabindex="0"
 		aria-expanded={isOpen}

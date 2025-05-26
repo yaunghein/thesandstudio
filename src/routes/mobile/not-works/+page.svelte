@@ -27,14 +27,16 @@
 	</div>
 	<div class="mt-4 flex gap-4">
 		<a
-			href="/"
+			href="https://thesandstudio.webflow.io/typographic-challenge"
+			target="_blank"
 			class="relative inline-block border-[2px] border-light-4 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Brief
 			<NewPixelBorder />
 		</a>
 		<a
-			href="/"
+			href="https://thesandstudio.webflow.io/gallery"
+			target="_blank"
 			class="relative inline-block border-[2px] border-light-4 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Gallery
@@ -45,7 +47,7 @@
 
 <section class="relative aspect-[4/3] w-full">
 	<img
-		src="/mobile/gifs/not-works.gif"
+		src="/mobile/gifs/sand-dune-loop.gif"
 		alt="Sand Dune"
 		class="h-full w-full dark:opacity-25 dark:invert"
 	/>
@@ -53,12 +55,12 @@
 		<div
 			class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4 dark:bg-light-4 dark:text-light-100"
 		>
-			<span class="block max-w-[5.8rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
-				Make Shit with Us
+			<span class="block max-w-[7rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
+				What’s on your mind?
 			</span>
 		</div>
 		<a
-			href="/"
+			href="/mobile/contact"
 			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Let's Go

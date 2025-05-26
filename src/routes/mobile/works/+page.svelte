@@ -314,12 +314,12 @@
 		<div
 			class="bg-light-100 p-1 font-sand-mobile-bold text-base text-light-4 dark:bg-light-4 dark:text-light-100"
 		>
-			<span class="block max-w-[5.8rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
-				Make Shit with Us
+			<span class="block max-w-[7rem] translate-y-[0.07rem] text-3xl leading-[0.75]">
+				What’s on your mind?
 			</span>
 		</div>
 		<a
-			href="/"
+			href="/mobile/contact"
 			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
 			Let's Go
