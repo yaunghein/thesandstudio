@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+	import { page } from '$app/state'
 
 	onMount(async () => {
+		if (page.url.pathname.startsWith('/interiors')) return
+
 		var options = {
 			animate: true,
 			patternWidth: 500,
