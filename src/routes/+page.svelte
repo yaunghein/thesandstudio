@@ -329,13 +329,13 @@
 						</a>
 					</div>
 
-					<a
+					<!-- <a
 						href="https://greenpixie.com/sites/www-thesandstudio-com"
 						target="_black"
 						class="fade-up mt-16 block origin-top-left scale-[0.7] rounded-full border-2 border-sand-green px-4 py-3 text-left text-sand-green transition hover:bg-sand-green hover:text-light-10"
 					>
 						Calculate CO2 Emission
-					</a>
+					</a> -->
 				</div>
 
 				<div class="absolute right-12 top-12 z-[2] flex gap-5">
