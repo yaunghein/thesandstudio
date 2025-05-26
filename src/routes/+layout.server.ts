@@ -12,7 +12,13 @@ export const load = async (event) => {
 	const mobileRegex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 	const isMobile = mobileRegex.test(userAgent)
 
-	if (isMobile && !event.url.pathname.startsWith('/mobile')) {
+	// has some exclude path
+	const excludePath = ['/interiors']
+	if (
+		isMobile &&
+		!event.url.pathname.startsWith('/mobile') &&
+		!excludePath.includes(event.url.pathname)
+	) {
 		throw redirect(302, `/mobile${event.url.pathname}`)
 	}
 
