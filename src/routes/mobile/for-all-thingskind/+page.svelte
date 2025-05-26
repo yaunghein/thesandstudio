@@ -60,7 +60,7 @@
 			href="/mobile/contact"
 			class="relative mt-8 inline-block border-[2px] border-light-4 bg-light-100 px-4 py-2 font-sand-mobile-bold text-[1.45rem] leading-[0.65] dark:border-light-25 dark:bg-light-4"
 		>
-			Let's Go
+			Contact
 			<NewPixelBorder />
 		</a>
 	</div>
