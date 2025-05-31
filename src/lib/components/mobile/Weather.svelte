@@ -24,7 +24,7 @@
 			size: 100
 		},
 		'partly-cloudy': {
-			conditions: ['Partly cloudy'],
+			conditions: ['Partly Cloudy'],
 			image: '/mobile/weather-icons/Partly Cloudy.png',
 			size: 100
 		},
@@ -141,7 +141,9 @@
 	let icon = $derived(
 		ICONS[
 			Object.keys(ICONS).find((k) =>
-				ICONS[k].conditions.includes(weather?.current.condition.text)
+				ICONS[k].conditions.some((c) =>
+					c.toLocaleLowerCase().includes(weather?.current.condition.text.toLocaleLowerCase())
+				)
 			) as string
 		]
 	)
