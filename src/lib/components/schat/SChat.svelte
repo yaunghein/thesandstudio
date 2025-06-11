@@ -39,11 +39,11 @@
 	let messages: { role: TRole; content: string }[] = $state([])
 	let isAsking = $state(false)
 	let isSchatPolicyOpen = $state(false)
-	let input: HTMLInputElement = $state()
+	let input: HTMLInputElement | undefined = $state()
 
 	onMount(() => {
 		messages = [{ role: 'system', content: PUBLIC_SCHAT_INSTRUCTIONS }]
-		input.focus()
+		input?.focus()
 	})
 
 	run(() => {
@@ -92,7 +92,7 @@
 				...messages,
 				{
 					role: 'assistant',
-					content: `Error: ${reply.message}. Please contact to hi@thesandstudio.com for this error if you have some times.`
+					content: `Oops! Something didn't work as expected. If the issue persists, feel free to reach out to hi@thesandstudio.com for any inquiries or assistance.`
 				}
 			]
 			isAsking = false
@@ -101,7 +101,7 @@
 
 		messages = [...messages, { role: 'assistant', content: reply.content }]
 		isAsking = false
-		setTimeout(() => input.focus(), 0) // to put this task in the queue, so that when this line runs, the input will not disable
+		setTimeout(() => input?.focus(), 0) // to put this task in the queue, so that when this line runs, the input will not disable
 	}
 </script>
 
