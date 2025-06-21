@@ -1,0 +1,355 @@
+<script lang="ts">
+	import { onMount } from 'svelte'
+	import { twMerge as twm } from 'tailwind-merge'
+
+	let { data } = $props()
+
+	const projects = [
+		{
+			id: crypto.randomUUID(),
+			name: 'Creative Youth Centre',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-1.png',
+				mobile: '/interiors/placeholders/project-1.png'
+			},
+			desktop: {
+				layoutClasses: 'col-span-3'
+			},
+			mobile: {
+				layoutClasses: 'h-[9rem] col-span-3'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'The Ostel Hostel',
+			location: 'Bangkok, Thailand',
+			preview: {
+				desktop: '/interiors/placeholders/project-2.png',
+				mobile: '/interiors/placeholders/project-5.png'
+			},
+			desktop: {
+				layoutClasses: 'row-span-2'
+			},
+			mobile: {
+				layoutClasses: 'w-[9rem] aspect-square'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Unseen Battle PTSD Awareness Exhibition',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-3.png',
+				mobile: '/interiors/placeholders/project-3.png'
+			},
+			desktop: {
+				layoutClasses: 'col-span-2'
+			},
+			mobile: {
+				layoutClasses: 'w-[9rem] aspect-square'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Community Market',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-4.png',
+				mobile: '/interiors/placeholders/project-4.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: 'w-[9rem] aspect-square'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Yuki Mugi Bakery & Cafe',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-5.png',
+				mobile: '/interiors/placeholders/project-2.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: 'w-[9rem] row-span-2'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Factory Townhouse',
+			location: 'Bangkok, Thailand',
+			preview: {
+				desktop: '/interiors/placeholders/project-6.png',
+				mobile: '/interiors/placeholders/project-6.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Community Market',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-7.png',
+				mobile: '/interiors/placeholders/project-7.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-8.png',
+				mobile: '/interiors/placeholders/project-8.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'The Ostel Hostel',
+			location: 'Bangkok, Thailand',
+			preview: {
+				desktop: '/interiors/placeholders/project-2.png',
+				mobile: '/interiors/placeholders/project-2.png'
+			},
+			desktop: {
+				layoutClasses: 'row-span-2'
+			},
+			mobile: {
+				layoutClasses: 'row-span-2'
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-4.png',
+				mobile: '/interiors/placeholders/project-4.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-5.png',
+				mobile: '/interiors/placeholders/project-5.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-7.png',
+				mobile: '/interiors/placeholders/project-7.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-6.png',
+				mobile: '/interiors/placeholders/project-6.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-8.png',
+				mobile: '/interiors/placeholders/project-8.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			preview: {
+				desktop: '/interiors/placeholders/project-7.png',
+				mobile: '/interiors/placeholders/project-7.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		}
+	]
+
+	let projectsInView = $state(projects.slice(0, data.isMobile ? 4 : 8))
+
+	onMount(() => {
+		const handleResize = () => {
+			console.log('resize')
+			projectsInView = projects.slice(0, window.innerWidth < 768 ? 4 : 8)
+		}
+
+		window.addEventListener('resize', handleResize)
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	})
+
+	const getLayoutClasses = (index: number) => {
+		const classes = ['col-span-3', 'col-span-2', 'row-span-2']
+		return classes[Math.floor(Math.random() * classes.length)]
+	}
+</script>
+
+<div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
+	<div class="hide-scrollbar my-auto w-full overflow-x-auto px-5">
+		<div class="grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
+			{#each projects as project, i}
+				<div class={twm('relative overflow-hidden', project.mobile.layoutClasses)}>
+					<div class="absolute inset-0 h-full w-full">
+						<img
+							src={project.preview.mobile}
+							alt=""
+							class="h-full w-full object-cover mix-blend-multiply"
+						/>
+					</div>
+					<div class="absolute bottom-0 left-0">
+						{#if i + 1 < 10}
+							<span class="text-interior-brand">0{i + 1}</span>
+						{:else}
+							<span class="text-interior-brand">{i + 1}</span>
+						{/if}
+					</div>
+				</div>
+			{/each}
+			<!-- <div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">1</div>
+			<div class="col-span-2 grid h-40 place-items-center bg-white text-interior-brand">2</div>
+			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">3</div>
+			<div class="row-span-2 grid w-40 place-items-center bg-white text-interior-brand">4</div>
+			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">5</div>
+			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">6</div> -->
+		</div>
+	</div>
+	<section
+		class="sticky inset-0 top-auto grid w-full gap-1 border-t border-interior-brand bg-interior-light p-5"
+	>
+		{#each projectsInView as project, i}
+			<div class="flex items-start gap-3">
+				<h3 class="w-10 shrink-0">
+					{#if i + 1 < 10}
+						0{i + 1}
+					{:else}
+						{i + 1}
+					{/if}
+				</h3>
+				<div class="col-span-3">
+					<h3 class="">{project.name}</h3>
+				</div>
+			</div>
+		{/each}
+	</section>
+</div>
+
+<div class="hidden sm:block">
+	<section
+		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pt-[2rem]"
+	>
+		{#each projects as project, i}
+			<div
+				class={twm(
+					'relative h-full min-h-[25rem] w-full overflow-hidden',
+					project.desktop.layoutClasses
+				)}
+			>
+				<div class="absolute inset-0 h-full w-full">
+					<img
+						src={project.preview.desktop}
+						alt=""
+						class="h-full w-full object-cover mix-blend-multiply"
+					/>
+				</div>
+				<div class="absolute bottom-0 left-0">
+					{#if i + 1 < 10}
+						<span class="text-interior-brand">0{i + 1}</span>
+					{:else}
+						<span class="text-interior-brand">{i + 1}</span>
+					{/if}
+				</div>
+			</div>
+		{/each}
+	</section>
+
+	<section
+		class="sticky inset-0 top-auto grid w-full grid-cols-2 gap-x-[2rem] gap-y-[1.5rem] border-t border-interior-brand bg-interior-light p-[4rem]"
+	>
+		{#each projectsInView as project, i}
+			<div class="grid grid-cols-6 gap-x-[2rem] gap-y-0">
+				<h3 class="">
+					{#if i + 1 < 10}
+						0{i + 1}
+					{:else}
+						{i + 1}
+					{/if}
+				</h3>
+				<div class="col-span-3">
+					<h3 class="">{project.name}</h3>
+				</div>
+				<div class="col-span-2">
+					<p class="">{project.location}</p>
+				</div>
+			</div>
+		{/each}
+	</section>
+</div>

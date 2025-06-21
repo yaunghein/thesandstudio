@@ -40,7 +40,9 @@ export default {
 				'sand-red': '#F84A49',
 				'sand-blue': '#001AFF',
 				'sand-yellow': '#FFB800',
-				'sand-green': '#66E5B0'
+				'sand-green': '#66E5B0',
+				'interior-brand': '#864235',
+				'interior-light': '#F6F6EA'
 			},
 			width: {
 				'shell-desktop': '81.2rem',
