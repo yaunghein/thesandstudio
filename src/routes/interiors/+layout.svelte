@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte'
 	import Navbar from '$lib/interiors/components/Navbar.svelte'
 
-	const { children } = $props()
+	const { children, data } = $props()
 
 	onMount(() => {
 		document.documentElement.classList.add('bg-interior-light')
@@ -13,7 +13,7 @@
 	})
 </script>
 
-<Navbar />
+<Navbar isInteriorsContactPage={data.isInteriorsContactPage} />
 
 <main class="bg-interior-light text-sm text-interior-brand sm:text-[1.57rem]">
 	<!-- filler for fixed navbar -->
@@ -35,7 +35,7 @@
 	{/each}
 </div> -->
 
-<div class="pointer-events-none fixed inset-0 z-50 mx-5 flex gap-4">
+<!-- <div class="pointer-events-none fixed inset-0 z-50 mx-5 flex gap-4">
 	{#each { length: 2 } as _}
 		<div class="h-full flex-1 shrink-0 bg-red-500/10"></div>
 	{/each}
@@ -44,4 +44,4 @@
 	{#each { length: 10 } as _}
 		<div class="h-full flex-1 shrink-0 bg-red-500/10"></div>
 	{/each}
-</div>
+</div> -->
