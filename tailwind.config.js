@@ -11,7 +11,8 @@ export default {
 			'sand-bold': ['NeueHaasDisplay-Bold', ...defaultTheme.fontFamily.sans],
 			'sand-black': ['NeueHaasDisplay-Black', ...defaultTheme.fontFamily.sans],
 			'sand-mobile-regular': ['NeueBit', ...defaultTheme.fontFamily.sans],
-			'sand-mobile-bold': ['NeueBit-Bold', ...defaultTheme.fontFamily.sans]
+			'sand-mobile-bold': ['NeueBit-Bold', ...defaultTheme.fontFamily.sans],
+			'sand-interior-regular': ['ApocLC-Regular', ...defaultTheme.fontFamily.sans]
 		},
 		borderWidth: {
 			DEFAULT: '1px',

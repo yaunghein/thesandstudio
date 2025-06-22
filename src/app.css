@@ -10,6 +10,13 @@
 }
 
 @font-face {
+	font-family: 'ApocLC-Regular';
+	src: url('/fonts/ApocLC-Regular.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'NeueHaasDisplay-Medium';
 	src: url('/fonts/NeueHaasDisplayMedium.ttf');
 	font-weight: medium;
@@ -95,6 +102,10 @@ input[type='number'] {
 
 .sand-transition {
 	@apply transition-all duration-300 ease-out;
+}
+
+.interior-transition {
+	@apply transition-all duration-1000 ease-in-out;
 }
 
 .transparent-layer {

@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
+	import { slugify } from '$lib/utils/slugify'
 
 	let { data } = $props()
 
 	const projects = [
 		{
-			id: crypto.randomUUID(),
 			name: 'Creative Youth Centre',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Creative Youth Centre'),
 			preview: {
 				desktop: '/interiors/placeholders/project-1.png',
 				mobile: '/interiors/placeholders/project-1.png'
@@ -21,9 +22,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'The Ostel Hostel',
 			location: 'Bangkok, Thailand',
+			slug: slugify('The Ostel Hostel'),
 			preview: {
 				desktop: '/interiors/placeholders/project-2.png',
 				mobile: '/interiors/placeholders/project-5.png'
@@ -36,9 +37,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Unseen Battle PTSD Awareness Exhibition',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Unseen Battle PTSD Awareness Exhibition'),
 			preview: {
 				desktop: '/interiors/placeholders/project-3.png',
 				mobile: '/interiors/placeholders/project-3.png'
@@ -51,9 +52,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Community Market',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Community Market'),
 			preview: {
 				desktop: '/interiors/placeholders/project-4.png',
 				mobile: '/interiors/placeholders/project-4.png'
@@ -66,9 +67,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Yuki Mugi Bakery & Cafe',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Yuki Mugi Bakery & Cafe'),
 			preview: {
 				desktop: '/interiors/placeholders/project-5.png',
 				mobile: '/interiors/placeholders/project-2.png'
@@ -81,9 +82,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Factory Townhouse',
 			location: 'Bangkok, Thailand',
+			slug: slugify('Factory Townhouse'),
 			preview: {
 				desktop: '/interiors/placeholders/project-6.png',
 				mobile: '/interiors/placeholders/project-6.png'
@@ -96,9 +97,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Community Market',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Community Market'),
 			preview: {
 				desktop: '/interiors/placeholders/project-7.png',
 				mobile: '/interiors/placeholders/project-7.png'
@@ -111,39 +112,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
-			preview: {
-				desktop: '/interiors/placeholders/project-8.png',
-				mobile: '/interiors/placeholders/project-8.png'
-			},
-			desktop: {
-				layoutClasses: ''
-			},
-			mobile: {
-				layoutClasses: ''
-			}
-		},
-		{
-			id: crypto.randomUUID(),
-			name: 'The Ostel Hostel',
-			location: 'Bangkok, Thailand',
-			preview: {
-				desktop: '/interiors/placeholders/project-2.png',
-				mobile: '/interiors/placeholders/project-2.png'
-			},
-			desktop: {
-				layoutClasses: 'row-span-2'
-			},
-			mobile: {
-				layoutClasses: 'row-span-2'
-			}
-		},
-		{
-			id: crypto.randomUUID(),
-			name: 'Another Club',
-			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
 				desktop: '/interiors/placeholders/project-4.png',
 				mobile: '/interiors/placeholders/project-4.png'
@@ -156,9 +127,24 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
+			name: 'The Ostel Hostel',
+			location: 'Bangkok, Thailand',
+			slug: slugify('The Ostel Hostel'),
+			preview: {
+				desktop: '/interiors/placeholders/project-2.png',
+				mobile: '/interiors/placeholders/project-2.png'
+			},
+			desktop: {
+				layoutClasses: 'row-span-2'
+			},
+			mobile: {
+				layoutClasses: 'row-span-2'
+			}
+		},
+		{
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
 				desktop: '/interiors/placeholders/project-5.png',
 				mobile: '/interiors/placeholders/project-5.png'
@@ -171,9 +157,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
 				desktop: '/interiors/placeholders/project-7.png',
 				mobile: '/interiors/placeholders/project-7.png'
@@ -186,9 +172,9 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
 				desktop: '/interiors/placeholders/project-6.png',
 				mobile: '/interiors/placeholders/project-6.png'
@@ -201,12 +187,12 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
-				desktop: '/interiors/placeholders/project-8.png',
-				mobile: '/interiors/placeholders/project-8.png'
+				desktop: '/interiors/placeholders/project-7.png',
+				mobile: '/interiors/placeholders/project-7.png'
 			},
 			desktop: {
 				layoutClasses: ''
@@ -216,9 +202,24 @@
 			}
 		},
 		{
-			id: crypto.randomUUID(),
 			name: 'Another Club',
 			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
+			preview: {
+				desktop: '/interiors/placeholders/project-6.png',
+				mobile: '/interiors/placeholders/project-6.png'
+			},
+			desktop: {
+				layoutClasses: ''
+			},
+			mobile: {
+				layoutClasses: ''
+			}
+		},
+		{
+			name: 'Another Club',
+			location: 'Yangon, Myanmar',
+			slug: slugify('Another Club'),
 			preview: {
 				desktop: '/interiors/placeholders/project-7.png',
 				mobile: '/interiors/placeholders/project-7.png'
@@ -257,7 +258,10 @@
 	<div class="hide-scrollbar my-auto w-full overflow-x-auto px-5">
 		<div class="grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
 			{#each projects as project, i}
-				<div class={twm('relative overflow-hidden', project.mobile.layoutClasses)}>
+				<a
+					href="/interiors/projects/{project.slug}"
+					class={twm('relative overflow-hidden', project.mobile.layoutClasses)}
+				>
 					<div class="absolute inset-0 h-full w-full">
 						<img
 							src={project.preview.mobile}
@@ -272,7 +276,7 @@
 							<span class="text-interior-brand">{i + 1}</span>
 						{/if}
 					</div>
-				</div>
+				</a>
 			{/each}
 			<!-- <div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">1</div>
 			<div class="col-span-2 grid h-40 place-items-center bg-white text-interior-brand">2</div>
@@ -286,7 +290,7 @@
 		class="sticky inset-0 top-auto grid w-full gap-1 border-t border-interior-brand bg-interior-light p-5"
 	>
 		{#each projectsInView as project, i}
-			<div class="flex items-start gap-3">
+			<a href="/interiors/projects/{project.slug}" class="flex items-start gap-3">
 				<h3 class="w-10 shrink-0">
 					{#if i + 1 < 10}
 						0{i + 1}
@@ -297,7 +301,7 @@
 				<div class="col-span-3">
 					<h3 class="">{project.name}</h3>
 				</div>
-			</div>
+			</a>
 		{/each}
 	</section>
 </div>
@@ -307,7 +311,8 @@
 		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pt-[2rem]"
 	>
 		{#each projects as project, i}
-			<div
+			<a
+				href="/interiors/projects/{project.slug}"
 				class={twm(
 					'relative h-full min-h-[25rem] w-full overflow-hidden',
 					project.desktop.layoutClasses
@@ -327,7 +332,7 @@
 						<span class="text-interior-brand">{i + 1}</span>
 					{/if}
 				</div>
-			</div>
+			</a>
 		{/each}
 	</section>
 
@@ -335,7 +340,7 @@
 		class="sticky inset-0 top-auto grid w-full grid-cols-2 gap-x-[2rem] gap-y-[1.5rem] border-t border-interior-brand bg-interior-light p-[4rem]"
 	>
 		{#each projectsInView as project, i}
-			<div class="grid grid-cols-6 gap-x-[2rem] gap-y-0">
+			<a href="/interiors/projects/{project.slug}" class="grid grid-cols-6 gap-x-[2rem] gap-y-0">
 				<h3 class="">
 					{#if i + 1 < 10}
 						0{i + 1}
@@ -349,7 +354,7 @@
 				<div class="col-span-2">
 					<p class="">{project.location}</p>
 				</div>
-			</div>
+			</a>
 		{/each}
 	</section>
 </div>
