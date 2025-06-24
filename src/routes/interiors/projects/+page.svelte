@@ -254,7 +254,10 @@
 	}
 </script>
 
-<div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
+<!-- filler for fixed navbar -->
+<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+
+<section class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
 	<div class="hide-scrollbar my-auto w-full overflow-x-auto px-5">
 		<div class="grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
 			{#each projects as project, i}
@@ -304,7 +307,7 @@
 			</a>
 		{/each}
 	</section>
-</div>
+</section>
 
 <div class="hidden sm:block">
 	<section

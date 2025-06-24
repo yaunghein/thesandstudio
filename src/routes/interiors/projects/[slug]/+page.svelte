@@ -102,7 +102,10 @@
 	let isMobileOpen = $state(false)
 </script>
 
-<div
+<!-- filler for fixed navbar -->
+<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+
+<section
 	class={twm(
 		'interior-transition sm:h-[calc(100dvh-11.5rem)]',
 		isOpen ? '-translate-y-full' : '',
@@ -127,11 +130,11 @@
 			</div>
 		{/each}
 	</div>
-</div>
+</section>
 
-<div
+<section
 	class={twm(
-		'interior-transition fixed inset-0 z-50 hidden h-[24rem] w-full sm:block',
+		'interior-transition fixed inset-0 z-20 hidden h-[24rem] w-full sm:block',
 		isOpen ? 'top-[13.5rem]' : 'top-[calc(100dvh-24rem)]'
 	)}
 >
@@ -146,7 +149,7 @@
 		<div class="flex w-full flex-col justify-between">
 			<h1
 				class={twm(
-					'font-sand-interior-regular interior-transition',
+					'interior-transition font-sand-interior-regular',
 					isOpen ? 'text-[2.9rem] leading-none' : 'text-[6.5rem] leading-none'
 				)}
 			>
@@ -208,11 +211,11 @@
 			</div>
 		{/each}
 	</div>
-</div>
+</section>
 
-<div
+<section
 	class={twm(
-		'interior-transition fixed inset-0 z-50 w-full bg-interior-light text-sm sm:hidden',
+		'interior-transition fixed inset-0 z-20 w-full bg-interior-light text-sm sm:hidden',
 		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11'
 	)}
 >
@@ -247,7 +250,7 @@
 			</div>
 		{/each}
 	</div>
-</div>
+</section>
 
 {#snippet learnMoreIcon()}
 	<div class="aspect-square h-[1.6rem]">
@@ -272,7 +275,7 @@
 			<g mask="url(#mask0_705_783)">
 				<path
 					d="M7.49967 13.6668V8.50016H2.33301V7.50016H7.49967V2.3335H8.49967V7.50016H13.6663V8.50016H8.49967V13.6668H7.49967Z"
-					fill="#1C1B1F"
+					fill="currentColor"
 				/>
 			</g>
 		</svg>
@@ -302,7 +305,7 @@
 			<g mask="url(#mask0_700_500)">
 				<path
 					d="M12.6668 12.3331V9.9998C12.6668 9.40147 12.4553 8.8908 12.0322 8.4678C11.6092 8.04469 11.0985 7.83313 10.5002 7.83313H4.24883L6.8155 10.3998L6.10266 11.1023L2.3335 7.33313L6.10266 3.56396L6.8155 4.26647L4.24883 6.83313H10.5002C11.3754 6.83313 12.1219 7.14213 12.7398 7.76013C13.3578 8.37802 13.6668 9.12458 13.6668 9.9998V12.3331H12.6668Z"
-					fill="#1C1B1F"
+					fill="currentColor"
 				/>
 			</g>
 		</svg>

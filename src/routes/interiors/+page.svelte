@@ -36,6 +36,9 @@
 	]
 </script>
 
+<!-- filler for fixed navbar -->
+<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+
 <section class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]">
 	<div
 		class="mb-6 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
@@ -49,7 +52,7 @@
 	</div>
 
 	<div
-		class="hide-scrollbar my-auto flex gap-[4.5rem] overflow-x-scroll px-5 sm:gap-x-[10rem] sm:px-[4rem]"
+		class="hide-scrollbar my-auto flex gap-[4.5rem] overflow-x-scroll px-5 sm:hidden sm:gap-x-[10rem] sm:px-[4rem]"
 	>
 		{#each images as image}
 			<div class="flex shrink-0">

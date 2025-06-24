@@ -16,8 +16,6 @@
 <Navbar isInteriorsContactPage={data.isInteriorsContactPage} />
 
 <main class="bg-interior-light text-sm text-interior-brand sm:text-[1.57rem]">
-	<!-- filler for fixed navbar -->
-	<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 	{@render children()}
 </main>
 
