@@ -2,12 +2,6 @@
 	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
 
-	onMount(() => {
-		window.addEventListener('mousemove', () => {
-			console.log('lol')
-		})
-	})
-
 	const images = [
 		{
 			path: '/interiors/placeholders/cyc-1.jpg',
@@ -20,26 +14,250 @@
 		{
 			path: '/interiors/placeholders/cyc-3.jpg',
 			layoutClasses: 'w-[14.25rem] sm:w-[47rem] aspect-[1/0.75] self-start'
-		},
-		{
-			path: '/interiors/placeholders/cyc-1.jpg',
-			layoutClasses: 'w-[12.38rem] sm:w-[42rem] aspect-[1/1.33]'
-		},
-		{
-			path: '/interiors/placeholders/cyc-2.jpg',
-			layoutClasses: 'w-[14.92rem] sm:w-[49rem] aspect-[1/0.75] self-end'
-		},
-		{
-			path: '/interiors/placeholders/cyc-3.jpg',
-			layoutClasses: 'w-[14.25rem] sm:w-[47rem] aspect-[1/0.75] self-start'
 		}
+		// {
+		// 	path: '/interiors/placeholders/cyc-4.jpg',
+		// 	layoutClasses: 'w-full sm:w-[49.75rem] aspect-[1/0.72]'
+		// },
+		// {
+		// 	path: '/interiors/placeholders/cyc-5.png',
+		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-[1/0.97]'
+		// },
+		// {
+		// 	path: '/interiors/placeholders/cyc-6.png',
+		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-square place-self-end self-center'
+		// },
+		// {
+		// 	path: '/interiors/placeholders/cyc-7.png',
+		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-[1/1.28]'
+		// }
 	]
+
+	const trailingImages = (container: HTMLElement) => {
+		const config = {
+			imageCount: 35,
+			imageLifeSpan: 750,
+			removalDelay: 50,
+			mouseThreshold: 100,
+			scrollThreshold: 50,
+			idelCursorInterval: 300,
+			inDuration: 750,
+			outDuration: 1000,
+			inEasing: 'cubic-bezier(0.07, 0.5, 0.5, 1)',
+			outEasing: 'cubic-bezier(0.87, 0, 0.13, 1)'
+		}
+		const trail: {
+			element: HTMLImageElement
+			rotation: number
+			removalTime: number
+		}[] = []
+
+		let mouseX: number, mouseY: number, lastMouseX: number, lastMouseY: number
+		let isMoving = false
+		let isCursorInContainer = false
+		let lastRemovalTime = 0
+		let lastSteadyImageTime = 0
+		let lastScrollTime = 0
+		let isScrolling = false
+		let scrollTicking = false
+
+		const isInContainer = (x: number, y: number) => {
+			const rect = container.getBoundingClientRect()
+			return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom
+		}
+
+		const setInitialMousePosition = (e: MouseEvent) => {
+			mouseX = e.clientX
+			mouseY = e.clientY
+			lastMouseX = mouseX
+			lastMouseY = mouseY
+			isCursorInContainer = isInContainer(mouseX, mouseY)
+			document.removeEventListener('mouseover', setInitialMousePosition, false)
+		}
+		document.addEventListener('mouseover', setInitialMousePosition, false)
+
+		const hasMoveEnough = () => {
+			const distance = Math.sqrt(
+				Math.pow(mouseX - lastMouseX, 2) + Math.pow(mouseY - lastMouseY, 2)
+			)
+			return distance > config.mouseThreshold
+		}
+
+		const createTrailImage = () => {
+			if (!isCursorInContainer) return
+
+			const now = Date.now()
+
+			if (isMoving && hasMoveEnough()) {
+				lastMouseX = mouseX
+				lastMouseY = mouseY
+				createImage()
+				return
+			}
+
+			// if (!isMoving && now - lastSteadyImageTime >= config.idelCursorInterval) {
+			// 	lastSteadyImageTime = now
+			// 	createImage()
+			// }
+		}
+
+		const createImage = () => {
+			const img = document.createElement('img')
+			const randomIndex = Math.floor(Math.random() * images.length)
+			const selectedImage = images[randomIndex]
+			const rotation = (Math.random() * -0.5) / 50
+
+			img.src = selectedImage.path
+
+			img.classList.add(
+				'absolute',
+				'origin-center',
+				'object-cover',
+				'will-change-transform',
+				'pointer-events-none'
+			)
+			if (selectedImage.layoutClasses) {
+				selectedImage.layoutClasses.split(' ').forEach((cls) => {
+					if (cls.trim()) img.classList.add(cls)
+				})
+			}
+
+			const rect = container.getBoundingClientRect()
+			const relativeX = mouseX - rect.left
+			const relativeY = mouseY - rect.top
+
+			img.style.left = `${relativeX}px`
+			img.style.top = `${relativeY}px`
+			img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(0)`
+			img.style.transition = `transform ${config.inDuration}ms ${config.inEasing}`
+
+			container.appendChild(img)
+
+			setTimeout(() => {
+				img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(1)`
+			}, 10)
+
+			trail.push({
+				element: img,
+				rotation,
+				removalTime: Date.now() + config.imageLifeSpan
+			})
+		}
+
+		const createScollTrailImage = () => {
+			if (!isCursorInContainer) return
+
+			lastMouseX += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1)
+			lastMouseY += (config.mouseThreshold + 10) * (Math.random() > 0.5 ? 1 : -1)
+
+			createImage()
+
+			lastMouseX = mouseX
+			lastMouseY = mouseY
+		}
+
+		const removeOldImage = () => {
+			const now = Date.now()
+			if (now - lastRemovalTime < config.removalDelay || trail.length === 0) {
+				return
+			}
+
+			const oldestImage = trail[0]
+			if (now >= oldestImage.removalTime) {
+				const imageToRemove = trail.shift()
+				if (imageToRemove) {
+					imageToRemove.element.style.transition = `transform ${config.outDuration}ms ${config.outEasing}`
+					imageToRemove.element.style.transform = `translate(-50%, -50%) rotate(${imageToRemove.rotation}deg) scale(0)`
+					lastRemovalTime = now
+
+					setTimeout(() => {
+						if (imageToRemove.element.parentElement) {
+							imageToRemove.element.parentElement.removeChild(imageToRemove.element)
+						}
+					}, config.outDuration)
+				}
+			}
+		}
+
+		const handleMouseMove = (e: MouseEvent) => {
+			mouseX = e.clientX
+			mouseY = e.clientY
+			isCursorInContainer = isInContainer(mouseX, mouseY)
+			if (isCursorInContainer) {
+				isMoving = true
+				// @ts-ignore
+				clearTimeout(window.moveTimeout)
+				// @ts-ignore
+				window.moveTimeout = setTimeout(() => {
+					isMoving = false
+				}, 100)
+			}
+		}
+		document.addEventListener('mousemove', handleMouseMove, false)
+
+		const handleScroll = () => {
+			isCursorInContainer = isInContainer(mouseX, mouseY)
+			if (isCursorInContainer) {
+				isMoving = true
+				lastMouseX += (Math.random() - 50) * 10
+				// @ts-ignore
+				clearTimeout(window.scrollTimeout)
+				// @ts-ignore
+				window.scrollTimeout = setTimeout(() => {
+					isMoving = false
+				}, 100)
+			}
+		}
+		document.addEventListener('scroll', handleScroll, false)
+
+		window.addEventListener(
+			'scroll',
+			() => {
+				const now = Date.now()
+				isScrolling = true
+
+				if (now - lastScrollTime < config.scrollThreshold) {
+					return
+				}
+
+				lastScrollTime = now
+
+				if (!scrollTicking) {
+					requestAnimationFrame(() => {
+						if (isScrolling) {
+							isScrolling = false
+							createScollTrailImage()
+						}
+						scrollTicking = false
+					})
+					scrollTicking = true
+				}
+			},
+			{ passive: false }
+		)
+		const animate = () => {
+			createTrailImage()
+			removeOldImage()
+			requestAnimationFrame(animate)
+		}
+		animate()
+
+		return {
+			destroy() {
+				document.removeEventListener('mousemove', handleMouseMove, false)
+				document.removeEventListener('scroll', handleScroll, false)
+			}
+		}
+	}
 </script>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 
-<section class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]">
+<section
+	use:trailingImages
+	class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]"
+>
 	<div
 		class="mb-6 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
 	>
