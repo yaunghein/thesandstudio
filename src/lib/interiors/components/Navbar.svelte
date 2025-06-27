@@ -24,7 +24,8 @@
 
 <header
 	class={twm(
-		'fixed top-0 z-40 flex h-[3.6rem] w-full items-center justify-center text-interior-brand transition sm:h-[11.5rem]'
+		'fixed top-0 flex h-[3.6rem] w-full items-center justify-center text-interior-brand transition sm:h-[11.5rem]',
+		isOpen ? 'z-[51]' : 'z-40'
 	)}
 >
 	<div class="mx-4 flex w-full items-center justify-between sm:mx-[3rem]">
@@ -62,7 +63,10 @@
 
 {#if isOpen}
 	<div
-		class="fixed inset-0 top-0 z-30 flex h-[100dvh] flex-col items-end bg-black leading-[1.5] text-white"
+		class={twm(
+			'fixed inset-0 top-0 z-20 flex h-[100dvh] flex-col items-end bg-black leading-[1.5] text-white',
+			isOpen ? 'z-50' : 'z-20'
+		)}
 	>
 		<!-- filler for fixed navbar -->
 		<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
@@ -74,6 +78,30 @@
 					{link.label}
 				</a>
 			{/each}
+		</div>
+
+		<div
+			class="grid w-full grid-cols-2 items-center justify-between gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:flex sm:px-[4rem] sm:py-[4.25rem]"
+		>
+			<div class="flex items-start gap-6">
+				<a
+					href="tel:+66614464660"
+					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+				>
+					IG
+				</a>
+				<a
+					href="mailto:hnin@thesandstudio.com"
+					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+				>
+					LINE
+				</a>
+			</div>
+			<div class="">
+				<div class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]">
+					Visit the Sand Studio
+				</div>
+			</div>
 		</div>
 	</div>
 {/if}

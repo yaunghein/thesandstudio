@@ -30,10 +30,13 @@ export const load = async (event) => {
 		return false
 	}
 
+	const isInteriors = event.url.pathname.startsWith('/interiors')
+
 	return {
 		// session: await getSession(),
 		isMac,
 		isMobile,
-		shouldShowLoadingScreen: checkLoadingScreen()
+		shouldShowLoadingScreen: checkLoadingScreen(),
+		isInteriors
 	}
 }

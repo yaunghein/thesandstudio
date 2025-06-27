@@ -18,7 +18,8 @@ export const load = async ({ fetch, data, depends }) => {
 	const isMac = data.isMac
 	const isMobile = data.isMobile
 	const shouldShowLoadingScreen = data.shouldShowLoadingScreen
+	const isInteriors = data.isInteriors
 
 	// return { supabase, session, isMac, isMobile };
-	return { isMac, isMobile, shouldShowLoadingScreen }
+	return { isMac, isMobile, shouldShowLoadingScreen, isInteriors }
 }

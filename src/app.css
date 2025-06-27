@@ -224,3 +224,7 @@ input:-webkit-autofill:active {
 .simplebar-horizontal {
 	opacity: 0 !important;
 }
+
+.swiper-free-mode > .swiper-wrapper {
+	transition-timing-function: linear;
+}

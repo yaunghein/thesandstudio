@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
+	import Swiper from 'swiper'
+	import { Autoplay, FreeMode } from 'swiper/modules'
 
 	const images = [
 		{
@@ -249,6 +250,28 @@
 			}
 		}
 	}
+
+	const slider = (node: HTMLElement) => {
+		Swiper.use([Autoplay, FreeMode])
+
+		const swiper = new Swiper(node, {
+			spaceBetween: 20,
+			speed: 5000,
+			freeMode: true,
+			loop: true,
+			slidesPerView: 'auto',
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false
+			}
+		})
+
+		return {
+			destroy() {
+				swiper.destroy()
+			}
+		}
+	}
 </script>
 
 <!-- filler for fixed navbar -->
@@ -269,16 +292,16 @@
 		</p>
 	</div>
 
-	<div
-		class="hide-scrollbar my-auto flex gap-[4.5rem] overflow-x-scroll px-5 sm:hidden sm:gap-x-[10rem] sm:px-[4rem]"
-	>
-		{#each images as image}
-			<div class="flex shrink-0">
-				<div class={twm('shrink-0', image.layoutClasses)}>
-					<img src={image.path} alt="" class="h-full w-full object-cover" />
+	<div use:slider class="my-auto overflow-hidden px-5 sm:hidden sm:px-[4rem]">
+		<div class="swiper-wrapper flex">
+			{#each images as image}
+				<div class="swiper-slide flex shrink-0">
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt="" class="h-full w-full object-cover" />
+					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
 
 	<div class="hidden aspect-[1/0.1] w-full p-[4rem] sm:block">

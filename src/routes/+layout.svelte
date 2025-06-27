@@ -119,9 +119,13 @@
 	})
 </script>
 
-<div id="iris-container" style="clip-path: circle(150% at 50% 100%); display: block;">
+{#if !data.isInteriors}
+	<div id="iris-container" style="clip-path: circle(150% at 50% 100%); display: block;">
+		{@render children?.()}
+	</div>
+{:else}
 	{@render children?.()}
-</div>
+{/if}
 
 {#if !data.isMobile}
 	<Cursor />

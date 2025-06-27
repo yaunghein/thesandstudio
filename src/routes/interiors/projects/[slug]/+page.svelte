@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition'
 	import { twMerge as twm } from 'tailwind-merge'
+	import Swiper from 'swiper'
+	import { Autoplay, FreeMode } from 'swiper/modules'
 
 	const images = [
 		{
@@ -100,6 +102,36 @@
 
 	let isOpen = $state(false)
 	let isMobileOpen = $state(false)
+
+	$effect(() => {
+		if (isMobileOpen || isOpen) {
+			document.getElementById('details')?.scrollTo({
+				top: 0
+			})
+		}
+	})
+
+	const slider = (node: HTMLElement) => {
+		Swiper.use([Autoplay, FreeMode])
+
+		const swiper = new Swiper(node, {
+			spaceBetween: window.innerWidth > 768 ? 88 : 20,
+			speed: 5000,
+			freeMode: true,
+			loop: true,
+			slidesPerView: 'auto',
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false
+			}
+		})
+
+		return {
+			destroy() {
+				swiper.destroy()
+			}
+		}
+	}
 </script>
 
 <!-- filler for fixed navbar -->
@@ -119,16 +151,16 @@
 			<div class="text-xs">Bachelor Thesis</div>
 		</div>
 	</div>
-	<div
-		class="hide-scrollbar my-auto flex gap-[4.5rem] overflow-x-scroll px-5 sm:gap-x-[10rem] sm:px-[4rem]"
-	>
-		{#each images as image}
-			<div class="flex shrink-0">
-				<div class={twm('shrink-0', image.layoutClasses)}>
-					<img src={image.path} alt="" class="h-full w-full object-cover" />
+	<div use:slider class="swiper overflow-hidden px-5 sm:px-[4rem]">
+		<div class="swiper-wrapper flex h-full">
+			{#each images as image}
+				<div class="swiper-slide flex shrink-0">
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt="" class="h-full w-full object-cover" />
+					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
 </section>
 
@@ -183,6 +215,7 @@
 		</div>
 	</div>
 	<div
+		id="details"
 		class={twm(
 			'hide-scrollbar interior-transition grid h-[calc(100dvh-27rem)] items-start gap-[8rem] overflow-y-scroll p-[4rem]'
 		)}
@@ -215,7 +248,7 @@
 
 <section
 	class={twm(
-		'interior-transition fixed inset-0 z-20 w-full bg-interior-light text-sm sm:hidden',
+		'interior-transition fixed inset-0 z-40 w-full bg-interior-light text-sm sm:hidden',
 		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11'
 	)}
 >
@@ -231,7 +264,10 @@
 		<div>About the Project</div>
 		{@render mobileProjectToggle()}
 	</button>
-	<div class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll py-5">
+	<div
+		id="details"
+		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll py-5"
+	>
 		{#each details as detail}
 			<div class="grid gap-5">
 				<div class="px-5">

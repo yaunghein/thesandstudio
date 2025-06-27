@@ -49,5 +49,32 @@
 				</div>
 			</div>
 		</div>
+
+		<div
+			class="w-full grid-cols-12 gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:grid sm:gap-[2rem] sm:px-[4rem] sm:py-[4.25rem]"
+		>
+			<div class="col-span-4 hidden sm:block"></div>
+			<div class="col-span-6 grid grid-cols-2 gap-4 sm:grid-cols-6 sm:gap-[2rem]">
+				<div class="flex items-start gap-6 sm:col-span-4">
+					<a
+						href="tel:+66614464660"
+						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+					>
+						IG
+					</a>
+					<a
+						href="mailto:hnin@thesandstudio.com"
+						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+					>
+						LINE
+					</a>
+				</div>
+				<div class="sm:col-span-2">
+					<div class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]">
+						Visit the Sand Studio
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>

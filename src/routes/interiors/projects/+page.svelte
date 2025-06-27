@@ -311,7 +311,7 @@
 
 <div class="hidden sm:block">
 	<section
-		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pt-[2rem]"
+		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pb-[22rem] pt-[2rem]"
 	>
 		{#each projects as project, i}
 			<a
@@ -340,7 +340,7 @@
 	</section>
 
 	<section
-		class="sticky inset-0 top-auto grid w-full grid-cols-2 gap-x-[2rem] gap-y-[1.5rem] border-t border-interior-brand bg-interior-light p-[4rem]"
+		class="fixed inset-0 top-auto grid w-full grid-cols-2 gap-x-[2rem] gap-y-[1.5rem] border-t border-interior-brand bg-interior-light p-[4rem]"
 	>
 		{#each projectsInView as project, i}
 			<a href="/interiors/projects/{project.slug}" class="grid grid-cols-6 gap-x-[2rem] gap-y-0">
