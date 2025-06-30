@@ -48,16 +48,35 @@
 			<Door />
 		</button>
 
-		<!-- {#if isInteriorsContactPage}
-			<div
+		{#if isInteriorsContactPage}
+			<!-- <div
 				class="pointer-events-none absolute -bottom-[0.125rem] left-[4rem] right-[4rem] h-[0.125rem] bg-white"
-			></div>
-			<div
-				class="pointer-events-none absolute left-0 right-0 top-[11.625rem] h-[calc(100dvh-11.625rem)]"
+			></div> -->
+			<!-- <div
+				class="pointer-events-none absolute left-0 right-0 top-[10.5rem] h-[calc(100dvh-10.5rem)]"
 			>
-	
-			</div>
-		{/if} -->
+				<img
+					src="/interiors/lighting.png"
+					alt=""
+					class="absolute inset-0 bottom-auto h-[28rem] w-full"
+				/>
+			</div> -->
+			<!-- <div
+				style="
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-composite: exclude;
+  border-radius: 100px;
+"
+				class="pointer-events-none absolute left-0 right-0 top-[13.5rem] h-[calc(100dvh-10.5rem)] scale-x-[1]"
+			></div> -->
+			<!-- <div
+				style="background: red; filter: blur(200.35076904296875px); backdrop-filter: blur(10px);"
+				class="pointer-events-none absolute left-0 right-0 top-[12.5rem] h-[calc(100dvh-10.5rem)] scale-[0.75]"
+			></div> -->
+		{/if}
 	</div>
 </header>
 
