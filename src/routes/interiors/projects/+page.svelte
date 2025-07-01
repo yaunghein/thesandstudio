@@ -173,7 +173,7 @@
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 
-<section class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
+<div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
 	<div class="hide-scrollbar my-auto w-full overflow-x-auto px-5">
 		<div class="grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
 			{#each projects as project, index}
@@ -206,7 +206,7 @@
 			</a>
 		{/each}
 	</section>
-</section>
+</div>
 
 <div class="hidden sm:block">
 	<section
@@ -241,7 +241,7 @@
 	<section
 		class="fixed inset-0 top-auto grid w-full grid-cols-2 gap-x-[2rem] gap-y-[1.5rem] border-t border-interior-brand bg-interior-light p-[4rem]"
 	>
-		{#each projectsInViewToRender as project, i}
+		{#each projects as project, i}
 			<a href="/interiors/projects/{project.slug}" class="grid grid-cols-6 gap-x-[2rem] gap-y-0">
 				<h3 class="">
 					{#if i + 1 < 10}

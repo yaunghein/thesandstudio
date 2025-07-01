@@ -3,7 +3,12 @@
 	import { page } from '$app/state'
 
 	onMount(async () => {
-		if (page.url.pathname.startsWith('/interiors')) return
+		if (
+			page.url.pathname.startsWith('/interiors') ||
+			page.url.pathname === '/select-destination/'
+		) {
+			return
+		}
 
 		var options = {
 			animate: true,

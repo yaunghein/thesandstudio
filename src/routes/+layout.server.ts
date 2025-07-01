@@ -17,7 +17,8 @@ export const load = async (event) => {
 	if (
 		isMobile &&
 		!event.url.pathname.startsWith('/mobile') &&
-		!excludePath.some((path) => event.url.pathname.startsWith(path))
+		!excludePath.some((path) => event.url.pathname.startsWith(path)) &&
+		event.url.pathname !== '/select-destination/'
 	) {
 		throw redirect(302, `/mobile${event.url.pathname}`)
 	}
