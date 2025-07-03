@@ -26,8 +26,8 @@
 	import ContactFormTubeLabel from '$lib/svgs/ContactFormTubeLabel.svelte'
 	import StarwarText from './StarwarText.svelte'
 
-	let shell = $derived($OpenShells.find((shell) => shell.id === 'finder'))
-	let index = $derived($OpenShells.findIndex((shell) => shell.id === 'finder'))
+	$: shell = $OpenShells.find((shell) => shell.id === 'finder')
+	$: index = $OpenShells.findIndex((shell) => shell.id === 'finder')
 
 	const position = (node: HTMLDivElement) => {
 		if (index < 0) return
@@ -54,9 +54,9 @@
 		HistoryIndex.set(0)
 	}
 
-	let currentTab = $derived($Tabs.find((tab) => tab.isOpen) as Tab)
-	let canPrev = $derived($HistoryIndex > 0)
-	let canNext = $derived($HistoryIndex < $FinderHistory.length - 1)
+	$: currentTab = $Tabs.find((tab) => tab.isOpen) as Tab
+	$: canPrev = $HistoryIndex > 0
+	$: canNext = $HistoryIndex < $FinderHistory.length - 1
 </script>
 
 <div
@@ -67,11 +67,11 @@
 	class="fixed left-1/2 top-1/2 z-10 h-shell-desktop w-shell-desktop -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border-2 border-white text-light-10 dark:border-light-12 dark:text-light-100"
 	style="z-index: {shell?.zIndex}"
 >
-	<div class="transparent-layer"></div>
+	<div class="transparent-layer" />
 
 	<div class="absolute inset-0 -ml-[0.4rem] flex gap-10 opacity-sand">
 		{#each [...Array(100).keys()] as _}
-			<div class="h-full w-line shrink-0 bg-white dark:bg-light-12"></div>
+			<div class="h-full w-line shrink-0 bg-white dark:bg-light-12" />
 		{/each}
 	</div>
 
@@ -89,7 +89,7 @@
 				{#each $Tabs as tab}
 					<button
 						class="flex items-center gap-4 py-1"
-						onclick={() => {
+						on:click={() => {
 							const updatedTabs = deepClone(tabs).map((i) => ({
 								...i,
 								isOpen: i.label === tab.label ? true : false
@@ -103,7 +103,7 @@
 							class="h-[1.25rem] w-[1.65rem] shrink-0 rounded border-[0.125rem] {tab.isOpen
 								? 'border-light-10 bg-light-10 dark:border-light-100 dark:bg-light-100'
 								: 'border-light-70 bg-transparent dark:border-light-12'}"
-						></div>
+						/>
 						<div class="text-2xl">{tab.label}</div>
 					</button>
 				{/each}
@@ -124,7 +124,7 @@
 					class="aspect-square h-16 cursor-pointer select-none {canPrev
 						? 'pointer-events-auto text-light-10 dark:text-light-100'
 						: 'pointer-events-none text-light-80 dark:text-light-20'}"
-					onclick={() => {
+					on:click={() => {
 						HistoryIndex.set($HistoryIndex - 1)
 						Tabs.set($FinderHistory[$HistoryIndex])
 						FilePreview.set(undefined)
@@ -136,7 +136,7 @@
 					class="aspect-square h-16 cursor-pointer select-none {canNext
 						? 'pointer-events-auto text-light-10 dark:text-light-100'
 						: 'pointer-events-none text-light-80 dark:text-light-20'}"
-					onclick={() => {
+					on:click={() => {
 						HistoryIndex.set($HistoryIndex + 1)
 						Tabs.set($FinderHistory[$HistoryIndex])
 						FilePreview.set(undefined)
