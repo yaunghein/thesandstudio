@@ -35,6 +35,7 @@
 	]
 
 	const trailingImages = (container: HTMLElement) => {
+		if (window.innerWidth < 768) return
 		const config = {
 			imageCount: 35,
 			imageLifeSpan: 750,
