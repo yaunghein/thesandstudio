@@ -63,27 +63,27 @@
 		{
 			path: '/interiors/trailing-images/trail-15.webp',
 			layoutClasses: 'w-[30rem] aspect-[1/1]'
-		},
-		{
-			path: '/interiors/trailing-images/trail-16.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		},
-		{
-			path: '/interiors/trailing-images/trail-17.webp',
-			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
-		},
-		{
-			path: '/interiors/trailing-images/trail-18.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		},
-		{
-			path: '/interiors/trailing-images/trail-19.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		},
-		{
-			path: '/interiors/trailing-images/trail-20.webp',
-			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
 		}
+		// {
+		// 	path: '/interiors/trailing-images/trail-16.webp',
+		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		// },
+		// {
+		// 	path: '/interiors/trailing-images/trail-17.webp',
+		// 	layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		// },
+		// {
+		// 	path: '/interiors/trailing-images/trail-18.webp',
+		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		// },
+		// {
+		// 	path: '/interiors/trailing-images/trail-19.webp',
+		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		// },
+		// {
+		// 	path: '/interiors/trailing-images/trail-20.webp',
+		// 	layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		// }
 	]
 
 	const mobileImages = [
@@ -288,12 +288,11 @@
 	const trailingImages = (container: HTMLElement) => {
 		if (window.innerWidth < 768) return
 		const config = {
-			imageCount: 35,
-			imageLifeSpan: 750,
+			imageLifeSpan: 2000,
 			removalDelay: 50,
 			mouseThreshold: 100,
 			scrollThreshold: 50,
-			idelCursorInterval: 300,
+			idelCursorInterval: 500,
 			inDuration: 750,
 			outDuration: 1000,
 			inEasing: 'cubic-bezier(0.07, 0.5, 0.5, 1)',
@@ -313,6 +312,7 @@
 		let lastScrollTime = 0
 		let isScrolling = false
 		let scrollTicking = false
+		let currentImageIndex = 0
 
 		const isInContainer = (x: number, y: number) => {
 			const rect = container.getBoundingClientRect()
@@ -356,8 +356,8 @@
 
 		const createImage = () => {
 			const img = document.createElement('img')
-			const randomIndex = Math.floor(Math.random() * images.length)
-			const selectedImage = images[randomIndex]
+			const selectedImage = images[currentImageIndex]
+			currentImageIndex = (currentImageIndex + 1) % images.length
 			const rotation = (Math.random() * -0.5) / 50
 
 			img.src = selectedImage.path

@@ -61,16 +61,14 @@
 			<div class="text-xs">{data.project.type}</div>
 		</div>
 	</div>
-	<div use:slider class="swiper overflow-hidden px-5 sm:px-[4rem]">
-		<div class="swiper-wrapper flex h-full">
-			{#each data.project.showcaseImages as image}
-				<div class="swiper-slide flex shrink-0 overflow-hidden">
-					<div class={twm('shrink-0', image.layoutClasses)}>
-						<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
-					</div>
+	<div class="hide-scrollbar flex gap-[4rem] overflow-x-scroll px-5 sm:px-[4rem]">
+		{#each data.project.showcaseImages as image}
+			<div class="flex shrink-0 overflow-hidden">
+				<div class={twm('shrink-0', image.layoutClasses)}>
+					<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
 				</div>
-			{/each}
-		</div>
+			</div>
+		{/each}
 	</div>
 </section>
 
