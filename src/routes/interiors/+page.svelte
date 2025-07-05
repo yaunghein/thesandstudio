@@ -86,6 +86,205 @@
 		}
 	]
 
+	const mobileImages = [
+		{
+			path: '/interiors/home-scroll-images/1.webp',
+			layoutClasses: 'h-[95%] my-auto aspect-[1/2.73]'
+		},
+		{
+			path: '/interiors/home-scroll-images/2.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/3.webp',
+			layoutClasses: 'h-[40%] my-auto aspect-[1/1.01]'
+		},
+		{
+			path: '/interiors/home-scroll-images/4.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.76]'
+		},
+		{
+			path: '/interiors/home-scroll-images/5.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/6.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.85]'
+		},
+		{
+			path: '/interiors/home-scroll-images/7.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/8.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/9.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/10.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/1.04]'
+		},
+		{
+			path: '/interiors/home-scroll-images/11.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/12.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/13.webp',
+			layoutClasses: 'h-[95%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/14.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/15.webp',
+			layoutClasses: 'h-[55%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/16.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/17.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/18.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/0.85]'
+		},
+		{
+			path: '/interiors/home-scroll-images/19.webp',
+			layoutClasses: 'h-[50%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/20.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1.33]'
+		},
+		{
+			path: '/interiors/home-scroll-images/21.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/22.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/23.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/24.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/25.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.6]'
+		},
+		{
+			path: '/interiors/home-scroll-images/26.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.85]'
+		},
+		{
+			path: '/interiors/home-scroll-images/27.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/28.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/29.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/30.webp',
+			layoutClasses: 'h-[50%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/31.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/32.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/33.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/34.webp',
+			layoutClasses: 'h-[75%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/35.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/36.webp',
+			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/37.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/38.webp',
+			layoutClasses: 'h-[50%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/39.webp',
+			layoutClasses: 'h-[50%] my-auto aspect-[1/0.54]'
+		},
+		{
+			path: '/interiors/home-scroll-images/40.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/41.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/42.webp',
+			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/43.webp',
+			layoutClasses: 'h-[80%] my-auto aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/44.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/0.92]'
+		},
+		{
+			path: '/interiors/home-scroll-images/45.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/46.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.63]'
+		},
+		{
+			path: '/interiors/home-scroll-images/47.webp',
+			layoutClasses: 'h-[90%] my-auto aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/48.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/49.webp',
+			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+		}
+	]
+
 	const trailingImages = (container: HTMLElement) => {
 		if (window.innerWidth < 768) return
 		const config = {
@@ -335,7 +534,7 @@
 	class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]"
 >
 	<div
-		class="mb-6 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
+		class="mb-4 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
 	>
 		<div>Architecture</div>
 		<div>Interior Design</div>
@@ -345,16 +544,14 @@
 		</p>
 	</div>
 
-	<div use:slider class="my-auto overflow-hidden px-5 sm:hidden sm:px-[4rem]">
-		<div class="swiper-wrapper flex">
-			{#each images as image}
-				<div class="swiper-slide flex shrink-0">
-					<div class={twm('shrink-0', image.layoutClasses)}>
-						<img src={image.path} alt="" class="h-full w-full object-cover" />
-					</div>
+	<div class="hide-scrollbar my-auto flex gap-16 overflow-x-scroll px-5 sm:hidden sm:px-[4rem]">
+		{#each [...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages] as image}
+			<div class="flex shrink-0 items-center">
+				<div class={twm('shrink-0', image.layoutClasses)}>
+					<img src={image.path} alt="" class="h-full w-full object-cover" />
 				</div>
-			{/each}
-		</div>
+			</div>
+		{/each}
 	</div>
 
 	<div class="hidden aspect-[1/0.1] w-full p-[4rem] sm:block">
