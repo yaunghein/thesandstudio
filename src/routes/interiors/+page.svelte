@@ -5,33 +5,85 @@
 
 	const images = [
 		{
-			path: '/interiors/placeholders/cyc-1.jpg',
-			layoutClasses: 'w-[12.38rem] sm:w-[42rem] aspect-[1/1.33]'
+			path: '/interiors/trailing-images/trail-1.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/1]'
 		},
 		{
-			path: '/interiors/placeholders/cyc-2.jpg',
-			layoutClasses: 'w-[14.92em] sm:w-[49rem] aspect-[1/0.75] self-end'
+			path: '/interiors/trailing-images/trail-2.webp',
+			layoutClasses: 'w-[30rem] aspect-[1:1.15]'
 		},
 		{
-			path: '/interiors/placeholders/cyc-3.jpg',
-			layoutClasses: 'w-[14.25rem] sm:w-[47rem] aspect-[1/0.75] self-start'
+			path: '/interiors/trailing-images/trail-3.webp',
+			layoutClasses: 'w-[40rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-4.webp',
+			layoutClasses: 'w-[16rem] aspect-[1/2.72]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-5.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-6.webp',
+			layoutClasses: 'w-[35rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-7.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-8.webp',
+			layoutClasses: 'w-[35rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-9.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.85]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-10.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-11.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-12.webp',
+			layoutClasses: 'w-[35rem] aspect-[1/0.87] mix-blend-multiply'
+		},
+		{
+			path: '/interiors/trailing-images/trail-13.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-14.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-15.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-16.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-17.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-18.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-19.webp',
+			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/trailing-images/trail-20.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
 		}
-		// {
-		// 	path: '/interiors/placeholders/cyc-4.jpg',
-		// 	layoutClasses: 'w-full sm:w-[49.75rem] aspect-[1/0.72]'
-		// },
-		// {
-		// 	path: '/interiors/placeholders/cyc-5.png',
-		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-[1/0.97]'
-		// },
-		// {
-		// 	path: '/interiors/placeholders/cyc-6.png',
-		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-square place-self-end self-center'
-		// },
-		// {
-		// 	path: '/interiors/placeholders/cyc-7.png',
-		// 	layoutClasses: 'w-full sm:w-[36.75rem] aspect-[1/1.28]'
-		// }
 	]
 
 	const trailingImages = (container: HTMLElement) => {

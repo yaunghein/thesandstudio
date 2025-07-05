@@ -310,7 +310,7 @@ export default [
 					},
 					{
 						path: '/interiors/projects/cyc/detail/cyc-detail-3.7.webp',
-						layoutClasses: 'w-full sm:w-[%] mx-auto sm:col-span-4 aspect-[1/1.25]'
+						layoutClasses: 'w-full sm:w-[50%] mx-auto sm:col-span-4 aspect-[1/1.25]'
 					}
 				],
 				title: 'Design Process',
