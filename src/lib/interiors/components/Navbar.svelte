@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { twMerge as twm } from 'tailwind-merge'
+	import { gsap } from 'gsap'
 	import Logo from '$lib/interiors/components/Logo.svelte'
 	import Door from '$lib/interiors/components/Door.svelte'
 
@@ -12,14 +13,80 @@
 	]
 
 	let isOpen = $state(false)
+	let navLinksContainer: HTMLElement | null = $state(null)
+	let lightingImage: HTMLElement | null = $state(null)
+	let hoveredLink = $state<string | null>(null)
 
 	$effect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden'
+			// Animate nav links with light switching effect
+			animateNavLinks()
 		} else {
 			document.body.style.overflow = 'auto'
 		}
 	})
+
+	function animateNavLinks() {
+		if (!navLinksContainer) return
+
+		// Set initial state - invisible
+		gsap.set(navLinksContainer, { opacity: 0 })
+		if (lightingImage) {
+			gsap.set(lightingImage, { opacity: 0 })
+		}
+
+		// Create timeline for light switching effect
+		const tl = gsap.timeline()
+
+		// Realistic old light bulb flickering effect
+		tl.to([navLinksContainer, lightingImage], {
+			opacity: 0.4,
+			duration: 0.03,
+			ease: 'none'
+		})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0,
+				duration: 0.1,
+				ease: 'none'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0.8,
+				duration: 0.04,
+				ease: 'none'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0,
+				duration: 0.15,
+				ease: 'none'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0.6,
+				duration: 0.02,
+				ease: 'none'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0,
+				duration: 0.12,
+				ease: 'none'
+			})
+			// Final warm-up and stabilization
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0.8,
+				duration: 0.1,
+				ease: 'power1.out'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 0.4,
+				duration: 0.05,
+				ease: 'none'
+			})
+			.to([navLinksContainer, lightingImage], {
+				opacity: 1,
+				duration: 0.6,
+				ease: 'power2.out'
+			})
+	}
 </script>
 
 <header
@@ -48,34 +115,20 @@
 			<Door />
 		</button>
 
-		{#if isInteriorsContactPage}
-			<!-- <div
-				class="pointer-events-none absolute -bottom-[0.125rem] left-[4rem] right-[4rem] h-[0.125rem] bg-white"
-			></div> -->
-			<!-- <div
-				class="pointer-events-none absolute left-0 right-0 top-[10.5rem] h-[calc(100dvh-10.5rem)]"
+		{#if isInteriorsContactPage || isOpen}
+			<div
+				class="pointer-events-none absolute -bottom-[0.125rem] left-5 right-5 h-[0.25rem] bg-white sm:left-[4rem] sm:right-[4rem]"
+			></div>
+			<div
+				bind:this={lightingImage}
+				class="pointer-events-none absolute -top-7 left-0 right-0 h-[100dvh] sm:-top-9"
 			>
 				<img
-					src="/interiors/lighting.png"
+					src="/interiors/lighting-2.png"
 					alt=""
-					class="absolute inset-0 bottom-auto h-[28rem] w-full"
+					class="absolute inset-0 bottom-auto mx-auto h-full w-[95%] sm:w-full"
 				/>
-			</div> -->
-			<!-- <div
-				style="
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(100px);
-  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-  mask-composite: exclude;
-  border-radius: 100px;
-"
-				class="pointer-events-none absolute left-0 right-0 top-[13.5rem] h-[calc(100dvh-10.5rem)] scale-x-[1]"
-			></div> -->
-			<!-- <div
-				style="background: red; filter: blur(200.35076904296875px); backdrop-filter: blur(10px);"
-				class="pointer-events-none absolute left-0 right-0 top-[12.5rem] h-[calc(100dvh-10.5rem)] scale-[0.75]"
-			></div> -->
+			</div>
 		{/if}
 	</div>
 </header>
@@ -90,10 +143,21 @@
 		<!-- filler for fixed navbar -->
 		<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 		<div
+			bind:this={navLinksContainer}
 			class="flex w-full grow flex-col items-start justify-center gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-[8rem]"
 		>
 			{#each links as link}
-				<a onclick={() => (isOpen = false)} href={link.href} class="text-[3.5rem] sm:text-[11rem]">
+				<a
+					onclick={() => (isOpen = false)}
+					href={link.href}
+					onmouseenter={() => (hoveredLink = link.label)}
+					onmouseleave={() => (hoveredLink = null)}
+					class={twm(
+						'nav-link interior-transition text-[3.5rem] sm:text-[11rem] ',
+						hoveredLink === link.label ? 'text-glow-white opacity-100' : 'opacity-25',
+						hoveredLink === null && 'opacity-100'
+					)}
+				>
 					{link.label}
 				</a>
 			{/each}

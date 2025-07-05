@@ -11,7 +11,10 @@
 
 	$effect(() => {
 		if (isMobileOpen || isOpen) {
-			document.getElementById('details')?.scrollTo({
+			document.getElementById('desktop-details')?.scrollTo({
+				top: 0
+			})
+			document.getElementById('mobile-details')?.scrollTo({
 				top: 0
 			})
 		}
@@ -52,10 +55,10 @@
 	)}
 >
 	<div class="px-5 pb-8 pt-7 sm:hidden">
-		<h1 class="font-sand-interior-regular text-[2rem] leading-none">Creative Youth Center</h1>
+		<h1 class="font-sand-interior-regular text-[2rem] leading-none">{data.project.name}</h1>
 		<div class="mt-9 grid grid-cols-2 gap-4 px-[2px]">
-			<div class="text-xs">2024</div>
-			<div class="text-xs">Bachelor Thesis</div>
+			<div class="text-xs">{data.project.year}</div>
+			<div class="text-xs">{data.project.type}</div>
 		</div>
 	</div>
 	<div use:slider class="swiper overflow-hidden px-5 sm:px-[4rem]">
@@ -74,7 +77,8 @@
 <section
 	class={twm(
 		'interior-transition fixed inset-0 z-20 hidden h-[24rem] w-full sm:block',
-		isOpen ? 'top-[13.5rem]' : 'top-[calc(100dvh-24rem)]'
+		isOpen ? 'top-[13.5rem]' : 'top-[calc(100dvh-24rem)]',
+		!data.project.details?.length && 'hidden'
 	)}
 >
 	<div
@@ -97,66 +101,77 @@
 			<div class="grid grid-cols-3 gap-[2rem] text-[1.6rem]">
 				<div class="">{data.project.year}</div>
 				<div class="">{data.project.type}</div>
-				<div class="relative">
-					{#if isOpen}
-						<button
-							onclick={() => (isOpen = !isOpen)}
-							class="absolute flex items-center gap-[0.5rem]"
-							transition:fade={{ duration: 1000 }}
-						>
-							<div>Go Back</div>
-							{@render backIcon()}
-						</button>
-					{:else}
-						<button
-							onclick={() => (isOpen = !isOpen)}
-							class="absolute flex items-center gap-[0.5rem]"
-							transition:fade={{ duration: 1000 }}
-						>
-							<div>Learn More About the Project</div>
-							{@render learnMoreIcon()}
-						</button>
-					{/if}
-				</div>
+				{#if data.project.details}
+					<div class="relative">
+						{#if isOpen}
+							<button
+								onclick={() => (isOpen = !isOpen)}
+								class="absolute flex items-center gap-[0.5rem]"
+								transition:fade={{ duration: 1000 }}
+							>
+								<div>Go Back</div>
+								{@render backIcon()}
+							</button>
+						{:else}
+							<button
+								onclick={() => (isOpen = !isOpen)}
+								class="absolute flex items-center gap-[0.5rem]"
+								transition:fade={{ duration: 1000 }}
+							>
+								<div>Learn More About the Project</div>
+								{@render learnMoreIcon()}
+							</button>
+						{/if}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
 	<div
-		id="details"
+		id="desktop-details"
 		class={twm(
-			'hide-scrollbar interior-transition grid h-[calc(100dvh-27rem)] items-start gap-[8rem] overflow-y-scroll p-[4rem]'
+			'hide-scrollbar interior-transition grid h-[calc(100dvh-27rem)] items-start gap-[12rem] overflow-y-scroll p-[4rem]'
 		)}
 	>
-		{#each data.project.details as detail}
-			<div class="grid w-full grid-cols-3 items-center gap-[2rem]">
-				<div class="col-span-2">
-					<div class="grid grid-cols-2 gap-[2rem]">
-						{#each detail.images as image}
-							<div
-								class={twm('aspect-[1/0.72] w-[49.75rem] bg-interior-light', image.layoutClasses)}
-							>
-								<img src={image.path} alt="" class="h-full w-full object-cover mix-blend-darken" />
+		{#if data.project.details}
+			{#each data.project.details as detail}
+				<div class="grid w-full grid-cols-3 items-center gap-[2rem]">
+					<div class="col-span-2">
+						<div class="grid grid-cols-4 gap-x-[2rem] gap-y-[12rem] sm:pr-[13rem]">
+							{#each detail.images as image, index}
+								<div
+									class={twm('aspect-[1/0.72] w-[49.75rem] bg-interior-light', image.layoutClasses)}
+								>
+									<img
+										src={image.path}
+										alt=""
+										class="h-full w-full object-cover mix-blend-darken"
+									/>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class={twm('top-0 col-span-1 grid gap-[1.5rem]', detail.contentClasses)}>
+						{#if detail.title && detail.body}
+							<div class="font-sand-bold text-[1.6rem]">{detail.title}</div>
+							<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
+								{#each detail.body as paragraph}
+									<p>{paragraph}</p>
+								{/each}
 							</div>
-						{/each}
+						{/if}
 					</div>
 				</div>
-				<div class="col-span-1 grid gap-[1.5rem]">
-					<div class="font-sand-bold text-[1.6rem]">{detail.title}</div>
-					<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
-						{#each detail.body as paragraph}
-							<p>{paragraph}</p>
-						{/each}
-					</div>
-				</div>
-			</div>
-		{/each}
+			{/each}
+		{/if}
 	</div>
 </section>
 
 <section
 	class={twm(
 		'interior-transition fixed inset-0 z-40 w-full bg-interior-light text-sm sm:hidden',
-		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11'
+		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11',
+		!data.project.details?.length && 'hidden'
 	)}
 >
 	<button
@@ -172,26 +187,39 @@
 		{@render mobileProjectToggle()}
 	</button>
 	<div
-		id="details"
+		id="mobile-details"
 		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll py-5"
 	>
-		{#each data.project.details as detail}
-			<div class="grid gap-5">
-				<div class="px-5">
-					<div class="mb-3 font-sand-bold">{detail.title}</div>
-					<div class="grid gap-3">
-						{#each detail.body as paragraph}
-							<p>{paragraph}</p>
-						{/each}
+		{#if data.project.details}
+			{#each data.project.details as detail, detailIndex}
+				<div class="flex flex-col gap-5">
+					<div class="px-5">
+						{#if detail.title && detail.body}
+							<div class="mb-3 font-sand-bold">{detail.title}</div>
+							<div class="grid gap-3">
+								{#each detail.body as paragraph}
+									<p>{paragraph}</p>
+								{/each}
+							</div>
+						{/if}
 					</div>
+					{#each detail.images as image, imageIndex}
+						<div
+							class={twm(
+								'bg-interior-light',
+								image.layoutClasses,
+								imageIndex === detail.images.length - 1 &&
+									detailIndex === data.project.details.length - 1
+									? '-mb-5 sm:mb-0'
+									: ''
+							)}
+						>
+							<img src={image.path} alt="" class="h-full w-full object-cover mix-blend-darken" />
+						</div>
+					{/each}
 				</div>
-				{#each detail.images as image}
-					<div class={twm('bg-interior-light', image.layoutClasses)}>
-						<img src={image.path} alt="" class="h-full w-full object-cover mix-blend-darken" />
-					</div>
-				{/each}
-			</div>
-		{/each}
+			{/each}
+		{/if}
 	</div>
 </section>
 

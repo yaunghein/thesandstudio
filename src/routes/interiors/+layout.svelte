@@ -22,7 +22,7 @@
 <!-- <div class="fixed bottom-0 left-5 top-0 z-50 w-[1px] bg-red-500"></div>
 <div class="fixed bottom-0 right-5 top-0 z-50 w-[1px] bg-red-500"></div> -->
 
-<!-- <div class="pointer-events-none fixed inset-0 z-50 mx-[4rem] flex gap-[2rem]">
+<div class="pointer-events-none fixed inset-0 z-50 mx-[4rem] flex gap-[2rem]">
 	{#each { length: 12 } as _}
 		<div class="h-full flex-1 shrink-0 bg-red-500/10"></div>
 	{/each}
@@ -31,7 +31,7 @@
 	{#each { length: 12 } as _}
 		<div class="h-full flex-1 shrink-0 bg-red-500/10"></div>
 	{/each}
-</div> -->
+</div>
 
 <!-- <div class="pointer-events-none fixed inset-0 z-50 mx-5 flex gap-4">
 	{#each { length: 2 } as _}

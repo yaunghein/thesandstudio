@@ -228,3 +228,7 @@ input:-webkit-autofill:active {
 .swiper-free-mode > .swiper-wrapper {
 	transition-timing-function: linear;
 }
+
+.text-glow-white {
+	text-shadow: 0 0 10px white;
+}

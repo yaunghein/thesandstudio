@@ -39,11 +39,11 @@
 <a
 	bind:this={container}
 	href="/interiors/projects/{project.slug}"
-	class={twm('relative overflow-hidden', project.mobile.layoutClasses)}
+	class={twm('relative overflow-hidden', project.coverImage.layoutClassesMobile)}
 >
 	<div class="absolute inset-0 h-full w-full">
 		<img
-			src={project.preview.mobile}
+			src={project.coverImage.path}
 			alt=""
 			class="h-full w-full object-cover mix-blend-multiply"
 		/>

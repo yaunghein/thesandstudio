@@ -3,132 +3,41 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import { slugify } from '$lib/utils/slugify'
 	import Project from '$lib/interiors/components/Project.svelte'
+	import projects from '$lib/interiors/fixtures/projects'
 
 	let { data } = $props()
 
 	type TProject = {
 		name: string
-		location: string
 		slug: string
-		preview: {
+		year: number
+		type: string
+		coverImage: {
+			path: string
+			layoutClasses: string
+			layoutClassesMobile: string
+		}
+		showcaseImages: {
+			path: string
+			layoutClasses: string
+		}[]
+		details?: {
+			images: {
+				path: string
+				layoutClasses: string
+			}[]
+			title: string
+			body: string[]
+			contentClasses: string
+		}[]
+		desktop?: {
+			layoutClasses: string
+		}
+		preview?: {
 			desktop: string
-			mobile: string
 		}
-		desktop: {
-			layoutClasses: string
-		}
-		mobile: {
-			layoutClasses: string
-		}
+		location?: string
 	}
-
-	const projects = [
-		{
-			name: 'Creative Youth Centre',
-			location: 'Yangon, Myanmar',
-			slug: slugify('Creative Youth Centre'),
-			preview: {
-				desktop: '/interiors/placeholders/project-1.png',
-				mobile: '/interiors/placeholders/project-1.png'
-			},
-			desktop: {
-				layoutClasses: 'col-span-3'
-			},
-			mobile: {
-				layoutClasses: 'h-[9rem] col-span-3'
-			}
-		},
-		{
-			name: 'The Ostel Hostel',
-			location: 'Bangkok, Thailand',
-			slug: slugify('The Ostel Hostel'),
-			preview: {
-				desktop: '/interiors/placeholders/project-2.png',
-				mobile: '/interiors/placeholders/project-5.png'
-			},
-			desktop: {
-				layoutClasses: 'row-span-2'
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem] aspect-square'
-			}
-		},
-		{
-			name: 'Unseen Battle PTSD Awareness Exhibition',
-			location: 'Yangon, Myanmar',
-			slug: slugify('Unseen Battle PTSD Awareness Exhibition'),
-			preview: {
-				desktop: '/interiors/placeholders/project-3.png',
-				mobile: '/interiors/placeholders/project-3.png'
-			},
-			desktop: {
-				layoutClasses: 'col-span-2'
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem] aspect-square'
-			}
-		},
-		{
-			name: 'Community Market',
-			location: 'Yangon, Myanmar',
-			slug: slugify('Community Market'),
-			preview: {
-				desktop: '/interiors/placeholders/project-4.png',
-				mobile: '/interiors/placeholders/project-4.png'
-			},
-			desktop: {
-				layoutClasses: ''
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem] aspect-square'
-			}
-		},
-		{
-			name: 'Yuki Mugi Bakery & Cafe',
-			location: 'Yangon, Myanmar',
-			slug: slugify('Yuki Mugi Bakery & Cafe'),
-			preview: {
-				desktop: '/interiors/placeholders/project-5.png',
-				mobile: '/interiors/placeholders/project-2.png'
-			},
-			desktop: {
-				layoutClasses: ''
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem] row-span-2'
-			}
-		},
-		{
-			name: 'Factory Townhouse',
-			location: 'Bangkok, Thailand',
-			slug: slugify('Factory Townhouse'),
-			preview: {
-				desktop: '/interiors/placeholders/project-6.png',
-				mobile: '/interiors/placeholders/project-6.png'
-			},
-			desktop: {
-				layoutClasses: ''
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem]'
-			}
-		},
-		{
-			name: 'Community Market II',
-			location: 'Yangon, Myanmar',
-			slug: slugify('Community Market II'),
-			preview: {
-				desktop: '/interiors/placeholders/project-7.png',
-				mobile: '/interiors/placeholders/project-7.png'
-			},
-			desktop: {
-				layoutClasses: ''
-			},
-			mobile: {
-				layoutClasses: 'w-[9rem]'
-			}
-		}
-	]
 
 	let projectsInView = $state<TProject[]>([])
 	let projectsInViewToRender = $derived(
@@ -151,18 +60,7 @@
 		}
 	}
 
-	onMount(() => {
-		const handleResize = () => {
-			console.log('resize')
-			projectsInViewToRender = projects.slice(0, window.innerWidth < 768 ? 4 : 8)
-		}
-
-		window.addEventListener('resize', handleResize)
-
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	})
+	// Removed resize handler since projectsInViewToRender is derived and updates automatically
 
 	const getLayoutClasses = (index: number) => {
 		const classes = ['col-span-3', 'col-span-2', 'row-span-2']
@@ -179,16 +77,10 @@
 			{#each projects as project, index}
 				<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
 			{/each}
-			<!-- <div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">1</div>
-			<div class="col-span-2 grid h-40 place-items-center bg-white text-interior-brand">2</div>
-			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">3</div>
-			<div class="row-span-2 grid w-40 place-items-center bg-white text-interior-brand">4</div>
-			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">5</div>
-			<div class="grid h-40 w-40 place-items-center bg-white text-interior-brand">6</div> -->
 		</div>
 	</div>
 	<section
-		class="sticky inset-0 top-auto grid w-full gap-1 border-t border-interior-brand bg-interior-light p-5"
+		class="sticky inset-0 top-auto grid h-32 w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
 	>
 		{#each projectsInViewToRender as project}
 			{@const originalIndex = projects.findIndex((p) => p.slug === project.slug)}
@@ -201,7 +93,7 @@
 					{/if}
 				</h3>
 				<div class="col-span-3">
-					<h3 class="">{project.name}</h3>
+					<h3 class="whitespace-nowrap">{project.name}</h3>
 				</div>
 			</a>
 		{/each}
@@ -217,12 +109,12 @@
 				href="/interiors/projects/{project.slug}"
 				class={twm(
 					'relative h-full min-h-[25rem] w-full overflow-hidden',
-					project.desktop.layoutClasses
+					project.coverImage.layoutClasses
 				)}
 			>
 				<div class="absolute inset-0 h-full w-full">
 					<img
-						src={project.preview.desktop}
+						src={project.coverImage.path}
 						alt=""
 						class="h-full w-full object-cover mix-blend-multiply"
 					/>
@@ -254,7 +146,7 @@
 					<h3 class="">{project.name}</h3>
 				</div>
 				<div class="col-span-2">
-					<p class="">{project.location}</p>
+					<p class="">{project.location || ''}</p>
 				</div>
 			</a>
 		{/each}
