@@ -512,7 +512,7 @@ export default [
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-1.1.webp',
 						layoutClasses:
-							'w-full sm:col-span-1 aspect-[1/0.4] sm:scale-[1.75] origin-left sm:translate-y-[40rem]'
+							'w-[90%] sm:w-full mx-auto sm:mx-0 order-2 sm:order-1 sm:col-span-1 aspect-[1/0.4] sm:scale-[1.75] origin-left -translate-y-[1.5rem] sm:translate-y-[40rem]'
 					},
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-1.2.webp',
@@ -558,15 +558,16 @@ export default [
 					},
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-2.8.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.68]'
+						layoutClasses: 'w-[90%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/0.68]'
 					},
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-2.9.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.68]'
+						layoutClasses: 'w-[90%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/0.68]'
 					},
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-2.10.webp',
-						layoutClasses: 'w-[90%] sm:w-full sm:col-span-4 aspect-[1/0.36]'
+						layoutClasses:
+							'w-[90%] mx-auto sm:mx-0 pb-5 sm:pb-0 sm:w-full sm:col-span-4 aspect-[1/0.36]'
 					}
 				],
 				title: 'Concept',
