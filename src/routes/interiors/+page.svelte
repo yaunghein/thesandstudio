@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
 	import Swiper from 'swiper'
 	import { Autoplay, FreeMode } from 'swiper/modules'
+	import gsap from 'gsap'
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 	const images = [
 		{
@@ -89,199 +92,199 @@
 	const mobileImages = [
 		{
 			path: '/interiors/home-scroll-images/1.webp',
-			layoutClasses: 'h-[95%] my-auto aspect-[1/2.73]'
+			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/2.73]'
 		},
 		{
 			path: '/interiors/home-scroll-images/2.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]'
 		},
 		{
 			path: '/interiors/home-scroll-images/3.webp',
-			layoutClasses: 'h-[40%] my-auto aspect-[1/1.01]'
+			layoutClasses: 'h-[40%] w-auto my-auto aspect-[1/1.01]'
 		},
 		{
 			path: '/interiors/home-scroll-images/4.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.76]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.76]'
 		},
 		{
 			path: '/interiors/home-scroll-images/5.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/6.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.85]'
 		},
 		{
 			path: '/interiors/home-scroll-images/7.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/8.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/9.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/10.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/1.04]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1.04]'
 		},
 		{
 			path: '/interiors/home-scroll-images/11.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/12.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/13.webp',
-			layoutClasses: 'h-[95%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/14.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/15.webp',
-			layoutClasses: 'h-[55%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[55%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/16.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/17.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/18.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.85]'
 		},
 		{
 			path: '/interiors/home-scroll-images/19.webp',
-			layoutClasses: 'h-[50%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/20.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1.33]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.33]'
 		},
 		{
 			path: '/interiors/home-scroll-images/21.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]'
 		},
 		{
 			path: '/interiors/home-scroll-images/22.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/23.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/24.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/25.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.6]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.6]'
 		},
 		{
 			path: '/interiors/home-scroll-images/26.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.85]'
 		},
 		{
 			path: '/interiors/home-scroll-images/27.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/28.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/29.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/30.webp',
-			layoutClasses: 'h-[50%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/31.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/32.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/33.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/34.webp',
-			layoutClasses: 'h-[75%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/35.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/36.webp',
-			layoutClasses: 'h-[60%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/37.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]'
 		},
 		{
 			path: '/interiors/home-scroll-images/38.webp',
-			layoutClasses: 'h-[50%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/39.webp',
-			layoutClasses: 'h-[50%] my-auto aspect-[1/0.54]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.54]'
 		},
 		{
 			path: '/interiors/home-scroll-images/40.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/41.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/42.webp',
-			layoutClasses: 'h-[65%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/43.webp',
-			layoutClasses: 'h-[80%] my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[80%] w-auto my-auto aspect-[1/0.56]'
 		},
 		{
 			path: '/interiors/home-scroll-images/44.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/0.92]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/0.92]'
 		},
 		{
 			path: '/interiors/home-scroll-images/45.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
 		},
 		{
 			path: '/interiors/home-scroll-images/46.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.63]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.63]'
 		},
 		{
 			path: '/interiors/home-scroll-images/47.webp',
-			layoutClasses: 'h-[90%] my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]'
 		},
 		{
 			path: '/interiors/home-scroll-images/48.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/1]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]'
 		},
 		{
 			path: '/interiors/home-scroll-images/49.webp',
-			layoutClasses: 'h-[70%] my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
 		}
 	]
 
@@ -524,6 +527,36 @@
 			}
 		}
 	}
+
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger)
+
+		const container = document.querySelector('.scroll-container') as HTMLElement
+		const parent = container.parentElement as HTMLElement
+		const wrapper = document.querySelector('.scroll-wrapper') as HTMLElement
+		container.style.height = `${wrapper.scrollWidth}px`
+
+		const getScrollAmount = () => {
+			let wrapperWidth = wrapper.scrollWidth
+			return -(wrapperWidth - window.innerWidth)
+		}
+
+		const tween = gsap.to(wrapper, {
+			x: getScrollAmount,
+			duration: 3,
+			ease: 'none'
+		})
+
+		ScrollTrigger.create({
+			scroller: parent,
+			trigger: container,
+			start: 'top top',
+			end: () => `+=${getScrollAmount() * -1}`,
+			animation: tween,
+			scrub: 1.2,
+			invalidateOnRefresh: true
+		})
+	})
 </script>
 
 <!-- filler for fixed navbar -->
@@ -544,15 +577,29 @@
 		</p>
 	</div>
 
-	<div class="hide-scrollbar my-auto flex gap-16 overflow-x-scroll px-5 sm:hidden sm:px-[4rem]">
+	<div class="hide-scrollbar sm:hidden" style="overscroll-behavior: none;">
+		<div class="scroll-container flex items-start">
+			<div
+				class="scroll-wrapper sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5"
+			>
+				{#each mobileImages as image}
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt="" class="h-full w-full object-cover" />
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+
+	<!-- <div
+		class="hide-scrollbar my-auto flex w-auto justify-start gap-16 overflow-x-scroll px-5 sm:hidden sm:px-[4rem]"
+	>
 		{#each [...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages] as image}
-			<div class="flex shrink-0 items-center">
-				<div class={twm('shrink-0', image.layoutClasses)}>
-					<img src={image.path} alt="" class="h-full w-full object-cover" />
-				</div>
+			<div class={twm('shrink-0', image.layoutClasses)}>
+				<img src={image.path} alt="" class="h-full w-full object-cover" />
 			</div>
 		{/each}
-	</div>
+	</div> -->
 
 	<div class="hidden aspect-[1/0.1] w-full p-[4rem] sm:block">
 		{@render sandInteriors()}
