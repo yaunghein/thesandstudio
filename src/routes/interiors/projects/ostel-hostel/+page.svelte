@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition'
 	import { twMerge as twm } from 'tailwind-merge'
-	import Swiper from 'swiper'
-	import { Autoplay, FreeMode } from 'swiper/modules'
 	import { slugify } from '$lib/utils/slugify'
+	import horizontalScroll from '$lib/utils/horizontalScroll'
 
 	const project = {
-		name: 'Ostel Hostel',
-		slug: slugify('Ostel Hostel'),
+		name: 'The Ostel Hostel',
+		slug: slugify('The Ostel Hostel'),
 		year: 2024,
 		type: 'Bachelor Thesis',
 		coverImage: {
@@ -153,14 +152,16 @@
 			<div class="text-xs">{project.type}</div>
 		</div>
 	</div>
-	<div class="hide-scrollbar flex gap-5 overflow-x-scroll px-5 sm:gap-[12rem] sm:px-[4rem]">
-		{#each [...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages] as image}
-			<div class="flex shrink-0 overflow-hidden">
-				<div class={twm('shrink-0', image.layoutClasses)}>
-					<img src={image.path} alt={project.name} class="h-full w-full object-cover" />
-				</div>
+	<div use:horizontalScroll class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
+		<div class="flex items-start">
+			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
+				{#each [...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages, ...project.showcaseImages] as image}
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt={project.name} class="h-full w-full object-cover" />
+					</div>
+				{/each}
 			</div>
-		{/each}
+		</div>
 	</div>
 </section>
 

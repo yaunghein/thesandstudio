@@ -3,6 +3,7 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import Swiper from 'swiper'
 	import { Autoplay, FreeMode } from 'swiper/modules'
+	import horizontalScroll from '$lib/utils/horizontalScroll.js'
 
 	let { data } = $props()
 
@@ -61,14 +62,16 @@
 			<div class="text-xs">{data.project.type}</div>
 		</div>
 	</div>
-	<div class="hide-scrollbar flex gap-[4rem] overflow-x-scroll px-5 sm:px-[4rem]">
-		{#each data.project.showcaseImages as image}
-			<div class="flex shrink-0 overflow-hidden">
-				<div class={twm('shrink-0', image.layoutClasses)}>
-					<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
-				</div>
+	<div use:horizontalScroll class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
+		<div class="flex items-start">
+			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
+				{#each [...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages] as image}
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
+					</div>
+				{/each}
 			</div>
-		{/each}
+		</div>
 	</div>
 </section>
 

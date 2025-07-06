@@ -2,8 +2,8 @@ import { slugify } from '$lib/utils/slugify'
 
 export default [
 	{
-		name: 'Ostel Hostel',
-		slug: slugify('Ostel Hostel'),
+		name: 'The Ostel Hostel',
+		slug: slugify('The Ostel Hostel'),
 		year: 2024,
 		type: 'Bachelor Thesis',
 		coverImage: {

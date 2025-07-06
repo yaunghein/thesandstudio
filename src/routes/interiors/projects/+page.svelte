@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
+	import horizontalScroll from '$lib/utils/horizontalScroll.js'
 	import { slugify } from '$lib/utils/slugify'
 	import Project from '$lib/interiors/components/Project.svelte'
 	import projects from '$lib/interiors/fixtures/projects'

@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
-	import Swiper from 'swiper'
-	import { Autoplay, FreeMode } from 'swiper/modules'
-	import gsap from 'gsap'
-	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+	import horizontalScroll from '$lib/utils/horizontalScroll'
 
 	const images = [
 		{
@@ -505,58 +501,6 @@
 			}
 		}
 	}
-
-	const slider = (node: HTMLElement) => {
-		Swiper.use([Autoplay, FreeMode])
-
-		const swiper = new Swiper(node, {
-			spaceBetween: 20,
-			speed: 5000,
-			freeMode: true,
-			loop: true,
-			slidesPerView: 'auto',
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false
-			}
-		})
-
-		return {
-			destroy() {
-				swiper.destroy()
-			}
-		}
-	}
-
-	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger)
-
-		const container = document.querySelector('.scroll-container') as HTMLElement
-		const parent = container.parentElement as HTMLElement
-		const wrapper = document.querySelector('.scroll-wrapper') as HTMLElement
-		container.style.height = `${wrapper.scrollWidth}px`
-
-		const getScrollAmount = () => {
-			let wrapperWidth = wrapper.scrollWidth
-			return -(wrapperWidth - window.innerWidth)
-		}
-
-		const tween = gsap.to(wrapper, {
-			x: getScrollAmount,
-			duration: 3,
-			ease: 'none'
-		})
-
-		ScrollTrigger.create({
-			scroller: parent,
-			trigger: container,
-			start: 'top top',
-			end: () => `+=${getScrollAmount() * -1}`,
-			animation: tween,
-			scrub: 1.2,
-			invalidateOnRefresh: true
-		})
-	})
 </script>
 
 <!-- filler for fixed navbar -->
@@ -567,7 +511,7 @@
 	class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]"
 >
 	<div
-		class="mb-4 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
+		class="mb-8 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
 	>
 		<div>Architecture</div>
 		<div>Interior Design</div>
@@ -577,12 +521,10 @@
 		</p>
 	</div>
 
-	<div class="hide-scrollbar sm:hidden" style="overscroll-behavior: none;">
-		<div class="scroll-container flex items-start">
-			<div
-				class="scroll-wrapper sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5"
-			>
-				{#each mobileImages as image}
+	<div use:horizontalScroll class="hide-scrollbar sm:hidden">
+		<div class="flex items-start">
+			<div class="sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5">
+				{#each [...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages] as image}
 					<div class={twm('shrink-0', image.layoutClasses)}>
 						<img src={image.path} alt="" class="h-full w-full object-cover" />
 					</div>
