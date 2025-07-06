@@ -2,15 +2,14 @@ import { browser } from '$app/environment'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-export default function (node: HTMLElement) {
+export default function (node: HTMLElement, options: { extra?: number } = {}) {
 	if (!browser) return
 	gsap.registerPlugin(ScrollTrigger)
 
 	const parent = node
 	const container = parent.children[0] as HTMLElement
 	const wrapper = container.children[0] as HTMLElement
-	container.style.height = `${wrapper.scrollWidth}px`
-	// container.style.height = `${wrapper.scrollWidth + 100}px`
+	container.style.height = `${wrapper.scrollWidth + (options.extra ?? 0)}px`
 	node.style.overscrollBehavior = 'none'
 
 	const getScrollAmount = () => {

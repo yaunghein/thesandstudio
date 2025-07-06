@@ -62,7 +62,10 @@
 			<div class="text-xs">{data.project.type}</div>
 		</div>
 	</div>
-	<div use:horizontalScroll class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
+	<div
+		use:horizontalScroll={{ extra: 100 }}
+		class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
+	>
 		<div class="flex items-start">
 			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
 				{#each data.project.showcaseImages as image}

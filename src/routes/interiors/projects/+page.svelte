@@ -65,7 +65,7 @@
 
 <div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
 	<div
-		use:horizontalScroll
+		use:horizontalScroll={{ extra: 100 }}
 		class="hide-scrollbar mt-[12dvh] h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
 	>
 		<div class="w-full px-5">
@@ -111,11 +111,7 @@
 				)}
 			>
 				<div class="absolute inset-0 h-full w-full">
-					<img
-						src={project.coverImage.path}
-						alt=""
-						class="h-full w-full object-cover mix-blend-multiply"
-					/>
+					<img src={project.coverImage.path} alt="" class="h-full w-full object-cover" />
 				</div>
 				<div class="absolute bottom-0 left-0">
 					{#if i + 1 < 10}
