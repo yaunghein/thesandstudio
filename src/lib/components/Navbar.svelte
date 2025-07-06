@@ -2,7 +2,6 @@
 	import { page } from '$app/state'
 	import LogoShape from '$lib/svgs/LogoShape.svelte'
 	import Menu from './Menu.svelte'
-	import { twMerge as twm } from 'tailwind-merge'
 
 	const PAGE_NAMES_MAP: Record<string, string> = {
 		'/': '',

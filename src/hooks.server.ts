@@ -52,7 +52,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 		event.url.pathname !== '/select-destination/'
 	) {
 		const cookie = event.cookies.get('sand-showed-select-screen')
-		if (!cookie) {
+		const bypassSelect = event.url.searchParams.get('bypass-select')
+		if (!cookie && !bypassSelect) {
 			throw redirect(303, '/select-destination/')
 		}
 	}

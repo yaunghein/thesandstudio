@@ -18,6 +18,12 @@
 	let hoveredLink = $state<string | null>(null)
 
 	$effect(() => {
+		if (!isOpen) {
+			hoveredLink = null
+		}
+	})
+
+	$effect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden'
 			// Animate nav links with light switching effect
@@ -98,6 +104,7 @@
 	<div class="mx-4 flex w-full items-center justify-between sm:mx-[3rem]">
 		<a
 			href="/interiors/"
+			onclick={() => (isOpen = false)}
 			class={twm(
 				'aspect-square w-8 sm:w-[6.8rem]',
 				(isInteriorsContactPage || isOpen) && 'text-white'
@@ -117,7 +124,7 @@
 
 		{#if isInteriorsContactPage || isOpen}
 			<div
-				class="pointer-events-none absolute -bottom-[0.125rem] left-5 right-5 h-[0.1rem] bg-white sm:left-[4rem] sm:right-[4rem] sm:h-[0.25rem]"
+				class="pointer-events-none absolute -bottom-[0.125rem] left-2 right-2 h-[0.1rem] bg-white sm:left-[4rem] sm:right-[4rem] sm:h-[0.25rem]"
 			></div>
 			<div
 				bind:this={lightingImage}
@@ -131,7 +138,7 @@
 				<img
 					src="/interiors/lighting-mobile.webp"
 					alt=""
-					class="absolute inset-0 bottom-auto mx-auto h-full w-[94.5%] sm:hidden"
+					class="absolute inset-0 bottom-auto mx-auto h-full w-full sm:hidden"
 				/>
 			</div>
 		{/if}
@@ -171,24 +178,35 @@
 		<div
 			class="grid w-full grid-cols-2 items-center justify-between gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:flex sm:px-[4rem] sm:py-[4.25rem]"
 		>
-			<div class="flex items-start gap-6">
+			<div class="flex items-start gap-3 sm:gap-6">
 				<a
-					href="tel:+66614464660"
+					href="https://www.instagram.com/sand.interiors_/"
+					target="_blank"
 					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
 				>
 					IG
 				</a>
 				<a
-					href="mailto:hnin@thesandstudio.com"
+					href="https://line.me/ti/p/3Wi3R721g_"
+					target="_blank"
 					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
 				>
 					LINE
 				</a>
 			</div>
 			<div class="">
-				<div class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]">
+				<a
+					href="/mobile/?bypass-select=true"
+					class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.6rem]"
+				>
 					Visit the Sand Studio
-				</div>
+				</a>
+				<a
+					href="/?bypass-select=true"
+					class="hidden text-sm leading-[1.5] underline underline-offset-4 sm:block sm:text-[1.6rem]"
+				>
+					Visit the Sand Studio
+				</a>
 			</div>
 		</div>
 	</div>
