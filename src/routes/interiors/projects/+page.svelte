@@ -73,7 +73,7 @@
 				{#each projects as project, index}
 					<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
 				{/each}
-				<div class="w-[11rem]"></div>
+				<div class="w-[12rem]"></div>
 			</div>
 		</div>
 	</div>

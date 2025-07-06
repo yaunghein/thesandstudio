@@ -17,7 +17,7 @@
 		location: 'Bangkok, Thailand',
 		showcaseImages: [
 			{
-				path: '/interiors/projects/oh/showcase/OH-1.webp',
+				path: '/interiors/projects/oh/showcase/OH-1.gif',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.4]'
 			},
 			{
@@ -89,11 +89,11 @@
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-end aspect-[1/0.64]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase/OH-19.webp',
+				path: '/interiors/projects/oh/showcase/OH-19.gif',
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.64]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase/OH-20.webp',
+				path: '/interiors/projects/oh/showcase/OH-20.gif',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.64]'
 			}
 		],
@@ -317,7 +317,7 @@
 			</div>
 		</div>
 
-		<div class="my-40 h-[1px] w-full scale-x-[1.052] bg-interior-brand"></div>
+		<!-- <div class="my-40 h-[1px] w-full scale-x-[1.052] bg-interior-brand"></div> -->
 	</div>
 </section>
 

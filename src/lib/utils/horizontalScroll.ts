@@ -9,7 +9,8 @@ export default function (node: HTMLElement) {
 	const parent = node
 	const container = parent.children[0] as HTMLElement
 	const wrapper = container.children[0] as HTMLElement
-	container.style.height = `${wrapper.scrollWidth + 100}px`
+	container.style.height = `${wrapper.scrollWidth}px`
+	// container.style.height = `${wrapper.scrollWidth + 100}px`
 	node.style.overscrollBehavior = 'none'
 
 	const getScrollAmount = () => {

@@ -117,16 +117,21 @@
 
 		{#if isInteriorsContactPage || isOpen}
 			<div
-				class="pointer-events-none absolute -bottom-[0.125rem] left-5 right-5 h-[0.25rem] bg-white sm:left-[4rem] sm:right-[4rem]"
+				class="pointer-events-none absolute -bottom-[0.125rem] left-5 right-5 h-[0.1rem] bg-white sm:left-[4rem] sm:right-[4rem] sm:h-[0.25rem]"
 			></div>
 			<div
 				bind:this={lightingImage}
-				class="pointer-events-none absolute -top-7 left-0 right-0 h-[100dvh] sm:-top-9"
+				class="pointer-events-none absolute left-0 right-0 top-[calc(3.6rem+0.125rem)] h-[100dvh] sm:top-[calc(11.5rem+0.125rem)]"
 			>
 				<img
-					src="/interiors/lighting-2.png"
+					src="/interiors/lighting-desktop.webp"
 					alt=""
-					class="absolute inset-0 bottom-auto mx-auto h-full w-[95%] sm:w-full"
+					class="absolute inset-0 bottom-auto mx-auto hidden h-full w-full sm:block"
+				/>
+				<img
+					src="/interiors/lighting-mobile.webp"
+					alt=""
+					class="absolute inset-0 bottom-auto mx-auto h-full w-[94.5%] sm:hidden"
 				/>
 			</div>
 		{/if}

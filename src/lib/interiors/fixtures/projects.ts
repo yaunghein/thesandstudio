@@ -14,7 +14,7 @@ export default [
 		location: 'Bangkok, Thailand',
 		showcaseImages: [
 			{
-				path: '/interiors/projects/oh/showcase/OH-1.webp',
+				path: '/interiors/projects/oh/showcase/OH-1.gif',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.4]'
 			},
 			{
@@ -86,11 +86,11 @@ export default [
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-end aspect-[1/0.64]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase/OH-19.webp',
+				path: '/interiors/projects/oh/showcase/OH-19.gif',
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.64]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase/OH-20.webp',
+				path: '/interiors/projects/oh/showcase/OH-20.gif',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.64]'
 			}
 			// {
@@ -289,7 +289,7 @@ export default [
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.55] self-center'
 					},
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.2.webp',
+						path: '/interiors/projects/cyc/detail/cyc-detail-3.2.gif',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
 					},
 					{
@@ -297,7 +297,7 @@ export default [
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
 					},
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.4.webp',
+						path: '/interiors/projects/cyc/detail/cyc-detail-3.4.gif',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
 					},
 					{
@@ -305,11 +305,11 @@ export default [
 						layoutClasses: 'w-full sm:col-span-4 aspect-[1/1]'
 					},
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.6.webp',
+						path: '/interiors/projects/cyc/detail/cyc-detail-3.6.gif',
 						layoutClasses: 'w-full sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/1.25]'
 					},
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.7.webp',
+						path: '/interiors/projects/cyc/detail/cyc-detail-3.7.gif',
 						layoutClasses: 'w-full sm:w-[50%] mx-auto sm:col-span-4 aspect-[1/1.25]'
 					}
 				],
