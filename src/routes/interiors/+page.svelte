@@ -521,10 +521,10 @@
 		</p>
 	</div>
 
-	<div use:horizontalScroll class="hide-scrollbar sm:hidden">
+	<div use:horizontalScroll class="hide-scrollbar !overflow-x-hidden sm:hidden">
 		<div class="flex items-start">
 			<div class="sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5">
-				{#each [...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages] as image}
+				{#each mobileImages as image}
 					<div class={twm('shrink-0', image.layoutClasses)}>
 						<img src={image.path} alt="" class="h-full w-full object-cover" />
 					</div>
@@ -532,16 +532,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- <div
-		class="hide-scrollbar my-auto flex w-auto justify-start gap-16 overflow-x-scroll px-5 sm:hidden sm:px-[4rem]"
-	>
-		{#each [...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages, ...mobileImages] as image}
-			<div class={twm('shrink-0', image.layoutClasses)}>
-				<img src={image.path} alt="" class="h-full w-full object-cover" />
-			</div>
-		{/each}
-	</div> -->
 
 	<div class="hidden aspect-[1/0.1] w-full p-[4rem] sm:block">
 		{@render sandInteriors()}

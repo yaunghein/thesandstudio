@@ -65,7 +65,7 @@
 	<div use:horizontalScroll class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
 		<div class="flex items-start">
 			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
-				{#each [...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages, ...data.project.showcaseImages] as image}
+				{#each data.project.showcaseImages as image}
 					<div class={twm('shrink-0', image.layoutClasses)}>
 						<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
 					</div>

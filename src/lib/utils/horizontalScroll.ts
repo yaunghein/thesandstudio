@@ -9,7 +9,7 @@ export default function (node: HTMLElement) {
 	const parent = node
 	const container = parent.children[0] as HTMLElement
 	const wrapper = container.children[0] as HTMLElement
-	container.style.height = `${wrapper.scrollWidth * 1.1}px`
+	container.style.height = `${wrapper.scrollWidth + 100}px`
 	node.style.overscrollBehavior = 'none'
 
 	const getScrollAmount = () => {
@@ -29,7 +29,7 @@ export default function (node: HTMLElement) {
 		start: 'top top',
 		end: () => `+=${getScrollAmount() * -1}`,
 		animation: tween,
-		scrub: 1.2,
+		scrub: 1,
 		invalidateOnRefresh: true
 	})
 

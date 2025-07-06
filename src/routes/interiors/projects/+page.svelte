@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
 	import horizontalScroll from '$lib/utils/horizontalScroll.js'
-	import { slugify } from '$lib/utils/slugify'
 	import Project from '$lib/interiors/components/Project.svelte'
 	import projects from '$lib/interiors/fixtures/projects'
 
@@ -60,28 +58,27 @@
 			projectsInView = projectsInView.filter((p) => p.slug !== project.slug)
 		}
 	}
-
-	// Removed resize handler since projectsInViewToRender is derived and updates automatically
-
-	const getLayoutClasses = (index: number) => {
-		const classes = ['col-span-3', 'col-span-2', 'row-span-2']
-		return classes[Math.floor(Math.random() * classes.length)]
-	}
 </script>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 
 <div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
-	<div class="hide-scrollbar my-auto w-full overflow-x-auto px-5">
-		<div class="grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
-			{#each projects as project, index}
-				<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
-			{/each}
+	<div
+		use:horizontalScroll
+		class="hide-scrollbar mt-[12dvh] h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
+	>
+		<div class="w-full px-5">
+			<div class="sticky top-0 grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
+				{#each projects as project, index}
+					<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
+				{/each}
+				<div class="w-[11rem]"></div>
+			</div>
 		</div>
 	</div>
 	<section
-		class="sticky inset-0 top-auto grid h-32 w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
+		class="sticky inset-0 top-auto grid h-[8.68rem] w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
 	>
 		{#each projectsInViewToRender as project}
 			{@const originalIndex = projects.findIndex((p) => p.slug === project.slug)}
