@@ -115,7 +115,7 @@
 		<button
 			onclick={() => (isOpen = !isOpen)}
 			class={twm(
-				'aspect-square w-8 translate-y-[0.1rem] sm:w-[5rem] sm:translate-y-[0.2rem]',
+				'aspect-square w-[1.825rem] translate-y-[0.1rem] sm:w-[4.75rem] sm:translate-y-[0.2rem]',
 				(isInteriorsContactPage || isOpen) && 'text-white'
 			)}
 		>

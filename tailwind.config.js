@@ -89,6 +89,7 @@ export default {
 				marquee: 'marquee 10s linear infinite',
 				'spin-once': 'spin-once 0.8s ease-in-out',
 				'spin-slow': 'spin-slow 10s linear infinite',
+				'spin-interior': 'spin-slow 6s linear infinite',
 				'spin-back-once': 'spin-back-once 0.8s ease-in-out',
 				'vibrate-once': 'vibrate 0.5s ease-in-out 1',
 				blink: 'blink 1s infinite'
