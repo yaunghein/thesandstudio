@@ -298,7 +298,7 @@
 			</div>
 		</div>
 
-		<div class="grid w-full grid-cols-3 items-center gap-[2rem]">
+		<!-- <div class="grid w-full grid-cols-3 items-center gap-[2rem]">
 			<div class="col-span-2">
 				<div class="grid grid-cols-4 gap-x-[2rem] gap-y-[12rem] sm:pr-[13rem]">
 					<div class={twm('relative col-span-4 aspect-[1/0.71] bg-interior-brand')}>
@@ -319,7 +319,7 @@
 				</div>
 			</div>
 			<div class={twm('sticky top-0 col-span-1 grid gap-[1.5rem] self-center')}>
-				<!-- <div class="font-sand-bold text-[1.6rem]">Design Process</div>
+				<div class="font-sand-bold text-[1.6rem]">Design Process</div>
 				<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
 					<p>
 						The massing strategy is primarily inspired by site context and integration of visual and
@@ -327,11 +327,46 @@
 						split into two halves, creating a pathway that aligns with the lake, a direct axis that
 						integrates the built environment with its natural setting.
 					</p>
-				</div> -->
+				</div>
+			</div>
+		</div> -->
+
+		<div class="h-[1px] w-full scale-x-[1.052] bg-interior-brand"></div>
+		<div class="-translate-y-[2rem]">
+			<h2 class="shrink-0 font-sand-interior-regular text-[2.9rem] leading-none">Status</h2>
+			<div class="mt-[8.2rem] grid grid-cols-3 gap-5 sm:gap-[2rem]">
+				<img
+					src="/interiors/projects/oh/status/1.webp"
+					alt="Ostel Hostel"
+					class="h-full w-full object-cover sm:row-span-2"
+				/>
+				<img
+					src="/interiors/projects/oh/status/2.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/3.webp"
+					alt="Ostel Hostel"
+					class="h-full w-full object-cover sm:row-span-2"
+				/>
+				<img
+					src="/interiors/projects/oh/status/4.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/5.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/6.webp"
+					alt="Ostel Hostel"
+					class="w-full object-cover sm:col-span-2 sm:h-[56rem]"
+				/>
 			</div>
 		</div>
-
-		<!-- <div class="my-40 h-[1px] w-full scale-x-[1.052] bg-interior-brand"></div> -->
 	</div>
 </section>
 
@@ -356,7 +391,7 @@
 	</button>
 	<div
 		id="mobile-details"
-		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll py-5"
+		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll"
 	>
 		<div class="flex flex-col gap-5">
 			<div class="order-2">
@@ -396,56 +431,40 @@
 					</div>
 				</div>
 			</div>
-			<div class={twm('grid gap-5 self-start px-5')}>
-				<div class="font-sand-bold text-sm">Abstract</div>
-				<div class="grid gap-5 text-sm leading-[1.5]">
-					<p>
-						In the city of Yangon, Myanmar, the youth represent a dynamic part of the population
-						filled with potential and aspirations. The geopolitical and social setting of Yangon,
-						along with the challenges and opportunities that arise amid the pandemic, make an urgent
-						need for spaces that serve as anchors for the youth.
-					</p>
-					<p>
-						The absense of cohesive, safe environments that support the diverse needs and
-						aspirations, especially in creativity and communal interactions, highlights a critical
-						gap. The initiative aims for a design approach to elevate youth creativity through
-						interior design, by creating a safe and supportive spaceto connect, learn, and thrive
-						within a vibrant community.
-					</p>
-				</div>
-			</div>
 		</div>
-
-		<div class="-mb-5 flex flex-col gap-5">
-			<div class="order-2">
-				<div class="grid grid-cols-4 gap-x-[2rem] gap-y-[12rem] sm:pr-[13rem]">
-					<div class={twm('relative col-span-4 aspect-[1/0.71] bg-interior-brand')}>
-						<video
-							autoplay
-							loop
-							muted
-							src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-							class="absolute inset-0 h-full w-full object-cover"
-						>
-							<source
-								type="video/mp4"
-								src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-							/>
-							<track kind="captions" />
-						</video>
-					</div>
-				</div>
-			</div>
-			<div class={twm('flex flex-col gap-5 px-5')}>
-				<div class="font-sand-bold text-sm">Design Process</div>
-				<div class="grid max-w-[31rem] gap-5 text-sm leading-[1.5]">
-					<p>
-						The massing strategy is primarily inspired by site context and integration of visual and
-						physical connection to the neighbouring lake. Initially, the volume is elevated and
-						split into two halves, creating a pathway that aligns with the lake, a direct axis that
-						integrates the built environment with its natural setting.
-					</p>
-				</div>
+		<div class="px-5">
+			<h2 class="shrink-0 font-sand-interior-regular text-base leading-none">Status</h2>
+			<div class="mt-5 grid gap-5 pb-5 sm:gap-[2rem]">
+				<img
+					src="/interiors/projects/oh/status/1.webp"
+					alt="Ostel Hostel"
+					class="h-full w-full object-cover sm:row-span-2"
+				/>
+				<img
+					src="/interiors/projects/oh/status/2.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/3.webp"
+					alt="Ostel Hostel"
+					class="h-full w-full object-cover sm:row-span-2"
+				/>
+				<img
+					src="/interiors/projects/oh/status/4.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/5.webp"
+					alt="Ostel Hostel"
+					class="aspect-square h-full w-full object-cover"
+				/>
+				<img
+					src="/interiors/projects/oh/status/6.webp"
+					alt="Ostel Hostel"
+					class="w-full object-cover sm:col-span-2 sm:h-[56rem]"
+				/>
 			</div>
 		</div>
 	</div>
