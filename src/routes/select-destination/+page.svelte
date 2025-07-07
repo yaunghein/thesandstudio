@@ -33,7 +33,8 @@
 	}
 </script>
 
-<!-- <div class="fixed bottom-0 left-[86.5rem] top-0 z-50 w-[1px] bg-red-500"></div> -->
+<!-- <div class="fixed bottom-0 left-[10.25rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
+<div class="fixed bottom-0 left-[11.4rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.3rem]"></div> -->
 
 <div class="flex h-screen w-full items-center justify-center overflow-hidden bg-black">
 	<div class="relative w-[320px] shrink-0 sm:w-[52rem] sm:-translate-x-[5rem]">
@@ -68,15 +69,15 @@
 			class="group absolute right-[0rem] top-[10rem] z-10 h-[5.75rem] w-[12rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
 		>
 			<span class="sr-only">Sand Interiors</span>
-			<div class="absolute left-2 top-1 flex items-center sm:left-3 sm:top-3">
+			<div class="absolute left-[0.3rem] top-1 flex items-center sm:left-3 sm:top-3">
 				<div
-					class="aspect-square w-6 shrink-0 sm:w-14"
+					class="aspect-square w-6 shrink-0 sm:w-16"
 					use:playLottie={'/interiors/interiors-spining.json'}
 				></div>
 				<img
 					src="/interiors/sand-interiors.svg"
 					alt=""
-					class="sand-transition w-[4rem] -translate-x-[1.5rem] translate-y-[0rem] opacity-0 group-hover:opacity-100 sm:w-[9rem] sm:-translate-x-[3.5rem]"
+					class="sand-transition w-[4rem] -translate-x-[1.275rem] translate-y-[0rem] opacity-100 group-hover:opacity-100 sm:w-[11rem] sm:-translate-x-[3.8rem] sm:opacity-0"
 				/>
 			</div>
 		</button>
@@ -88,15 +89,15 @@
 			class="group absolute -right-[0rem] top-[16rem] z-10 h-[6rem] w-[14rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
 		>
 			<span class="sr-only">The Sand Studio</span>
-			<div class="absolute left-10 top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
+			<div class="absolute left-[2.4rem] top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
 				<div
-					class="aspect-square w-6 sm:w-14"
+					class="aspect-square w-5 sm:w-14"
 					use:playLottie={'/interiors/studio-spining.json'}
 				></div>
 				<img
 					src="/interiors/sand-studio.svg"
 					alt=""
-					class="sand-transition w-[3.5rem] -translate-x-[1.35rem] translate-y-[0.25rem] opacity-0 group-hover:opacity-100 sm:w-[8rem] sm:-translate-x-[2.95rem] sm:translate-y-[0.5rem]"
+					class="sand-transition w-[3rem] -translate-x-[1.1rem] translate-y-[0.3rem] opacity-100 group-hover:opacity-100 sm:w-[8rem] sm:-translate-x-[3.1rem] sm:translate-y-[0.9rem] sm:opacity-0"
 				/>
 			</div>
 		</button>
