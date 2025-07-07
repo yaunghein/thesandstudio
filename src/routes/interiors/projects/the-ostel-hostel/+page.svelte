@@ -146,11 +146,15 @@
 	)}
 >
 	<div class="px-5 pb-8 pt-7 sm:hidden">
+		<a href="/interiors/projects" class="mb-8 flex items-center gap-[0.25rem] text-xs">
+			<span>Projects</span>
+			{@render backIcon()}
+		</a>
 		<h1 class="font-sand-interior-regular text-[2rem] leading-none">{project.name}</h1>
-		<div class="mt-9 grid grid-cols-3 gap-4 px-[2px]">
-			<div class="text-xs">{project.year}</div>
-			<div class="text-xs">{project.type}</div>
-			<a href="/interiors/projects" class="place-self-end text-xs">Back to Projects</a>
+		<div class="mt-9 flex justify-between px-[2px]">
+			<div class="w-[15%] text-xs">{project.year}</div>
+			<div class="w-[25%] text-xs">{project.type}</div>
+			<a href="/interiors/projects" class="w-[30%] text-xs">{project.location}</a>
 		</div>
 	</div>
 	<div
@@ -220,7 +224,10 @@
 							{/if}
 						</div>
 					{/if}
-					<a href="/interiors/projects" target="_blank">Back to Projects</a>
+					<a href="/interiors/projects" class="flex items-center gap-[0.5rem]">
+						<span>Back to Projects</span>
+						{@render backIcon()}
+					</a>
 				</div>
 			</div>
 		</div>
@@ -475,7 +482,7 @@
 {/snippet}
 
 {#snippet backIcon()}
-	<div class="aspect-square h-[1.6rem]">
+	<div class="aspect-square h-[0.9rem] sm:h-[1.6rem]">
 		<svg
 			width="100%"
 			height="100%"

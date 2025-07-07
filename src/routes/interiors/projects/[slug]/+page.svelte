@@ -56,14 +56,19 @@
 	)}
 >
 	<div class="px-5 pb-8 pt-7 sm:hidden">
+		<a href="/interiors/projects" class="mb-8 flex items-center gap-[0.25rem] text-xs">
+			<span>Projects</span>
+			{@render backIcon()}
+		</a>
 		<h1 class="font-sand-interior-regular text-[2rem] leading-none">{data.project.name}</h1>
-		<div class="mt-9 grid grid-cols-2 gap-4 px-[2px]">
-			<div class="text-xs">{data.project.year}</div>
-			<div class="text-xs">{data.project.type}</div>
+		<div class="mt-9 flex justify-between px-[2px]">
+			<div class="w-[15%] text-xs">{data.project.year}</div>
+			<div class="w-[25%] text-xs">{data.project.type}</div>
+			<a href="/interiors/projects" class="w-[30%] text-xs">{data.project.location}</a>
 		</div>
 	</div>
 	<div
-		use:horizontalScroll={{ extra: 100 }}
+		use:horizontalScroll={{ extra: window.innerHeight }}
 		class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
 	>
 		<div class="flex items-start">
@@ -105,29 +110,35 @@
 			<div class="grid grid-cols-3 gap-[2rem] text-[1.6rem]">
 				<div class="">{data.project.year}</div>
 				<div class="">{data.project.type}</div>
-				{#if data.project.details}
-					<div class="relative">
-						{#if isOpen}
-							<button
-								onclick={() => (isOpen = !isOpen)}
-								class="absolute flex items-center gap-[0.5rem]"
-								transition:fade={{ duration: 1000 }}
-							>
-								<div>Go Back</div>
-								{@render backIcon()}
-							</button>
-						{:else}
-							<button
-								onclick={() => (isOpen = !isOpen)}
-								class="absolute flex items-center gap-[0.5rem]"
-								transition:fade={{ duration: 1000 }}
-							>
-								<div>Learn More About the Project</div>
-								{@render learnMoreIcon()}
-							</button>
-						{/if}
-					</div>
-				{/if}
+				<div class="flex items-start justify-between">
+					{#if data.project.details}
+						<div class="relative h-6">
+							{#if isOpen}
+								<button
+									onclick={() => (isOpen = !isOpen)}
+									class="absolute flex items-center gap-[0.5rem]"
+									transition:fade={{ duration: 1000 }}
+								>
+									<div class="whitespace-nowrap">Go Back</div>
+									{@render backIcon()}
+								</button>
+							{:else}
+								<button
+									onclick={() => (isOpen = !isOpen)}
+									class="absolute flex items-center gap-[0.5rem]"
+									transition:fade={{ duration: 1000 }}
+								>
+									<div class="whitespace-nowrap">About the Project</div>
+									{@render learnMoreIcon()}
+								</button>
+							{/if}
+						</div>
+					{/if}
+					<a href="/interiors/projects" class="flex items-center gap-[0.5rem]">
+						<span>Back to Projects</span>
+						{@render backIcon()}
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -258,7 +269,7 @@
 {/snippet}
 
 {#snippet backIcon()}
-	<div class="aspect-square h-[1.6rem]">
+	<div class="aspect-square h-[0.9rem] sm:h-[1.6rem]">
 		<svg
 			width="100%"
 			height="100%"

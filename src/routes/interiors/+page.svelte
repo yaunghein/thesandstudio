@@ -638,7 +638,10 @@
 		</p>
 	</div>
 
-	<div use:horizontalScroll class="hide-scrollbar !overflow-x-hidden sm:hidden">
+	<div
+		use:horizontalScroll={{ extra: window.innerHeight }}
+		class="hide-scrollbar !overflow-x-hidden sm:hidden"
+	>
 		<div class="flex items-start">
 			<div class="sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5">
 				{#each mobileImages as image}
