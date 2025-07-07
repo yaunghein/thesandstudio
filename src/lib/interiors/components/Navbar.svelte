@@ -106,7 +106,7 @@
 			href="/interiors/"
 			onclick={() => (isOpen = false)}
 			class={twm(
-				'aspect-square w-8 sm:w-[6.8rem]',
+				'aspect-square w-8 sm:w-[5.25rem]',
 				(isInteriorsContactPage || isOpen) && 'text-white'
 			)}
 		>
@@ -115,7 +115,7 @@
 		<button
 			onclick={() => (isOpen = !isOpen)}
 			class={twm(
-				'aspect-square w-8 translate-y-[0.1rem] sm:w-[6.8rem] sm:translate-y-[0.2rem]',
+				'aspect-square w-8 translate-y-[0.1rem] sm:w-[5rem] sm:translate-y-[0.2rem]',
 				(isInteriorsContactPage || isOpen) && 'text-white'
 			)}
 		>

@@ -4,7 +4,7 @@ export default [
 	{
 		name: 'The Ostel Hostel',
 		slug: slugify('The Ostel Hostel'),
-		year: 2024,
+		year: 2025,
 		type: 'Bachelor Thesis',
 		coverImage: {
 			path: '/interiors/projects/list-page/oh.webp',
@@ -331,7 +331,7 @@ export default [
 			layoutClasses: 'h-[25rem] aspect-[1/1] col-start-2',
 			layoutClassesMobile: 'w-[9rem] col-start-2 row-start-2 aspect-[1/1] col-span-3'
 		},
-		location: 'Yangon, Myanmar',
+		location: 'BITEC, Bangkok, Thailand',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-1.webp',
@@ -455,7 +455,7 @@ export default [
 			layoutClasses: 'col-start-3 col-span-2',
 			layoutClassesMobile: 'w-[19.5rem] row-start-2 col-start-4'
 		},
-		location: 'Yangon, Myanmar',
+		location: 'Thanyaburi, Pathum Thani, Thailand',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/cm/showcase/cm-1.webp',
@@ -582,14 +582,14 @@ export default [
 	{
 		name: 'Factory Town House',
 		slug: slugify('Factory Town House'),
-		year: 2024,
+		year: 2023,
 		type: 'Residential Design',
 		coverImage: {
 			path: '/interiors/projects/list-page/ft.webp',
 			layoutClasses: 'col-span-2 row-start-1 col-start-5',
 			layoutClassesMobile: 'w-[19.5rem] col-span-2'
 		},
-		location: 'Yangon, Myanmar',
+		location: 'Uthai Thani, Thailand',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/fth/showcase/fth-1.webp',
@@ -629,13 +629,13 @@ export default [
 		name: 'Bauhaus Airbnb',
 		slug: slugify('Bauhaus Airbnb'),
 		year: 2024,
-		type: 'Commercial Design',
+		type: 'Residential Design',
 		coverImage: {
 			path: '/interiors/projects/list-page/airbnb.webp',
 			layoutClasses: '',
 			layoutClassesMobile: ''
 		},
-		location: 'Yangon, Myanmar',
+		location: 'Bangkok, Thailand',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/ba/showcase/ba-1.webp',
@@ -674,14 +674,14 @@ export default [
 	{
 		name: 'Yuki Mugi Bakery',
 		slug: slugify('Yuki Mugi Bakery'),
-		year: 2024,
-		type: 'Commercial Design',
+		year: 2022,
+		type: 'Retail Design',
 		coverImage: {
 			path: '/interiors/projects/list-page/ykmg.webp',
 			layoutClasses: '',
 			layoutClassesMobile: ''
 		},
-		location: 'Yangon, Myanmar',
+		location: 'Central Boulevard, Yangon, Myanmar',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/ymb/showcase/ymb-1.webp',
@@ -724,14 +724,14 @@ export default [
 	{
 		name: 'Another Club',
 		slug: slugify('Another Club'),
-		year: 2024,
-		type: 'Commercial Design',
+		year: 2021,
+		type: 'Retail Design',
 		coverImage: {
 			path: '/interiors/projects/list-page/ac.webp',
 			layoutClasses: '',
 			layoutClassesMobile: 'w-[9rem]'
 		},
-		location: 'Yangon, Myanmar',
+		location: 'Central Boulevard, Yangon, Myanmar',
 		showcaseImages: [
 			{
 				path: '/interiors/projects/ac/showcase/ac-1.webp',

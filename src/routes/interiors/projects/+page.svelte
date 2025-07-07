@@ -139,7 +139,7 @@
 				<div class="col-span-3">
 					<h3 class="">{project.name}</h3>
 				</div>
-				<div class="col-span-2">
+				<div class="col-span-2 leading-[1.2]">
 					<p class="">{project.location || ''}</p>
 				</div>
 			</a>

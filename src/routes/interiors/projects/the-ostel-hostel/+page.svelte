@@ -7,8 +7,8 @@
 	const project = {
 		name: 'The Ostel Hostel',
 		slug: slugify('The Ostel Hostel'),
-		year: 2024,
-		type: 'Bachelor Thesis',
+		year: 2025,
+		type: 'Hostel Design',
 		coverImage: {
 			path: '/interiors/projects/list-page/oh.webp',
 			layoutClasses: 'row-span-2',
@@ -147,9 +147,10 @@
 >
 	<div class="px-5 pb-8 pt-7 sm:hidden">
 		<h1 class="font-sand-interior-regular text-[2rem] leading-none">{project.name}</h1>
-		<div class="mt-9 grid grid-cols-2 gap-4 px-[2px]">
+		<div class="mt-9 grid grid-cols-3 gap-4 px-[2px]">
 			<div class="text-xs">{project.year}</div>
 			<div class="text-xs">{project.type}</div>
+			<a href="/interiors/projects" class="place-self-end text-xs">Back to Projects</a>
 		</div>
 	</div>
 	<div
@@ -195,29 +196,32 @@
 			<div class="grid grid-cols-3 gap-[2rem] text-[1.6rem]">
 				<div class="">{project.year}</div>
 				<div class="">{project.type}</div>
-				{#if project.details}
-					<div class="relative">
-						{#if isOpen}
-							<button
-								onclick={() => (isOpen = !isOpen)}
-								class="absolute flex items-center gap-[0.5rem]"
-								transition:fade={{ duration: 1000 }}
-							>
-								<div>Go Back</div>
-								{@render backIcon()}
-							</button>
-						{:else}
-							<button
-								onclick={() => (isOpen = !isOpen)}
-								class="absolute flex items-center gap-[0.5rem]"
-								transition:fade={{ duration: 1000 }}
-							>
-								<div>Learn More About the Project</div>
-								{@render learnMoreIcon()}
-							</button>
-						{/if}
-					</div>
-				{/if}
+				<div class="flex items-start justify-between">
+					{#if project.details}
+						<div class="relative h-6">
+							{#if isOpen}
+								<button
+									onclick={() => (isOpen = !isOpen)}
+									class="absolute flex items-center gap-[0.5rem]"
+									transition:fade={{ duration: 1000 }}
+								>
+									<div class="whitespace-nowrap">Go Back</div>
+									{@render backIcon()}
+								</button>
+							{:else}
+								<button
+									onclick={() => (isOpen = !isOpen)}
+									class="absolute flex items-center gap-[0.5rem]"
+									transition:fade={{ duration: 1000 }}
+								>
+									<div class="whitespace-nowrap">About the Project</div>
+									{@render learnMoreIcon()}
+								</button>
+							{/if}
+						</div>
+					{/if}
+					<a href="/interiors/projects" target="_blank">Back to Projects</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -268,7 +272,7 @@
 				</div>
 			</div>
 			<div class={twm('sticky top-0 col-span-1 grid gap-[1.5rem] self-start')}>
-				<div class="font-sand-bold text-[1.6rem]">Abstract</div>
+				<!-- <div class="font-sand-bold text-[1.6rem]">Abstract</div>
 				<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
 					<p>
 						In the city of Yangon, Myanmar, the youth represent a dynamic part of the population
@@ -283,7 +287,7 @@
 						interior design, by creating a safe and supportive spaceto connect, learn, and thrive
 						within a vibrant community.
 					</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -308,7 +312,7 @@
 				</div>
 			</div>
 			<div class={twm('sticky top-0 col-span-1 grid gap-[1.5rem] self-center')}>
-				<div class="font-sand-bold text-[1.6rem]">Design Process</div>
+				<!-- <div class="font-sand-bold text-[1.6rem]">Design Process</div>
 				<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
 					<p>
 						The massing strategy is primarily inspired by site context and integration of visual and
@@ -316,7 +320,7 @@
 						split into two halves, creating a pathway that aligns with the lake, a direct axis that
 						integrates the built environment with its natural setting.
 					</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 

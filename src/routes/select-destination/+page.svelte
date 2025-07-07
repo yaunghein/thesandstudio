@@ -21,7 +21,7 @@
 			body: JSON.stringify({
 				key: 'sand-showed-select-screen',
 				value: 'yes',
-				age: 24 * 60 * 60 * 1000 // a day
+				age: 10 * 60 * 1000 // 10 minutes
 			})
 		})
 			.then(() => {
