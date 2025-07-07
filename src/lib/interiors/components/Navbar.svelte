@@ -176,9 +176,9 @@
 		</div>
 
 		<div
-			class="grid w-full grid-cols-2 items-center justify-between gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:flex sm:px-[4rem] sm:py-[4.25rem]"
+			class="grid h-[4.25rem] w-full grid-cols-2 items-center justify-between gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:flex sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
 		>
-			<div class="flex items-start gap-3 sm:gap-6">
+			<div class="flex -translate-y-[0.1rem] items-start gap-3 sm:gap-6">
 				<a
 					href="https://www.instagram.com/sand.interiors_/"
 					target="_blank"
@@ -194,7 +194,7 @@
 					LINE
 				</a>
 			</div>
-			<div class="">
+			<div class="-translate-y-[0.125rem]">
 				<a
 					href="/mobile/?bypass-select=true"
 					class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.6rem]"
