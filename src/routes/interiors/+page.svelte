@@ -4,85 +4,202 @@
 
 	const images = [
 		{
-			path: '/interiors/trailing-images/trail-1.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/1]'
+			path: '/interiors/home-scroll-images/1.webp',
+			layoutClasses: 'w-[12rem] aspect-[1/2.73]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-2.webp',
-			layoutClasses: 'w-[30rem] aspect-[1:1.15]'
+			path: '/interiors/home-scroll-images/2.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-3.webp',
-			layoutClasses: 'w-[40rem] aspect-[1/0.56]'
+			path: '/interiors/home-scroll-images/3.webp',
+			layoutClasses: 'w-[15rem] aspect-[1/1.01]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-4.webp',
-			layoutClasses: 'w-[16rem] aspect-[1/2.72]'
+			path: '/interiors/home-scroll-images/4.webp',
+			layoutClasses: 'w-[25rem] aspect-[1/0.76]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-5.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+			path: '/interiors/home-scroll-images/5.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.76]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-6.webp',
-			layoutClasses: 'w-[35rem] aspect-[1/0.56]'
+			path: '/interiors/home-scroll-images/6.webp',
+			layoutClasses: 'w-[25rem] aspect-[1/0.85]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-7.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/1]'
+			path: '/interiors/home-scroll-images/7.webp',
+			layoutClasses: 'w-[25rem] aspect-[1/0.56]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-8.webp',
-			layoutClasses: 'w-[35rem] aspect-[1/0.56]'
+			path: '/interiors/home-scroll-images/8.webp',
+			layoutClasses: 'w-[25rem] aspect-[1/0.56]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-9.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.85]'
+			path: '/interiors/home-scroll-images/9.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-10.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/1]'
+			path: '/interiors/home-scroll-images/10.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.04]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-11.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+			path: '/interiors/home-scroll-images/11.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-12.webp',
-			layoutClasses: 'w-[35rem] aspect-[1/0.87] mix-blend-multiply'
+			path: '/interiors/home-scroll-images/12.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-13.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+			path: '/interiors/home-scroll-images/13.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-14.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/0.75]'
+			path: '/interiors/home-scroll-images/14.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
 		},
 		{
-			path: '/interiors/trailing-images/trail-15.webp',
-			layoutClasses: 'w-[30rem] aspect-[1/1]'
+			path: '/interiors/home-scroll-images/15.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/16.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/17.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/18.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.85]'
+		},
+		{
+			path: '/interiors/home-scroll-images/19.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/20.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.33]'
+		},
+		{
+			path: '/interiors/home-scroll-images/21.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/22.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/23.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/24.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/25.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.6]'
+		},
+		{
+			path: '/interiors/home-scroll-images/26.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.85]'
+		},
+
+		{
+			path: '/interiors/home-scroll-images/27.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/28.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/29.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/30.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/31.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/32.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/33.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/34.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/35.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/36.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/37.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/38.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/39.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.54]'
+		},
+		{
+			path: '/interiors/home-scroll-images/40.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/41.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/42.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/43.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		},
+		{
+			path: '/interiors/home-scroll-images/44.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.92]'
+		},
+		{
+			path: '/interiors/home-scroll-images/45.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
+		},
+		{
+			path: '/interiors/home-scroll-images/46.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.63]'
+		},
+		{
+			path: '/interiors/home-scroll-images/47.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
+		},
+		{
+			path: '/interiors/home-scroll-images/48.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/1]'
+		},
+		{
+			path: '/interiors/home-scroll-images/49.webp',
+			layoutClasses: 'w-[20rem] aspect-[1/0.75]'
 		}
-		// {
-		// 	path: '/interiors/trailing-images/trail-16.webp',
-		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		// },
-		// {
-		// 	path: '/interiors/trailing-images/trail-17.webp',
-		// 	layoutClasses: 'w-[20rem] aspect-[1/1.25]'
-		// },
-		// {
-		// 	path: '/interiors/trailing-images/trail-18.webp',
-		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		// },
-		// {
-		// 	path: '/interiors/trailing-images/trail-19.webp',
-		// 	layoutClasses: 'w-[30rem] aspect-[1/0.75]'
-		// },
-		// {
-		// 	path: '/interiors/trailing-images/trail-20.webp',
-		// 	layoutClasses: 'w-[20rem] aspect-[1/1.25]'
-		// }
 	]
 
 	const mobileImages = [
