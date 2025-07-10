@@ -9,19 +9,13 @@
 	const links = [
 		{ label: 'Home', href: '/interiors/' },
 		{ label: 'Projects', href: '/interiors/projects/' },
+		{ label: 'Services', href: '/interiors/projects/' },
 		{ label: 'Contact', href: '/interiors/contact/' }
 	]
 
 	let isOpen = $state(false)
 	let navLinksContainer: HTMLElement | null = $state(null)
 	let lightingImage: HTMLElement | null = $state(null)
-	let hoveredLink = $state<string | null>(null)
-
-	$effect(() => {
-		if (!isOpen) {
-			hoveredLink = null
-		}
-	})
 
 	$effect(() => {
 		if (isOpen) {
@@ -121,64 +115,68 @@
 		>
 			<Door />
 		</button>
-
-		{#if isInteriorsContactPage || isOpen}
-			<div
-				class="pointer-events-none absolute -bottom-[0.125rem] left-2 right-2 h-[0.1rem] bg-white sm:left-[4rem] sm:right-[4rem] sm:h-[0.25rem]"
-			></div>
-			<div
-				bind:this={lightingImage}
-				class="pointer-events-none absolute left-0 right-0 top-[calc(3.6rem+0.125rem)] h-[100dvh] sm:top-[calc(11.5rem+0.125rem)]"
-			>
-				<img
-					src="/interiors/lighting-desktop.webp"
-					alt=""
-					class="absolute inset-0 bottom-auto mx-auto hidden h-full w-full sm:block"
-				/>
-				<img
-					src="/interiors/lighting-mobile.webp"
-					alt=""
-					class="absolute inset-0 bottom-auto mx-auto h-full w-full sm:hidden"
-				/>
-			</div>
-		{/if}
 	</div>
 </header>
 
 {#if isOpen}
 	<div
 		class={twm(
-			'fixed inset-0 top-0 z-20 flex h-[100dvh] flex-col items-end bg-black leading-[1.5] text-white',
+			'fixed inset-0 top-0 z-20 flex h-[100dvh] flex-col items-end bg-interior-brand leading-[1.5] text-white',
 			isOpen ? 'z-50' : 'z-20'
 		)}
 	>
 		<!-- filler for fixed navbar -->
 		<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+
+		{#if isInteriorsContactPage || isOpen}
+			<div
+				bind:this={lightingImage}
+				class="pointer-events-none absolute left-0 right-0 top-[3.6rem] h-[100dvh] bg-interior-brand sm:top-[11.5rem]"
+			>
+				<img
+					src="/interiors/lighting-2.png"
+					alt=""
+					class="absolute inset-0 bottom-auto mx-auto hidden h-full w-full mix-blend-screen sm:block"
+				/>
+				<img
+					src="/interiors/lighting-2-mobile.png"
+					alt=""
+					class="absolute inset-0 bottom-auto mx-auto h-full w-full mix-blend-screen sm:hidden"
+				/>
+			</div>
+		{/if}
+
 		<div
 			bind:this={navLinksContainer}
-			class="flex w-full grow flex-col items-start justify-center gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-[8rem]"
+			class="flex w-full grow flex-col items-start justify-center gap-0 p-5 sm:flex-row sm:items-center sm:gap-[7rem] sm:p-[8rem]"
 		>
 			{#each links as link}
-				<a
-					onclick={() => (isOpen = false)}
-					href={link.href}
-					onmouseenter={() => (hoveredLink = link.label)}
-					onmouseleave={() => (hoveredLink = null)}
-					class={twm(
-						'nav-link interior-transition text-[3.5rem] sm:text-[11rem] ',
-						hoveredLink === link.label ? 'text-glow-white opacity-100' : 'opacity-25',
-						hoveredLink === null && 'opacity-100'
-					)}
-				>
-					{link.label}
-				</a>
+				<div class="group relative -my-[0.15rem] sm:my-0">
+					<a
+						onclick={() => {
+							setTimeout(() => {
+								isOpen = false
+							}, 50)
+						}}
+						href={link.href}
+						class={twm('nav-link interior-transition text-[2.5rem] sm:text-[5.4rem]')}
+					>
+						{link.label}
+					</a>
+					<div
+						class="interior-transition absolute inset-0 bottom-2 top-auto hidden h-[2px] w-full scale-x-0 bg-white group-hover:scale-x-100 sm:block"
+					></div>
+				</div>
 			{/each}
 		</div>
 
 		<div
-			class="grid h-[4.25rem] w-full grid-cols-2 items-center justify-between gap-4 border-t border-white/30 px-5 pb-8 pt-4 sm:flex sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
+			class="relative flex h-[4.25rem] w-full items-center justify-between gap-4 px-5 py-5 sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
 		>
-			<div class="flex -translate-y-[0.1rem] items-start gap-3 sm:gap-6">
+			<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+				<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+			</div>
+			<div class="flex -translate-y-[0.22rem] items-start gap-3 sm:-translate-y-[0.15rem] sm:gap-6">
 				<a
 					href="https://www.instagram.com/sand.interiors_/"
 					target="_blank"
@@ -194,7 +192,7 @@
 					LINE
 				</a>
 			</div>
-			<div class="-translate-y-[0.125rem]">
+			<div class="-translate-y-[0.25rem] sm:-translate-y-[0.2rem]">
 				<a
 					href="/mobile/?bypass-select=true"
 					class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.6rem]"
