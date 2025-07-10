@@ -337,7 +337,12 @@
 
 		<div class="h-[1px] w-full scale-x-[1.052] bg-interior-brand"></div>
 		<div class="-translate-y-[2rem]">
-			<h2 class="shrink-0 font-sand-interior-regular text-[2.9rem] leading-none">Status</h2>
+			<div class="flex items-center justify-between">
+				<h2 class="shrink-0 font-sand-interior-regular text-[2.9rem] leading-none">Status:</h2>
+				<div class="shrink-0 font-sand-interior-regular text-[2.9rem] leading-none">
+					Under construction
+				</div>
+			</div>
 			<div class="mt-[8.2rem] grid grid-cols-3 gap-5 sm:gap-[2rem]">
 				<img
 					src="/interiors/projects/oh/status/1.webp"
@@ -437,8 +442,13 @@
 			</div>
 		</div>
 		<div class="px-5">
-			<h2 class="shrink-0 font-sand-interior-regular text-base leading-none">Status</h2>
-			<div class="mt-5 grid grid-cols-3 gap-2 pb-5">
+			<div class="grid grid-cols-3 gap-2 pb-5">
+				<div class="col-span-3 mb-4 flex items-center justify-between">
+					<h2 class="shrink-0 font-sand-interior-regular text-base leading-none">Status:</h2>
+					<div class="shrink-0 font-sand-interior-regular text-base leading-none">
+						Under construction
+					</div>
+				</div>
 				<img
 					src="/interiors/projects/oh/status/1.webp"
 					alt="Ostel Hostel"

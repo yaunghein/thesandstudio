@@ -322,7 +322,7 @@ export default [
 		]
 	},
 	{
-		name: 'Unseen Battle PTSD Awareness Exhibition',
+		name: 'Unseen Battle: PTSD Awareness Exhibition',
 		slug: slugify('Unseen Battle PTSD Awareness Exhibition'),
 		year: 2024,
 		type: 'Exhibition Design',
