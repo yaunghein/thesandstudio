@@ -122,6 +122,10 @@
 	let isOpen = $state(false)
 	let isMobileOpen = $state(false)
 	let isDay = $state(true)
+	let mobileContent = $state<HTMLElement | null>(null)
+	let mobileContentBottom = $derived(
+		mobileContent ? mobileContent.getBoundingClientRect().bottom / 16 : 0
+	)
 
 	$effect(() => {
 		if (isMobileOpen || isOpen) {
@@ -140,12 +144,12 @@
 
 <section
 	class={twm(
-		'interior-transition flex flex-col sm:h-[calc(100dvh-11.5rem)]',
-		isOpen ? '-translate-y-full' : '',
-		isMobileOpen ? '-translate-y-[101dvh]' : ''
+		'interior-transition flex h-[calc(100dvh-3.6rem)] flex-col  sm:h-[calc(100dvh-11.5rem)]',
+		isOpen ? '-translate-y-full' : ''
+		// isMobileOpen ? '-translate-y-[101dvh]' : ''
 	)}
 >
-	<div class="px-5 pb-8 pt-7 sm:hidden">
+	<div bind:this={mobileContent} class="px-5 pb-8 pt-7 sm:hidden">
 		<a href="/interiors/projects" class="mb-8 flex items-center gap-[0.25rem] text-xs">
 			<span>Projects</span>
 			{@render backIcon()}
@@ -373,17 +377,16 @@
 <section
 	class={twm(
 		'interior-transition fixed inset-0 z-40 w-full bg-interior-light text-sm sm:hidden',
-		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11',
 		!project.details?.length && 'hidden'
 	)}
+	style={`top: ${isMobileOpen ? `${mobileContentBottom}rem` : 'calc(100dvh - 2.75rem)'}; 
+		height: ${isMobileOpen ? `calc(100dvh - ${mobileContentBottom}rem)` : '2.75rem'}`}
 >
 	<button
 		onclick={() => (isMobileOpen = !isMobileOpen)}
 		class={twm(
-			'interior-transition flex h-11 w-full shrink-0 items-center justify-between border-y px-5',
-			isMobileOpen
-				? 'border-b-interior-brand border-t-interior-light'
-				: 'border-b-interior-light border-t-interior-brand'
+			'interior-transition flex h-11 w-full shrink-0 items-center justify-between border-y border-t-interior-brand px-5',
+			isMobileOpen ? 'border-b-interior-brand ' : 'border-b-interior-light '
 		)}
 	>
 		<div>About the Project</div>
@@ -391,7 +394,8 @@
 	</button>
 	<div
 		id="mobile-details"
-		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll"
+		class="hide-scrollbar grid w-full gap-5 overflow-y-scroll"
+		style={`height: calc(100dvh - ${mobileContentBottom + 2.75}rem)`}
 	>
 		<div class="flex flex-col gap-5">
 			<div class="order-2">
@@ -434,11 +438,11 @@
 		</div>
 		<div class="px-5">
 			<h2 class="shrink-0 font-sand-interior-regular text-base leading-none">Status</h2>
-			<div class="mt-5 grid gap-5 pb-5 sm:gap-[2rem]">
+			<div class="mt-5 grid grid-cols-3 gap-2 pb-5">
 				<img
 					src="/interiors/projects/oh/status/1.webp"
 					alt="Ostel Hostel"
-					class="h-full w-full object-cover sm:row-span-2"
+					class="row-span-2 h-full w-full object-cover"
 				/>
 				<img
 					src="/interiors/projects/oh/status/2.webp"
@@ -448,7 +452,7 @@
 				<img
 					src="/interiors/projects/oh/status/3.webp"
 					alt="Ostel Hostel"
-					class="h-full w-full object-cover sm:row-span-2"
+					class="row-span-2 h-full w-full object-cover"
 				/>
 				<img
 					src="/interiors/projects/oh/status/4.webp"
@@ -463,7 +467,7 @@
 				<img
 					src="/interiors/projects/oh/status/6.webp"
 					alt="Ostel Hostel"
-					class="w-full object-cover sm:col-span-2 sm:h-[56rem]"
+					class="col-span-2 h-[14rem] w-full object-cover"
 				/>
 			</div>
 		</div>

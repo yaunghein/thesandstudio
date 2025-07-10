@@ -9,6 +9,10 @@
 
 	let isOpen = $state(false)
 	let isMobileOpen = $state(false)
+	let mobileContent = $state<HTMLElement | null>(null)
+	let mobileContentBottom = $derived(
+		mobileContent ? mobileContent.getBoundingClientRect().bottom / 16 : 0
+	)
 
 	$effect(() => {
 		if (isMobileOpen || isOpen) {
@@ -50,12 +54,12 @@
 
 <section
 	class={twm(
-		'interior-transition flex flex-col sm:h-[calc(100dvh-11.5rem)]',
-		isOpen ? '-translate-y-full' : '',
-		isMobileOpen ? '-translate-y-[101dvh]' : ''
+		'interior-transition flex h-[calc(100dvh-3.6rem)] flex-col  sm:h-[calc(100dvh-11.5rem)]',
+		isOpen ? '-translate-y-full' : ''
+		// isMobileOpen ? '-translate-y-[101dvh]' : ''
 	)}
 >
-	<div class="px-5 pb-8 pt-7 sm:hidden">
+	<div bind:this={mobileContent} class="px-5 pb-8 pt-7 sm:hidden">
 		<a href="/interiors/projects" class="mb-8 flex items-center gap-[0.25rem] text-xs">
 			<span>Projects</span>
 			{@render backIcon()}
@@ -185,17 +189,16 @@
 <section
 	class={twm(
 		'interior-transition fixed inset-0 z-40 w-full bg-interior-light text-sm sm:hidden',
-		isMobileOpen ? 'top-0 h-[100dvh]' : 'top-[calc(100dvh-2.75rem)] h-11',
 		!data.project.details?.length && 'hidden'
 	)}
+	style={`top: ${isMobileOpen ? `${mobileContentBottom}rem` : 'calc(100dvh - 2.75rem)'}; 
+		height: ${isMobileOpen ? `calc(100dvh - ${mobileContentBottom}rem)` : '2.75rem'}`}
 >
 	<button
 		onclick={() => (isMobileOpen = !isMobileOpen)}
 		class={twm(
-			'interior-transition flex h-11 w-full shrink-0 items-center justify-between border-y px-5',
-			isMobileOpen
-				? 'border-b-interior-brand border-t-interior-light'
-				: 'border-b-interior-light border-t-interior-brand'
+			'interior-transition flex h-11 w-full shrink-0 items-center justify-between border-y border-t-interior-brand px-5',
+			isMobileOpen ? 'border-b-interior-brand ' : 'border-b-interior-light '
 		)}
 	>
 		<div>About the Project</div>
@@ -203,7 +206,8 @@
 	</button>
 	<div
 		id="mobile-details"
-		class="hide-scrollbar grid h-[calc(100dvh-2.75rem)] w-full gap-5 overflow-y-scroll py-5"
+		class="hide-scrollbar grid w-full gap-5 overflow-y-scroll py-5"
+		style={`height: calc(100dvh - ${mobileContentBottom + 2.75}rem)`}
 	>
 		{#if data.project.details}
 			{#each data.project.details as detail, detailIndex}
