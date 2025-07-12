@@ -566,13 +566,13 @@ export default [
 					},
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-1.2.webp',
-						layoutClasses: 'w-full sm:col-span-3 aspect-[1/0.81]'
+						layoutClasses: 'w-full sm:col-span-3 order-1 sm:order-2 aspect-[1/0.81]'
 					}
 				],
 				title: 'Abstract',
 				body: [
-					'Around the site area, the contrasting absence of large green spaces, coupled with inadequate walkability, presents significant urban challenges. The dense urban fabric, predominantly filled with buildings and concrete, lacks substantial green areas.',
-					'Moreover, the insufficient pedestrian infrastructure, characterized by limited pathways and congested streets, severely restricts safe and comfortable pedestrian movement, diminishing the quality of urban life.'
+					'In collaboration with Thammasat University, this public space project aims to address urban challenges in the surrounding area by enhancing greenery, pedestrian accessibility, and community engagement. The dense urban fabric, dominated by buildings and concrete, lacks substantial green spaces, limiting social interaction and environmental benefits.',
+					'Additionally, poor pedestrian infrastructure, characterized by narrow pathways and congested streets, restricts safe and comfortable movement, diminishing urban quality. Through landscape interventions, widened walkways, and inclusive urban design, the project seeks to create a more livable, sustainable, and pedestrian-friendly environment for both the university community and the broader public.'
 				],
 				contentClasses: ''
 			},
@@ -580,52 +580,78 @@ export default [
 				images: [
 					{
 						path: '/interiors/projects/cm/detail/cm-detail-2.1.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.87] sm:scale-[0.75]'
+					}
+				],
+				title: 'Site Analysis',
+				body: [
+					'Suchat Market, situated in the Thanyaburi District of Pathum Thani near Bangkok, lies in a dynamic region marked by its blend of residential and commercial shophouses, contributing to a vibrant community atmosphere.',
+					'The surrounding medium to high-density development, featuring a mix of multi-story residential buildings and commercial establishments, reflects an integrated and culturally rich urban fabric.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-3.1.webp',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.92]'
 					},
 					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.2.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.88] self-center'
+						path: '/interiors/projects/cm/detail/cm-detail-3.2.webp',
+						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.88] self-center sm:scale-[0.75]'
 					},
 					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.3.webp',
-						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.87]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.4.webp',
-						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.23]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.5.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[0.71/1]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.6.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[0.71/1]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.7.webp',
-						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.3]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.8.webp',
-						layoutClasses: 'w-[90%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/0.68]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.9.webp',
-						layoutClasses: 'w-[90%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/0.68]'
-					},
-					{
-						path: '/interiors/projects/cm/detail/cm-detail-2.10.webp',
-						layoutClasses:
-							'w-[90%] mx-auto sm:mx-0 pb-5 sm:pb-0 sm:w-full sm:col-span-4 aspect-[1/0.36]'
+						path: '/interiors/projects/cm/detail/cm-detail-3.3.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.2275]'
 					}
 				],
-				title: 'Concept',
+				title: 'Concept Development',
 				body: [
-					"The concept for the market place and community gathering space at Suchat Market is inspired by the idea of a 'junction of journeys', symbolizing the convergence of diverse backgrounds and paths.",
-					'This approach is centered on navigating the intricate mental state of PTSD, aims to dismantle stigma, educate the public, and cultivate an environment of empathy for those affected by PTSD.'
+					'The concept is inspired by the idea of a ‘junction of journeys’, symbolizing the convergence of diverse backgrounds and paths. This envisions the market as a central hub, akin to how markets traditionally evolve around religious structures like temples, fostering community growth and interaction.',
+					'Adding a layer of local cultural context, the inspiration was drawn from the intricate layouts and designs of Thai ancient temple compounds. '
 				],
-				contentClasses: 'sticky self-start'
+				contentClasses: 'sticky self-start sm:mt-[5rem]'
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-4.1.webp',
+						layoutClasses: 'w-[60%] mx-auto sm:col-span-4 aspect-[1/0.68]'
+					},
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-4.2.webp',
+						layoutClasses: 'w-[60%] mx-auto sm:col-span-4 aspect-[1/0.68]'
+					}
+				],
+				title: 'Space Planning',
+				body: [
+					'Ground Level serves as a commercial and social hub, with a central outdoor market linking the food court, indoor market, pet area, and kids’ area. Multiple outdoor seating areas enhance interaction, while entry points and circulation paths ensure smooth movement. Amenities such as toilets, lounges, and admin areas are strategically placed for convenience.',
+					'Upper Level shifts focus to community engagement, featuring outdoor gathering areas that connect to the community hall and library + coworking space. These spaces encourage learning, collaboration, and events, with stairs and lifts ensuring seamless vertical access.'
+				],
+				contentClasses: 'sticky self-start sm:mt-[5rem]'
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-5.1.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.35]'
+					},
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-5.2.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[0.71/1]'
+					},
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-5.3.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[0.71/1]'
+					},
+					{
+						path: '/interiors/projects/cm/detail/cm-detail-5.4.webp',
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.3]'
+					}
+				],
+				title: 'Experience Mapping',
+				body: [],
+				contentClasses: 'sticky self-start sm:mt-[12rem]'
 			}
 		]
 	},

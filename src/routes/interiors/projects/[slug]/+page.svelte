@@ -8,7 +8,7 @@
 	let { data } = $props()
 
 	let isOpen = $state(false)
-	let isMobileOpen = $state(false)
+	let isMobileOpen = $state(true)
 	let mobileContent = $state<HTMLElement | null>(null)
 	let mobileContentBottom = $derived(
 		mobileContent ? mobileContent.getBoundingClientRect().bottom / 16 : 0
