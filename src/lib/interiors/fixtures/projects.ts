@@ -289,7 +289,7 @@ export default [
 					},
 					{
 						path: '/interiors/projects/cyc/detail/new-3.3.webp',
-						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56]'
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56] -mt-5 sm:mt-0'
 					}
 				],
 				title: 'Site Analysis',
@@ -381,77 +381,117 @@ export default [
 				images: [
 					{
 						path: '/interiors/projects/ptsd/detail/ptsd-detail-1.1.webp',
-						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.52]'
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.52]'
+					},
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-1.2.webp',
+						layoutClasses: 'w-[85%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.56]'
 					}
 				],
 				title: 'Abstract',
 				body: [
-					'Post-Traumatic Stress Disorder (PTSD) is a mental health condition triggered by experiencing or witnessing a traumatic event. The aim of this exhibition is to increase awareness and understanding of PTSD, creating a supportive community for affected individuals.',
-					"The objectives include educating the public about PTSD's causes, symptoms, and effects, and providing helpful resources and strategies for support and healing for both sufferers and their families."
+					'Post-Traumatic Stress Disorder (PTSD) is a mental health condition triggered by experiencing or witnessing a traumatic event. The aim of this exhibition is to increase awareness and understanding of Post-Traumatic Stress Disorder (PTSD), creating a supportive community for affected individuals.',
+					'The exhibition is designed to illuminate the healing process, highlighting various pathways to recoveryand showcasing the resilience and strength that can emerge from navigating the challenges of PTSD.'
+				],
+				contentClasses: 'sticky self-start sm:mt-[10rem]'
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.1.webp',
+						layoutClasses: 'w-[65%] sm:w-full mx-auto sm:col-span-2 aspect-[1/1.55] self-center'
+					},
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.2.webp',
+						layoutClasses: 'w-[70%] sm:w-full mx-auto sm:col-span-2 aspect-[1/2.06] sm:scale-[0.75]'
+					}
+				],
+				title: 'What is PTSD?',
+				body: [
+					'Post-Traumatic Stress Disorder (PTSD) is a mental health condition triggered by experiencing or witnessing a traumatic event. Symptoms include flashbacks, nightmares, severe anxiety, and uncontrollable thoughts about the event. Triggers can include sights, sounds, smells, or thoughts that remind the person of the traumatic event.',
+					'Addressing PTSD is rare yet it affects millions worldwide, influencing mental health, daily functioning, and overall well-being. Raising awareness helps reduce stigma, encourages early intervention, and promotes access to support and treatment.',
+					'References:<br/> PMC Article - <a class="underline underline-offset-2" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6034513" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC6034513</a><br /> PTSD VA - <a class="underline underline-offset-2" href="https://www.ptsd.va.gov/PTSD/professional/articles/article-pdf/" target="_blank">https://www.ptsd.va.gov/PTSD/professional/articles/article-pdf/</a>'
 				],
 				contentClasses: ''
 			},
 			{
 				images: [
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.1.webp',
-						layoutClasses: 'w-full sm:col-span-3 aspect-[1/0.75]'
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-3.1.webp',
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.77]'
+					}
+				],
+				title: 'Site Analysis',
+				body: [
+					'BITEC, one of Bangkok’s major convention and exhibition centers, is a key hub for large-scale events, business, and cultural gatherings. Its north-facing facade reduces direct sunlight exposure but increases reliance on air conditioning in Bangkok’s tropical climate.',
+					'The south-to-north prevailing winds offer opportunities for passive cooling, though artificial cooling remains essential for maintaining thermal comfort, stable lighting, and controlled humidity in exhibition spaces.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.1.webp',
+						layoutClasses: 'w-full sm:col-span-3 aspect-[1/0.76]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.2.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.2.webp',
 						layoutClasses:
-							'w-[50%] sm:w-full sm:col-span-1 aspect-[1/1.34] self-center sm:translate-x-[1.75rem]'
+							'w-full self-center aspect-[1/1.34] sm:translate-x-[4rem] scale-[0.75] sm:scale-[1]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.3.webp',
-						layoutClasses: 'w-[50%] sm:w-[75%] mx-auto sm:col-span-2 aspect-[1/1.02] self-end'
-					},
-					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.4.webp',
-						layoutClasses: 'w-[50%] mx-auto sm:w-full sm:col-span-2 aspect-[1/1.3]'
-					},
-					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.5.webp',
-						layoutClasses: 'w-[50%] mx-auto sm:mx-0 sm:w-[80%] sm:col-span-2 aspect-[1/1.1]'
-					},
-					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.6.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.3.webp',
 						layoutClasses:
-							'w-[50%] mx-auto sm:mx-0 sm:w-[80%] sm:col-span-2 aspect-[1/1.1] sm:-translate-x-[1.75rem]'
+							'w-full sm:col-span-2 self-center aspect-[1/0.45] scale-[0.75] sm:scale-[1]'
 					},
 					{
-						path: '',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.4.webp',
 						layoutClasses:
-							'w-[50%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/1.1] opacity-0 visible-none h-0'
+							'w-full sm:col-span-2 aspect-[1/1.2] sm:scale-[0.75] origin-center sm:origin-right self-end scale-[0.75] sm:scale-[1]'
+					}
+				],
+				title: 'Concept Development',
+				body: [
+					'Primarily drawing inspiration from Japanese Kintsugi philosophy, which highlights the art of mending broken pottery with gold, emphasizing that flaws and fractures are not meant to be hidden but celebrated as part of an object’s history. This philosophy reasonates with the journey of mental health and PTSD recovery, where healing is not about erasing scars but embracing them as a testament to resilience and growth.',
+					'This approach is centered on navigating the intricate mental state of PTSD, acknowledging the fragility of the human experience while reinforcing resilience through design and spatial storytelling. It aims to dismantle stigma, educate the public, and cultivate an environment of empathy for those'
+				],
+				contentClasses: 'sticky self-start sm:mt-[5rem]'
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-5.1.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.96] sm:scale-[0.75]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.7.webp',
-						layoutClasses:
-							'w-[50%] mx-auto sm:mx-0 sm:w-full sm:col-span-2 aspect-[1/0.64] sm:scale-[1.1]'
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-5.2.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.84] sm:scale-[0.75]'
+					}
+				],
+				title: 'Space Planning',
+				body: [
+					'The space planning diagram illustrates a structured flow of movement from entry to exit, ensuring a logical and intuitive experience for users. Circulation is designed to be fluid, with clear movement pathways guiding users from high-activity zones to more transitional spaces, ensuring a smooth flow toward the exit zone. The adjacency strategy maintains logical spatial relationships, positioning active zones near engagement areas while separating less active spaces for a balanced environment.'
+				],
+				contentClasses: 'sticky self-start sm:mt-[5rem]'
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-6.1.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.79] sm:scale-[0.9]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.8.webp',
-						layoutClasses: 'w-[90%] mx-auto sm:mx-0 sm:w-full sm:col-span-4 aspect-[1/0.79]'
-					},
-					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.9.webp',
-						layoutClasses: 'w-[90%] sm:w-[80%] mx-auto sm:col-span-4 aspect-[1/0.84]'
-					},
-					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.10.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-6.2.webp',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.85]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.11.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-6.3.webp',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.85]'
 					}
 				],
-				title: 'Concept',
-				body: [
-					'Primarily draws inspiration from Japanese Kintsugi philosophy, symbolizing the transformative power of healing and the beauty in embracing one’s imperfections and struggles.',
-					'This approach is centered on navigating the intricate mental state of PTSD, aims to dismantle stigma, educate the public, and cultivate an environment of empathy for those affected by PTSD.'
-				],
-				contentClasses: 'sticky self-start'
+				title: 'Exhibition Experience Mapping',
+				body: [],
+				contentClasses: 'sticky self-start sm:mt-[36rem]'
 			}
 		]
 	},

@@ -175,7 +175,7 @@
 							<div class="font-sand-bold text-[1.6rem]">{detail.title}</div>
 							<div class="grid max-w-[31rem] gap-[1.5rem] text-[1.6rem] leading-[1.5]">
 								{#each detail.body as paragraph}
-									<p>{paragraph}</p>
+									<p>{@html paragraph}</p>
 								{/each}
 							</div>
 						{/if}
@@ -217,7 +217,7 @@
 							<div class="mb-3 font-sand-bold">{detail.title}</div>
 							<div class="grid gap-3">
 								{#each detail.body as paragraph}
-									<p>{paragraph}</p>
+									<p class="w-full overflow-hidden">{@html paragraph}</p>
 								{/each}
 							</div>
 						{/if}
