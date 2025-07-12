@@ -103,8 +103,11 @@
 			</div>
 
 			<div class="flex flex-col items-center gap-1 text-center sm:col-span-4 sm:gap-3">
-				<div class="text-sm leading-[1.5] sm:text-[1.6rem]"><i>Hannah</i></div>
-				<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Hnin Myat Noe Oo</div>
+				<div class="flex items-center gap-1 sm:gap-3">
+					<div class="text-sm leading-[1.5] sm:text-[1.6rem]"><i>Hannah</i></div>
+					<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Hnin Myat Noe Oo</div>
+				</div>
+
 				<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Interior Designer</div>
 
 				<div class="mt-10 flex items-start gap-3 sm:col-span-4 sm:mt-32 sm:gap-10">

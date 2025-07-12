@@ -266,32 +266,41 @@ export default [
 			{
 				images: [
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-2.1.webp',
-						layoutClasses: 'w-full sm:col-span-3 aspect-[1/0.72]'
-					},
-					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-2.2.webp',
-						layoutClasses:
-							'w-full sm:col-span-1 aspect-[1/1.19] self-center sm:translate-x-[1.75rem]'
+						path: '/interiors/projects/cyc/detail/new-2.1.webp',
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.5]'
 					}
 				],
-				title: 'Concept',
+				title: 'Site Analysis',
 				body: [
-					"Drawing inspiration from a butterfly's metamorphosis, this concept highlights the profound changes young people experience as they grow from teenagers to adults. Just as a butterfly emerged from its cocoon, transformed and ready to soar, the youth at this center are envisioned on a similar transformative path.",
-					'This concept not only signifies physical growth but also an evolution of identity, perspective, and emotional maturity. In this sense, the center acts as both a cocoon and a nest, providing a nurturing space where youth can safely transform and flourish.'
+					'The existing site is an underdeveloped public park, named Kan Thar Yar Park, adjacent to Inya Park premises and it is located at the corner of two main roads used in the city. The front façade of Kantharyar Park, facing southeast, is optimally positioned to capture the morning sunlight.',
+					'This aspect ensures a cooler solar exposure during the early hours of the day, making it ideal for morning activities. Alternately, the park’s back façade, facing northwest and Inya Lake, receives the more intense afternoon sun.'
 				],
 				contentClasses: ''
 			},
 			{
 				images: [
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.1.webp',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/0.55] self-center'
+						path: '/interiors/projects/cyc/detail/new-3.1.webp',
+						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.32] scale-[0.75]'
 					},
 					{
-						path: '/interiors/projects/cyc/detail/cyc-detail-3.2.gif',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
+						path: '/interiors/projects/cyc/detail/cyc-detail-2.1.webp',
+						layoutClasses: 'w-full sm:col-span-2 self-center aspect-[1/0.72]'
 					},
+					{
+						path: '/interiors/projects/cyc/detail/new-3.3.webp',
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56]'
+					}
+				],
+				title: 'Site Analysis',
+				body: [
+					"Drawing inspiration from a butterfly's metamorphosis, this concept highlights the profound changes young people experience as they grow from teenagers to adults. Just as a butterfly emerged from its cocoon, transformed and ready to soar, the youth at this center are envisioned on a similar transformative path.",
+					'This concept not only signifies physical growth but also an evolution of identity, perspective, and emotional maturity. In this sense, the center acts as both a cocoon and a nest, providing a nurturing space where youth can safely transform and flourish.'
+				],
+				contentClasses: 'self-start sm:mt-[13rem] sticky'
+			},
+			{
+				images: [
 					{
 						path: '/interiors/projects/cyc/detail/cyc-detail-3.3.webp',
 						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
@@ -315,9 +324,10 @@ export default [
 				],
 				title: 'Design Process',
 				body: [
-					'The massing strategy is primarily inspired by site context and integration of visual and physical connection to the neighbouring lake. Initially, the volume is elevated and split into two halves, creating a pathway that aligns with the lake, a direct axis that integrates the built environment with its natural setting.'
+					'The massing strategy is primarily inspired by site context and integration of visual and physical connection to the neighbouring lake. Initially, the volume is elevated and split into two halves, creating a pathway that aligns with the lake, a direct axis that integrates the built environment with its natural setting.',
+					'The volume is split into three layers, establishing functional zoning and a clear spatial hierarchy. A central void acts as a connective element, unifying the two primary masses, ensuring spatial continuity. Incorporation of green voids integrate nature into the interior, creating communal spaces that are naturally inviting.'
 				],
-				contentClasses: 'sticky self-start'
+				contentClasses: 'sticky self-start sm:mt-[13rem]'
 			}
 		]
 	},
