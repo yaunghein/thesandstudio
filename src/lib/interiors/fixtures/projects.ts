@@ -845,7 +845,7 @@ export default [
 				images: [
 					{
 						path: '/interiors/projects/ymb/detail/ymb-detail-3.1.webp',
-						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.78]'
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.78] pb-5 sm:pb-0'
 					}
 				],
 				title: 'First Floor',
@@ -899,6 +899,48 @@ export default [
 			{
 				path: '/interiors/projects/ac/showcase/ac-8.webp',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.49] self-end'
+			}
+		],
+		details: [
+			{
+				images: [
+					{
+						path: '/interiors/projects/ac/detail/ac-detail-1.1.webp',
+						layoutClasses:
+							'w-[90%] sm:w-[50%] mx-auto sm:col-span-4 aspect-[1/1] sm:translate-x-[8rem]'
+					}
+				],
+				title: 'Description',
+				body: [
+					'Reimagined with textured materials and a subdued palette, Another Club at Central Boulevard offers a balance of sophistication and modern comfort. The design integrates black industrial elements and brand’s personalities, creating a contemporary yet timeless atmosphere.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ac/detail/ac-detail-2.1.webp',
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1.81/1]'
+					}
+				],
+				title: 'Ground Floor',
+				body: [
+					'The ground floor features an open lounge area with leather sofas, a sleek bar counter, and high bar seating, establishing a dynamic yet intimate setting.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ac/detail/ac-detail-3.1.webp',
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1.82/1] pb-5 sm:pb-0'
+					}
+				],
+				title: 'First Floor',
+				body: [
+					'The first floor expands into additional lounge spaces, providing exclusivity, while the overall design enhances seamless circulation and spatial depth, elevating the social dining experience.'
+				],
+				contentClasses: ''
 			}
 		]
 	}
