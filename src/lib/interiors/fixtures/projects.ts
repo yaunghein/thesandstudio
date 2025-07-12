@@ -811,6 +811,49 @@ export default [
 				path: '/interiors/projects/ymb/showcase/ymb-9.webp',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1.41/1]'
 			}
+		],
+		details: [
+			{
+				images: [
+					{
+						path: '/interiors/projects/ymb/detail/ymb-detail-1.1.webp',
+						layoutClasses:
+							'w-[90%] sm:w-[50%] mx-auto sm:col-span-4 aspect-[1/1.05] sm:translate-x-[8rem]'
+					}
+				],
+				title: 'Description',
+				body: [
+					'Yuki Mugi Bakery & Café embodies a fusion of Japanese minimalism and Scandinavian warmth, creating a serene yet inviting atmosphere. The design concept focuses on simplicity, functionality, and natural materials, reflecting the bakery’s commitment to authentic craftsmanship and quality ingredients. The space is designed to be both calm and welcoming, evoking a sense of purity and refinement through its carefully curated material palette and lighting.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ymb/detail/ymb-detail-2.1.webp',
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.77]'
+					}
+				],
+				title: 'Ground Floor',
+				body: [
+					'The ground floor serves as the heart of the bakery, combining a functional kitchen, bakery display, and shopfloor into a seamless retail experience. Warm wood tones contrast with crisp white walls, creating a clean and inviting environment.',
+					'The display areas are designed for maximum visibility and accessibility, showcasing freshly baked goods while maintaining an airy, uncluttered space. The integration of soft lighting and natural textures enhances the sensory experience.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ymb/detail/ymb-detail-3.1.webp',
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.78]'
+					}
+				],
+				title: 'First Floor',
+				body: [
+					'The first floor transitions into a relaxed café setting, providing a tranquil retreat for customers. A mix of communal tables, lounge seating, and bar counters encourages a variety of dining experiences, from quiet moments to social gatherings. staff room and restroom are discreetly integrated to support operational efficiency without disrupting the café’s open, airy feel.'
+				],
+				contentClasses: ''
+			}
 		]
 	},
 	{
