@@ -761,6 +761,46 @@ export default [
 				path: '/interiors/projects/ba/showcase/ba-8.webp',
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.25]'
 			}
+		],
+		details: [
+			{
+				images: [
+					{
+						path: '/interiors/projects/ba/detail/ba-detail-1.1.webp',
+						layoutClasses: 'w-[90%] sm:w-[60%] mx-auto sm:col-span-4 aspect-[1/1.25]'
+					}
+				],
+				title: 'Abstract',
+				body: [
+					'The Bauhaus movement (1919) aimed to combine fine arts and crafts with technology and industry. Bauhaus tried to bring together various forms of art, such as architecture, painting, interior design, and typography, in order to break down barriers between art disciplines.',
+					'The project involves designing a functional, aesthetic, and inviting Airbnb holiday home influenced by Bauhaus principles of simplicity and functionality within a compact 26 square meter (7.2 m x 3.6 m) space with a height of 3 meters. This consists of a living room, a kitchen, a bedroom with an open floor plan, and a private bathroom.'
+				],
+				contentClasses: ''
+			},
+			{
+				images: [
+					{
+						path: '/interiors/projects/ba/detail/ba-detail-2.1.webp',
+						layoutClasses:
+							'w-full mx-auto sm:col-span-4 aspect-[1/0.37] -translate-x-4 sm:translate-x-0'
+					},
+					{
+						path: '/interiors/projects/ba/detail/ba-detail-2.2.webp',
+						layoutClasses:
+							'w-[75%] sm:w-full mx-auto sm:col-span-2 aspect-[1/1.61] sm:scale-[0.75] origin-right'
+					},
+					{
+						path: '/interiors/projects/ba/detail/ba-detail-2.3.webp',
+						layoutClasses:
+							'w-[75%] sm:w-full mx-auto sm:col-span-2 aspect-[1/1.36] self-end sm:scale-[0.75] origin-left pb-5 sm:pb-0'
+					}
+				],
+				title: 'Concept & Direction',
+				body: [
+					'Bauhaus design emphasizes balance, function, and minimalism, utilizing a colour palette of industrial shades like white, grey, and beige. It often coporates primary colors in interior design in intentional ways, while promoting simplicity and industrialism by limiting materials to essentials such as glass, plywood, concrete, and steel.'
+				],
+				contentClasses: 'sticky self-start sm:mt-[10rem]'
+			}
 		]
 	},
 	{
