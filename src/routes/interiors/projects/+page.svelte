@@ -59,6 +59,16 @@
 			projectsInView = projectsInView.filter((p) => p.slug !== project.slug)
 		}
 	}
+
+	let scrollContainer = $state<HTMLElement | null>(null)
+	let paddingTop = $derived.by(() => {
+		if (scrollContainer) {
+			const containerHeight = scrollContainer.getBoundingClientRect().height / 16
+			const windowHeight = window.innerHeight / 16 - 14
+			return (windowHeight - containerHeight) / 2
+		}
+		return 0
+	})
 </script>
 
 <MetaData
@@ -73,21 +83,25 @@
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>
 
 <div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
-	<div
-		use:horizontalScroll={{ extra: 100 }}
-		class="hide-scrollbar mt-[12dvh] h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
+	<section
+		use:horizontalScroll={{ extra: paddingTop * 33 }}
+		class="hide-scrollbar relative h-[calc(100dvh-3.6rem)] !overflow-x-hidden"
+		style="padding-top: {paddingTop}rem"
 	>
 		<div class="w-full px-5">
-			<div class="sticky top-0 grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4">
+			<div
+				bind:this={scrollContainer}
+				class="sticky top-0 grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4"
+			>
 				{#each projects as project, index}
 					<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
 				{/each}
 				<div class="w-[12rem]"></div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<section
-		class="sticky inset-0 top-auto grid h-[8.68rem] w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
+		class="pointer-events-none fixed inset-0 top-auto grid h-[8.68rem] w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
 	>
 		{#each projectsInViewToRender as project}
 			{@const originalIndex = projects.findIndex((p) => p.slug === project.slug)}
