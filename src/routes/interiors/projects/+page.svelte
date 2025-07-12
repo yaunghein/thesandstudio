@@ -3,6 +3,7 @@
 	import horizontalScroll from '$lib/utils/horizontalScroll.js'
 	import Project from '$lib/interiors/components/Project.svelte'
 	import projects from '$lib/interiors/fixtures/projects'
+	import MetaData from '$lib/components/MetaData.svelte'
 
 	let { data } = $props()
 
@@ -59,6 +60,14 @@
 		}
 	}
 </script>
+
+<MetaData
+	pageTitle="Projects - Sand Interiors"
+	title="Projects - Sand Interiors"
+	description="Explore our portfolio of interior design and architecture projects including residential, commercial, and exhibition spaces across Thailand and Myanmar."
+	ogImage="/og-image-interiors.jpg"
+	canonicalUrl="https://thesandstudio.com/interiors/projects/"
+/>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>

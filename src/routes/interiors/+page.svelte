@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { twMerge as twm } from 'tailwind-merge'
 	import horizontalScroll from '$lib/utils/horizontalScroll'
+	import MetaData from '$lib/components/MetaData.svelte'
 
 	const images = [
 		{
@@ -619,6 +620,34 @@
 		}
 	}
 </script>
+
+<MetaData
+	pageTitle="Sand Interiors - Architecture & Interior Design Studio"
+	title="Sand Interiors - Architecture & Interior Design Studio"
+	description="Sand Interiors is a multidisciplinary design studio based in Bangkok, Thailand, specializing in architecture and interior design with sustainable practices."
+	ogImage="/og-image-interiors.jpg"
+	canonicalUrl="https://thesandstudio.com/interiors/"
+	structuredData={{
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: 'Sand Interiors',
+		description:
+			'A multidisciplinary design studio specializing in architecture and interior design',
+		url: 'https://thesandstudio.com/interiors/',
+		logo: 'https://thesandstudio.com/interiors/sand-interiors.svg',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Bangkok',
+			addressCountry: 'TH'
+		},
+		contactPoint: {
+			'@type': 'ContactPoint',
+			contactType: 'customer service',
+			email: 'hnin@thesandstudio.com'
+		},
+		sameAs: ['https://www.instagram.com/sand.interiors_/']
+	}}
+/>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>

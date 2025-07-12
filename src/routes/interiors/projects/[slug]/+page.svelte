@@ -4,6 +4,7 @@
 	import Swiper from 'swiper'
 	import { Autoplay, FreeMode } from 'swiper/modules'
 	import horizontalScroll from '$lib/utils/horizontalScroll.js'
+	import MetaData from '$lib/components/MetaData.svelte'
 
 	let { data } = $props()
 
@@ -48,6 +49,34 @@
 		}
 	}
 </script>
+
+<MetaData
+	pageTitle="{data.project.name} - Sand Interiors"
+	title="{data.project.name} - {data.project.type} | Sand Interiors"
+	description="{data.project.name} is a {data.project.type.toLowerCase()} project located in {data
+		.project.location}. Explore this interior design and architecture project by Sand Interiors."
+	ogImage="/og-image-interiors.jpg"
+	ogType="article"
+	canonicalUrl="https://thesandstudio.com/interiors/projects/{data.project.slug}/"
+	structuredData={{
+		'@context': 'https://schema.org',
+		'@type': 'CreativeWork',
+		name: data.project.name,
+		description: `${data.project.name} is a ${data.project.type.toLowerCase()} project located in ${data.project.location}.`,
+		image: `https://thesandstudio.com${data.project.coverImage.path}`,
+		dateCreated: data.project.year.toString(),
+		creator: {
+			'@type': 'Organization',
+			name: 'Sand Interiors'
+		},
+		location: {
+			'@type': 'Place',
+			name: data.project.location
+		},
+		genre: data.project.type,
+		url: `https://thesandstudio.com/interiors/projects/${data.project.slug}/`
+	}}
+/>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>

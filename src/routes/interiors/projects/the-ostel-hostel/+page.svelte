@@ -3,6 +3,7 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import { slugify } from '$lib/utils/slugify'
 	import horizontalScroll from '$lib/utils/horizontalScroll'
+	import MetaData from '$lib/components/MetaData.svelte'
 
 	const project = {
 		name: 'The Ostel Hostel',
@@ -138,6 +139,33 @@
 		}
 	})
 </script>
+
+<MetaData
+	pageTitle="{project.name} - Sand Interiors"
+	title="{project.name} - {project.type} | Sand Interiors"
+	description="{project.name} is a {project.type.toLowerCase()} project located in {project.location}. Explore this interior design and architecture project by Sand Interiors."
+	ogImage="/og-image-interiors.jpg"
+	ogType="article"
+	canonicalUrl="https://thesandstudio.com/interiors/projects/{project.slug}/"
+	structuredData={{
+		'@context': 'https://schema.org',
+		'@type': 'CreativeWork',
+		name: project.name,
+		description: `${project.name} is a ${project.type.toLowerCase()} project located in ${project.location}.`,
+		image: `https://thesandstudio.com${project.coverImage.path}`,
+		dateCreated: project.year.toString(),
+		creator: {
+			'@type': 'Organization',
+			name: 'Sand Interiors'
+		},
+		location: {
+			'@type': 'Place',
+			name: project.location
+		},
+		genre: project.type,
+		url: `https://thesandstudio.com/interiors/projects/${project.slug}/`
+	}}
+/>
 
 <!-- filler for fixed navbar -->
 <div class="h-[3.6rem] sm:h-[11.5rem]"></div>

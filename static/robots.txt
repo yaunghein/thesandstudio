@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thesandstudio.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /api/
+Disallow: /admin/
+
+# Allow all other content
+Allow: /interiors/
+Allow: /interiors/projects/
+Allow: /interiors/contact/ 

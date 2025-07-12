@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { gsap } from 'gsap'
+	import MetaData from '$lib/components/MetaData.svelte'
 
 	let lightingImage: HTMLElement | null = $state(null)
 	let contentContainer: HTMLElement | null = $state(null)
@@ -69,6 +70,14 @@
 			})
 	}
 </script>
+
+<MetaData
+	pageTitle="Contact - Sand Interiors"
+	title="Contact Sand Interiors - Interior Design Studio"
+	description="Get in touch with Sand Interiors for interior design and architecture services. Contact Hannah Hnin Myat Noe Oo for consultations and project inquiries."
+	ogImage="/og-image-interiors.jpg"
+	canonicalUrl="https://thesandstudio.com/interiors/contact/"
+/>
 
 <section class="flex h-[100dvh] items-end bg-interior-brand leading-[1.5] text-white">
 	<!-- filler for fixed navbar -->
