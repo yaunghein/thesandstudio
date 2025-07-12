@@ -5,6 +5,7 @@
 	import { Autoplay, FreeMode } from 'swiper/modules'
 	import horizontalScroll from '$lib/utils/horizontalScroll.js'
 	import MetaData from '$lib/components/MetaData.svelte'
+	import { getInteriorsStore } from '$lib/interiors/store.svelte'
 
 	let { data } = $props()
 
@@ -14,6 +15,9 @@
 	let mobileContentBottom = $derived(
 		mobileContent ? mobileContent.getBoundingClientRect().bottom / 16 : 0
 	)
+
+	// Get the interiors store for logo spin degree
+	const interiorsStore = getInteriorsStore()
 
 	$effect(() => {
 		if (isMobileOpen || isOpen) {
@@ -48,6 +52,45 @@
 			}
 		}
 	}
+
+	// Scroll listeners for logo rotation
+	const handleDesktopScroll = () => {
+		const desktopDetails = document.getElementById('desktop-details')
+		if (desktopDetails) {
+			const scrollY = desktopDetails.scrollTop
+			interiorsStore.logoSpinDegree = scrollY * 0.075
+		}
+	}
+
+	const handleMobileScroll = () => {
+		const mobileDetails = document.getElementById('mobile-details')
+		if (mobileDetails) {
+			const scrollY = mobileDetails.scrollTop
+			interiorsStore.logoSpinDegree = scrollY * 0.075
+		}
+	}
+
+	// Add scroll listeners when desktop details section is open
+	$effect(() => {
+		const desktopDetails = document.getElementById('desktop-details')
+		if (isOpen && desktopDetails) {
+			desktopDetails.addEventListener('scroll', handleDesktopScroll, { passive: true })
+			return () => {
+				desktopDetails.removeEventListener('scroll', handleDesktopScroll)
+			}
+		}
+	})
+
+	// Add scroll listeners when mobile details section is open
+	$effect(() => {
+		const mobileDetails = document.getElementById('mobile-details')
+		if (isMobileOpen && mobileDetails) {
+			mobileDetails.addEventListener('scroll', handleMobileScroll, { passive: true })
+			return () => {
+				mobileDetails.removeEventListener('scroll', handleMobileScroll)
+			}
+		}
+	})
 </script>
 
 <MetaData

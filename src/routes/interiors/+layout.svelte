@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import Navbar from '$lib/interiors/components/Navbar.svelte'
+	import { setInteriorsStore } from '$lib/interiors/store.svelte'
 
 	const { children, data } = $props()
+
+	setInteriorsStore()
 
 	onMount(() => {
 		document.documentElement.classList.add('bg-interior-light')

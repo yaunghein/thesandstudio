@@ -1,6 +1,25 @@
+<script lang="ts">
+	import { getInteriorsStore } from '$lib/interiors/store.svelte'
+	import { onMount } from 'svelte'
+	import gsap from 'gsap'
+
+	const interiorsStore = getInteriorsStore()
+	let logoElement: HTMLElement
+
+	$effect(() => {
+		if (logoElement) {
+			gsap.to(logoElement, {
+				rotation: interiorsStore.logoSpinDegree,
+				duration: 0.3,
+				ease: 'power2.out'
+			})
+		}
+	})
+</script>
+
 <div class="relative h-full w-full">
 	<div class="absolute inset-0 z-10 w-1/2 !overflow-hidden">
-		<div class="animate-spin-interior aspect-square w-8 sm:w-[5.25rem]">
+		<div bind:this={logoElement} class="aspect-square w-8 sm:w-[5.25rem]">
 			<svg
 				width="100%"
 				height="100%"

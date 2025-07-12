@@ -4,6 +4,7 @@
 	import { slugify } from '$lib/utils/slugify'
 	import horizontalScroll from '$lib/utils/horizontalScroll'
 	import MetaData from '$lib/components/MetaData.svelte'
+	import { getInteriorsStore } from '$lib/interiors/store.svelte'
 
 	const project = {
 		name: 'The Ostel Hostel',
@@ -128,6 +129,8 @@
 		mobileContent ? mobileContent.getBoundingClientRect().bottom / 16 : 0
 	)
 
+	const interiorsStore = getInteriorsStore()
+
 	$effect(() => {
 		if (isMobileOpen || isOpen) {
 			document.getElementById('desktop-details')?.scrollTo({
@@ -136,6 +139,52 @@
 			document.getElementById('mobile-details')?.scrollTo({
 				top: 0
 			})
+		}
+	})
+
+	// Scroll listeners for logo rotation
+	const handleDesktopScroll = () => {
+		const desktopDetails = document.getElementById('desktop-details')
+		if (desktopDetails) {
+			const scrollY = desktopDetails.scrollTop
+			interiorsStore.logoSpinDegree = scrollY * 0.075
+		}
+	}
+
+	const handleMobileScroll = () => {
+		const mobileDetails = document.getElementById('mobile-details')
+		if (mobileDetails) {
+			const scrollY = mobileDetails.scrollTop
+			interiorsStore.logoSpinDegree = scrollY * 0.075
+		}
+	}
+
+	// Add scroll listeners when details sections are available
+	$effect(() => {
+		if (isOpen) {
+			const desktopDetails = document.getElementById('desktop-details')
+			if (desktopDetails) {
+				desktopDetails.addEventListener('scroll', handleDesktopScroll, { passive: true })
+			}
+		}
+
+		if (isMobileOpen) {
+			const mobileDetails = document.getElementById('mobile-details')
+			if (mobileDetails) {
+				mobileDetails.addEventListener('scroll', handleMobileScroll, { passive: true })
+			}
+		}
+
+		return () => {
+			const desktopDetails = document.getElementById('desktop-details')
+			const mobileDetails = document.getElementById('mobile-details')
+
+			if (desktopDetails) {
+				desktopDetails.removeEventListener('scroll', handleDesktopScroll)
+			}
+			if (mobileDetails) {
+				mobileDetails.removeEventListener('scroll', handleMobileScroll)
+			}
 		}
 	})
 </script>

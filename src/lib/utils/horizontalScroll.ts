@@ -1,6 +1,7 @@
 import { browser } from '$app/environment'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { getInteriorsStore } from '$lib/interiors/store.svelte'
 
 export default function (node: HTMLElement, options: { extra?: number } = {}) {
 	if (!browser) return
@@ -11,6 +12,9 @@ export default function (node: HTMLElement, options: { extra?: number } = {}) {
 	const wrapper = container.children[0] as HTMLElement
 	container.style.height = `${wrapper.scrollWidth + (options.extra ?? 0)}px`
 	node.style.overscrollBehavior = 'none'
+
+	// Get the interiors store for logo spin degree
+	const interiorsStore = getInteriorsStore()
 
 	const getScrollAmount = () => {
 		let wrapperWidth = wrapper.scrollWidth
@@ -33,10 +37,18 @@ export default function (node: HTMLElement, options: { extra?: number } = {}) {
 		invalidateOnRefresh: true
 	})
 
+	const handleScroll = () => {
+		const scrollY = parent.scrollTop
+		interiorsStore.logoSpinDegree = scrollY * 0.075
+	}
+
+	parent.addEventListener('scroll', handleScroll, { passive: true })
+
 	return {
 		destroy() {
 			tween.kill()
 			scrollTrigger.kill()
+			parent.removeEventListener('scroll', handleScroll)
 		}
 	}
 }
