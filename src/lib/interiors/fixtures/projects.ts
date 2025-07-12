@@ -686,18 +686,34 @@ export default [
 			{
 				path: '/interiors/projects/fth/showcase/fth-5.webp',
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.12]'
-			},
+			}
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-6.webp',
+			// 	layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
+			// },
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-7.webp',
+			// 	layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
+			// },
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-8.webp',
+			// 	layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
+			// }
+		],
+		details: [
 			{
-				path: '/interiors/projects/fth/showcase/fth-6.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
-			},
-			{
-				path: '/interiors/projects/fth/showcase/fth-7.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
-			},
-			{
-				path: '/interiors/projects/fth/showcase/fth-8.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
+				images: [
+					{
+						path: '/interiors/projects/fth/showcase/fth-1.webp',
+						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56]'
+					}
+				],
+				title: 'Description',
+				body: [
+					'The Factory Townhouse Project is a residential development located within a factory compound, designed to seamlessly integrate living spaces within an industrial environment. The architectural language embraces industrial aesthetics, incorporating raw materials, clean lines, and practical layouts that complement the surrounding factory structures.',
+					'The project involved comprehensive 3D modeling and visualization, ensuring an accurate representation of spatial compositions, materiality, and daylight penetration.'
+				],
+				contentClasses: ''
 			}
 		]
 	},
