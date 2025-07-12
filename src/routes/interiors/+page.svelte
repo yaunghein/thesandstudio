@@ -657,14 +657,14 @@
 	class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:h-[calc(100dvh-11.5rem)]"
 >
 	<div
-		class="mb-8 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
+		class="mb-5 mt-5 grid grid-cols-2 gap-x-4 gap-y-6 px-5 text-base leading-[1.4] sm:mb-0 sm:mt-[3rem] sm:grid-cols-3 sm:gap-x-[2rem] sm:gap-y-[2rem] sm:px-[4rem] sm:text-[1.6rem]"
 	>
 		<div>Architecture</div>
 		<div>Interior Design</div>
-		<p class="col-span-2 max-w-[17rem] sm:col-span-1 sm:max-w-[35rem]">
+		<!-- <p class="col-span-2 max-w-[17rem] sm:col-span-1 sm:max-w-[35rem]">
 			Currently based in Bangkok, Thailand while continuously expanding expertise in
 			multidisciplinary design and sustainable practices.
-		</p>
+		</p> -->
 	</div>
 
 	<div
@@ -672,7 +672,7 @@
 		class="hide-scrollbar !overflow-x-hidden sm:hidden"
 	>
 		<div class="flex items-start">
-			<div class="sticky top-0 flex h-[20.5rem] items-start justify-start gap-16 px-5">
+			<div class="sticky top-0 flex h-[calc(100dvh-14rem)] items-start justify-start gap-16 px-5">
 				{#each mobileImages as image}
 					<div class={twm('shrink-0', image.layoutClasses)}>
 						<img src={image.path} alt="" class="h-full w-full object-cover" />
