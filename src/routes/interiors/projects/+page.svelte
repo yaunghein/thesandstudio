@@ -86,7 +86,7 @@
 	<section
 		use:horizontalScroll={{ extra: paddingTop * 33 }}
 		class="hide-scrollbar relative h-[calc(100dvh-3.6rem)] !overflow-x-hidden"
-		style="padding-top: {paddingTop}rem"
+		style="padding-top: {paddingTop}rem; overscroll-behavior: none;"
 	>
 		<div class="w-full px-5">
 			<div
