@@ -113,7 +113,7 @@
 		bind:this={contentContainer}
 		class={twm(
 			'interior-transition relative w-full',
-			isAboutOpen && '-translate-y-[2.5rem] sm:translate-y-0'
+			isAboutOpen && '-translate-y-[3.25rem] sm:translate-y-0'
 		)}
 	>
 		<div
@@ -224,7 +224,10 @@
 	</div>
 </section>
 
-<div use:clickOutside={{ callback: () => (isAboutOpen = false) }}>
+<div
+	use:clickOutside={{ callback: () => (isAboutOpen = false) }}
+	class={twm(isAboutOpen ? 'opacity-100' : 'opacity-0', 'interior-transition')}
+>
 	<section
 		bind:this={desktopAboutContent}
 		class={twm(
@@ -270,13 +273,13 @@
 
 	<section
 		class={twm('interior-transition fixed inset-0 z-40 w-full  text-sm text-white sm:hidden')}
-		style={`top: ${isAboutOpen ? `${contentTop + 1.5}rem` : 'calc(100dvh + 2px)'}; 
+		style={`top: ${isAboutOpen ? `${contentTop + 0.75}rem` : 'calc(100dvh + 2px)'}; 
 		height: ${isAboutOpen ? `calc(100dvh - ${contentTop}rem)` : '2.75rem'}`}
 	>
 		<button
 			onclick={() => (isAboutOpen = !isAboutOpen)}
 			class={twm(
-				'interior-transition relative flex h-11 w-full shrink-0 items-center justify-center px-5'
+				'interior-transition relative flex w-full shrink-0 items-center justify-center p-5'
 			)}
 		>
 			<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
