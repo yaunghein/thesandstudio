@@ -11,7 +11,9 @@ export default function (node: HTMLElement, options: { extra?: number } = {}) {
 	const container = parent.children[0] as HTMLElement
 	const wrapper = container.children[0] as HTMLElement
 	container.style.height = `${wrapper.scrollWidth + (options.extra ?? 0)}px`
-	node.style.overscrollBehavior = 'none'
+	parent.style.overscrollBehavior = 'none'
+	container.style.overscrollBehavior = 'none'
+	wrapper.style.overscrollBehavior = 'none'
 
 	// Get the interiors store for logo spin degree
 	const interiorsStore = getInteriorsStore()
@@ -39,7 +41,7 @@ export default function (node: HTMLElement, options: { extra?: number } = {}) {
 
 	const handleScroll = () => {
 		const scrollY = parent.scrollTop
-		interiorsStore.logoSpinDegree = scrollY * 0.075
+		interiorsStore.logoSpinDegree = scrollY * 0.1
 	}
 
 	parent.addEventListener('scroll', handleScroll, { passive: true })

@@ -3,6 +3,9 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import MetaData from '$lib/components/MetaData.svelte'
 	import clickOutside from '$lib/utils/clickOutside'
+	import { getInteriorsStore } from '$lib/interiors/store.svelte'
+
+	const interiorsStore = getInteriorsStore()
 
 	let lightingImage: HTMLElement | null = $state(null)
 	let contentContainer: HTMLElement | null = $state(null)
@@ -173,7 +176,10 @@
 			</div>
 			<div class="col-span-4 flex flex-col items-start gap-1">
 				<button
-					onclick={() => (isAboutOpen = !isAboutOpen)}
+					onclick={() => {
+						isAboutOpen = true
+						interiorsStore.logoSpinDegree = 90
+					}}
 					class="relative text-sm leading-[1.5] sm:text-[1.6rem]"
 				>
 					About Me
@@ -225,7 +231,12 @@
 </section>
 
 <div
-	use:clickOutside={{ callback: () => (isAboutOpen = false) }}
+	use:clickOutside={{
+		callback: () => {
+			isAboutOpen = false
+			interiorsStore.logoSpinDegree = 0
+		}
+	}}
 	class={twm(isAboutOpen ? 'opacity-100' : 'opacity-0', 'interior-transition')}
 >
 	<section
@@ -236,7 +247,10 @@
 		style={`bottom: ${isAboutOpen ? `4rem` : `-${desktopAboutContentBottom}rem`};`}
 	>
 		<button
-			onclick={() => (isAboutOpen = !isAboutOpen)}
+			onclick={() => {
+				isAboutOpen = false
+				interiorsStore.logoSpinDegree = 0
+			}}
 			class={twm(
 				'interior-transition relative flex w-full shrink-0 items-center justify-center px-5 py-[4rem]'
 			)}
@@ -277,7 +291,10 @@
 		height: ${isAboutOpen ? `calc(100dvh - ${contentTop}rem)` : '2.75rem'}`}
 	>
 		<button
-			onclick={() => (isAboutOpen = !isAboutOpen)}
+			onclick={() => {
+				isAboutOpen = false
+				interiorsStore.logoSpinDegree = 0
+			}}
 			class={twm(
 				'interior-transition relative flex w-full shrink-0 items-center justify-center p-5'
 			)}

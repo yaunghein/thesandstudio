@@ -58,7 +58,7 @@
 		const desktopDetails = document.getElementById('desktop-details')
 		if (desktopDetails) {
 			const scrollY = desktopDetails.scrollTop
-			interiorsStore.logoSpinDegree = scrollY * 0.075
+			interiorsStore.logoSpinDegree = scrollY * 0.1
 		}
 	}
 
@@ -66,7 +66,7 @@
 		const mobileDetails = document.getElementById('mobile-details')
 		if (mobileDetails) {
 			const scrollY = mobileDetails.scrollTop
-			interiorsStore.logoSpinDegree = scrollY * 0.075
+			interiorsStore.logoSpinDegree = scrollY * 0.1
 		}
 	}
 

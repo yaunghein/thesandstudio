@@ -10,7 +10,7 @@
 		if (logoElement) {
 			gsap.to(logoElement, {
 				rotation: interiorsStore.logoSpinDegree,
-				duration: 0.3,
+				duration: 1.5,
 				ease: 'power2.out'
 			})
 		}
