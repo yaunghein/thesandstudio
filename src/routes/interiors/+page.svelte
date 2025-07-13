@@ -650,7 +650,7 @@
 />
 
 <!-- filler for fixed navbar -->
-<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+<div class="h-[3.6rem] shrink-0 sm:h-[11.5rem]"></div>
 
 <section
 	use:trailingImages

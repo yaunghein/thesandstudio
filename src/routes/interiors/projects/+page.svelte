@@ -80,7 +80,7 @@
 />
 
 <!-- filler for fixed navbar -->
-<div class="h-[3.6rem] sm:h-[11.5rem]"></div>
+<div class="h-[3.6rem] shrink-0 sm:h-[11.5rem]"></div>
 
 <div class="flex h-[calc(100dvh-3.6rem)] flex-col justify-between sm:hidden">
 	<section
