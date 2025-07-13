@@ -711,7 +711,8 @@ export default [
 				title: 'Description',
 				body: [
 					'The Factory Townhouse Project is a residential development located within a factory compound, designed to seamlessly integrate living spaces within an industrial environment. The architectural language embraces industrial aesthetics, incorporating raw materials, clean lines, and practical layouts that complement the surrounding factory structures.',
-					'The project involved comprehensive 3D modeling and visualization, ensuring an accurate representation of spatial compositions, materiality, and daylight penetration.'
+					'The project involved comprehensive 3D modeling and visualization, ensuring an accurate representation of spatial compositions, materiality, and daylight penetration.',
+					'client: NC Architects'
 				],
 				contentClasses: ''
 			}
