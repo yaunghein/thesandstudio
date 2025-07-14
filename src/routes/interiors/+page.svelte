@@ -48,10 +48,10 @@
 			path: '/interiors/home-scroll-images/11.webp',
 			layoutClasses: 'w-[20rem] aspect-[1/1]'
 		},
-		{
-			path: '/interiors/home-scroll-images/12.webp',
-			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
-		},
+		// {
+		// 	path: '/interiors/home-scroll-images/12.webp',
+		// 	layoutClasses: 'w-[20rem] aspect-[1/0.56]'
+		// },
 		{
 			path: '/interiors/home-scroll-images/13.webp',
 			layoutClasses: 'w-[20rem] aspect-[1/1]'
@@ -80,10 +80,10 @@
 			path: '/interiors/home-scroll-images/19.webp',
 			layoutClasses: 'w-[20rem] aspect-[1/0.56]'
 		},
-		{
-			path: '/interiors/home-scroll-images/20.webp',
-			layoutClasses: 'w-[20rem] aspect-[1/1.33]'
-		},
+		// {
+		// 	path: '/interiors/home-scroll-images/20.webp',
+		// 	layoutClasses: 'w-[20rem] aspect-[1/1.33]'
+		// },
 		{
 			path: '/interiors/home-scroll-images/21.webp',
 			layoutClasses: 'w-[20rem] aspect-[1/1.25]'
@@ -248,10 +248,10 @@
 			path: '/interiors/home-scroll-images/11.webp',
 			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
 		},
-		{
-			path: '/interiors/home-scroll-images/12.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
-		},
+		// {
+		// 	path: '/interiors/home-scroll-images/12.webp',
+		// 	layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
+		// },
 		{
 			path: '/interiors/home-scroll-images/13.webp',
 			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/1]'
@@ -280,10 +280,10 @@
 			path: '/interiors/home-scroll-images/19.webp',
 			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.56]'
 		},
-		{
-			path: '/interiors/home-scroll-images/20.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.33]'
-		},
+		// {
+		// 	path: '/interiors/home-scroll-images/20.webp',
+		// 	layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.33]'
+		// },
 		{
 			path: '/interiors/home-scroll-images/21.webp',
 			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]'
