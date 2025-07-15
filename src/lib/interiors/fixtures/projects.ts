@@ -673,17 +673,21 @@ export default [
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.56] self-center'
 			},
 			{
-				path: '/interiors/projects/fth/showcase/fth-3.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.56]'
-			},
-			{
-				path: '/interiors/projects/fth/showcase/fth-4.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.12] self-center'
-			},
-			{
-				path: '/interiors/projects/fth/showcase/fth-5.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.12]'
+				path: '/interiors/projects/fth/showcase/fth-3-new.webp',
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.58]'
 			}
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-3.webp',
+			// 	layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.56]'
+			// },
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-4.webp',
+			// 	layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.12] self-center'
+			// },
+			// {
+			// 	path: '/interiors/projects/fth/showcase/fth-5.webp',
+			// 	layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.12]'
+			// }
 			// {
 			// 	path: '/interiors/projects/fth/showcase/fth-6.webp',
 			// 	layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.34]'
@@ -701,8 +705,21 @@ export default [
 			{
 				images: [
 					{
-						path: '/interiors/projects/fth/showcase/fth-1.webp',
-						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56]'
+						path: '/interiors/projects/fth/detail/fth-detail-1.1.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[1/0.68]'
+					},
+					{
+						path: '/interiors/projects/fth/detail/fth-detail-1.2.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[1/0.68]'
+					},
+					{
+						path: '/interiors/projects/fth/detail/fth-detail-1.3.webp',
+						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[1/0.68] sm:-mt-[7.5rem]'
+					},
+					{
+						path: '/interiors/projects/fth/detail/fth-detail-1.4.webp',
+						layoutClasses:
+							'w-[90%] sm:w-full mx-auto sm:col-span-2 aspect-[1/0.68] sm:-mt-[7.5rem] pb-5 sm:pb-0'
 					}
 				],
 				title: 'Description',
