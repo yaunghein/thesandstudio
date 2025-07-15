@@ -345,23 +345,23 @@ export default [
 		showcaseImages: [
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-1.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.65]'
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1]'
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-2.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1.28]'
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.62]'
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-3.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-square self-end'
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/2.08]'
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-4.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-square'
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.85] self-end'
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-5.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-square'
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.85]'
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-6.webp',
@@ -369,11 +369,7 @@ export default [
 			},
 			{
 				path: '/interiors/projects/ptsd/showcase/ptsd-7.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.85] self-end'
-			},
-			{
-				path: '/interiors/projects/ptsd/showcase/ptsd-8.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.85]'
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-square'
 			}
 		],
 		details: [
@@ -381,11 +377,11 @@ export default [
 				images: [
 					{
 						path: '/interiors/projects/ptsd/detail/ptsd-detail-1.1.webp',
-						layoutClasses: 'w-[90%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.52]'
+						layoutClasses: 'w-[90%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.52]'
 					},
 					{
 						path: '/interiors/projects/ptsd/detail/ptsd-detail-1.2.webp',
-						layoutClasses: 'w-[85%] sm:w-full mx-auto sm:col-span-4 aspect-[1/0.56]'
+						layoutClasses: 'w-[85%] sm:w-[75%] mx-auto sm:col-span-4 aspect-[1/0.56]'
 					}
 				],
 				title: 'Abstract',
@@ -399,11 +395,12 @@ export default [
 				images: [
 					{
 						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.1.webp',
-						layoutClasses: 'w-[65%] sm:w-full mx-auto sm:col-span-2 aspect-[1/1.55] self-center'
+						layoutClasses: 'w-[65%] sm:w-[75%] mx-auto sm:col-span-2 aspect-[1/1.55] self-center'
 					},
 					{
 						path: '/interiors/projects/ptsd/detail/ptsd-detail-2.2.webp',
-						layoutClasses: 'w-[70%] sm:w-full mx-auto sm:col-span-2 aspect-[1/2.06] sm:scale-[0.75]'
+						layoutClasses:
+							'w-[70%] sm:w-[75%] mx-auto sm:col-span-2 aspect-[1/2.06] sm:scale-[0.75]'
 					}
 				],
 				title: 'What is PTSD?',
@@ -440,14 +437,14 @@ export default [
 							'w-full self-center aspect-[1/1.34] sm:translate-x-[4rem] scale-[0.75] sm:scale-[1]'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.3.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.3-new.webp',
 						layoutClasses:
-							'w-full sm:col-span-2 self-center aspect-[1/0.45] scale-[0.75] sm:scale-[1]'
+							'w-full sm:col-span-2 self-center aspect-[1/1.01] scale-[0.5] sm:scale-[0.75] -mt-[7.5rem] sm:mt-0'
 					},
 					{
-						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.4.webp',
+						path: '/interiors/projects/ptsd/detail/ptsd-detail-4.4-new.webp',
 						layoutClasses:
-							'w-full sm:col-span-2 aspect-[1/1.2] sm:scale-[0.75] origin-center sm:origin-right self-end scale-[0.75] sm:scale-[1]'
+							'w-full sm:col-span-2 aspect-[1/1.3] origin-center sm:origin-right self-end scale-[0.75] sm:scale-[1] -mt-[7.5rem] sm:mt-0'
 					}
 				],
 				title: 'Concept Development',

@@ -123,7 +123,7 @@
 
 <div class="hidden sm:block">
 	<section
-		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pb-[22rem] pt-[2rem]"
+		class="relative grid min-h-[calc(100svh-22rem)] grid-cols-6 content-start gap-[2rem] p-[4rem] pb-[25rem] pt-[2rem]"
 	>
 		{#each projects as project, i}
 			<a
