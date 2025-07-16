@@ -19,48 +19,76 @@
 		location: 'Bangkok, Thailand',
 		showcaseImages: [
 			{
-				path: '/interiors/projects/oh/showcase-2/oh-1.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.68]'
+				path: '/interiors/projects/oh/showcase-3/oh-1.gif',
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.4]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase-2/oh-2.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.36]'
+				path: '/interiors/projects/oh/showcase-3/oh-2.gif',
+				layoutClasses: 'h-[25vh] sm:h-[30vh] aspect-[1/0.75]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase-2/oh-3.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.76]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-4.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.56]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-5.webp',
-				layoutClasses: 'h-[15.33vh] sm:h-[20vh] aspect-[1/0.63]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-6.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/1.32]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-7.webp',
-				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.36]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-8.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.75]'
-			},
-			{
-				path: '/interiors/projects/oh/showcase-2/oh-9.webp',
+				path: '/interiors/projects/oh/showcase-3/oh-3.webp',
 				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-end aspect-[1/0.75]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase-2/oh-10.webp',
+				path: '/interiors/projects/oh/showcase-3/oh-4.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-5.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-end aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-6.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-7.webp',
+				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-8.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-end aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-9.webp',
+				layoutClasses: 'h-[25vh] sm:h-[30vh] aspect-[1/0.64]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-10.webp',
+				layoutClasses: 'h-[25vh] sm:h-[30vh] aspect-[1/0.64] self-end'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-11.webp',
+				layoutClasses: 'h-[25vh] sm:h-[30vh] aspect-[1/0.64] self-center'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-12.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.63]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-13.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.63] self-end'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-14.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/1] self-center'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-15.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.75]'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-16.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.75] self-end'
+			},
+			{
+				path: '/interiors/projects/oh/showcase-3/oh-17.webp',
 				layoutClasses: 'h-[46vh] sm:h-[60vh] aspect-[1/0.63]'
 			},
 			{
-				path: '/interiors/projects/oh/showcase-2/oh-11.webp',
-				layoutClasses: 'h-[30.67vh] sm:h-[40vh] self-center aspect-[1/0.63]'
+				path: '/interiors/projects/oh/showcase-3/oh-18.webp',
+				layoutClasses: 'h-[30.67vh] sm:h-[40vh] aspect-[1/0.63] self-center'
 			}
 		],
 		details: [
@@ -84,6 +112,9 @@
 			}
 		]
 	}
+	// h-[46vh] sm:h-[60vh]
+	// h-[30.67vh] sm:h-[40vh]
+	// h-[15.33vh] sm:h-[20vh]
 
 	let isOpen = $state(false)
 	let isMobileOpen = $state(false)
