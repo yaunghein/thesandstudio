@@ -319,12 +319,12 @@
 				<div class="grid grid-cols-4 gap-x-[2rem] gap-y-[12rem] sm:pr-[13rem]">
 					<div class={twm('relative col-span-4 aspect-[1/1.4] bg-interior-light')}>
 						<img
-							src="/interiors/projects/oh/detail/Facade-light.webp"
+							src="/interiors/projects/oh/detail-3/Facade_Light.webp"
 							alt="Ostel Hostel"
 							class="h-full w-full object-cover"
 						/>
 						<img
-							src="/interiors/projects/oh/detail/Facade-Dark.webp"
+							src="/interiors/projects/oh/detail-3/Facade_Dark.webp"
 							alt="Ostel Hostel"
 							class={twm(
 								'interior-transition absolute inset-0 h-full w-full object-cover',
