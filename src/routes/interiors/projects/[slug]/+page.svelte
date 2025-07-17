@@ -95,9 +95,11 @@
 
 <MetaData
 	pageTitle="{data.project.name} - Sand Interiors"
-	title="{data.project.name} - {data.project.type} | Sand Interiors"
+	title="{data.project.name} - {data.project.type} - Sand Interiors"
 	description="{data.project.name} is a {data.project.type.toLowerCase()} project located in {data
-		.project.location}. Explore this interior design and architecture project by Sand Interiors."
+		.project
+		.location}. Explore this interior design and architecture project by Sand Interior, a collaborative interior and architectural design studio delivering spatial planning, 3‑D visualizations, custom furniture, and turnkey supervision for commercial, hospitality, and residential projects across Thailand, Myanmar, and worldwide."
+	keywords="interior design services Thailand, architectural design studio, commercial interiors, hospitality design, residential interior designer, 3D visualization, custom furniture design, spatial planning "
 	ogImage="/og-image-interiors.jpg"
 	ogType="article"
 	canonicalUrl="https://thesandstudio.com/interiors/projects/{data.project.slug}/"
@@ -105,7 +107,7 @@
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
 		name: data.project.name,
-		description: `${data.project.name} is a ${data.project.type.toLowerCase()} project located in ${data.project.location}.`,
+		description: `${data.project.name} is a ${data.project.type.toLowerCase()} project located in ${data.project.location}. Explore this interior design and architecture project by Sand Interior, a collaborative interior and architectural design studio delivering spatial planning, 3‑D visualizations, custom furniture, and turnkey supervision for commercial, hospitality, and residential projects across Thailand, Myanmar, and worldwide.`,
 		image: `https://thesandstudio.com${data.project.coverImage.path}`,
 		dateCreated: data.project.year.toString(),
 		creator: {

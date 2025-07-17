@@ -622,9 +622,10 @@
 </script>
 
 <MetaData
-	pageTitle="Sand Interiors - Architecture & Interior Design Studio"
-	title="Sand Interiors - Architecture & Interior Design Studio"
-	description="Sand Interiors is a multidisciplinary design studio based in Bangkok, Thailand, specializing in architecture and interior design with sustainable practices."
+	pageTitle="Home - Sand Interiors"
+	title="Home - Sand Interiors"
+	description="Sand Interiors is a collaborative interior and architectural design studio delivering spatial planning, 3‑D visualizations, custom furniture, and turnkey supervision for commercial, hospitality, and residential projects across Thailand, Myanmar, and worldwide."
+	keywords="interior design services Thailand, architectural design studio, commercial interiors, hospitality design, residential interior designer, 3D visualization, custom furniture design, spatial planning "
 	ogImage="/og-image-interiors.jpg"
 	canonicalUrl="https://thesandstudio.com/interiors/"
 	structuredData={{
@@ -632,7 +633,7 @@
 		'@type': 'Organization',
 		name: 'Sand Interiors',
 		description:
-			'A multidisciplinary design studio specializing in architecture and interior design',
+			'Sand Interiors is a collaborative interior and architectural design studio delivering spatial planning, 3‑D visualizations, custom furniture, and turnkey supervision for commercial, hospitality, and residential projects across Thailand, Myanmar, and worldwide.',
 		url: 'https://thesandstudio.com/interiors/',
 		logo: 'https://thesandstudio.com/interiors/sand-interiors.svg',
 		address: {

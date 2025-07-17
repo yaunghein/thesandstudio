@@ -7,7 +7,11 @@
 		ogType?: string
 		canonicalUrl?: string
 		structuredData?: object
+		keywords?: string
 	}
+
+	const keywordsx =
+		'The Sand Studio, Visual Identity, Motion Graphics, Animation, Packaging Design, Web Design, Web Development, Webflow Development, Web Maintenance, Web Support, E-commerce Solutions, Architectural Design, Interior Design, 3D Modeling, 3D Visualization, Branding Services, Creative Studio, Design Studio, Digital Solutions, Graphic Design, Motion Design, UI/UX Design, Logo Design, Brand Identity, Interactive Design, Website Redesign, Online Store Development, Architectural Visualization, Interior Visualization, Custom Packaging, Digital Animation, Multimedia Solutions, Visual Communication, Creative Agency'
 
 	let {
 		pageTitle = '',
@@ -16,11 +20,9 @@
 		ogImage = '/og-image.jpg',
 		ogType = 'website',
 		canonicalUrl = '',
-		structuredData = undefined
+		structuredData = undefined,
+		keywords = keywordsx
 	}: Props = $props()
-
-	const keywords =
-		'The Sand Studio, Visual Identity, Motion Graphics, Animation, Packaging Design, Web Design, Web Development, Webflow Development, Web Maintenance, Web Support, E-commerce Solutions, Architectural Design, Interior Design, 3D Modeling, 3D Visualization, Branding Services, Creative Studio, Design Studio, Digital Solutions, Graphic Design, Motion Design, UI/UX Design, Logo Design, Brand Identity, Interactive Design, Website Redesign, Online Store Development, Architectural Visualization, Interior Visualization, Custom Packaging, Digital Animation, Multimedia Solutions, Visual Communication, Creative Agency'
 </script>
 
 <svelte:head>

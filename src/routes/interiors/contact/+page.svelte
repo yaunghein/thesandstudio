@@ -87,8 +87,9 @@
 
 <MetaData
 	pageTitle="Contact - Sand Interiors"
-	title="Contact Sand Interiors - Interior Design Studio"
-	description="Get in touch with Sand Interiors for interior design and architecture services. Contact Hannah Hnin Myat Noe Oo for consultations and project inquiries."
+	title="Contact - Sand Interiors"
+	description="Sand Interiors is a collaborative interior and architectural design studio delivering spatial planning, 3‑D visualizations, custom furniture, and turnkey supervision for commercial, hospitality, and residential projects across Thailand, Myanmar, and worldwide."
+	keywords="interior design services Thailand, architectural design studio, commercial interiors, hospitality design, residential interior designer, 3D visualization, custom furniture design, spatial planning "
 	ogImage="/og-image-interiors.jpg"
 	canonicalUrl="https://thesandstudio.com/interiors/contact/"
 />
