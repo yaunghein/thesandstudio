@@ -83,7 +83,9 @@
 			details: [
 				'We approach each project as a collaboration — working closely with clients to understand not just how a space should look, but how it should feel and function in everyday use. Through a process that’s both thoughtful and technically grounded, we translate ideas into environments with clarity, character, and purpose.',
 				'Every project is tailored to your goals, budget, and timeline — with a strong focus on spatial experience, clarity, and long-term usability.'
-			]
+			],
+			color: 'bg-green-500',
+			paddingBottom: 'pb-[33.5rem]'
 		},
 		{
 			title: 'Our services',
@@ -106,7 +108,9 @@
           <div class="text-sm sm:text-[1.6rem] font-sand-medium leading-[1.5]">Renovation Consultation & Reconfiguration</div>
           <div class="text-sm sm:text-[1.6rem] font-sand-medium leading-[1.5]">Vendor & Contractor Liaison</div>
         </div>`
-			]
+			],
+			color: 'bg-blue-500',
+			paddingBottom: 'pb-[21.25rem]'
 		},
 		{
 			title: 'Project Types',
@@ -127,7 +131,9 @@
           <div class="text-sm sm:text-[1.6rem] font-sand-medium leading-[1.5]">Spatial Planning & Styling for Short-term Activations, Exhibitions, or Seasonal Campaigns</div>
         </div>`
 			],
-			layout: ['', 'self-end']
+			layout: ['', 'self-end'],
+			color: 'bg-yellow-500',
+			paddingBottom: 'pb-[15rem]'
 		},
 		{
 			title: 'Additional Services',
@@ -149,9 +155,13 @@
           <div class="text-sm sm:text-[1.6rem] font-sand-medium leading-[1.5]">Post-completion Styling & Visual Refinement</div>
           <div class="text-sm sm:text-[1.6rem] leading-[1.5]">Final on-site styling layer for photography, press features, or real estate staging.</div>
         </div>`
-			]
+			],
+			color: 'bg-red-500',
+			paddingBottom: ''
 		}
 	])
+
+	let hoverIndex = $state(0)
 </script>
 
 <MetaData
@@ -189,13 +199,50 @@
 		)}
 	>
 		<h1
-			class="mb-5 mt-40 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-[7rem] sm:px-[4rem] sm:text-[7.6rem]"
+			class="mb-5 mt-40 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-auto sm:px-[4rem] sm:text-[7.6rem]"
 		>
 			Services
 		</h1>
 		<!-- <div class="absolute inset-0 top-auto h-[1px] w-full opacity-30">
 			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 		</div> -->
+
+		<div class="relative h-[52.75vh] overflow-hidden">
+			{#each services as service, index}
+				<button
+					onmouseenter={() => (hoverIndex = index)}
+					class={twm(
+						'interior-transition absolute inset-0 top-auto z-[4] grid w-full content-start gap-0 px-5  text-left delay-300 sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem]',
+						index <= hoverIndex ? 'translate-y-[0rem]' : 'translate-y-[28rem]'
+					)}
+				>
+					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+					</div>
+					<div class="font-sand-bold text-sm sm:py-[3rem] sm:text-[1.6rem]">
+						{service.title}
+					</div>
+					<div class={twm('interior-transition overflow-hidden')}>
+						<div class={twm('interior-transition overflow-hidden', service.paddingBottom)}>
+							<div
+								bind:this={service.contentEl}
+								class={twm(
+									'interior-transition grid items-start gap-5 sm:grid-cols-2 sm:gap-[2rem]',
+									index === hoverIndex ? 'opacity-100 delay-[750ms]' : 'opacity-0'
+								)}
+							>
+								<div class="max-w-[32rem] sm:py-[3rem]">
+									{@html service.details[0]}
+								</div>
+								<div class="max-w-[33.5rem] sm:py-[3rem]">
+									{@html service.details[1]}
+								</div>
+							</div>
+						</div>
+					</div>
+				</button>
+			{/each}
+		</div>
 
 		{#each services as service, index}
 			<button
@@ -205,7 +252,7 @@
 						open: s.title === service.title ? !s.open : false
 					}))
 				}}
-				class="relative grid w-full content-start gap-0 px-5 py-5 text-left sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem] sm:py-[3rem]"
+				class="relative grid w-full content-start gap-0 px-5 py-5 text-left sm:hidden sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem] sm:py-[3rem]"
 			>
 				<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
 					<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
@@ -242,11 +289,11 @@
 		{/each}
 
 		<div
-			class="relative mt-auto flex h-[4.25rem] w-full items-center justify-between gap-4 px-5 py-5 sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
+			class="relative mt-auto flex h-[4.25rem] w-full items-center justify-between gap-4 px-5 py-5 sm:mt-0 sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
 		>
-			<!-- <div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+			<div class="absolute inset-0 bottom-auto hidden h-[1px] w-full opacity-30 sm:block">
 				<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-			</div> -->
+			</div>
 			<div class="flex -translate-y-[0.22rem] items-start gap-3 sm:-translate-y-[0.15rem] sm:gap-6">
 				<a
 					href="https://www.instagram.com/sand.interiors_/"
