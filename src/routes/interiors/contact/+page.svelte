@@ -226,7 +226,7 @@
 						href="/?bypass-select=true"
 						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
 					>
-						Visit the Sand Studio
+						Visit The Sand Studio
 					</a>
 				</div>
 			</div>

@@ -197,13 +197,13 @@
 					href="/mobile/?bypass-select=true"
 					class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.6rem]"
 				>
-					Visit the Sand Studio
+					Visit The Sand Studio
 				</a>
 				<a
 					href="/?bypass-select=true"
 					class="hidden text-sm leading-[1.5] underline underline-offset-4 sm:block sm:text-[1.6rem]"
 				>
-					Visit the Sand Studio
+					Visit The Sand Studio
 				</a>
 			</div>
 		</div>
