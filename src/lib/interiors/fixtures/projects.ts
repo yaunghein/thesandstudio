@@ -292,7 +292,7 @@ export default [
 						layoutClasses: 'w-full sm:col-span-4 aspect-[1/0.56] -mt-5 sm:mt-0'
 					}
 				],
-				title: 'Site Analysis',
+				title: 'Concept Development',
 				body: [
 					"Drawing inspiration from a butterfly's metamorphosis, this concept highlights the profound changes young people experience as they grow from teenagers to adults. Just as a butterfly emerged from its cocoon, transformed and ready to soar, the youth at this center are envisioned on a similar transformative path.",
 					'This concept not only signifies physical growth but also an evolution of identity, perspective, and emotional maturity. In this sense, the center acts as both a cocoon and a nest, providing a nurturing space where youth can safely transform and flourish.'
@@ -307,7 +307,7 @@ export default [
 					},
 					{
 						path: '/interiors/projects/cyc/detail/cyc-detail-3.4.gif',
-						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25]'
+						layoutClasses: 'w-full sm:col-span-2 aspect-[1/1.25] -my-28 sm:my-0'
 					},
 					{
 						path: '/interiors/projects/cyc/detail/cyc-detail-3.5.webp',
