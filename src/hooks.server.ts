@@ -46,17 +46,17 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// }
 	// delete till here
 
-	// if (
-	// 	!event.url.pathname.includes('/interiors/') &&
-	// 	!event.url.pathname.includes('/api/') &&
-	// 	event.url.pathname !== '/select-destination/'
-	// ) {
-	// 	const cookie = event.cookies.get('sand-showed-select-screen')
-	// 	const bypassSelect = event.url.searchParams.get('bypass-select')
-	// 	if (!cookie && !bypassSelect) {
-	// 		throw redirect(303, '/select-destination/')
-	// 	}
-	// }
+	if (
+		!event.url.pathname.includes('/interiors/') &&
+		!event.url.pathname.includes('/api/') &&
+		event.url.pathname !== '/select-destination/'
+	) {
+		const cookie = event.cookies.get('sand-showed-select-screen')
+		const bypassSelect = event.url.searchParams.get('bypass-select')
+		if (!cookie && !bypassSelect) {
+			throw redirect(303, '/select-destination/')
+		}
+	}
 
 	return resolve(event, {
 		filterSerializedResponseHeaders(name) {

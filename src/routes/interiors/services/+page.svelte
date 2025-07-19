@@ -78,7 +78,7 @@
 	let services = $state([
 		{
 			title: 'Architectural and Interior Design Services',
-			open: false,
+			open: true,
 			contentEl: null as HTMLElement | null,
 			details: [
 				'We approach each project as a collaboration — working closely with clients to understand not just how a space should look, but how it should feel and function in everyday use. Through a process that’s both thoughtful and technically grounded, we translate ideas into environments with clarity, character, and purpose.',

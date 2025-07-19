@@ -34,7 +34,7 @@
 </script>
 
 <!-- <div class="fixed bottom-0 left-[10.25rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
-<div class="fixed bottom-0 left-[11.4rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.3rem]"></div> -->
+<div class="fixed bottom-0 left-[11.4rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.6rem]"></div> -->
 
 <div class="flex h-screen w-full items-center justify-center overflow-hidden bg-black">
 	<div class="relative w-[320px] shrink-0 sm:w-[52rem] sm:-translate-x-[5rem]">
@@ -77,7 +77,7 @@
 				<img
 					src="/interiors/sand-interiors.svg"
 					alt=""
-					class="sand-transition w-[4rem] -translate-x-[1.275rem] translate-y-[0rem] opacity-100 group-hover:opacity-100 sm:w-[11rem] sm:-translate-x-[3.8rem] sm:opacity-0"
+					class="sand-transition w-[4rem] -translate-x-[1.275rem] translate-y-[0rem] opacity-100 group-hover:opacity-100 sm:w-[11rem] sm:-translate-x-[3.55rem] sm:opacity-0"
 				/>
 			</div>
 		</button>
@@ -86,18 +86,18 @@
 			onclick={() => handleClick('/')}
 			onmouseenter={() => (destination = 'studio')}
 			onmouseleave={() => (destination = '')}
-			class="group absolute -right-[0rem] top-[16rem] z-10 h-[6rem] w-[14rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
+			class="group absolute -right-[0rem] top-[16.15rem] z-10 h-[6rem] w-[14rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
 		>
 			<span class="sr-only">The Sand Studio</span>
 			<div class="absolute left-[2.4rem] top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
 				<div
-					class="aspect-square w-5 sm:w-14"
+					class="aspect-square w-[1.35rem] sm:w-[3.75rem]"
 					use:playLottie={'/interiors/studio-spining.json'}
 				></div>
 				<img
 					src="/interiors/sand-studio.svg"
 					alt=""
-					class="sand-transition w-[3rem] -translate-x-[1.1rem] translate-y-[0.3rem] opacity-100 group-hover:opacity-100 sm:w-[8rem] sm:-translate-x-[3.1rem] sm:translate-y-[0.9rem] sm:opacity-0"
+					class="sand-transition w-[3.1rem] -translate-x-[1.175rem] translate-y-[0.3rem] opacity-100 group-hover:opacity-100 sm:w-[8.5rem] sm:-translate-x-[3.1rem] sm:translate-y-[0.9rem] sm:opacity-0"
 				/>
 			</div>
 		</button>
