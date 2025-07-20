@@ -33,11 +33,11 @@
 	}
 </script>
 
-<!-- <div class="fixed bottom-0 left-[10.25rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
-<div class="fixed bottom-0 left-[11.4rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.6rem]"></div> -->
+<!-- <div class="fixed bottom-0 left-[11.65rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
+<div class="fixed bottom-0 left-[12.85rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.6rem]"></div> -->
 
 <div class="flex h-screen w-full items-center justify-center overflow-hidden bg-black">
-	<div class="relative w-[320px] shrink-0 sm:w-[52rem] sm:-translate-x-[5rem]">
+	<div class="relative w-[27rem] shrink-0 sm:w-[52rem] sm:-translate-x-[5rem]">
 		<div
 			class="absolute top-1/2 hidden max-w-[16rem] -translate-y-1/2 text-5xl font-bold text-white sm:block"
 		>
@@ -66,7 +66,7 @@
 			onclick={() => handleClick('/interiors/')}
 			onmouseenter={() => (destination = 'interiors')}
 			onmouseleave={() => (destination = '')}
-			class="group absolute right-[0rem] top-[10rem] z-10 h-[5.75rem] w-[12rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
+			class="group absolute right-[1.75rem] top-[13.65rem] z-10 h-[7.5rem] w-[14rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
 		>
 			<span class="sr-only">Sand Interiors</span>
 			<div class="absolute left-[0.3rem] top-1 flex items-center sm:left-3 sm:top-3">
@@ -86,7 +86,7 @@
 			onclick={() => handleClick('/')}
 			onmouseenter={() => (destination = 'studio')}
 			onmouseleave={() => (destination = '')}
-			class="group absolute -right-[0rem] top-[16.15rem] z-10 h-[6rem] w-[14rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
+			class="group absolute right-[0.8rem] top-[21.85rem] z-10 h-[8rem] w-[17rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
 		>
 			<span class="sr-only">The Sand Studio</span>
 			<div class="absolute left-[2.4rem] top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
