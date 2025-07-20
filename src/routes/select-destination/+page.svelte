@@ -36,11 +36,13 @@
 	}
 </script>
 
-<!-- <div class="fixed bottom-0 left-[10.75rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
-<div class="fixed bottom-0 left-[12.5rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.6rem]"></div> -->
+<!-- <div class="fixed bottom-0 left-[9.75rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[86.5rem]"></div>
+<div class="fixed bottom-0 left-[11.5rem] top-0 z-50 w-[1px] bg-red-500 sm:left-[89.6rem]"></div> -->
 
 <div class="flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-black">
-	<div class="relative w-[25.5rem] shrink-0 sm:w-[52rem] sm:-translate-x-[5rem]">
+	<div
+		class="relative w-[27.5rem] shrink-0 -translate-x-[1rem] sm:w-[52rem] sm:-translate-x-[5rem]"
+	>
 		<div
 			class="absolute top-1/2 hidden max-w-[16rem] -translate-y-1/2 text-5xl font-bold text-white sm:block"
 		>
@@ -48,7 +50,7 @@
 		</div>
 
 		<div
-			class="sand-transition pointer-events-none absolute -right-[2rem] top-[7.7rem] z-10 w-[10rem] sm:-right-[20.7rem] sm:top-[18.9rem] sm:w-[28.5rem] {destination ===
+			class="sand-transition pointer-events-none absolute -right-[5rem] top-[8.6rem] z-10 w-[18rem] scale-[0.93] sm:-right-[20.7rem] sm:top-[18.9rem] sm:w-[28.5rem] sm:scale-100 {destination ===
 			'interiors'
 				? 'opacity-100'
 				: 'opacity-0'}"
@@ -57,7 +59,7 @@
 		</div>
 
 		<div
-			class="sand-transition pointer-events-none absolute right-[0.05rem] top-[15rem] z-10 w-[7.9rem] sm:-right-[14.67rem] sm:top-[38.72rem] sm:w-[21.5rem] {destination ===
+			class="sand-transition pointer-events-none absolute -right-[0.7rem] top-[20.3rem] z-10 w-[12rem] sm:-right-[14.67rem] sm:top-[38.72rem] sm:w-[21.5rem] {destination ===
 			'studio'
 				? 'opacity-100'
 				: 'opacity-0'}"
@@ -66,11 +68,16 @@
 		</div>
 
 		<button
+			onmouseenter={() => (destination = 'interiors')}
+			onmouseleave={() => (destination = '')}
+			class="group absolute right-[0.9rem] top-[13.8rem] z-10 h-[7.5rem] w-[15rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
+		>
+			<!-- <button
 			onclick={() => handleClick('/interiors/')}
 			onmouseenter={() => (destination = 'interiors')}
 			onmouseleave={() => (destination = '')}
-			class="group absolute right-[0.9rem] top-[12.8rem] z-10 h-[7.5rem] w-[14rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
-		>
+			class="group absolute right-[0.9rem] top-[13.8rem] z-10 h-[7.5rem] w-[15rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
+		> -->
 			<span class="sr-only">Sand Interiors</span>
 			<div class="absolute left-[0.3rem] top-1 flex items-center sm:left-3 sm:top-3">
 				<div
@@ -86,11 +93,16 @@
 		</button>
 
 		<button
+			onmouseenter={() => (destination = 'studio')}
+			onmouseleave={() => (destination = '')}
+			class="group absolute -right-[0.1rem] top-[22rem] z-10 h-[8rem] w-[18rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
+		>
+			<!-- <button
 			onclick={() => handleClick('/')}
 			onmouseenter={() => (destination = 'studio')}
 			onmouseleave={() => (destination = '')}
-			class="group absolute -right-[0.1rem] top-[20.6rem] z-10 h-[8rem] w-[17rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
-		>
+			class="group absolute -right-[0.1rem] top-[22rem] z-10 h-[8rem] w-[18rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
+		> -->
 			<span class="sr-only">The Sand Studio</span>
 			<div class="absolute left-[2.4rem] top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
 				<div
@@ -108,6 +120,7 @@
 		<img
 			src="/interiors/architectural-drawing.svg"
 			alt=""
+			style="filter: brightness(1.5);"
 			class="pointer-events-none h-full w-full -translate-x-[0.5rem] sm:translate-x-1/4"
 		/>
 	</div>
