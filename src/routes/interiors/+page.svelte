@@ -2,6 +2,9 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import horizontalScroll from '$lib/utils/horizontalScroll'
 	import MetaData from '$lib/components/MetaData.svelte'
+	import updateMetaColor from '$lib/utils/updateMetaColor'
+
+	updateMetaColor('#F6F6EA')
 
 	const images = [
 		{

@@ -4,6 +4,9 @@
 	import MetaData from '$lib/components/MetaData.svelte'
 	import clickOutside from '$lib/utils/clickOutside'
 	import { getInteriorsStore } from '$lib/interiors/store.svelte'
+	import updateMetaColor from '$lib/utils/updateMetaColor'
+
+	updateMetaColor('#864235')
 
 	const interiorsStore = getInteriorsStore()
 

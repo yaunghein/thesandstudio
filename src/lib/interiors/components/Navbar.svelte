@@ -3,6 +3,8 @@
 	import { gsap } from 'gsap'
 	import Logo from '$lib/interiors/components/Logo.svelte'
 	import Door from '$lib/interiors/components/Door.svelte'
+	import updateMetaColor from '$lib/utils/updateMetaColor'
+	import { page } from '$app/state'
 
 	let { isInteriorsContactPage } = $props()
 
@@ -17,13 +19,21 @@
 	let navLinksContainer: HTMLElement | null = $state(null)
 	let lightingImage: HTMLElement | null = $state(null)
 
+	const brandRoutes = ['/interiors/services/', '/interiors/contact/']
+
 	$effect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden'
 			// Animate nav links with light switching effect
 			animateNavLinks()
+			updateMetaColor('#864235')
 		} else {
 			document.body.style.overflow = 'auto'
+			if (brandRoutes.includes(page.url.pathname)) {
+				updateMetaColor('#864235')
+			} else {
+				updateMetaColor('#F6F6EA')
+			}
 		}
 	})
 

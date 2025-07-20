@@ -5,6 +5,9 @@
 	import horizontalScroll from '$lib/utils/horizontalScroll'
 	import MetaData from '$lib/components/MetaData.svelte'
 	import { getInteriorsStore } from '$lib/interiors/store.svelte'
+	import updateMetaColor from '$lib/utils/updateMetaColor'
+
+	updateMetaColor('#F6F6EA')
 
 	const project = {
 		name: 'The Ostel Hostel',

@@ -4,6 +4,9 @@
 	import Project from '$lib/interiors/components/Project.svelte'
 	import projects from '$lib/interiors/fixtures/projects'
 	import MetaData from '$lib/components/MetaData.svelte'
+	import updateMetaColor from '$lib/utils/updateMetaColor'
+
+	updateMetaColor('#F6F6EA')
 
 	let { data } = $props()
 
