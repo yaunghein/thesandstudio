@@ -68,16 +68,11 @@
 		</div>
 
 		<button
-			onmouseenter={() => (destination = 'interiors')}
-			onmouseleave={() => (destination = '')}
-			class="group absolute right-[0.9rem] top-[13.8rem] z-10 h-[7.5rem] w-[15rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
-		>
-			<!-- <button
 			onclick={() => handleClick('/interiors/')}
 			onmouseenter={() => (destination = 'interiors')}
 			onmouseleave={() => (destination = '')}
 			class="group absolute right-[0.9rem] top-[13.8rem] z-10 h-[7.5rem] w-[15rem] sm:-right-[13.5rem] sm:top-[26rem] sm:h-[15rem] sm:w-[30rem]"
-		> -->
+		>
 			<span class="sr-only">Sand Interiors</span>
 			<div class="absolute left-[0.3rem] top-1 flex items-center sm:left-3 sm:top-3">
 				<div
@@ -93,16 +88,11 @@
 		</button>
 
 		<button
-			onmouseenter={() => (destination = 'studio')}
-			onmouseleave={() => (destination = '')}
-			class="group absolute -right-[0.1rem] top-[22rem] z-10 h-[8rem] w-[18rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
-		>
-			<!-- <button
 			onclick={() => handleClick('/')}
 			onmouseenter={() => (destination = 'studio')}
 			onmouseleave={() => (destination = '')}
 			class="group absolute -right-[0.1rem] top-[22rem] z-10 h-[8rem] w-[18rem] rounded-bl-[4rem] sm:-right-[13.55rem] sm:top-[42rem] sm:h-[15rem] sm:w-[35rem] sm:rounded-bl-[10.5rem]"
-		> -->
+		>
 			<span class="sr-only">The Sand Studio</span>
 			<div class="absolute left-[2.4rem] top-0 flex items-center sm:left-[5.75rem] sm:top-[0.1rem]">
 				<div
