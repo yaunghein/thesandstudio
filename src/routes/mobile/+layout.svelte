@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation'
 	import { onMount } from 'svelte'
+	import lottie from 'lottie-web'
 	import NewPixelBorder from '$lib/components/mobile/NewPixelBorder.svelte'
 	import { slide } from 'svelte/transition'
 	import clickOutside from '$lib/utils/clickOutside'
@@ -19,8 +20,19 @@
 		})
 	})
 
+	const playLottie = (node: HTMLDivElement, path: string) => {
+		lottie.loadAnimation({
+			container: node,
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path
+		})
+	}
+
 	const navLinks = [
 		{ icon: '/mobile/nav-icons/Home.png', label: 'Home', href: '/mobile' },
+		{ icon: '/interiors/interiors-spining.json', label: 'Interiors', href: '/interiors' },
 		{ icon: '/mobile/nav-icons/Works.gif', label: 'Works', href: '/mobile/works' },
 		{ icon: '/mobile/nav-icons/Not Works.gif', label: 'Not Works', href: '/mobile/not-works' },
 		{ icon: '/mobile/nav-icons/Contact.gif', label: 'Contact', href: '/mobile/contact' },
@@ -85,7 +97,14 @@
 						<div
 							class="absolute left-1/2 top-1/2 aspect-square w-5 -translate-x-1/2 -translate-y-1/2"
 						>
-							<img src={link.icon} alt="" class="h-full w-full object-cover dark:invert" />
+							{#if link.icon.endsWith('.json')}
+								<div
+									class="h-full w-full scale-125 object-cover invert dark:invert-0"
+									use:playLottie={link.icon}
+								></div>
+							{:else}
+								<img src={link.icon} alt="" class="h-full w-full object-cover dark:invert" />
+							{/if}
 						</div>
 					</div>
 					{#if isOpen}

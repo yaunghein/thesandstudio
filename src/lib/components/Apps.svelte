@@ -15,6 +15,27 @@
 </script>
 
 <div class="grid grid-cols-2 gap-5">
+	<!-- ########## Interiors ########## -->
+	<a
+		href="/interiors"
+		class="fade-up sand-transition group relative grid aspect-square w-40 select-none place-items-center overflow-hidden rounded-3xl border-2 border-white p-2 text-light-100 hover:border-black dark:border-light-12 dark:hover:border-white"
+	>
+		<div
+			class="sand-transition absolute inset-0 bg-light-90 opacity-sand group-hover:bg-black group-hover:opacity-100 dark:bg-black dark:group-hover:bg-white"
+		></div>
+
+		<div
+			class="sand-transition absolute left-[50%] top-[50%] w-28 -translate-x-1/2 -translate-y-[50%] scale-[1.2] invert group-hover:-translate-y-[80%] group-hover:translate-x-[20%] group-hover:scale-[2.2] group-hover:invert-0 dark:invert-0 dark:group-hover:invert"
+		>
+			<div use:playLottie={'/interiors/interiors-spining.json'} class="h-full w-full"></div>
+		</div>
+		<div
+			class="sand-transition absolute bottom-3 left-4 w-20 origin-right translate-y-[100%] text-left font-sand-medium text-2xl text-light-100 opacity-0 group-hover:translate-y-[0%] group-hover:leading-[1] group-hover:opacity-100 dark:group-hover:text-light-10"
+		>
+			Interiors
+		</div>
+	</a>
+
 	<!-- ########## SAND Scan ########## -->
 	<button
 		onclick={() => addShell({ id: 'sand-scan', zIndex: 65 })}
