@@ -148,14 +148,15 @@
 			<a href="/interiors/projects" class="w-[30%] text-xs">{data.project.location}</a>
 		</div>
 	</div>
-	<div
+	<!-- <div
 		use:horizontalScroll={{ extra: window.innerHeight }}
 		class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
-	>
-		<div class="flex items-start">
-			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
+	> -->
+	<div class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
+		<div class="hide-scrollbar flex h-full items-start overflow-x-auto">
+			<div class="sticky top-0 flex h-[calc(100%-4rem)] gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
 				{#each data.project.showcaseImages as image}
-					<div class={twm('shrink-0', image.layoutClasses)}>
+					<div class={twm('h-full shrink-0', image.layoutClasses)}>
 						<img src={image.path} alt={data.project.name} class="h-full w-full object-cover" />
 					</div>
 				{/each}
