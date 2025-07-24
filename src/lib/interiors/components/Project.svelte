@@ -2,42 +2,41 @@
 	import { onMount, onDestroy } from 'svelte'
 	import { twMerge as twm } from 'tailwind-merge'
 
-	let { project, index, onProjectVisibilityChange } = $props()
+	let { project, index, onProjectVisibilityChange = () => {} } = $props()
 
-	let isVisible = $state(false)
-	let wasVisible = $state(false)
-	let container: HTMLAnchorElement | null = null
+	// let isVisible = $state(false)
+	// let wasVisible = $state(false)
+	// let container: HTMLAnchorElement | null = null
 
-	$effect(() => {
-		if (isVisible !== wasVisible) {
-			onProjectVisibilityChange(project, isVisible)
-			wasVisible = isVisible
-		}
-	})
+	// $effect(() => {
+	// 	if (isVisible !== wasVisible) {
+	// 		onProjectVisibilityChange(project, isVisible)
+	// 		wasVisible = isVisible
+	// 	}
+	// })
 
-	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					isVisible = entry.isIntersecting
-				}
-			},
-			{
-				root: null,
-				threshold: 0.5
-			}
-		)
+	// onMount(() => {
+	// 	const observer = new IntersectionObserver(
+	// 		(entries) => {
+	// 			for (const entry of entries) {
+	// 				isVisible = entry.isIntersecting
+	// 			}
+	// 		},
+	// 		{
+	// 			root: null,
+	// 			threshold: 0.5
+	// 		}
+	// 	)
 
-		if (container) observer.observe(container)
+	// 	if (container) observer.observe(container)
 
-		onDestroy(() => {
-			if (container) observer.unobserve(container)
-		})
-	})
+	// 	onDestroy(() => {
+	// 		if (container) observer.unobserve(container)
+	// 	})
+	// })
 </script>
 
 <a
-	bind:this={container}
 	href="/interiors/projects/{project.slug}"
 	class={twm('relative overflow-hidden', project.coverImage.layoutClassesMobile)}
 >

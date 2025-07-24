@@ -42,24 +42,40 @@
 		location?: string
 	}
 
-	let projectsInView = $state<TProject[]>([])
-	let projectsInViewToRender = $derived(
-		[...projectsInView]
-			.sort((a, b) => {
-				const indexA = projects.findIndex((p) => p.slug === a.slug)
-				const indexB = projects.findIndex((p) => p.slug === b.slug)
-				return indexA - indexB
-			})
-			.slice(0, data.isMobile ? 4 : 8)
-	)
+	// let projectsInView = $state<TProject[]>([])
+	// let projectsInViewToRender = $derived(
+	// 	[...projectsInView]
+	// 		.sort((a, b) => {
+	// 			const indexA = projects.findIndex((p) => p.slug === a.slug)
+	// 			const indexB = projects.findIndex((p) => p.slug === b.slug)
+	// 			return indexA - indexB
+	// 		})
+	// 		.slice(0, data.isMobile ? 4 : 8)
+	// )
 
-	const handleProjectVisibilityChange = (project: TProject, isVisible: boolean) => {
-		if (isVisible) {
-			if (!projectsInView.some((p) => p.slug === project.slug)) {
-				projectsInView = [...projectsInView, project]
-			}
-		} else {
-			projectsInView = projectsInView.filter((p) => p.slug !== project.slug)
+	// const handleProjectVisibilityChange = (project: TProject, isVisible: boolean) => {
+	// 	if (isVisible) {
+	// 		if (!projectsInView.some((p) => p.slug === project.slug)) {
+	// 			projectsInView = [...projectsInView, project]
+	// 		}
+	// 	} else {
+	// 		projectsInView = projectsInView.filter((p) => p.slug !== project.slug)
+	// 	}
+	// }
+
+	let isPastHalfway = $state(false)
+	let projectsToRender = $derived(isPastHalfway ? projects.slice(4) : projects.slice(0, 4))
+
+	const handleScroll = (event: Event) => {
+		const target = event.target as HTMLElement
+		if (target) {
+			const scrollLeft = target.scrollLeft
+			const scrollWidth = target.scrollWidth
+			const clientWidth = target.clientWidth
+			const halfwayPoint = (scrollWidth - clientWidth) / 2
+
+			isPastHalfway = scrollLeft > halfwayPoint
+			console.log(scrollLeft, halfwayPoint, scrollWidth, clientWidth)
 		}
 	}
 
@@ -93,23 +109,23 @@
 		style="padding-top: {paddingTop}rem; overscroll-behavior: none;"
 	> -->
 	<section class="hide-scrollbar relative h-[calc(100dvh-3.6rem)] !overflow-x-hidden">
-		<div class="hide-scrollbar h-full w-full overflow-x-auto px-5">
+		<div class="hide-scrollbar h-full w-full overflow-x-auto px-5" on:scroll={handleScroll}>
 			<div
 				bind:this={scrollContainer}
 				style="padding-top: {paddingTop}rem; overscroll-behavior: none;"
 				class="sticky top-0 grid min-w-max auto-cols-max grid-flow-col grid-rows-2 gap-4"
 			>
 				{#each projects as project, index}
-					<Project {project} {index} onProjectVisibilityChange={handleProjectVisibilityChange} />
+					<Project {project} {index} />
 				{/each}
 				<!-- <div class="w-[12rem]"></div> -->
 			</div>
 		</div>
 	</section>
 	<section
-		class="pointer-events-none fixed inset-0 top-auto grid h-[8.68rem] w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
+		class="pointer-events-none fixed inset-0 top-auto grid h-[8.5rem] w-full place-content-start gap-1 border-t border-interior-brand bg-interior-light p-5"
 	>
-		{#each projectsInViewToRender as project}
+		{#each projectsToRender as project}
 			{@const originalIndex = projects.findIndex((p) => p.slug === project.slug)}
 			<a href="/interiors/projects/{project.slug}" class="flex items-start gap-3">
 				<h3 class="w-10 shrink-0">
