@@ -182,7 +182,7 @@
 
 	<div
 		bind:this={lightingImage}
-		class="pointer-events-none absolute bottom-0 left-0 right-0 top-[3.6rem] bg-interior-brand sm:top-[11.5rem]"
+		class="pointer-events-none absolute bottom-0 left-0 right-0 top-[3.6rem] bg-interior-brand opacity-0 sm:top-[11.5rem]"
 	>
 		<img
 			src="/interiors/lighting-2.png"
@@ -198,139 +198,145 @@
 
 	<div
 		bind:this={contentContainer}
-		class={twm(
-			'hide-scrollbar interior-transition relative flex min-h-[calc(100dvh-3.6rem)] w-full flex-col overflow-y-auto sm:min-h-[calc(100dvh-11.5rem)]'
-		)}
+		class="min-h-[calc(100dvh-3.6rem)] sm:min-h-[calc(100dvh-11.5rem)]"
 	>
-		<!-- <div class="absolute inset-0 top-auto h-[1px] w-full opacity-30">
+		<div
+			class={twm(
+				'hide-scrollbar interior-transition relative flex h-full w-full flex-col overflow-y-auto'
+			)}
+		>
+			<!-- <div class="absolute inset-0 top-auto h-[1px] w-full opacity-30">
 			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 		</div> -->
 
-		<h1
-			class="mb-5 mt-40 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-auto sm:hidden sm:px-[4rem] sm:text-[7.6rem]"
-		>
-			Services
-		</h1>
-
-		<div class="relative hidden h-[100dvh] overflow-hidden sm:block">
-			<h1 class="absolute bottom-[42rem] mb-5 hidden px-5 sm:block sm:px-[4rem] sm:text-[6.5rem]">
+			<h1
+				class="mb-5 mt-40 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-auto sm:hidden sm:px-[4rem] sm:text-[7.6rem]"
+			>
 				Services
 			</h1>
+
+			<div class="relative hidden h-[100dvh] overflow-hidden sm:block">
+				<h1 class="absolute bottom-[42rem] mb-5 hidden px-5 sm:block sm:px-[4rem] sm:text-[6.5rem]">
+					Services
+				</h1>
+				{#each services as service, index}
+					<button
+						onmouseenter={() => (hoverIndex = index)}
+						class={twm(
+							'interior-transition absolute inset-0 top-auto z-[4] grid w-full content-start gap-0 px-5 text-left delay-300 sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem]',
+							index <= hoverIndex ? 'translate-y-[0rem]' : 'translate-y-[21rem]'
+						)}
+					>
+						<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+							<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+						</div>
+						<div class="font-sand-bold text-sm sm:py-[2rem] sm:text-[1.4rem]">
+							{service.title}
+						</div>
+						<div class={twm('interior-transition overflow-hidden')}>
+							<div class={twm('interior-transition overflow-hidden', service.paddingBottom)}>
+								<div
+									bind:this={service.contentEl}
+									class={twm(
+										'interior-transition grid items-start gap-5 sm:grid-cols-2 sm:gap-[2.5rem]',
+										index === hoverIndex ? 'opacity-100 delay-[750ms]' : 'opacity-0'
+									)}
+								>
+									<div class="max-w-[32rem] sm:py-[2.5rem]">
+										{@html service.details[0]}
+									</div>
+									<div class="max-w-[33.5rem] sm:py-[2.5rem]">
+										{@html service.details[1]}
+									</div>
+								</div>
+							</div>
+						</div>
+					</button>
+				{/each}
+			</div>
+
 			{#each services as service, index}
 				<button
-					onmouseenter={() => (hoverIndex = index)}
-					class={twm(
-						'interior-transition absolute inset-0 top-auto z-[4] grid w-full content-start gap-0 px-5 text-left delay-300 sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem]',
-						index <= hoverIndex ? 'translate-y-[0rem]' : 'translate-y-[21rem]'
-					)}
+					onclick={() => {
+						services = services.map((s) => ({
+							...s,
+							open: s.title === service.title ? !s.open : false
+						}))
+					}}
+					class="relative grid w-full content-start gap-0 px-5 py-5 text-left sm:hidden sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem] sm:py-[3rem]"
 				>
 					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
 						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 					</div>
-					<div class="font-sand-bold text-sm sm:py-[2rem] sm:text-[1.4rem]">
+					{#if index === services.length - 1}
+						<div class="absolute inset-0 top-auto h-[1px] w-full opacity-30">
+							<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+						</div>
+					{/if}
+					<div class="font-sand-bold text-sm sm:text-[1.4rem]">
 						{service.title}
 					</div>
-					<div class={twm('interior-transition overflow-hidden')}>
-						<div class={twm('interior-transition overflow-hidden', service.paddingBottom)}>
-							<div
-								bind:this={service.contentEl}
-								class={twm(
-									'interior-transition grid items-start gap-5 sm:grid-cols-2 sm:gap-[2.5rem]',
-									index === hoverIndex ? 'opacity-100 delay-[750ms]' : 'opacity-0'
-								)}
-							>
-								<div class="max-w-[32rem] sm:py-[2.5rem]">
-									{@html service.details[0]}
-								</div>
-								<div class="max-w-[33.5rem] sm:py-[2.5rem]">
-									{@html service.details[1]}
-								</div>
+					<div
+						class="interior-transition overflow-hidden"
+						style:height={service.open ? `${service.contentEl?.clientHeight}px` : '0px'}
+					>
+						<div
+							bind:this={service.contentEl}
+							class={twm(
+								'interior-transition grid items-start gap-1 overflow-hidden pb-5 sm:grid-cols-2 sm:gap-[2rem] sm:pb-20',
+								service.open ? 'opacity-100' : 'opacity-0'
+							)}
+						>
+							<div class="max-w-[32rem] {service.layout?.[0]}">
+								<div class="pb-5 sm:pb-0"></div>
+								{@html service.details[0]}
+							</div>
+							<div class="max-w-[33.5rem] {service.layout?.[1]}">
+								{@html service.details[1]}
 							</div>
 						</div>
 					</div>
 				</button>
 			{/each}
-		</div>
 
-		{#each services as service, index}
-			<button
-				onclick={() => {
-					services = services.map((s) => ({
-						...s,
-						open: s.title === service.title ? !s.open : false
-					}))
-				}}
-				class="relative grid w-full content-start gap-0 px-5 py-5 text-left sm:hidden sm:grid-cols-2 sm:gap-[2rem] sm:px-[4rem] sm:py-[3rem]"
+			<div
+				class="relative mt-auto flex h-[4.25rem] w-full items-center justify-between gap-4 px-5 py-5 sm:mt-0 sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
 			>
-				<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+				<div class="absolute inset-0 bottom-auto hidden h-[1px] w-full opacity-30 sm:block">
 					<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 				</div>
-				{#if index === services.length - 1}
-					<div class="absolute inset-0 top-auto h-[1px] w-full opacity-30">
-						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-					</div>
-				{/if}
-				<div class="font-sand-bold text-sm sm:text-[1.4rem]">
-					{service.title}
-				</div>
 				<div
-					class="interior-transition overflow-hidden"
-					style:height={service.open ? `${service.contentEl?.clientHeight}px` : '0px'}
+					class="flex -translate-y-[0.22rem] items-start gap-3 sm:-translate-y-[0.15rem] sm:gap-6"
 				>
-					<div
-						bind:this={service.contentEl}
-						class={twm(
-							'interior-transition grid items-start gap-1 overflow-hidden pb-5 sm:grid-cols-2 sm:gap-[2rem] sm:pb-20',
-							service.open ? 'opacity-100' : 'opacity-0'
-						)}
+					<a
+						href="https://www.instagram.com/sand.interiors_/"
+						target="_blank"
+						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.4rem]"
 					>
-						<div class="max-w-[32rem] {service.layout?.[0]}">
-							<div class="pb-5 sm:pb-0"></div>
-							{@html service.details[0]}
-						</div>
-						<div class="max-w-[33.5rem] {service.layout?.[1]}">
-							{@html service.details[1]}
-						</div>
-					</div>
+						IG
+					</a>
+					<a
+						href="https://line.me/ti/p/3Wi3R721g_"
+						target="_blank"
+						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.4rem]"
+					>
+						LINE
+					</a>
 				</div>
-			</button>
-		{/each}
-
-		<div
-			class="relative mt-auto flex h-[4.25rem] w-full items-center justify-between gap-4 px-5 py-5 sm:mt-0 sm:h-auto sm:px-[4rem] sm:py-[4.25rem]"
-		>
-			<div class="absolute inset-0 bottom-auto hidden h-[1px] w-full opacity-30 sm:block">
-				<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-			</div>
-			<div class="flex -translate-y-[0.22rem] items-start gap-3 sm:-translate-y-[0.15rem] sm:gap-6">
-				<a
-					href="https://www.instagram.com/sand.interiors_/"
-					target="_blank"
-					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.4rem]"
-				>
-					IG
-				</a>
-				<a
-					href="https://line.me/ti/p/3Wi3R721g_"
-					target="_blank"
-					class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.4rem]"
-				>
-					LINE
-				</a>
-			</div>
-			<div class="-translate-y-[0.25rem] sm:-translate-y-[0.2rem]">
-				<a
-					href="/mobile/?bypass-select=true"
-					class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.4rem]"
-				>
-					Visit The Sand Studio
-				</a>
-				<a
-					href="/?bypass-select=true"
-					class="hidden text-sm leading-[1.5] underline underline-offset-4 sm:block sm:text-[1.4rem]"
-				>
-					Visit The Sand Studio
-				</a>
+				<div class="-translate-y-[0.25rem] sm:-translate-y-[0.2rem]">
+					<a
+						href="/mobile/?bypass-select=true"
+						class="text-sm leading-[1.5] underline underline-offset-4 sm:hidden sm:text-[1.4rem]"
+					>
+						Visit The Sand Studio
+					</a>
+					<a
+						href="/?bypass-select=true"
+						class="hidden text-sm leading-[1.5] underline underline-offset-4 sm:block sm:text-[1.4rem]"
+					>
+						Visit The Sand Studio
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
