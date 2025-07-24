@@ -105,6 +105,9 @@
 		bind:this={lightingImage}
 		class="pointer-events-none absolute bottom-0 left-0 right-0 top-[3.6rem] bg-interior-brand sm:top-[11.5rem]"
 	>
+		<!-- <div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+		</div> -->
 		<img
 			src="/interiors/lighting-contact.png"
 			alt=""
@@ -117,86 +120,88 @@
 		/>
 	</div>
 
-	<div
-		bind:this={contentContainer}
-		class={twm(
-			'interior-transition relative w-full',
-			isAboutOpen && '-translate-y-[3.25rem] sm:translate-y-0'
-		)}
-	>
-		<div bind:this={textContent} class="relative w-full">
-			<div
-				class="flex w-full items-center justify-center gap-4 px-5 py-8 sm:px-[4rem] sm:py-[1.6rem]"
-			>
-				<h1 class="text-[1.75rem] sm:text-[7.6rem]">Contact</h1>
-			</div>
+	<div bind:this={contentContainer} class="relative w-full">
+		<div class={twm('interior-transition relative w-full', isAboutOpen && '-translate-y-[7rem]')}>
+			<div bind:this={textContent} class={twm('interior-transition relative w-full')}>
+				<div
+					class="flex w-full items-center justify-center gap-4 px-5 py-8 sm:px-[4rem] sm:py-[1.6rem]"
+				>
+					<h1 class="text-[1.75rem] sm:text-[7.6rem]">Contact</h1>
+				</div>
 
-			<div class="relative flex w-full justify-center px-5 py-5 sm:px-[4rem] sm:py-[4.25rem]">
-				<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
-					<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+				<div class="relative flex w-full justify-center px-5 py-5 sm:px-[4rem] sm:py-[4.25rem]">
+					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+					</div>
+
+					<div
+						bind:this={content}
+						class="flex flex-col items-center gap-1 text-center sm:col-span-4 sm:gap-3"
+					>
+						<div class="flex items-center gap-1 sm:gap-3">
+							<div class="text-sm leading-[1.5] sm:text-[1.6rem]"><i>Hannah</i></div>
+							<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Hnin Myat Noe Oo</div>
+						</div>
+
+						<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Interior Designer</div>
+
+						<div
+							class={twm(
+								'interior-transition mt-10 flex items-start gap-3 sm:col-span-4 sm:mt-28 sm:gap-7',
+								isAboutOpen && 'opacity-0'
+							)}
+						>
+							<a
+								href="https://www.instagram.com/sand.interiors_/"
+								target="_blank"
+								class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+							>
+								IG
+							</a>
+							<a
+								href="https://line.me/ti/p/3Wi3R721g_"
+								target="_blank"
+								class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+							>
+								LINE
+							</a>
+							<a
+								href="mailto:hnin@thesandstudio.com"
+								target="_blank"
+								class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+							>
+								EMAIL
+							</a>
+						</div>
+					</div>
 				</div>
 
 				<div
-					bind:this={content}
-					class="flex flex-col items-center gap-1 text-center sm:col-span-4 sm:gap-3"
+					class={twm(
+						'interior-transition relative flex w-full items-center justify-center px-5 py-5 sm:px-[4rem] sm:py-[4rem]',
+						isAboutOpen && 'opacity-0'
+					)}
 				>
-					<div class="flex items-center gap-1 sm:gap-3">
-						<div class="text-sm leading-[1.5] sm:text-[1.6rem]"><i>Hannah</i></div>
-						<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Hnin Myat Noe Oo</div>
+					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 					</div>
-
-					<div class="text-sm leading-[1.5] sm:text-[1.6rem]">Interior Designer</div>
-
-					<div
-						class={twm(
-							'interior-transition mt-10 flex items-start gap-3 sm:col-span-4 sm:mt-32 sm:gap-10',
-							isAboutOpen && 'opacity-0'
-						)}
-					>
-						<a
-							href="https://www.instagram.com/sand.interiors_/"
-							target="_blank"
-							class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+					<div class="col-span-4 flex flex-col items-start gap-1">
+						<button
+							onclick={() => {
+								isAboutOpen = true
+								interiorsStore.logoSpinDegree = 90
+							}}
+							class="relative text-sm leading-[1.5] sm:text-[1.6rem]"
 						>
-							IG
-						</a>
-						<a
-							href="https://line.me/ti/p/3Wi3R721g_"
-							target="_blank"
-							class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
-						>
-							LINE
-						</a>
+							About Me
+							<span class="absolute -right-5 top-1/2 -translate-y-1/2 sm:-right-8">
+								{@render learnMoreIcon()}
+							</span>
+						</button>
 					</div>
 				</div>
-			</div>
 
-			<div
-				class={twm(
-					'interior-transition relative flex w-full items-center justify-center px-5 py-5 sm:px-[4rem] sm:py-[4rem]',
-					isAboutOpen && 'opacity-0'
-				)}
-			>
-				<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
-					<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-				</div>
-				<div class="col-span-4 flex flex-col items-start gap-1">
-					<button
-						onclick={() => {
-							isAboutOpen = true
-							interiorsStore.logoSpinDegree = 90
-						}}
-						class="relative text-sm leading-[1.5] sm:text-[1.6rem]"
-					>
-						About Me
-						<span class="absolute -right-5 top-1/2 -translate-y-1/2 sm:-right-8">
-							{@render learnMoreIcon()}
-						</span>
-					</button>
-				</div>
-			</div>
-
-			<div
+				<!-- <div
 				class={twm(
 					'interior-transition relative flex w-full items-center justify-center px-5 py-5 pb-6 sm:px-[4rem] sm:py-[4.25rem]',
 					isAboutOpen && 'opacity-0'
@@ -213,24 +218,25 @@
 						hnin@thesandstudio.com
 					</a>
 				</div>
-			</div>
+			</div> -->
 
-			<div
-				class={twm(
-					'interior-transition relative flex h-[4.25rem] w-full items-center justify-center gap-4 px-5 py-5 sm:h-auto sm:gap-[2rem] sm:px-[4rem] sm:py-[4.24rem]',
-					isAboutOpen && 'opacity-0'
-				)}
-			>
-				<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
-					<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-				</div>
-				<div class="flex justify-center sm:col-span-6">
-					<a
-						href="/?bypass-select=true"
-						class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
-					>
-						Visit The Sand Studio
-					</a>
+				<div
+					class={twm(
+						'interior-transition relative flex h-[4.25rem] w-full items-center justify-center gap-4 px-5 py-5 sm:h-auto sm:gap-[2rem] sm:px-[4rem] sm:py-[4.25rem]',
+						isAboutOpen && 'opacity-0'
+					)}
+				>
+					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+					</div>
+					<div class="flex justify-center sm:col-span-6">
+						<a
+							href="/?bypass-select=true"
+							class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
+						>
+							Visit The Sand Studio
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -244,14 +250,17 @@
 			interiorsStore.logoSpinDegree = 0
 		}
 	}}
-	class={twm(isAboutOpen ? 'opacity-100' : 'opacity-0', 'interior-transition')}
+	class={twm(
+		isAboutOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
+		'interior-transition'
+	)}
 >
 	<section
 		bind:this={desktopAboutContent}
 		class={twm(
 			'interior-transition fixed inset-0 top-auto z-40 hidden  w-full text-sm text-white sm:block'
 		)}
-		style={`bottom: ${isAboutOpen ? `4rem` : `-${desktopAboutContentBottom}rem`};`}
+		style={`bottom: ${isAboutOpen ? `0rem` : `-4rem`};`}
 	>
 		<button
 			onclick={() => {
@@ -270,8 +279,8 @@
 			</div>
 			<div class="relative text-sm leading-[1.5] sm:text-[1.6rem]">
 				About Me
-				<span class="absolute -right-5 top-1/2 -translate-y-1/2 rotate-45 sm:-right-8">
-					{@render learnMoreIcon()}
+				<span class="absolute -right-5 top-1/2 -translate-y-1/2 sm:-right-8">
+					{@render backIcon()}
 				</span>
 			</div>
 		</button>
@@ -285,7 +294,7 @@
 				focus on challenging convention and crafting environments that respond to human behavior and
 				experience.
 			</p>
-			<p class="mb-5">
+			<p class="">
 				Currently based in Bangkok, Thailand while continuously expanding expertise in
 				multidisciplinary design and sustainable practices.
 			</p>
@@ -294,7 +303,7 @@
 
 	<section
 		class={twm('interior-transition fixed inset-0 z-40 w-full  text-sm text-white sm:hidden')}
-		style={`top: ${isAboutOpen ? `${contentTop + 0.75}rem` : 'calc(100dvh + 2px)'}; 
+		style={`top: ${isAboutOpen ? `${contentTop - 2.75}rem` : `${contentTop + 2.75}rem`}; 
 		height: ${isAboutOpen ? `calc(100dvh - ${contentTop}rem)` : '2.75rem'}`}
 	>
 		<button
@@ -314,14 +323,14 @@
 			</div>
 			<div class="relative text-sm leading-[1.5] sm:text-[1.6rem]">
 				About Me
-				<span class="absolute -right-5 top-1/2 -translate-y-1/2 rotate-45">
-					{@render learnMoreIcon()}
+				<span class="absolute -right-5 top-1/2 -translate-y-1/2">
+					{@render backIcon()}
 				</span>
 			</div>
 		</button>
 		<div
 			id="mobile-details"
-			class="hide-scrollbar mx-auto grid w-full max-w-[21rem] gap-5 overflow-y-scroll p-5 text-center"
+			class="mx-auto grid w-full max-w-[21rem] gap-5 p-5 text-center"
 			style={`height: calc(100dvh - ${contentTop + 2.75}rem)`}
 		>
 			<p>
@@ -330,7 +339,7 @@
 				focus on challenging convention and crafting environments that respond to human behavior and
 				experience.
 			</p>
-			<p class="mb-5">
+			<p class="">
 				Currently based in Bangkok, Thailand while continuously expanding expertise in
 				multidisciplinary design and sustainable practices.
 			</p>
@@ -361,6 +370,36 @@
 			<g mask="url(#mask0_705_783)">
 				<path
 					d="M7.49967 13.6668V8.50016H2.33301V7.50016H7.49967V2.3335H8.49967V7.50016H13.6663V8.50016H8.49967V13.6668H7.49967Z"
+					fill="currentColor"
+				/>
+			</g>
+		</svg>
+	</div>
+{/snippet}
+
+{#snippet backIcon()}
+	<div class="aspect-square h-[0.9rem] sm:h-[1.6rem]">
+		<svg
+			width="100%"
+			height="100%"
+			viewBox="0 0 16 16"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<mask
+				id="mask0_700_500"
+				style="mask-type:alpha"
+				maskUnits="userSpaceOnUse"
+				x="0"
+				y="0"
+				width="16"
+				height="16"
+			>
+				<rect width="16" height="16" fill="#D9D9D9" />
+			</mask>
+			<g mask="url(#mask0_700_500)">
+				<path
+					d="M12.6668 12.3331V9.9998C12.6668 9.40147 12.4553 8.8908 12.0322 8.4678C11.6092 8.04469 11.0985 7.83313 10.5002 7.83313H4.24883L6.8155 10.3998L6.10266 11.1023L2.3335 7.33313L6.10266 3.56396L6.8155 4.26647L4.24883 6.83313H10.5002C11.3754 6.83313 12.1219 7.14213 12.7398 7.76013C13.3578 8.37802 13.6668 9.12458 13.6668 9.9998V12.3331H12.6668Z"
 					fill="currentColor"
 				/>
 			</g>

@@ -209,47 +209,58 @@
 	const mobileImages = [
 		{
 			path: '/interiors/home-scroll-images/1.webp',
-			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/2.73]'
+			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/2.73]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/2.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/3.webp',
-			layoutClasses: 'h-[40%] w-auto my-auto aspect-[1/1.01]'
+			layoutClasses: 'h-[40%] w-auto my-auto aspect-[1/1.01]',
+			slug: 'unseen-battle-ptsd-awareness-exhibition'
 		},
 		{
 			path: '/interiors/home-scroll-images/4.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.76]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.76]',
+			slug: 'community-market'
 		},
 		{
 			path: '/interiors/home-scroll-images/5.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/6.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.85]',
+			slug: 'unseen-battle-ptsd-awareness-exhibition'
 		},
 		{
 			path: '/interiors/home-scroll-images/7.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'factory-town-house'
 		},
 		{
 			path: '/interiors/home-scroll-images/8.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'community-market'
 		},
 		{
 			path: '/interiors/home-scroll-images/9.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/10.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1.04]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1.04]',
+			slug: 'yuki-mugi-bakery'
 		},
 		{
 			path: '/interiors/home-scroll-images/11.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]',
+			slug: 'another-club'
 		},
 		// {
 		// 	path: '/interiors/home-scroll-images/12.webp',
@@ -257,31 +268,38 @@
 		// },
 		{
 			path: '/interiors/home-scroll-images/13.webp',
-			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[95%] w-auto my-auto aspect-[1/1]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/14.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'yuki-mugi-bakery'
 		},
 		{
 			path: '/interiors/home-scroll-images/15.webp',
-			layoutClasses: 'h-[55%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[55%] w-auto my-auto aspect-[1/1]',
+			slug: 'another-club'
 		},
 		{
 			path: '/interiors/home-scroll-images/16.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/17.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/18.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.85]',
+			slug: 'unseen-battle-ptsd-awareness-exhibition'
 		},
 		{
 			path: '/interiors/home-scroll-images/19.webp',
-			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'community-market'
 		},
 		// {
 		// 	path: '/interiors/home-scroll-images/20.webp',
@@ -289,119 +307,148 @@
 		// },
 		{
 			path: '/interiors/home-scroll-images/21.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1.25]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/22.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'yuki-mugi-bakery'
 		},
 		{
 			path: '/interiors/home-scroll-images/23.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]',
+			slug: 'another-club'
 		},
 		{
 			path: '/interiors/home-scroll-images/24.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/25.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.6]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.6]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/26.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.85]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.85]',
+			slug: 'unseen-battle-ptsd-awareness-exhibition'
 		},
 		{
 			path: '/interiors/home-scroll-images/27.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'community-market'
 		},
 		{
 			path: '/interiors/home-scroll-images/28.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'factory-town-house'
 		},
 		{
 			path: '/interiors/home-scroll-images/29.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/30.webp',
-			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'yuki-mugi-bakery'
 		},
 		{
 			path: '/interiors/home-scroll-images/31.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'another-club'
 		},
 		{
 			path: '/interiors/home-scroll-images/32.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/33.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/34.webp',
-			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[75%] w-auto my-auto aspect-[1/1]',
+			slug: 'unseen-battle-ptsd-awareness-exhibition'
 		},
 		{
 			path: '/interiors/home-scroll-images/35.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'community-market'
 		},
 		{
 			path: '/interiors/home-scroll-images/36.webp',
-			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[60%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'factory-town-house'
 		},
 		{
 			path: '/interiors/home-scroll-images/37.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/38.webp',
-			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'yuki-mugi-bakery'
 		},
 		{
 			path: '/interiors/home-scroll-images/39.webp',
-			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.54]'
+			layoutClasses: 'h-[50%] w-auto my-auto aspect-[1/0.54]',
+			slug: 'another-club'
 		},
 		{
 			path: '/interiors/home-scroll-images/40.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/41.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/42.webp',
-			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[65%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/43.webp',
-			layoutClasses: 'h-[80%] w-auto my-auto aspect-[1/0.56]'
+			layoutClasses: 'h-[80%] w-auto my-auto aspect-[1/0.56]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/44.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/0.92]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/0.92]',
+			slug: 'creative-youth-centre'
 		},
 		{
 			path: '/interiors/home-scroll-images/45.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/46.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.63]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.63]',
+			slug: 'the-ostel-hostel'
 		},
 		{
 			path: '/interiors/home-scroll-images/47.webp',
-			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]'
+			layoutClasses: 'h-[90%] w-auto my-auto aspect-[1/1.25]',
+			slug: 'bauhaus-airbnb'
 		},
 		{
 			path: '/interiors/home-scroll-images/48.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/1]',
+			slug: 'community-market'
 		},
 		{
 			path: '/interiors/home-scroll-images/49.webp',
-			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]'
+			layoutClasses: 'h-[70%] w-auto my-auto aspect-[1/0.75]',
+			slug: 'creative-youth-centre'
 		}
 	]
 
@@ -671,16 +718,22 @@
 		</p> -->
 	</div>
 
-	<div
+	<!-- <div
 		use:horizontalScroll={{ extra: window.innerHeight }}
 		class="hide-scrollbar !overflow-x-hidden sm:hidden"
-	>
+	> -->
+	<div class="hide-scrollbar !overflow-x-hidden sm:hidden">
 		<div class="flex items-start">
-			<div class="sticky top-0 flex h-[calc(100dvh-14rem)] items-start justify-start gap-16 px-5">
+			<div
+				class="hide-scrollbar sticky top-0 flex h-[calc(100dvh-14rem)] items-start justify-start gap-16 overflow-x-auto px-5"
+			>
 				{#each mobileImages as image}
-					<div class={twm('shrink-0', image.layoutClasses)}>
+					<a
+						href={`/interiors/projects/${image.slug}`}
+						class={twm('shrink-0', image.layoutClasses)}
+					>
 						<img src={image.path} alt="" class="h-full w-full object-cover" />
-					</div>
+					</a>
 				{/each}
 			</div>
 		</div>
