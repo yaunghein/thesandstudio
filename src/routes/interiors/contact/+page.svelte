@@ -105,9 +105,9 @@
 		bind:this={lightingImage}
 		class="pointer-events-none absolute bottom-0 left-0 right-0 top-[3.6rem] bg-interior-brand sm:top-[11.5rem]"
 	>
-		<!-- <div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+		<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
 			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-		</div> -->
+		</div>
 		<img
 			src="/interiors/lighting-contact.png"
 			alt=""
@@ -121,7 +121,12 @@
 	</div>
 
 	<div bind:this={contentContainer} class="relative w-full">
-		<div class={twm('interior-transition relative w-full', isAboutOpen && '-translate-y-[7rem]')}>
+		<div
+			class={twm(
+				'interior-transition relative w-full',
+				isAboutOpen && '-translate-y-[1.5rem] sm:-translate-y-[0rem]'
+			)}
+		>
 			<div bind:this={textContent} class={twm('interior-transition relative w-full')}>
 				<div
 					class="flex w-full items-center justify-center gap-4 px-5 py-8 sm:px-[4rem] sm:py-[1.6rem]"
@@ -129,7 +134,37 @@
 					<h1 class="text-[1.75rem] sm:text-[7.6rem]">Contact</h1>
 				</div>
 
-				<div class="relative flex w-full justify-center px-5 py-5 sm:px-[4rem] sm:py-[4.25rem]">
+				<div
+					class={twm(
+						'interior-transition relative flex w-full items-center justify-center px-5 sm:px-[4rem]',
+						isAboutOpen && 'opacity-0'
+					)}
+				>
+					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+					</div>
+					<div class="col-span-4 flex flex-col items-start gap-1">
+						<button
+							onclick={() => {
+								isAboutOpen = true
+								interiorsStore.logoSpinDegree = 90
+							}}
+							class="relative py-5 text-sm leading-[1.5] sm:py-[4rem] sm:text-[1.6rem]"
+						>
+							About Me
+							<span class="absolute -right-5 top-1/2 -translate-y-1/2 sm:-right-8">
+								{@render learnMoreIcon()}
+							</span>
+						</button>
+					</div>
+				</div>
+
+				<div
+					class={twm(
+						'interior-transition relative flex w-full justify-center px-5 py-5 sm:px-[4rem] sm:py-[4.25rem]',
+						isAboutOpen && 'opacity-0'
+					)}
+				>
 					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
 						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 					</div>
@@ -170,34 +205,9 @@
 								target="_blank"
 								class="text-sm leading-[1.5] underline underline-offset-4 sm:text-[1.6rem]"
 							>
-								EMAIL
+								hnin@thesandstudio.com
 							</a>
 						</div>
-					</div>
-				</div>
-
-				<div
-					class={twm(
-						'interior-transition relative flex w-full items-center justify-center px-5 py-5 sm:px-[4rem] sm:py-[4rem]',
-						isAboutOpen && 'opacity-0'
-					)}
-				>
-					<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
-						<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
-					</div>
-					<div class="col-span-4 flex flex-col items-start gap-1">
-						<button
-							onclick={() => {
-								isAboutOpen = true
-								interiorsStore.logoSpinDegree = 90
-							}}
-							class="relative text-sm leading-[1.5] sm:text-[1.6rem]"
-						>
-							About Me
-							<span class="absolute -right-5 top-1/2 -translate-y-1/2 sm:-right-8">
-								{@render learnMoreIcon()}
-							</span>
-						</button>
 					</div>
 				</div>
 
@@ -258,9 +268,8 @@
 	<section
 		bind:this={desktopAboutContent}
 		class={twm(
-			'interior-transition fixed inset-0 top-auto z-40 hidden  w-full text-sm text-white sm:block'
+			'interior-transition fixed inset-0 bottom-[6.65rem] top-auto z-40 hidden w-full text-sm text-white sm:block'
 		)}
-		style={`bottom: ${isAboutOpen ? `0rem` : `-4rem`};`}
 	>
 		<button
 			onclick={() => {
@@ -303,7 +312,7 @@
 
 	<section
 		class={twm('interior-transition fixed inset-0 z-40 w-full  text-sm text-white sm:hidden')}
-		style={`top: ${isAboutOpen ? `${contentTop - 2.75}rem` : `${contentTop + 2.75}rem`}; 
+		style={`top: ${isAboutOpen ? `${contentTop - 6.5}rem` : `${contentTop - 5}rem`}; 
 		height: ${isAboutOpen ? `calc(100dvh - ${contentTop}rem)` : '2.75rem'}`}
 	>
 		<button
