@@ -95,22 +95,58 @@
 			open: false,
 			contentEl: null as HTMLElement | null,
 			details: [
-				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Spatial Planning & Layout Development</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Material & Finish Selection</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Moodboard & Design Concept Direction</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Realistic 3D Visualization</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Construction-ready Technical Drawings & Documentation</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Custom Built-in Furniture Design</div>
-        </div>`,
-				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Lighting & Electrical Planning</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Sanitary & Kitchen Layout Planning</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Furniture & Loose Item Curation</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Artwork & Accessory Styling</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Renovation Consultation & Reconfiguration</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Vendor & Contractor Liaison</div>
-        </div>`
+				`<ul class="grid gap-[0.25rem] sm:gap-[0.5rem] pl-2 sm:pl-0">
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Spatial Planning & Layout Development</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Material & Finish Selection</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Moodboard & Design Concept Direction</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Realistic 3D Visualization</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Construction-ready Technical Drawings & Documentation</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Custom Built-in Furniture Design</div>
+					</li>
+        </ul>`,
+				`<ul class="grid gap-[0.25rem] sm:gap-[0.5rem] pl-2 sm:pl-0">
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Lighting & Electrical Planning</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Sanitary & Kitchen Layout Planning</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Furniture & Loose Item Curation</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Artwork & Accessory Styling</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Renovation Consultation & Reconfiguration</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Vendor & Contractor Liaison</div>
+					</li>
+        </ul>`
 			],
 			color: 'bg-blue-500',
 			paddingBottom: 'pb-[14.5rem]'
@@ -120,19 +156,43 @@
 			open: false,
 			contentEl: null as HTMLElement | null,
 			details: [
-				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">We work across a range of project scales and sectors, including:</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Commercial Interiors</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Offices, Retail Spaces, Cafés, & Restaurants</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Hospitality Spaces</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Boutique Hotels, Hostels, & Short-stay Accommodations (Airbnb)</div>
-        </div>`,
-				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Private Residences</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Condominiums, Apartments, & Landed Homes</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Pop-up, Temporary, or Event-based Interiors</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Spatial Planning & Styling for Short-term Activations, Exhibitions, or Seasonal Campaigns</div>
-        </div>`
+				`<ul class="grid gap-[0.25rem] sm:gap-[0.5rem] pl-2 sm:pl-0">
+          <li class="text-sm sm:text-[1.4rem] leading-[1.5] -ml-2 sm:ml-0 mb-2 sm:mb-0 max-w-[16rem] sm:max-w-none">We work across a range of project scales and sectors, including:</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Commercial Interiors</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Offices, Retail Spaces, Cafés, & Restaurants</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Hospitality Spaces</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Boutique Hotels, Hostels, & Short-stay Accommodations (Airbnb)</div>
+					</li>
+        </ul>`,
+				`<ul class="grid gap-[0.25rem] sm:gap-[0.5rem] pl-2 sm:pl-0">
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Private Residences</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Condominiums, Apartments, & Landed Homes</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Pop-up, Temporary, or Event-based Interiors</div>
+					</li>
+          <li class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] items-start flex gap-3">
+					  <div class="w-1 aspect-square bg-white rounded-full shrink-0 translate-y-2 sm:hidden"></div>
+						<div>Spatial Planning & Styling for Short-term Activations, Exhibitions, or Seasonal Campaigns</div>
+					</li>
+        </ul>`
 			],
 			layout: ['', 'self-end'],
 			color: 'bg-yellow-500',
@@ -144,19 +204,19 @@
 			contentEl: null as HTMLElement | null,
 			details: [
 				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Beyond core design scope, we also offer focused support for specific project needs and creative opportunities:</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Pre-lease or Pre-purchase Design Consultations</div>
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Early-stage spatial advice to help evaluate potential properties before commitment.</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Design Advisory For Developers & Landlords</div>
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Tailored design packages or unit typologies for rental, resale, or hospitality positioning.</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] mb-5 sm:mb-0 max-w-[16rem] sm:max-w-none">Beyond core design scope, we also offer focused support for specific project needs and creative opportunities:</div>
+          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] max-w-[12rem] sm:max-w-none">Pre-lease or Pre-purchase Design Consultations</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] mb-5 sm:mb-0 max-w-[16rem] sm:max-w-none">Early-stage spatial advice to help evaluate potential properties before commitment.</div>
+          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] max-w-[12rem] sm:max-w-none">Design Advisory For Developers & Landlords</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] mb-5 sm:mb-0 max-w-[16rem] sm:max-w-none">Tailored design packages or unit typologies for rental, resale, or hospitality positioning.</div>
         </div>`,
-				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem]">
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Art Direction For Brand-aligned Interiors</div>
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Creative input on visual identity, tone, and brand–space alignment for businesses.</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Furniture Layout & FF&E Mapping For Existing Spaces</div>
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Reworking existing layouts for better function without structural changes.</div>
-          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5]">Post-completion Styling & Visual Refinement</div>
-          <div class="text-sm sm:text-[1.4rem] leading-[1.5]">Final on-site styling layer for photography, press features, or real estate staging.</div>
+				`<div class="grid gap-[0.25rem] sm:gap-[0.5rem] max-w-[16rem] sm:max-w-none">
+          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] max-w-[12rem] sm:max-w-none">Art Direction For Brand-aligned Interiors</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] mb-5 sm:mb-0 max-w-[16rem] sm:max-w-none">Creative input on visual identity, tone, and brand–space alignment for businesses.</div>
+          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] max-w-[14rem] sm:max-w-none">Furniture Layout & FF&E Mapping For Existing Spaces</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] mb-5 sm:mb-0 max-w-[16rem] sm:max-w-none">Reworking existing layouts for better function without structural changes.</div>
+          <div class="text-sm sm:text-[1.4rem] font-sand-medium leading-[1.5] max-w-[9.5rem] sm:max-w-none">Post-completion Styling & Visual Refinement</div>
+          <div class="text-sm sm:text-[1.4rem] leading-[1.5] sm:mb-0 max-w-[16rem] sm:max-w-none">Final on-site styling layer for photography, press features, or real estate staging.</div>
         </div>`
 			],
 			color: 'bg-red-500',
@@ -184,13 +244,16 @@
 		bind:this={lightingImage}
 		class="pointer-events-none absolute bottom-0 left-0 right-0 top-[3.6rem] bg-interior-brand opacity-0 sm:top-[11.5rem]"
 	>
+		<div class="absolute inset-0 bottom-auto h-[1px] w-full opacity-30">
+			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
+		</div>
 		<img
 			src="/interiors/lighting-2.png"
 			alt=""
 			class="absolute inset-0 bottom-auto mx-auto hidden h-full w-full mix-blend-screen sm:block"
 		/>
 		<img
-			src="/interiors/lighting-2-mobile.png"
+			src="/interiors/lighting-mobile-comb.png"
 			alt=""
 			class="absolute inset-0 bottom-auto mx-auto h-full w-full mix-blend-screen sm:hidden"
 		/>
@@ -209,16 +272,12 @@
 			<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 		</div> -->
 
-			<h1
-				class="mb-5 mt-40 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-auto sm:hidden sm:px-[4rem] sm:text-[7.6rem]"
-			>
-				Services
-			</h1>
-
 			<div class="relative hidden h-[100dvh] overflow-hidden sm:block">
-				<h1 class="absolute bottom-[42rem] mb-5 hidden px-5 sm:block sm:px-[4rem] sm:text-[6.5rem]">
+				<div
+					class="absolute bottom-[42rem] mb-5 hidden px-5 sm:block sm:px-[4rem] sm:text-[6.5rem]"
+				>
 					Services
-				</h1>
+				</div>
 				{#each services as service, index}
 					<button
 						onmouseenter={() => (hoverIndex = index)}
@@ -255,6 +314,12 @@
 				{/each}
 			</div>
 
+			<h1
+				class="mb-5 mt-28 px-5 text-[1.75rem] sm:mb-[1rem] sm:mt-auto sm:hidden sm:px-[4rem] sm:text-[7.6rem]"
+			>
+				Services
+			</h1>
+
 			{#each services as service, index}
 				<button
 					onclick={() => {
@@ -273,8 +338,11 @@
 							<div class="h-full w-full bg-gradient-to-r from-white/0 via-white to-white/0"></div>
 						</div>
 					{/if}
-					<div class="font-sand-bold text-sm sm:text-[1.4rem]">
-						{service.title}
+					<div
+						class="flex items-center justify-between gap-2 font-sand-bold text-sm sm:text-[1.4rem]"
+					>
+						<span class="max-w-[9.8rem]">{service.title}</span>
+						{@render mobileProjectToggle(service)}
 					</div>
 					<div
 						class="interior-transition overflow-hidden"
@@ -341,3 +409,33 @@
 		</div>
 	</div>
 </section>
+
+{#snippet mobileProjectToggle(service: any)}
+	<div class={twm('interior-transition aspect-square w-5', service.open ? 'rotate-45' : '')}>
+		<svg
+			width="100%"
+			height="100%"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<mask
+				id="mask0_700_642"
+				style="mask-type:alpha"
+				maskUnits="userSpaceOnUse"
+				x="0"
+				y="0"
+				width="20"
+				height="20"
+			>
+				<rect width="20" height="20" fill="#D9D9D9" />
+			</mask>
+			<g mask="url(#mask0_700_642)">
+				<path
+					d="M9.37533 17.0832V10.6248H2.91699V9.37484H9.37533V2.9165H10.6253V9.37484H17.0837V10.6248H10.6253V17.0832H9.37533Z"
+					fill="currentColor"
+				/>
+			</g>
+		</svg>
+	</div>
+{/snippet}
