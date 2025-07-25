@@ -114,7 +114,7 @@
 			class="absolute inset-0 bottom-auto mx-auto hidden h-full w-full mix-blend-screen sm:block"
 		/>
 		<img
-			src="/interiors/lighting-2-mobile.png"
+			src="/interiors/lighting-mobile-comb.png"
 			alt=""
 			class="absolute inset-0 bottom-auto mx-auto h-full w-full mix-blend-screen sm:hidden"
 		/>
