@@ -241,7 +241,21 @@
 		use:horizontalScroll={{ extra: 100 }}
 		class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden"
 	> -->
-	<div class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden">
+	<div
+		use:horizontalScroll={{ extra: window.innerHeight }}
+		class="hide-scrollbar hidden h-[calc(100dvh-15.5rem)] !overflow-x-hidden sm:block"
+	>
+		<div class="flex items-start">
+			<div class="sticky top-0 flex gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
+				{#each project.showcaseImages as image}
+					<div class={twm('shrink-0', image.layoutClasses)}>
+						<img src={image.path} alt={project.name} class="h-full w-full object-cover" />
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+	<div class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden sm:hidden">
 		<div class="hide-scrollbar flex h-full items-start overflow-x-auto">
 			<div class="sticky top-0 flex h-[calc(100%-4rem)] gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
 				{#each project.showcaseImages as image}
