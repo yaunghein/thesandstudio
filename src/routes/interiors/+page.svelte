@@ -3,6 +3,7 @@
 	import horizontalScroll from '$lib/utils/horizontalScroll'
 	import MetaData from '$lib/components/MetaData.svelte'
 	import updateMetaColor from '$lib/utils/updateMetaColor'
+	import logoSpinSync from '$lib/utils/logoSpinSync'
 
 	updateMetaColor('#F6F6EA')
 
@@ -725,6 +726,7 @@
 	<div class="hide-scrollbar !overflow-x-hidden sm:hidden">
 		<div class="flex items-start">
 			<div
+				use:logoSpinSync
 				class="hide-scrollbar sticky top-0 flex h-[calc(100dvh-14rem)] items-start justify-start gap-16 overflow-x-auto px-5"
 			>
 				{#each mobileImages as image}
