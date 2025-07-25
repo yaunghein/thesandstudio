@@ -5,6 +5,7 @@
 	import projects from '$lib/interiors/fixtures/projects'
 	import MetaData from '$lib/components/MetaData.svelte'
 	import updateMetaColor from '$lib/utils/updateMetaColor'
+	import logoSpinSync from '$lib/utils/logoSpinSync'
 
 	updateMetaColor('#F6F6EA')
 
@@ -108,7 +109,11 @@
 		style="padding-top: {paddingTop}rem; overscroll-behavior: none;"
 	> -->
 	<section class="hide-scrollbar relative h-[calc(100dvh-3.6rem)] !overflow-x-hidden">
-		<div class="hide-scrollbar h-full w-full overflow-x-auto px-5" on:scroll={handleScroll}>
+		<div
+			class="hide-scrollbar h-full w-full overflow-x-auto px-5"
+			onscroll={handleScroll}
+			use:logoSpinSync
+		>
 			<div
 				bind:this={scrollContainer}
 				style="padding-top: {paddingTop}rem; overscroll-behavior: none;"

@@ -3,6 +3,7 @@
 	import { twMerge as twm } from 'tailwind-merge'
 	import { slugify } from '$lib/utils/slugify'
 	import horizontalScroll from '$lib/utils/horizontalScroll'
+	import logoSpinSync from '$lib/utils/logoSpinSync'
 	import MetaData from '$lib/components/MetaData.svelte'
 	import { getInteriorsStore } from '$lib/interiors/store.svelte'
 	import updateMetaColor from '$lib/utils/updateMetaColor'
@@ -259,7 +260,7 @@
 		</div>
 	</div>
 	<div class="hide-scrollbar h-[calc(100dvh-15.5rem)] !overflow-x-hidden sm:hidden">
-		<div class="hide-scrollbar flex h-full items-start overflow-x-auto">
+		<div use:logoSpinSync class="hide-scrollbar flex h-full items-start overflow-x-auto">
 			<div class="sticky top-0 flex h-[calc(100%-4rem)] gap-5 px-5 sm:gap-[12rem] sm:px-[4rem]">
 				{#each project.showcaseImages as image}
 					<div class={twm('h-full shrink-0', image.layoutClasses)}>
