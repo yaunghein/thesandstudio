@@ -75,7 +75,6 @@
 			const halfwayPoint = (scrollWidth - clientWidth) / 2
 
 			isPastHalfway = scrollLeft > halfwayPoint
-			console.log(scrollLeft, halfwayPoint, scrollWidth, clientWidth)
 		}
 	}
 

@@ -136,11 +136,14 @@
 		// isMobileOpen ? '-translate-y-[101dvh]' : ''
 	)}
 >
+	<a
+		href="/interiors/projects"
+		class="flex h-[2.75rem] items-center justify-between gap-[0.25rem] border-y border-interior-brand px-5 sm:hidden"
+	>
+		<span>Projects</span>
+		{@render backIcon()}
+	</a>
 	<div bind:this={mobileContent} class="px-5 pb-8 pt-7 sm:hidden">
-		<a href="/interiors/projects" class="mb-8 flex items-center gap-[0.25rem] text-xs">
-			<span>Projects</span>
-			{@render backIcon()}
-		</a>
 		<h1 class="font-sand-interior-regular text-[2rem] leading-none">{data.project.name}</h1>
 		<div class="mt-9 flex justify-between px-[2px]">
 			<div class="w-[15%] text-xs">{data.project.year}</div>
@@ -351,7 +354,7 @@
 {/snippet}
 
 {#snippet backIcon()}
-	<div class="aspect-square h-[0.9rem] sm:h-[1.6rem]">
+	<div class="aspect-square h-[1.25rem] sm:h-[1.6rem]">
 		<svg
 			width="100%"
 			height="100%"
